@@ -1,0 +1,317 @@
+\chapter{Mathematical Background\label{ch:math}}
+
+	This chapter aims to give a thorough introduction to the mathematical ideas necessary to cast the geometric Langlands program and gauge theory in a coherent framework. 
+	
+	\section{Elementary Representation Theory} % (fold)
+	\label{sec:elementary_representation_theory}
+		We begin with a study of elementary representation theory of a group. The representation theory of finite (or more generally locally-compact) abelian groups is a straightforward generalization of the ideas of the Fourier transform. 
+		For someone with a background in engineering, representation theory itself is one tremendous generalization of Fourier analysis. 
+		Through this naive lens, many of the dualities explored in this paper are great generalizations of the duality between the domains of time and frequency, position and momentum, shape and spectrum, etc. 
+
+		We assume the reader is familiar with elementary group theory. A \textbf{group} is 
+		\begin{defn}[Group]
+			A group is a set $G$ together with an operation $\cdot$ such that
+			\begin{itemize}
+				\item If $a, b \in G$ then $a\cdot b \in G$
+				\item The group operation is associative so that $a \cdot (b \cdot c) = (a \cdot b) \cdot c$
+				\item There is an identity element (necessarily unique), denoted by $1 \in G$ so that $1 \cdot g = g \cdot 1 = g$ for all elements $g$.
+				\item For each element $g$, there exists a (necessarily unique) element, denoted by $g^{-1}$ such that $g \cdot g^{-1} = g^{-1} \cdot g = 1$ 
+			\end{itemize}
+		\end{defn}
+		we will usually drop the notation for $\cdot$ and multiply the symbols denoting group elements directly. When a group is supposed to be viewed additively, we will use the symbol `$+$' instead of `$\cdot$'. A \textbf{subgroup} is a subset $H \subseteq G$ that also forms a group under this operation.
+		
+		A map $\phi$ between two groups $G, H$ is called a \textbf{group homomorphism} if it commutes with group action, namely if $\phi(g \cdot h) = \phi(g) \cdot \phi(h)$.
+		
+		Groups are meant to represent symmetries of various objects. A group $G$ is said to \textbf{act} on a space $X$ (alternatively we say that $X$ has a \textbf{group action} by $G$) if either the following are satisfied
+		\begin{defn}[Left and Right Group Actions]
+			A \textbf{left group action} by $G$ on a space $X$ is a map $\phi: G \times X \to X$ so that the following hold (we write $\phi(g, x)$ as $g\cdot x$):
+			\begin{itemize}
+				\item $e \cdot x = x$ for all $x \in X$,
+				\item $(gh)\cdot x = g\cdot(h \cdot x)$. 
+			\end{itemize}
+			Often, we will denote right action by $G \lacts X$.
+			
+			A right group action by $G$ is a map $\phi: X \times G \to X$ so that the following hold (using analogous notation)
+			\begin{itemize}
+				\item $x \cdot e = x$ for all $x \in X$,
+				\item $x \cdot gh = (x \cdot g) \cdot h$.
+			\end{itemize}
+			Often, we will denote right action by $X \racts G$
+		\end{defn}
+		The difference between these two definitions is the order in which $g$ and $h$ act. In the left action case, $h$ acts first, while in the right action case, $g$ acts first. Different actions will be more natural to consider depending on context.
+		
+		\begin{eg}
+			Consider an equilateral triangle in the plane. Its symmetries are rotations by $60\degree$ together with flips around any one of its central axes. This forms the dihedral group $D_6$ of rotations of the $3$-gon. The general symmetry group of the $n$-gon contains $2n$ symmetry elements and is denoted by $D_{2n}$.
+		\end{eg}
+		\textbf{TODO: Add figure}
+
+		When looking at group action, there are several important concepts associated to it. Given a point $x \in X$, the set of points that it can be mapped to under the action of $G$ is called the \textbf{orbit} of $X$. The set of group elements that act trivially on it (so that $g \cdot x = x$) is called the \textbf{stabilizer} of $x$. The set of points stabilized by the entire group is called the set of \textbf{fixed points} or $G$\textbf{-invariants} and is denoted $X^G$. The set of all orbits of $X$ under the action of $G$ is denoted by $X/G$ in the case of right action and $G\backslash X$ in the case of left action. This is also sometimes known as the space of $G$\textbf{-coinvariants} and denoted by $X_G$.
+		
+		In particular, every group acts on itself (by left/right action) and has its subgroups acting on it. When a subgroup $H$ acts on on $G$, the resulting space of orbits of equivalence classes $g H$ also forms a group when the subgroup satisfies $g H g^{-1} = H$ for all $g \in G$. Such a subgroup is called \textbf{normal} and the resulting group of orbits is known as the \textbf{group quotient}, denoted $G/H$. One can straightforwardly show that this group is the same regardless of left or right action.
+		
+		We aim to study groups via their actions on other objects. One of the most powerful ways to do this turns out to be by studying their actions on \textbf{vector spaces}, especially over $\mathbb C$. We assume the reader is familiar with the notion of a vector space.
+		
+		For any two given vector spaces, $V$ and $W$, the set of all linear transformations $T: V \to W$ is denoted by $\mathrm{Hom}(V, W)$. The set of all linear transformations $T: V \to V$ is denoted by $\mathrm{End}(V)$ (also known as endomorphisms of the vector space). Among these transformations, the invertible ones are denoted by $\mathrm{GL}(V)$, otherwise known as the \textbf{general linear group} of the space $V$. When $V$ takes the form $\mathbf k^n$ for some field $\mathbf k$ and positive integer $n$, this is denoted $\mathrm{GL}_n(\mathbf k)$. 
+
+		 A vector space $V$ together with a group homomorphism $\rho: G \to \mathrm{GL}(V)$ is called a \textbf{representation} of $G$. Equivalently, a representation is a vector space with an action of $G$ by linear transformations. A given representation can have a \textbf{subrepresentation}, namely a subspace $V' \subseteq V$ that is preserved by the action of $G$. Every representation has itself and the $\mathbf 0$ vector as subrepresentations. These two are called the \textbf{trivial} subrepresentations. A representation with no nontrivial subrepresentations is called an \textbf{irreducible representation}. In general, we will denote the representation by $V$ alone, even though we really mean this to represent the data $(V, \rho_V)$.
+		 
+		A morphism between representations $V$ and $W$ is a linear map that commutes with $G$ action: $\phi(\rho_1(g)  v) = \rho_2 (g) \phi (v)$. Such maps will be called $G$\textbf{-linear}, and the set of such maps will be denoted as $\mathrm{Hom}_G(V, W)$.
+		 
+		We have the following lemma of central importance in representation theory: 
+		\begin{lemma}[Schur's Lemma]
+			If $V$ and $W$ are two different irreducible representations of a group $G$ over $\mathbb C$, and $\phi$ is a linear transformation from $V \to W$, then $\phi$ is either trivial (the zero map) or invertible.
+			
+			Further, if $V=W$ and $\rho_V=\rho_W$, then $\phi$ is either trivial or a scalar multiple of the identity. 
+		\end{lemma}
+		\begin{proof}
+			This follows from noting that both the kernel and image of $\phi$ are subrepresentations, so must be either $\mathbf 0$ or the whole space. 
+			
+			The second part follows from the fact that every linear transformation over $\mathbb C$ has at least one eigenvalue $\lambda$, then one can see that $\phi - \lambda$ is also a $G$-linear transformation with a nontrivial kernel, so must be zero by the preceding.
+		\end{proof}
+		% The reader should be familiar with the fact that, in general, a vector space need not have an inner product, but there is a natural choice of inner product
+
+		The representation theory of finite groups over $\mathbb C$ is particularly elegant. By \textbf{Mashke's Theorem}
+
+		% section elementary_representation_theory (end)
+		
+		\section{The Fourier Transform and Pontryagin Duality} % (fold)
+		\label{sec:the_fourier_transform_and_pontryagin_duality}
+		
+		In this chapter, we will be working with a locally-compact (to be defined in the next part) abelian group $G$. We make the following definition:
+		\begin{defn}[Unitary Character]
+			For $G$ locally-compact and abelian, a \textbf{unitary character} of $G$ is a group homomorphism $\chi: G \to U(1)$.
+		\end{defn}
+		From this definition, we define the following group, which plays a role as a \emph{dual} to $G$. It is called the \textbf{Pontryagin dual}.
+		\begin{defn}
+			The set of all unitary characters $\chi$ together with multiplication given by $\chi_1 \cdot \chi_2 \in \mathrm{Hom}(G, U(1))$.
+		\end{defn}
+		
+		\begin{eg}
+			We have the following examples:
+			\begin{enumerate}
+				\item Let $G = S^1$, then the space of unitary characters is precisely of the form $e^{inx}: G \to U(1)$. This makes $\widehat G = \mathbb Z$.
+				\item Let $G = \mathbb Z$, then $\chi(1)$ determines the representation uniquely, and so $\widehat G = U(1)$.
+				\item 			Let $G = \mathbb R$, then $e^{ikx} : \mathbb R \to U(1)$ is free to have $k$ vary over $\mathbb R$ so $\widehat G = \mathbb R$.
+			\end{enumerate}
+			
+		\end{eg}
+
+		Notice in all these cases that $\widehat{\widehat G} \cong G$. This is in fact true more general, and we have the following theorem:
+		\begin{theorem}[Pontryagin Duality]
+			$G \to \widehat{\widehat G}$ is an isomorphism of groups, given by sending $g \to  g'$ which is given by $g' (\chi) = \chi (g)$.
+		\end{theorem}
+		
+		\begin{obs}
+			The $L^2$-integrable functions on $G$ have a basis given by characters. 
+		\end{obs}
+		\begin{eg}
+			We have the following examples:
+			\begin{enumerate}
+				\item $f: S^1 \to \mathbb C$ has $f(\theta) = \sum_{n} a_n e^{i n \theta}$. This is known as the \textbf{Fourier series}.
+				\item $f: \mathbb Z \to \mathbb C$ has $f(n) = \int_{0}^{2\pi} F(\theta) e^{i n \theta}$. This is known as the \textbf{discrete time series}.
+				\item $f: \mathbb R \to \mathbb R$ has $f(x) = \int_{-\infty}^\infty \widehat{f(k)} e^{ikx}$. This is known as the \textbf{Fourier Transform}.
+			\end{enumerate}
+		\end{eg}
+		
+		Let us now try to generalize the ideas of the Fourier transform to a more direct case. It is useful to view the Fourier transform as letting us see two different sides of the same object. Let that object be the direct product of the group $G$ and $\hat G$. 
+		The reason this space is worth considering is by noting that there is a unique function on this space, which we can call the \textbf{Kernel} $K: G \times \hat G \to \mathbb C$ defined by $K(g, \chi) = \chi (g)$. In the case of  $G=\mathbb R$, this function is exactly $e^{i k x}, x \in \mathbb R, k \in \widehat{ \mathbb R} = \mathbb R$, that is viewed as a function on \emph{both} time and frequency space.
+		
+		This space is also endowed with two obvious projections (namely to either factor of the product).		
+		\[
+		\begin{tikzcd}
+		  & G \times \hat G \arrow[ld,"\pi_G"] \arrow[rd,swap,"\pi_{\hat G}"]&\\
+		G & & \hat G
+		\end{tikzcd}
+		\]
+		Any function $f$ on $G$ can be ``pulled back'' to a function on $G \times \hat G$, namely by ignoring the second component $f'(g, \hat g) = f(g)$. We will denote this pulled back function by $\pi_{G}^* f = f \circ \pi_G$.
+		
+		Further, a suitable distribution on $G \times \hat G$ can be ``pushed forward'' to either $G$ or $\hat G$ by integrating it over $\hat G$ or $G$ respectively. We will denote these by $(\pi_G)_*$ and $(\pi_{\hat G})_*$, again respectively.
+		
+		Now if $\hat f$ is a distribution on $\hat G$, we get that $\pi_{\hat G}^* \hat f$ is a distribution on $G \times \hat G$. This can be pushed forward to a function on $G$ by integrating over the $\hat G$ coordiantes, but because $\pi_{\hat G}^* \hat f$ is constant on the $G$-coordinate, this function will just be a constant independent of $G$.
+		
+		On the other hand, if we look at:
+		\begin{equation}
+			f (g) := {(\pi_{G})}_* ([{\pi_{\hat G}}^* \hat f] K) = \int_{\chi \in \hat G} [(\hat f \circ \pi_{\hat G}) (g, \chi)] K(g, \chi)\, d\chi
+		\end{equation}
+		we obtain exactly the Fourier transform. For $G = \mathbb R$ this gives us:
+		\begin{equation}
+			f(x) = \int_{\mathbb R} \widehat{f(k)} e^{ikx} dk.
+		\end{equation}
+		
+		The reason that the Fourier transform finds so much use in practice is that it serves as an eigendecomposition for the derivative operator. More broadly, on $\mathbb R^n$, the eigenfunctions are plane waves $e^{i\vec k \cdot \vec x}$, which yield eigenvalues both under $\partial_x$ and also under the translation operator more generally $\vec x \mapsto \vec x + \vec y$. Any abelian group acts on itself by translation\footnote{Keep in mind that right and left action coincide for an abelian group.}. Consequently, it acts on the functions living on it, $\mathrm{Fun}(G)$, by translation $f(x) \to f(x - y)$. Note however that the unitary characters satisfy:
+		\begin{equation}
+			y \cdot \chi(x) = \chi(x - y) = \chi(-y) \chi(x)
+		\end{equation}
+		so that the characters \emph{diagonalize} the translation operator as an eigenbasis, exactly as $e^{ikx}$ did on the real line.
+		
+		We have just treated Fourier analysis successfully for the category of locally-compact abelian groups. The natural next question is of course
+		\begin{ques}
+			How does Fourier analysis look like for more general groups? That is, what is the non-abelian analogue of the Fourier transform?
+		\end{ques}
+		It is this stream of thought that will take us deep into the Langlands program, and ultimately into the heart of emerging ideas in theoretical physics. Already, one can see that the naive ideas from before will not hold up as well. For one, translation operators no longer commute, and so cannot be simultaneously diagonalizable with an eigenbasis of unitary characters. As we move to explore the non-abelian setting, the Pontryagin dual group $\hat G$ will be replaced by the Langlands dual group $^L G$, and of course Pontryagin duality will become a very special case of Langlands duality.
+		
+		It will turn out that to understand the Fourier transform in the non-abelian case, we will have to appeal to \emph{categorification}, one of the deepest aspects of twenty-first century mathematics.
+		
+		
+		
+	% section the_fourier_transform_and_pontryagin_duality (end)
+	
+	\section{Elementary Topology} % (fold)
+	\label{sec:elementary_topology}
+	
+	Before we can begin a more in-depth study of symmetry and the spaces on which it acts, it is worth understanding how to study spaces in a general setting. Firstly:
+	\begin{ques}
+		What do we mean when we use the word ``space''?
+	\end{ques}
+	In this thesis alone, this word will have many meanings. The first definition we give is the starting point of topology.
+	\begin{defn}[Topological Space]
+		A set $X$ together with a family $\mathcal F$ of subsets of $X$ known as the \textbf{open sets} forms a \textbf{topological space} if the following conditions hold
+		\begin{enumerate}
+			\item The empty set $\emptyset$ and $X$ both belong to $\mathcal F$,
+			\item Any union of open sets is open\footnote{It is important to understand that this can include \emph{infinite unions}},
+			\item Any \emph{finite} intersection of open sets is open.
+			
+		\end{enumerate}
+	\end{defn}
+	The complement of an open set is what defines a \textbf{closed set}. It is not difficult to show that the dual properties of the above hold for closed sets, namely
+	\begin{enumerate}
+		\item The empty set $\emptyset$ and $X$ are both closed
+		\item Any intersection of closed sets is closed
+		\item Any \emph{finite} union of closed sets is closed.
+	\end{enumerate}
+	\begin{eg}
+		The first example that we are given in high school is the real number line. The open sets are exactly the unions of the open intervals of the form $(a, b)$ while the closed sets are exactly the intersections of closed intervals of the form $[a, b]$. Note that an open set has no maximum or minimum point (i.e. the open interval $(0, 1)$ has no greatest number).
+	\end{eg}
+	\begin{eg}
+		The previous example generalizes to $n$-dimensional space $\mathbb R^n$. Here, the open sets are generated by unions of \emph{open balls} of the form $B_a(x) := \{ \vec y : |\vec x - \vec y| < a \}$.
+		
+		In both of the cases, these topologies arose from the fact that these spaces are equipped with a \textbf{metric} $d(\vec x, \vec y) = |\vec x-\vec y|$ giving a notion of distance. When a metric is given, a topology can always be defined by defining open balls as above, and defining the open sets of the topology as precisely unions of open balls.
+	\end{eg}
+	\begin{eg}
+		If all the points of a given space $X$ are open, then any subset of $X$ is also open, by virtue of being a union of points. This gives a \textbf{trivial topology} on $X$. The other trivial topology is that which consists of only $X$ and $\emptyset$ as open sets.
+	\end{eg}
+	
+	The open sets of a space allow us to define \textbf{neighborhoods} of points. This is what allows topology to give us structure somewhat resembling the familiar structure of our (local) spacetime
+	\begin{defn}[Neighborhood]
+		A neighborhood of a point $p$ is a set $V$ that contains an open set $U$ containing $p$.
+	\end{defn}
+	This definition does not require $V$ to be open or closed. An \textbf{open neighborhood} of $p$ is any open set $U$ containing $p$. In general, open sets are supposed to play the roles of ``neighborhoods'' while closed sets are supposed to generalize the role of ``points''.
+	
+	One of the most important properties of topological spaces is known as \textbf{compactness}. In early undergraduate classes, one may have been taught to think of compactness as being ``closed and bounded''. Indeed, this is the right way to think about it, but because ``bounded'' requires that there is a notion of distance on the space, and doesn't make much sense outside of euclidean spaces, we define compactness more generally as 
+	\begin{defn}[Compact]
+		A set $X$ in a topological is called compact if every open cover of $X$ contains a finite sub-cover.
+	\end{defn}
+	It is up to the reader (by appealing to Bolzano-Weierstrass) to confirm that this more difficult definition agrees with the naive one. 
+	
+	Compact spaces are especially easy to work with when performing integration, as any covering of the space into open neighborhoods can be turned into a finite number of integrations over the (usually finite-volume) neighborhoods themselves, so that one need not worry about integrals diverging. 
+	
+	Similarly we define
+	\begin{defn}[Locally Compact]
+		A space $X$ is \textbf{locally compact} if every point $x \in X$ has a compact neighborhood.
+	\end{defn}
+	
+	Most spaces we are familiar with are locally compact. An example of a non-locally compact space is the set of rational numbers under the topology of the reals. Since all nontrivial open sets here all contain infinitely many rationals, each neighborhood must as well, and we can always construct a sequence of rationals that does not converge to a rational in the neighborhood that we are given. 
+	
+	
+	% section elementary_topology (end)
+	
+	\section{Differential Geometry} % (fold)
+	\label{sec:differential_geometry}
+	
+	The role of differential geometry in modern physics is similar to the role of the beating heart in a human body. It has become an essential ingredient in formulating physical law. Here, we will give an exposition to the ideas of differential geometry in a mathematical setting, with some motivation from physics to guide us along.
+	
+	\begin{defn}[Manifold]
+		
+	\end{defn}
+	
+	\begin{defn}[Tangent Space]
+		
+	\end{defn}
+	
+	\begin{defn}[Vector Bundle]
+		
+	\end{defn}
+	
+	\begin{defn}[Section]
+		
+	\end{defn}
+	
+	\begin{eg}[Trivial Bundle]
+		
+	\end{eg}
+	
+	\begin{eg}[Tangent Bundle]
+		The first nontrivial example of a vector bundle that one comes across is the tangent bundle of a manifold $M$, denoted by $TM$.
+		
+		More specifically, the tangent bundle of a sphere \textbf{Todo FINISH}
+	\end{eg}
+	
+	\begin{obs}[Parallel Transport]
+		
+	\end{obs}
+	
+	\textbf{Something about the impossibility of transporting vectors... to be attacked when we talk about Gauge theory}
+	
+	\begin{defn}[Lie Derivative]
+		
+	\end{defn}
+	
+	\textbf{Work out the flow along a sphere}
+	
+	% section differential_geometry (end)
+	
+	\section{Lie Theory} % (fold)
+	\label{sec:lie_theory}
+		
+		In physics and in mathematics, both (smooth) manifolds and groups play extremely important roles. It makes sense therefore to study their intersection: smooth manifolds that are groups. This is the study of \textbf{Lie groups}.
+		\begin{defn}[Lie Group]
+			A Lie group is a group $G$ that is also a manifold such that the group operations of multiplication:
+			$$\mu: G \times G \to G \qquad (x, y) \to xy$$
+			and inversion 
+			$$^{-1} : G \to G \qquad x \to x^{-1}$$
+			are smooth w.r.t. the manifold topology.
+		\end{defn}
+		
+		Lie groups are ubiquitous in physics. $U(1)$ is a Lie group, as is the group of rotations in three dimensions, $\mathrm{SO}(3)$, or the Poincare group of symmetries in Einstein's theory of special relativity, $\mathrm{SO}(3, 1) \ltimes \mathbb R^4$.
+		
+		In studying the flows on manifolds, we saw that the Lie derivative allows us to measure how one flow changes along another. For Lie groups, given a vector $v_g \in T_g G$, we can canonically transport it to any other point $h \in G$ by applying the (diffeomorphism) $h g^{-1}$ to $G$ and pushing the vector forward along it to $[h g^{-1}]_* v \in T_{h} G$.
+		
+		WLOG, take a vector $x \in T_e G$, the tangent space at the identity. This pushforward action gives us a vector field $X \in \Gamma(G, TG)$ given by $X(g) = g_* x$. Thus, every vector defines a vector field on $G$ that is \textbf{left invariant}, meaning that $g_* X_h = X_{gh}$. Indeed we see
+		\begin{prop}
+			There is a one-to-one correspondence between left-invariant vector fields on $G$ and the tangent space to the identity. 
+		\end{prop}
+		Moreover, if two vector fields $X$ and $Y$ are left-invariant, then so is their commutator bracket $[X, Y]$. This gives us a new algebraic structure on the tangent space $T_e G$\footnote{Indeed on every tangent space, but WLOG we restrict to the identity.} given by 
+		\begin{equation}
+			[x, y] := \frac{d}{dt} [\exp(tx), \exp(ty)] |_{t = 0}
+		\end{equation}
+		this is the \textbf{Lie bracket} or \textbf{commutator} on the tangent space of the Lie group at the identity. We call this vector space the \textbf{Lie algebra}, denoted in fraktur by $\frak g$. It corresponds to the infinitesimal symmetries of the system, and the commutator measures how one symmetry changes along the flow of the other. The example of the previous section is intimately related to the Lie group $\mathrm{SO}(3, \mathbb R)$ and its associated Lie algebra $\frak{so}(3, \mathbb R)$, more familiar to high-schoolers as the ``cross-product''.
+		
+		\begin{defn}[Ideal]
+			
+		\end{defn}
+		
+		\begin{defn}[Semisimple Lie Algebras]
+			
+		\end{defn}
+		
+		The representation theory of semisimple Lie algebras is particularly elegant, and in many ways mirrors the representation theory of finite groups, but with a much simpler and more elegant classification structure. 
+	% section lie_theory (end)
+	
+	\section{Algebraic Topology} % (fold)
+	\label{sec:algebraic_topology}
+	
+	Just as we have before studied groups by their actions on spaces, it is also equally fruitful to study topological spaces $X$ by finding groups associated to them. The easiest example of this comes from the theory of the fundamental group $\pi_1 (X)$ and then again from the study of the homology and cohomology of $X$. We will outline these theories briefly here and direct the reader to \cite{hatcher} for a deeper expository text.
+	
+	% section algebraic_topology (end)
+	
+
+
+	\section{Elementary Algebraic Geometry} % (fold)
+	\label{sec:elementary_algebraic_geometry}
+
+	% section elementary_algebraic_geometry (end)
+	
+	\section{Intermediate Algebraic Geometry} % (fold)
+	\label{sec:intermediate_algebraic_geometry}
+	
+	% section intermediate_algebraic_geometry (end)
