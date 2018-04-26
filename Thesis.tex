@@ -23,7 +23,7 @@
 
 \title{\textbf{
 % Gauge Theory and the
-$\mathcal N=4$ Supersymmetric Yang-Mills Theory
+Magnetic Monopoles, `t Hooft Lines,
 \\\vspace{-.1in} {\Large and the}
 \vspace{-.1in}
 \\ Geometric Langlands Correspondence}}
@@ -67,7 +67,7 @@ $\mathcal N=4$ Supersymmetric Yang-Mills Theory
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{gensymb}
 \usepackage{tikz-cd}
-
+\usepackage{mathtools}
 %%% For figures
 \usepackage{graphicx}
 %\usepackage{subfig,rotate}
@@ -201,7 +201,7 @@ $\mathcal N=4$ Supersymmetric Yang-Mills Theory
 \input{acknowledgements}
 }
 
-\dedication{To my parents.}
+% \dedication{To my parents.}
 
 \fi  % disable frontmatter
 
@@ -219,8 +219,12 @@ $\mathcal N=4$ Supersymmetric Yang-Mills Theory
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{prop}[theorem]{Proposition}
+\newtheorem{conj}[theorem]{Conjecture}
 \newtheorem{cor}[theorem]{Corollary}
 \newtheorem{obs}[theorem]{Observation}
+\newtheorem{ind}[theorem]{Indication}
+\newtheorem{goal}{Goal}
+\newtheorem{idea}[theorem]{Idea}
 
 \theoremstyle{remark}
 \newtheorem*{review}{Review}
@@ -234,10 +238,29 @@ $\mathcal N=4$ Supersymmetric Yang-Mills Theory
 \newtheorem{cons}[theorem]{Construction}
 \newtheorem{eg}[theorem]{Example}
 
-\def\lacts{\ensuremath{%
-  \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowleft$}}}}
-\def\racts{\ensuremath{%
-    \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowright$}}}}
+\def\lacts{\,\ensuremath{%
+  \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowleft$}}}\,}
+\def\racts{\,\ensuremath{%
+    \reflectbox{\rotatebox[origin=c]{180}{$\circlearrowright$}}}\,}
+\def\spec{\mathrm{Spec}\,}
+\def\maxspec{\mathrm{MaxSpec}\,}
+\def\dd{\mathrm{d}}
+\def\zz{\mathbb{Z}}
+\def\rr{\mathbb{R}}
+\def\cc{\mathbb{C}}
+\def\cp{\mathbb{CP}}
+\def\qq{\mathbb{Q}}
+\def\ff{\mathbb{F}}
+\def\kk{\mathbf{k}}
+\def\tr{\mathrm{Tr}\,}
+\def\Ad{\mathrm{Ad}\,}
+\def\ad{\mathrm{ad}\,}
+\def\gg{\frak{g}}
+\def\su{\frak{su}}
+\def\SU{\mathrm{SU}}
+\def\SO{\mathrm{SO}}
+\def\GL{\mathrm{GL}}
+\def\OO{\mathcal O}
 
 \makeatletter
 \def\@tempa#1{\@xp\@tempb\meaning#1\@nil#1}
@@ -270,13 +293,17 @@ $\mathcal N=4$ Supersymmetric Yang-Mills Theory
 
 
 % If you've disabled frontmatter, you can insert the toc manually
-%\tableofcontents\clearpage
+% \maketitle
+% \tableofcontents%\clearpage
 
 % \include lets us split up the document (and each include starts a new page):
 \include{Chapters/Intro}
-\include{Chapters/Math}
 \include{Chapters/Phys}
+\include{Chapters/Gauge}
 \include{Chapters/Instantons}
+\include{Chapters/Monopoles}
+\include{Chapters/Finale}
+\include{Chapters/Appendix}
 
 
 % \include{ch-pastwork/chapter-pastwork}
@@ -300,6 +327,7 @@ $\mathcal N=4$ Supersymmetric Yang-Mills Theory
 \addcontentsline{toc}{chapter}{Bibliography}
 
 % include your .bib file
+\bibliographystyle{unsrt}
 \bibliography{thesis}
 
 \end{document}

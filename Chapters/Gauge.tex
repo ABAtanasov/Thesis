@@ -1,0 +1,532 @@
+\chapter{Gauge Theory\label{ch:gauge}}
+
+	Gauge theory will play a central role in understanding the geometric Langlands correspondence physically. The role of the group $G$ in the Langlands correspondence is played by the gauge group in the physical theory. 
+	
+
+	
+	\begin{nb}
+		Just because a bundle is topologically trivial does not mean it is flat, nor vice versa. Flatness is an algebraic condition on the curvature 2-form $F = 0$ while triviality is a global topological condition on the vector bundle in question. 
+	\end{nb}
+
+	\section{Fiber Bundles}
+	\subsection{Definitions and Examples}
+		We are working on a manifold $M$ which we will call our \textbf{base space}. On this, we have a \textbf{coordinate bundle}:
+		
+		\begin{defn}[Coordinate Bundle]
+			A coordinate bundle consists of 
+			\begin{itemize}
+				\item A \textbf{total space} $E$
+				\item A base space $M$
+				\item A \textbf{fiber} $F$
+				\item A surjection $\pi : E \rightarrow M $ called \textbf{projection} to a point $p$ on $M$ so that $\pi^{-1}(p) := E_p \cong F$. This is the fiber over $p$.
+				\item A \textbf{Lie Group} $G$ freely acting on the fiber: $G \lacts F$ s.t. $g f = f \, \forall f \in F \Rightarrow g = 1$.
+				\item A set of open coverings $\{ U_\alpha \}_{\alpha \in I}$ of $M$ with diffeomorphisms $\phi_\alpha: U_\alpha \times F \rightarrow \pi^{-1} (U_i)$ called \textbf{local trivializations} so that the following diagram commutes. 
+				\[
+				\begin{tikzcd}[row sep=2.5em]
+				U_\alpha \times F \arrow{dr}{p_1} \arrow{rr}{\psi_\alpha} && \pi^{-1}(U_\alpha) \arrow{dl}{\pi} \\
+				 & U_\alpha \\
+				\end{tikzcd}
+				\]
+				\item On $p \in U_{\alpha \beta} := U_\alpha \cap U_\beta$, $\psi_\beta^{-1} \psi_\alpha$ acts as a diffeomorphism coinciding with the action of an element of $G$ on each $E_p$ (we say ``fiberwise"). 
+			\end{itemize}
+			In this way $\psi_\alpha$ gives rise to a diffeomorphism between $F$ and $F_p$ given by $\psi_{\alpha, F_p} (f) = \psi_\alpha (p, x)$
+		\end{defn}
+		Fiber bundles generalize the notion of cartesian products of two spaces $M$ and $F$ by allowing for the same local product structure but much more interesting global ``twisted structure''.
+		
+		From this we can define the vertical component of a point in the total space: $f_\alpha: E \rightarrow F$ by $f_\alpha = \psi^{-1}_{\alpha, \pi}$. 
+		
+		We can also identify $\psi^{-1}_{\beta, p} \circ \psi_{\alpha, p}$ with an element in $G$ by $g_{\alpha, \beta}: U_{\alpha \beta} \rightarrow G$.
+		\begin{prop}
+			$g_{\alpha \beta}$ satisfies 
+			\begin{itemize}
+				\item $g_{\alpha \alpha} = 1$
+				\item $g_{\alpha \beta} = g^{-1}_{\beta \alpha}$
+				\item $g_{\alpha \beta} g_{\beta \gamma} = g_{\alpha \gamma}$
+			\end{itemize}
+
+			Moreover 
+			\begin{enumerate}
+				\item $g_{\alpha \beta} f_\beta = f_\alpha$\\ That is, $g_{\alpha \beta}$ maps the fiber corresponding to $U_\beta$ to the fiber corresponding to $U_\alpha$.
+				\item $\psi_{j} (p, f) = \psi_{i} (p, g_{ij} f)$
+			\end{enumerate}
+		\end{prop}
+		
+		\begin{proof}
+			These are all easy to check just by the definition of $g_{\alpha \beta}$ as a composition of the $\psi_\alpha$ and by invoking the cartesian properties of local trivialization.
+		\end{proof}
+		The equivalence class of a coordinate bundle on $M$ is called a \textbf{fiber bundle} over $M$. 
+		
+		Fiber bundles whose fibers are are vector spaces are called vector bundles. Examples are the tangent/cotangent spaces to a manifold, and any tensor/symmetric/exterior powers thereof. We will see that we can view vector fields, $p$-forms, and many other interesting, physically-relevant, objects as ``slices'' or \textbf{sections} of fiber bundles.
+		
+		\subsection{Morphisms and Extensions}
+		The morphisms in the category of fiber bundles are called \textbf{bundle maps}:
+		
+		\begin{defn}[Bundle Map]
+			For two fiber bundles $\pi: E \rightarrow M, \pi': E' \rightarrow M'$ a bundle map is a smooth map $\bar f: E \rightarrow E'$ that naturally induces a smooth map on the base spaces so that the following diagram commutes:
+			\[
+			\begin{tikzcd}
+			E \arrow{r}{\bar f} \arrow{d}{\pi} & E' \arrow{d}{\pi'} \\
+			M \arrow{r}{f} & M
+			\end{tikzcd}
+			\]
+		\end{defn}
+		
+
+		Two bundles are equivalent if there is a bundle map so that both $\bar f$ and $f$ are diffeomorphisms. 
+				
+		If we have a fiber bundle $\pi: E \rightarrow M$ and $\varphi: N \rightarrow M$ for another manifold $N$, then we can pull back $E$ to form a bundle over $N$. 
+		\begin{equation}
+			\varphi^* E = \{(y,[f,p]) \in N \times E s.t. \varphi(y) = p \}
+		\end{equation}
+		We have projection on the second factor of $\varphi^* E$ as a map $g: \varphi^* E \rightarrow E$. 
+		
+		This is the \textbf{pullback bundle} $\varphi^* E$.
+		\begin{defn}[Pullback Bundle]
+			For a map $\varphi: N \rightarrow M$ and $E$ a fiber bundle over $M$ so that $\pi: E \rightarrow M$, we define the pullback bundle $\varphi^* M$ so that the following diagram commutes:
+			\[
+			\begin{tikzcd}
+			\varphi^* E \arrow{r}{g} \arrow{d}{\pi'} & E \arrow{d}{\pi} \\
+			N \arrow{r}{\varphi} & M
+			\end{tikzcd}
+			\]
+		\end{defn}
+		
+		We can take products of these bundles as topological spaces in the obvious way: 
+		\begin{equation}
+			E \times E' \xrightarrow{\pi \times \pi'} M \times M'
+		\end{equation}
+		
+		In the special case where $M = M'$ we get 
+		\begin{defn}[Direct Sum of Vector Bundles]
+			For $E, E'$ vector bundles over $M$ we can define their sum as $E \oplus E'$ to be $M$ with $F \oplus F'$ fibered over every point. 
+			More succinctly, it is the pullback bundle of the map $f: M \rightarrow M \times M$.
+			
+			The structure group of $E \oplus E'$ is the product $G \times G'$ of the structure groups of the original bundles and it acts diagonally on their sum.
+			\begin{equation}
+				G^{E \oplus E'} = \left \{ \begin{pmatrix}
+					g^E & 0 \\
+					0 & g^{E'}
+				\end{pmatrix} : g^E \in G, g^{E'} \in G' \right \}
+			\end{equation}
+			and the transition functions act diagonally in the same way. 
+		\end{defn}
+		
+		Alternatively we could have defined 
+		\begin{equation}
+			\bar E = \{ ([p, f], [p, f']) \in E \times E'\}
+		\end{equation}
+		which is a bundle over $M$ as well, and its easy to see this is also the direct sum bundle. 
+		
+		Similarly, we can define arbitrary direct sums of bundles recursively:
+		\begin{equation}
+			E_1 \oplus \dots \oplus E_r 
+		\end{equation}
+		
+		
+		For some intuition about when fiber bundles are \emph{nontrivial}, consider the following theorem
+		\begin{theorem}
+			Let $\pi:E \rightarrow M$ be a fiber bundle over $M$ and consider maps $f, g$ from $N \rightarrow M$ so that $f, g$ are homotopic, then the pullback bundles are equivalent: $f^* E \cong g^* E$ over $N$.
+		\end{theorem}
+		An important fact is the following corollary:
+		\begin{cor}
+			If $M$ is contractible, every fiber bundle $\pi: E \rightarrow M$ is topologically trivial.
+		\end{cor}
+		
+		\subsection{Principal Bundles}
+		
+		When the structure group acts freely and transitively on the fiber, we can identify $F$ with $G$. In this case, we get a \textbf{principal $G$-bundle}. This will be an object of central interest in what follows. In general, unlike $G$ itself, $F$ need not have a canonical choice of identity element. Indeed, if it did then the bundle would necessarily have to be the trivial $M \times G$. We give a an example for motivation:
+		\begin{eg}[Frame Bundle]
+			The fiber bundle of all \textbf{frames}, namely choices of bases in an $n$-dimensional space is a principal $\mathrm{GL}_n$ bundle.
+		\end{eg}
+		The frame bundle is generally nontrivial. 
+		
+		\begin{prop}
+			A principal bundle is equipped with a natural right action of $G$, $R_g$ so that $R_g: \pi^{-1} (U_\alpha) \rightarrow \pi^{-1} (U_\alpha)$ by acting on the fiber appropriately $R_g (p, h) = (p, hg)$. 
+		\end{prop}
+		
+		We state the following theorem without proof (c.f. Chapter 9 of \cite{lee2003})
+		\begin{theorem}
+			When $G$ is a compact Lie Group acting smoothly and freely on a manifold $M$, the orbit space $M/G$ is a topological manifold with dimension $\dim M - \dim G$ and a unique smooth structure so that $\pi: M \rightarrow M/G$ is a smooth submersion (differential is locally surjective). 
+		\end{theorem}
+		
+		\begin{cor}
+			For a principal bundle $P(M,G)$ we get $\dim P = \dim M + \dim G$
+		\end{cor}
+		
+		If $M,F$ are two manifolds and $G$ has an action $G \times F \rightarrow F$, then for an open cover $\{ U_\alpha \}$ of $M$ with a map $g_{\alpha \beta}: U_{\alpha}\cap U_{\beta} \to G$ we can construct a fiber bundle by first building the set
+		\begin{equation}
+			X = \bigcup_\alpha U_\alpha \times F
+		\end{equation} 
+		and quotienting out by the relation
+		\begin{equation}
+			(x, f) \in U_\alpha \times F \sim (x', f') \in U_\beta \times F \Longleftrightarrow x=x', f=g_{\alpha \beta}(x) f' 
+		\end{equation}
+		
+		Then $E = X/\sim$ is a fiber bundle over $M$. We can locally denote elements of $E$ by $[x,f]$ so that
+		\begin{equation}
+			\pi(x,f) = x, ~ \psi_\alpha(x,f) = [x,f].
+		\end{equation}
+		
+		\begin{prop}
+			For a fiber bundle $\pi: E \rightarrow M$ with overlap functions $g_{\alpha \beta}: U_{\alpha \beta} \rightarrow G$ between charts, we can form a principal bundle $P(M,G)$ so that 
+			\begin{equation}
+				P = X/\sim, ~ X = \bigcup_\alpha U_\alpha \times G
+			\end{equation}
+		\end{prop}
+		In certain contexts that we will encounter later, the $g_{\alpha \beta}$ are referred to as \textbf{clutching functions}.
+		Note that there was no requirement here that $G$ be compact. \\
+		
+		\begin{eg}
+			Take $M = \cp^1$ the Riemann sphere and consider constructing a $G$-bundle over it. The Riemann sphere can be decomposed as a union of two copies of $\cc$ with overlap exactly on the cylinder $\cc^{\times}$. On each copy of $\cc$ the $G$-bundle is trivializable since $\cc$ is contractible. A clutching function would be a map $\rho: \cc^\times \to G$, and this gives rise to a principal $G$-bundle on $M$. 
+		\end{eg}
+		
+		
+		\subsection{Sections and Lifts}
+		
+		As mentioned before, any specific smooth vector field on a manifold $M$ can be viewed as a smooth ``slice'' of the vector bundle of the tangent spaces of $M$: $TM$. This motivates the notion of a \textbf{section} of a fiber bundle that associates to each base point $p\in M$ an element $f$ in the fiber $F_p$, giving together $(p,f)\in E$.
+		
+		A \textbf{global section} of the fiber bundle $\pi: E \rightarrow M$ is a map $s: M \rightarrow E$ so that $\pi \circ s = \text{id}$. When it's restricted, $s: U \subseteq M \rightarrow E$, we call $s$ a \textbf{local section}. The set of smooth global sections is denoted by $\Gamma^\infty (M, E)$. 
+		
+		\begin{eg}
+			The set of all smooth $r$-forms on $M$ is $\Gamma^\infty(M, \Lambda^r (T^* M))$ on which the structure group acts on each wedge. Note the different action of the structure group on different $r$-forms is exactly what makes the components of various $r$-forms ``$r$-times covariant''. 
+		\end{eg}
+		
+		When the group is fibered over the manifold, then on the local cartesian structure, we can easily pick the section $p \mapsto [p,e]$.
+		
+		\begin{prop}
+			For a principal bundle $P(M,G)$, any local trivialization $\psi: U \times G \rightarrow \pi^{-1} (U)$ defines a local section by $s: p \mapsto \psi(p, e)$ and conversely any local section defines a trivialization by $\psi(p,g) = s(p) g$
+		\end{prop}
+		
+		By using sections, we can prove the existence of lifts. That is, for a principal bundle $P(M,G)$ over $M$, and a map $\varphi: M \to N$ we can get a principal bundle over $N$ by forming the projection $\varphi \circ \pi$.
+		
+		\begin{prop}
+			For a principal bundle $P(M,G)$ and $\varphi: M \rightarrow N$, then $\varphi$ is smooth iff $\varphi \circ \pi$ is smooth according to the following diagram.
+			\[
+			\begin{tikzcd}
+				P(M,G) \arrow{d}{\pi} \arrow{rd}{\varphi \circ \pi}\\
+				M \arrow{r}{\varphi} & N
+			\end{tikzcd}
+			\]
+		\end{prop}
+		\begin{proof}
+			If $\varphi$ is smooth, then $\varphi \circ \pi$ is a composition of smooth maps. On the other hand, if $\varphi \circ \pi$ is smooth, then for each point $p$ there is a coordinate neighborhood $U_\alpha$ on which we have trivial fiber structure. Take a local section $s_\alpha$ so that $\varphi \circ \pi \circ s = \varphi|_{U_\alpha}$.
+		\end{proof}
+		
+		\begin{prop}
+			For $P(M,G)$ principal and $\tilde \varphi: P(M,G) \rightarrow N$ a smooth $G$-invariant map so that 
+			\begin{equation}
+				\tilde \varphi(x g) = \tilde \phi (x), ~ x \in P(M,G)
+			\end{equation}
+			then there is a unique map $\phi$ induced on the base space so that the following diagram commutes:
+			\[
+			\begin{tikzcd}
+				P(M,G) \arrow{d}{\pi} \arrow{rd}{\tilde \varphi}\\
+				M \arrow[r,dashed, "\varphi"] & N
+			\end{tikzcd}
+			\]
+			and is given by $\tilde \phi([x, g]) = \varphi(x)$. This is well-defined.
+		\end{prop}
+		
+		\subsection{Associated Bundles}
+		Take a principal bundle $P(M,G)$ and let $F$ be a space with associated automorphism $\mathrm{Aut}(F)$ so that $\rho: G \rightarrow \mathrm{Aut}(F)$ is a faithful representation. Then $g \cdot f$ is a well-defined notion, with free action, and we can consider the (right) action of $G$ on $P(M,G) \times F$ by
+		\begin{equation}
+			g \cdot ([p, h], f) = ([p, hg], \rho(g)^{-1} f)
+		\end{equation}
+		This is a free action as well. Then if $G$ is compact (important) we have the orbit space
+		\begin{equation}
+			E_\rho = P(M,G) \times F/G
+		\end{equation}
+		is a manifold
+		
+		\begin{theorem}
+			The space $E_\rho$ can be made into a fiber bundle over $M$ with fiber $F$ called the \textbf{associated fiber bundle} of $P(M,G)$. 
+		\end{theorem}
+		\begin{proof}
+			(Following \cite{lindenhovius2011})
+			We make $P \times F$ into a bundle by defining the projection 
+			\begin{equation}
+				\pi_\rho ([p, h], f) = p
+			\end{equation}
+			and trivializations $\psi_\alpha: U_\alpha \times F \rightarrow \pi^{-1}(U)\alpha$ by
+			\begin{equation}
+				(\psi_\rho)_\alpha (p, f) = ([p, s_\alpha (p)] , f)
+			\end{equation}
+			and inverse
+			\begin{equation}
+				(\psi_\rho)_\alpha^{-1} ([p, g], f) = [p, \rho(g) f]
+			\end{equation}
+		\end{proof}
+		
+		From this, if $F$ is a group then we can make $\pi_\rho^{-1}(p)$ into a group at each fiber in the obvious way, defining $[(p, v)][p, w] = [p, v w]$. And if $F$ is a vector space then we can do the same construction to make each fiber have vector space structure.		
+		Two associated bundles that we'll care about are $P(M,G) \times_{\mathrm{Ad}} G$ and $P(M,G) \times_{\mathrm{ad}} \frak g$.
+		
+		The study of equivalence classes of $G$-bundles can be equivalently cast as a study of their associated bundles. 
+		
+		\textbf{ELABORATE HERE}
+		
+		\section{Lie Theory}
+		
+		Although standard knowledge on the definition of a Lie Group/Algebra is assumed, let's try to motivate the ideas within this field in a more geometric way than is often done. \\
+		
+		Consider a manifold $M$, and consider $\text{Vect}(M)$, the space of all smooth vector fields on $M$. For a map $\varphi: M \rightarrow N$ we have a notion of \textbf{pushforward} $\varphi_*: \text{Vect}(M) \rightarrow \text{Vect}(N)$ on vector fields given by their actions on functions as
+		\begin{equation}
+			[\varphi_* (v)] (f) = v (\varphi^* (f))
+		\end{equation}
+		A smooth vector field $X$ on $M$ gives rise to \textbf{flows} that are solutions to the differential equation of motion
+		\begin{equation}
+			\frac{d}{dt} f(\gamma(t)) = X f.
+		\end{equation}
+		One could argue, more strongly, that in fact the \emph{entire field} of ordinary differential equations has an interpretation as equations of motion along flows of vector fields. Such a viewpoint has brought forward the lucrative insights of symplectic geometry. 
+		
+		The motion along this flow is expressed as the exponential:
+		\begin{equation}
+			f(\gamma(t)) = e^{t X} f(p), ~ p = \gamma(0)
+		\end{equation}
+		
+		Now consider two vector fields $X,Y$ on $M$. Let $Y$ flow along $X$ so we move along $X$ giving:
+		\begin{equation}
+			e^{tX} Y = Y(\gamma(t)) \in T_{\gamma(t)}M
+		\end{equation}
+		Note that the reverse flow $e^{-t X}$ maps $T_{\gamma(t)} M \to T_{\gamma(0)}M = T_pM$, so acts by pushforward on $e^{tX} Y$ equivalent to:
+		\begin{equation}
+			e^{tX} Y e^{-tX} \in T_p
+		\end{equation}
+		We can compare this to $Y$ and take the local change by dividing through by $t$ as $t \to 0$, giving the Lie derivative
+		\begin{equation}
+			\mathcal L_X Y := \frac{e^{tX} Y e^{-tX} - Y}{t}
+		\end{equation}
+		It is easy to check that this is in fact antisymmetric and gives rise to a bilinear form on $\mathrm{Vect}(M)$
+		\begin{equation}
+			[X,Y]:= L_X Y
+		\end{equation}
+		A vector space endowed with such a bilinear form and satisfying the Jacobi identity is a \textbf{Lie algebra}.
+		
+		Most important is when $M$ itself has group structure, so is a \textbf{Lie group}, which we will denote by $G$. Then the vector fields on $G$ of course also form a Lie algebra, just by virtue of the manifold structure of $G$. 
+		
+		We state the following proposition without proof
+		\begin{prop}
+			Let $\varphi: G_1 \rightarrow G_2$ be a diffeomorphism of Lie groups, then $\varphi_*: \mathrm{Vect}(G_1) \rightarrow \mathrm{Vect}(G_2)$ is a homomorphism of Lie algebras. 
+		\end{prop}
+		
+		For a Lie group, group elements induce automorphisms on the manifold by left multiplication, denoted $L_g$ and by right multiplication $R_g$:
+		\begin{equation}
+			\begin{aligned}
+				R_g: G \rightarrow G, ~ g: h \mapsto gh\\
+				L_g: G \rightarrow G, ~ g: h \mapsto hg
+			\end{aligned}
+		\end{equation}
+		
+		 We have that each group element induces (by pushforward) a map between tangent spaces 
+		 \begin{equation}
+		 	\begin{aligned}
+		 		(L_g)_*: T_h G \rightarrow T_{gh} G\\
+				(R_g)_*: T_h G \rightarrow T_{hg} G
+		 	\end{aligned}
+		 \end{equation}
+		
+		A vector field $X$ is left-invariant if $(L_g)_* X(h) = X(gh)$. 
+		
+		
+		By the proposition, we get that $(L_g)_* [X, Y] = [(L_g)_* X, (L_g)_* Y]$ so these left-invariant vector fields in fact form a Lie algebra for the group. Physically, this is the set of vector fields corresponding to the isometries of $G$.
+		
+		In local coordinates, the commutator can be written as:
+		\begin{equation}
+			\begin{aligned}
+				X = &X^\mu \partial_\mu, ~ Y = Y^\mu \partial_\mu\\
+				[X,Y] = &(X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu) \partial_\mu
+			\end{aligned}
+		\end{equation}
+		
+		Left-invariant vectors flow in a way that is consistent with the group action:
+		\begin{equation}
+			(L_g)_* X(e) = X(g)
+		\end{equation}
+		The set of all left-invariant vector fields can be uniquely extracted from their value at the identity by this rule, and in fact for any vector $x \in T_e G$, there is a corresponding left-invariant vector field $X(g) = (L_g)_* x$. Therefore the tangent space to the identity gives rise to a Lie algebra which we will call the Lie algebra of $G$ and denote by $\frak g$. This Lie algebra (often referred to as \emph{the} Lie algebra $\frak g$ associated to the group $G$) is finite dimensional when $G$ is.
+		
+		
+		Now because we define the Lie algebra as the ``tangent space to the identity'', it is worth asking ``how does the Lie algebra appear at a generic point, $g$, on the group?''. The idea is to bring that vector back to the identity using $G$ and see what it looks like. 
+		
+		This is accomplished by using the \textbf{Maurer-Cartan form} $\Theta$, which is a $\frak g$-valed 1-form on $G$ so that 
+		\begin{equation}
+			\Theta(g) = (L_{g^{-1}})_*
+		\end{equation}
+		Note that this maps from $\mathrm{Vect}(G) \rightarrow \frak g$. It takes a vector $v$ at point $g$ and traces it back to the natural vector at the identity that would have gotten pushed forward to $v$ under $g$.
+		
+		\begin{prop}[Properties of $\exp$]
+			For $G$ a compact and connected Lie group, with Lie algebra $\frak g$, we have a map $\exp : \frak g \rightarrow G$.
+			\begin{enumerate}
+				\item $[X,Y] = 0 \Leftrightarrow e^X e^Y = e^Y e^X$
+				\item The map $t \rightarrow \exp(t X)$ is a homomorphism from $\mathbb R$ to $G$.
+				\item If $G$ is connected then $\exp$ generates $G$ as a group, meaning all elements can be written as some product $\exp(X_1) \dots \exp(X_n)$ for $X_i \in \frak g$
+				\item If $G$ is connected and compact then $\exp$ is surjective. It is almost never injective.
+			\end{enumerate}
+		\end{prop}
+		
+		\begin{eg}
+			The Lie algebra associated to the Lie group $\mathrm U(n)$ of unitary matrices is $\frak u(n)$ of antihermitian matrices. This is the same as the Lie algebra for the group $\mathrm{SU}(n)$
+		\end{eg}
+		
+		\begin{defn}[Adjoint Action on $G$]
+			For each $g$ we can consider the homomorphism $\mathrm{Ad}_g: h \mapsto g h g^{-1}$ or $\mathrm{Ad}_g = L_g \circ R_{g^{-1}}$. This defines a representation
+			\begin{equation}
+				\mathrm{Ad}: g \rightarrow \mathrm{Diff}(G)
+			\end{equation}
+		\end{defn}
+		
+		\begin{defn}[Adjoint Representation of $\frak g$]
+			The pushforward of this action gives rise to the \textbf{adjoint representation} of the Lie group $\frak g$ by
+			\begin{equation}
+				(\mathrm{Ad}_g)_* = (L_g \circ R_{g^{-1}})_* 
+			\end{equation}
+			From the product rule, this acts as $[g, -]$ at the identity. We denote this as
+			\begin{equation}
+				\mathrm{ad}: \frak g \rightarrow \mathrm{End}~ \frak g
+			\end{equation}
+		\end{defn}
+		
+		The Jacobi identity ensures that $\mathrm{ad}$ is a homomorphism. If the center of $G$ is zero then $\mathrm{ad}$ is faithful and we have an embedding into $\mathrm{GL}(n)$. This is nice because it also shows that after a central extension, every Lie algebra can be represented into $\mathrm{GL}(n)$, a weaker form of Ado's theorem.
+		
+		Moreover the adjoint representation gives rise to a natural metric on $\gg$ called the \textbf{Killing Form} given by
+		\begin{equation}
+			\kappa (X, Y) = \mathrm{Tr}(\mathrm{ad}(X) \mathrm{ad}(Y))
+		\end{equation}
+		
+		\begin{prop}
+			For $\frak g$ a semisimple Lie algebra, the above gives rise to a non-degenerate bilinear form. 
+		\end{prop}
+		For a proof see \cite{humphreys2012}.
+		
+		\section{Connections on Principal Bundles}
+		
+		\subsection{The Ehresman Connection}
+		
+		Take a $G$-principal bundle $\pi: P \rightarrow M$. 
+		Just like $\xi \in \frak g$ gives rise to a vector field $X_\xi$ on $G$, it also canonically gives rise to a vector field $\sigma(\xi)$ on $P$.
+		\begin{defn}[\textbf{Fundamental Vector Field} of $\xi$]
+			Let $\xi \in \frak g$ and consider $\exp(t \xi) \in G$ so that for $p \in P(M,G)$ we get $c_p(t) = R_{\exp(t \xi)} p$ which depends smoothly on $p$. Note $c'_p(0) \in T_p P(M,G)$ at each point.
+			\begin{equation}
+				\sigma: \frak g \rightarrow \text{Vect}(P(G,M)), ~ [\sigma(\xi)](p) \mapsto \left[ \frac{d}{dt} p e^{t \xi}\right]_{t=0}
+			\end{equation}
+		\end{defn}
+		The \textbf{vertical subspace} $V_p P$ at a point $p$ of a fiber bundle is the tangent space at $p$ restricted to the fiber over $x$, i.e. $T_p (\pi^{-1}(x))|_{F_x}$. Equivalently, this is $\ker \pi_*$. Note
+		\begin{equation}
+			\pi_* \circ \sigma(x) = \frac{d}{dt} (\pi \circ c_p(t))|_{t=0} = \frac{d}{dt} (p) = 0
+		\end{equation} 
+		so $\sigma(x) \in V_p P$. 
+		Since $E$ is a manifold of dimension $\dim M + \dim G$, $\pi_*: T_pE \rightarrow T_{\pi(p)}M$ has a kernel of dimension $\dim G = \dim \frak g$
+		In fact:
+		\begin{prop}
+			$\sigma_p$ is a Lie algebra isomorphism between $\frak g$ and $V_pP$
+		\end{prop}
+		 \begin{proof}
+		 	Since $G$ acts freely on principal bundles, $\sigma$ is injective, so in fact it must be an isomorphism.
+		 \end{proof}
+	
+		\begin{lemma}[Properties of $\sigma$]
+			We get that $\sigma$ satisfies:
+			\begin{enumerate}
+				\item $[R_{g}]_* \sigma(x) = \sigma(\text{ad}_{g^{-1}} x)$
+				\item $[g_i]_* \sigma(x) = g_i(p) x$
+			\end{enumerate}
+		\end{lemma}
+		\begin{proof}
+			\begin{enumerate}
+				\item We have
+				\begin{equation}
+					\begin{aligned}
+						\left[ R_{g} \right]_* [\sigma(x)](p)  &= \frac{d}{dt} (R_g p e^{tx}) \\
+						& = \frac{d}{dt} p g \text{Ad}_{g^{-1}} e^{tx}\\ 
+						& = \frac{d}{dt} p g \exp[ t (\text{ad}_{g^{-1}} x) ]\\
+						& = [\sigma(\text{ad}_{g^{-1}} x)] (pg)
+					\end{aligned}
+				\end{equation}
+				\item And
+				\begin{equation}
+					\begin{aligned}
+						\left[g_i\right]_* [\sigma(x)](p) &= \frac{d}{dt} g_i p e^{t x}\\
+											&= g_i(p) x
+					\end{aligned}
+				\end{equation}
+			\end{enumerate}
+		\end{proof}
+	
+		Now $\sigma$ respects the Lie algebra structure and forms a homomorphism from $\frak g$ to $\text{Vect}(P(M,G))$ so that in fact
+		\begin{cor}\label{cor:verticalequiv}
+			$(R_g)_* V_p = V_{pg}$: pushforward acts equivariantly on vertical subspaces.
+		\end{cor}
+		\begin{proof}
+			Let $X(p) \in V_p$ pick $A \in \frak g$ s.t. the corresponding fundamental vector field $\sigma(A) (p) = X(p)$. Then we just look at
+			\begin{equation}
+				(R_g)_* \sigma(A) (p) = \sigma(\mathrm{ad}_{g^{-1}} A)(pg)
+			\end{equation} 
+			which is vertical. It's easy to go back from $pg$ to $g$ as well by picking $A \in \frak g$ so that $X(pg) = \mathrm{ad}_{g^{-1}} A$.
+		\end{proof}
+	
+		Now note:
+		\[
+		\begin{tikzcd}
+			0 \arrow{r} & V_p P \arrow{r} & T_p P \arrow[r,"\pi_*"] & T_{\pi(p)}M \arrow{r} & 0
+		\end{tikzcd}	
+		\]
+		An injection of $T_{\pi(p)} P$ into $P$ to make the above sequence split is called a \textbf{horizontal subspace} $H_pP$. 
+		\begin{defn}[Horizontal Subspace]
+			A horizontal subspace is a subspace $H_p P$ of $T_p P$ s.t.
+			\begin{equation}
+				T_p P = V_p P \oplus H_p P
+			\end{equation}
+		\end{defn}
+		 We'll abbreviate this by $H_p$ and the vertical subspace by $V_p$ when our principal bundle is unambiguous.
+	 
+		Crucially, there is \emph{no canonical choice of} $H_p$, reflecting the physical fact there is no ``god-given'' way to compare local gauges between different points. For a gauge $g$ at $x$, a vector on $T_x M$ should lift to a vector on $T_{[x,g]} P$ given by lifting to a horizontal subspace. A choice of horizontal gives rise to the following:
+		\begin{defn}
+		An \textbf{Ehresmann connection} is a choice of horizontal subspace at each point $p \in P(M,G)$ so that
+			\begin{enumerate}
+				\item Any smooth vector field $X$ splits as a sum of two smooth vector fields: a \textbf{vertical field} $X_V$ and a \textbf{horizontal field} $X_H$ so that at each point $p \in P(M,G)$ we have $X_V \in V_p$, $X_H \in H_p$. That is, the choice of $H_p$ varies smoothly.
+				\item $G$ acts equivariantly on $H_{pg}$:
+				\begin{equation}
+					H_{pg} = (R_{g})_* H_p
+				\end{equation}
+			\end{enumerate}
+		\end{defn}
+	
+		We will denote the collection of our choice of $H_p P$ by $HP$ and similarly define $VP$ to be the (always canonical) collection of vertical subspaces. We say any vector field can be split into a vector field $X^H \in HP$ and $X^V \in VP$.
+	
+		Naturally, for any choice of $HP$, we have a corresponding projection operator $\pi_H$ on vector fields $\pi_H: \mathrm{Vect}(P(M,G)) \rightarrow HP$  and similarly $\pi_V = id - \pi_H$, both with corresponding equivariance conditions.
+	
+		\begin{prop}
+			We have the following correspondence:
+		\emph{
+		\begin{center}
+			\begin{tabular}{c c c c}
+				\shortstack{Ehresman\\ Connections $HP$} & $\longleftrightarrow$ \shortstack{Horizontal/Vertical\\Projection Operators $H/V$} & $\longleftrightarrow$ & \shortstack{$\frak g$-valued\\1-forms $\omega$}
+			\end{tabular}
+		\end{center}}
+		Each of the above are smooth on $E$, and have appropriate equivariance conditions:
+		\begin{itemize}
+			\item $R_g H_p = H_{pg}$: Horizontal subspaces are $G$-equivariant
+			\item $[R_g]_* H = H [R_g]$: Horizontal projection commutes with $G$ action of ``changing gauge''
+			\item $\omega(pg) = R_g^* \omega = g^{-1} \omega(p) g$: The 1-form is $G$-covariant
+		\end{itemize}
+		\end{prop}
+		
+		
+		\subsection{The Group of Gauge Transformations}
+			A diffeomorphism $\Phi: P \to P$ is a \textbf{gauge transformation} if it satisfies
+			\begin{enumerate}
+				\item $\pi \circ \Phi = \pi$, so $\Phi$ acts fiberwise
+				\item $R_g \circ \Phi = \Phi \circ R_g$, so $\Phi$ is $G$-equivariant.
+			\end{enumerate}
+			the group of all such diffeomorphisms is called the \textbf{gauge group} of $P$ and denoted by $\mathcal G$.
+		
+		
+		\section{Chern-Weil Theory}
+		
+		\subsection{Symmetric Invariant Polynomials on $\frak g$}
+		
+		Consider $\gg$ as an affine algebraic variety ($\cong \cc^{\dim \gg}$), and consider the ring of functions $\cc [\gg]$. Since $G \lacts \gg$ by $\Ad_G$, we naturally have a $G$-action on this space of polynomials
+		\[
+			\cc [\gg] \racts G
+		\]
+		Taking $f(x) \to f(\Ad_g x)$. Polynomials that are fixed by this action are called \textbf{invariant polynomials} on $\gg$.
+		
+		

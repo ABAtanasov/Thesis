@@ -1,0 +1,192 @@
+\chapter{The Physical Picture\label{ch:finale}}
+
+The aim of this chapter is to first develop for the reader a picture of $\mathcal N = 4$ Supersymmetric Yang-Mills (SYM) theory together with its topological twists. With this, we bring together the ideas of the previous chapters and study the actions of line defects on the categories of boundary conditions of two topological twists of $\mathcal N=4$ SYM.
+
+\section{Reduction from Ten Dimensions} % (fold)
+\label{sec:reduction_from_ten_dimensions}
+
+% section reduction_from_ten_dimensions (end)
+
+One of the simplest ways to arrive at 4D $\mathcal N=4$ SYM is to begin with gauge theory in 10 dimensions with gauge group $G$ \cite{kapustin2006}. The action here is:
+\begin{equation}
+	S = \int \tr \left(F_{IJ} F^{IJ}\right)
+\end{equation}
+
+
+\section{Topological Twisting} % (fold)
+\label{sec:topological_twisting}
+
+	First recall from Chapter \ref{ch:phys} Section \ref{sec:supersymmetry} the following definition: 
+	\begin{defn}[Subsector]
+		Given a supersymmetry operator $Q$ s.t. $Q^2 = \frac{1}{2} [Q, Q] = 0$, we define the subsector of our theory $\mathcal E$ by the set of $Q$ invariants, and denote this as $(\mathcal E, [Q, -])$.
+		
+		Slightly more precisely, $[Q, -]$ defines a differential operator, and the ``observables'' become exactly those gauge-invariant quantities annihilated by $Q$ modulo those that are $Q$-exact.
+	\end{defn}
+
+	\begin{defn}[Topological Twist]
+		Given a supersymmetric (SUSY) field theory $\mathcal E$, a topological twist is a procedure for extracting a sector of $\mathcal E$ that depends only on the topology of the spacetime manifold. The resulting field theory is \textbf{topological} in the definition of Section~\ref{sec:topological_quantum_field_theory}
+	\end{defn}
+	In general this involves a homomorphism from the universal cover of the structure group of the spacetime tangent space $TM$ to the R-symmetry group. For our four-dimensional $\mathcal N = 4$ case this is
+	$$\rho : \mathrm{Spin}(4) \to \mathrm{Spin}(6)$$
+	This redefines how the fields transform under the cover of the Lorentz group, $\mathrm{Spin}(4)$. We have an equivalence-class of obvious embeddings.
+	$$\mathrm{Spin}(4) \hookrightarrow \mathrm{Spin}(6)$$
+	given by:
+	\[
+		\begin{pmatrix}
+			* & * & * & * & 0 & 0 \\
+			* & * & * & * & 0 & 0 \\
+			* & * & * & * & 0 & 0 \\
+			* & * & * & * & 0 & 0 \\
+			0 & 0 & 0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 0 & 0 & 1
+		\end{pmatrix}
+	\]
+	and this is what Geometric Langlands will be concerned with.
+	
+	After twisting by $\rho$, the group $\mathrm{Spin}(4)$ acts differently on the supersymmetry operators. In particular one of the left-handed and one of the right-handed supersymmetries become scalars under $\mathrm{Spin}(4)$. We thus get scalars $Q_l, Q_r$, and any linear combination of these gives rise to a different ``sector'' of invariants. Clearly overall scaling does not matter, so we have $\mathbb P^1 (\mathbb C)$ of subsectors to chose from.
+	
+	\begin{prop}
+		Any such subsector defines a theory that is independent of the Riemannian metric (i.e. diffeomorphism invariant). The path integral localizes to $Q$-invariant configurations.
+	\end{prop}
+
+% section topological_twisting (end)
+
+\section{Montonen-Olive Duality} % (fold)
+\label{sec:montonen_olive_duality}
+
+	
+% section montonen_olive_duality (end)
+
+\section{Wilson Lines} % (fold)
+\label{sec:wilson_lines}
+
+	In general, the connection 1-form, $A$, gives a way to transport data along any given vector bundle $E$ associated to a representation $R$ of $G$. This allows us to compare the values of fields operators at different points by integrating along $E$ using our connection. The result is: 
+	\begin{equation}
+		W_R (\gamma) = \exp\left(\int_\gamma A \right)
+	\end{equation}
+	This classical operator is called a \textbf{Wilson line}.
+	Wilson lines transform (under a general transformation $g \in \mathcal G$), as:
+	\begin{equation}
+		W_R(\gamma) = g(\gamma(1)) W_R(\gamma)  g(\gamma(0))^{-1}
+	\end{equation}
+	in the special case of $\gamma$ closed, we see this is gauge-invariant. In this case, it called a \textbf{Wilson loop}. It can be viewed as yielding an element of the group $G$ in the representation $R$. In this case, the trace of this element gives an invariant scalar quantity (known in physics as a $c$-number), and so for $\gamma$ closed we further add a trace.
+	\begin{defn}[Wilson Loop]
+		Given a field theory with gauge group $G$ and a finite-dimensional representation $R$ of $G$ together with a closed loop $\gamma$, we define the Wilson loop operator:
+		\begin{equation}
+			\mathcal W_{R}(\gamma) := \mathrm{Tr}\, R( \mathrm{Hol}(A, \gamma)).
+		\end{equation}
+	\end{defn}
+\noindent	The algebra of Wilson loops is simple. For $\gamma \to \gamma'$ the operator product expansion gives us that
+	\begin{equation}
+		\lim_{\gamma \to \gamma'} W_R (\gamma) W_{R'} (\gamma') = \sum_\alpha n_\alpha W_{R_\alpha}(L').
+	\end{equation}
+
+	In our picture, let $M$ be a 4-manifold and let $L \subset M$ be an oriented 1-manifold embedded in $M$. On the $\hat B$-twist, we can consider taking the holonomy of the connection $\mathcal A$ along $L$, when $L$ is closed, giving us a Wilson loop. 
+	\begin{prop}
+		The $\hat B$ model condition on the flatness of $\mathcal A$ implies that the holonomy of the Wilson loop only depends on the homotopy class of $L$
+	\end{prop}
+	If $M$ has boundaries, we can let $L$ be an open 1-manifold connecting two ends of $M$. Then, the Wilson operator will give us matrix elements between the initial and final states of the theory. Because Wilson operators geometrize $\mathrm{Rep}(\check G)$, the space of physical states living on the boundary of $M$ is exactly $\check R$ for some $\check R \in \mathrm{Rep}(\check G)$. A Wilson loop connecting boundary components gives us a matrix element between initial and final vectors in $\check R$.
+	
+	In the $G$ theory: the $\hat A$-twist, $A$ and $\phi$ instead obey a different equation:
+	\begin{equation}
+		F - \phi \wedge \phi = \star D_A \phi.
+	\end{equation}
+	This equation is analogous to the equation of motion for the 2D $A$ models. We will see how the Bogomolny equations for magnetic monopoles arise as a special restriction of this equation in the next section.
+
+	From the above discussion, we should ask 
+	\begin{ques}
+		What is the dual operator to a Wilson line?
+	\end{ques}
+	From the physics viewpoint, `t Hooft showed in the 1980s that MO duality will exchange a Wilson line (a type of ``order operator'') on one side with something known as a `t Hooft line (a type of ``disorder operator'') on the other side.
+	
+	We can intuitively understand the insertions of `t Hooft lines in the path integral as imposing divergence conditions on the curvature form $F$ so that in local coordinates $x^1 \dots x^3$ perpendicular to the line we have
+		\begin{equation}\label{eq:Amod}
+			F(\vec{x}) \sim \star_3 d\left( \frac{\mu}{2r} \right)
+		\end{equation}
+		where $\mu$ is an element of the lie algebra $\frak g$. It turns out that for us to be able to find a gauge field $A$ whose curvature $F$ satisfies this condition, we must have that $\mu$ is a Lie algebra homomorphism $\mathbb R \to \frak g$ obtained as the pushforward of a Lie group homomorphism $U(1) \to G$.
+		
+		Another way to say this is (after using gauge freedom to conjugate $\mu$ to a particular Cartan subalgebra) that $\mu$ must lie in the coweight lattice $\Lambda_{cw}$. In fact the `t Hooft operator remains the same after the action of the Weyl group $\mathcal W$ on $\mu$ so we have that `t Hooft operators are classified by the space:
+			\[
+				\Lambda_{cw}(G)/\mathcal W.
+			\]
+			But this is also the same as 
+			\[
+				\Lambda_{w}(\check G)/\mathcal W.	
+			\]
+			We know that this is the space of representations of the Langlands dual group. 
+			\begin{prop}
+				`t Hooft operators in gauge group $G$ are classified by irreducible representations of $\check G$.
+			\end{prop}
+	
+			The operator product expansion of Wilson lines captures the monoidal category structure of $\mathrm{Rep}(\check G)$. By duality, this category must also be capturing the OPE of `t Hooft lines. Can we say anything about the OPE of `t Hooft lines in terms of $G$?
+
+% section wilson_lines (end)
+
+	\section{Operator Product Expansion of `t Hooft Lines}
+	
+	\subsection{Reduction to 3D}
+	
+	Because the operator product expansion is a local process, we can assume our base manifold looks like anything. It turns out to be fruitful to take $X = I \times C \times \mathbb R$. Here, $I$ is the unit interval $(0, 1)$, $C$ is a Riemann surface (which we can take to be $\mathbb{CP}^1$ WLOG) and $\mathbb R$ is regarded as the ``time'' direction and adopt a Hamiltonian point of view on $W = I \times C$. 
+	
+	The boundary conditions on $I$ matter here, and it turns out that in the $\hat A$ model we should consider \emph{Dirichlet} boundary conditions on one end and \emph{Neumann} boundary conditions on the other. In the language of gauge theory, Dirichlet boundary conditions demand the bundle to be trivial on that boundary, while Neumann boundary conditions allow for it to be arbitrary.
+	
+	Now `t Hooft lines look like points on the 3-manifold $W = I \times C$. We can locally take $\phi = \phi_4 dx^4$ so that on $W$, $\phi$ behaves as a scalar. Then, on $W$, Equation~\eqref{eq:Amod} reduces exactly to the Bogomolny equations for monopoles:
+	\[
+		F = \star_3 D_A \phi.
+	\]
+	Let's write a local coordinate $z \in \cc$ parameterizing $C$ and $\sigma \in \mathbb R$ parameterizing $I$.
+	Gauging away $A_\sigma = 0$, these equations reduce to the following:
+	\[
+		\partial_\sigma A_{\bar z} = - i D_{\bar z} \phi.
+	\]
+	This condition can be interpreted as stating that the isomorphism class of the holomorphic $G$-bundle corresponding to the connection $A_{\bar z}$ is independent of $y$. This is because the right hand side corresponds to changing $A$ by a gauge transformation generated by $-i \phi$. Thus, gauge transforming $A \to A + i \phi$ gives us a holomorphic connection on the new $G$-bundle, putting it in the same holomorphic class.
+	
+	 The only place where this is violated is at the values $\sigma$ where the Bogomolny equations become singular. This is where we have the insertion of a `t Hooft operator. 
+	 
+	 It is worth noting that this construction follows very closely the inverse scattering approach of Hitchin\cite{hitchin1982}\cite{atiyahhitchin1988}. In that case, the curve $C$ corresponded to the (non-compact) Riemann surface $\mathbb C$ parameterizing the $x_1-x_2$ plane, and lines along the $x_3$ direction take the place of our $s$ variable along the unit interval $I$.
+	
+	\subsection{The Affine Grassmannian}
+	
+	The Langlands dual is defined to have the property that any highest weight representation $\hat \rho: \hat G \to U(1)$ is dual to a morphism $\rho: U(1) \to G$ which can be viewed as a \emph{clutching function} for a $G$ bundle on the Riemann sphere $\mathbb{CP}^1$. Complexifying this gives $\rho: G \to \cc^\times \cong \mathbb{CP}^1 \backslash \{p, q \}$, AKA gluing a trivial bundle over $\mathbb{CP}^1 \backslash \{p \}$ to a trivial bundle over $\mathbb{CP}^1 \backslash \{q \}$. This is exactly what we call a Hecke modification of type $\rho$. Every holomorphic $G$-bundle over $\mathbb{CP}^1$ arises in this way. We can recognize this space of Hecke modifications as the affine Grassmannian $Gr_G = G((z))/G[[z]]$.
+	
+	\subsection{The Space of Physical States}
+	
+	\textbf{MOTIVATE THE NEXT PARAGRAPH}
+	
+	It turns out that for $\mathcal N = 4$ supersymmetric Yang Mills, the space of physical states is the (intersection) cohomology of the space of solutions to the Bogomolny equations with prescribed singularities labeled by $\check R_i, p_i$\footnote{In general, there are so-called ``instanton corrections'' to this space of states, but they are absent in this situation for reasons relating to supersymmetry.}. We denote this space by $\mathcal Z(\check R_1, p_1, \dots, \check R_k, p_k)$. Because the underlying field theory is topological, and because the space of $n$-tuples on $W$ is simply connected (so no monodromy can occur), we have that $\mathcal Z$ does not depend on the explicit positions of any of the $p_i$. Thus we can write $\mathcal H (\check R_1, \dots \check R_k) = H^*(\mathcal Z)$ and define this as the \emph{space of physical states} for this given set of line defect insertions.
+	
+	Further, $\mathcal Z(\check R_1, \dots \check R_k)$ turns out to topologically be a simple product $\prod_{i=1}^k \mathcal Z(\check R_i)$ where $\mathcal Z(\check R_i)$ is the same as the compactified space $\mathcal N(\check R_i)$ of Hecke modifications of type $\check R_i$, then by using the fact that \emph{the product of cohomologies is the cohomology of the product} we obtain:
+	\begin{equation}
+		\mathcal H(\check R_1, \dots \check R_k) = \bigotimes_{i=1}^k \mathcal H(\check R_i)
+	\end{equation}
+	
+	This suggests that there is an isomorphism of $\check R_i$ and $\mathcal H(\check R_i)$ as vector spaces. Indeed, it can be shown that such an isomorphism is the only way for these categories of (finite dimensional) vector spaces to have the same monoidal structure.
+	
+	\section{The Action of Wilson Loops on Boundary Conditions}
+	
+	If we assume that $M = \Sigma \times C$ for $C$ a compact Riemann surface and $\Sigma$ a (not necessarily compact) surface with boundary, we can study loop insertions more naturally. The following is a simplified picture of the general case:
+
+	\begin{defn}[Hitchin's Moduli Space]
+		$\mathcal M_H (G, C)$ is the space of solutions to the Hitchin equations on a curve $C$. 
+	\end{defn}
+	If we consider $C$ to be ``small'' relative to $\Sigma$, for each point in $\Sigma$, the additional data for the field configurations on the space $C$ must give us a point in this moduli space. That is, we get a nonlinear sigma model on $\Sigma \to \mathcal M (G, C)$.
+	
+	Let the curve defining a (Wilson or `t Hooft) operator be $\gamma = \gamma_0 \times p$ in $\Sigma \times C$ with $p$ a point on $C$ and $\gamma_0$ a curve on $\Sigma$. Let $\partial \Sigma_0$ be a connected component of $\partial \Sigma$. A boundary condition for the field theory on $\Sigma_0$ is called a \textbf{brane}.
+	
+	Let $\gamma_0$ approach this boundary. On the $\hat B$ side, the insertion of a Wilson loop acts as an associative endofunctor for the category of boundary conditions on the topological sigma model on $\Sigma$ with target $\mathcal M_H (G, C)$. This target  space, with choice of complex structure $J$, can be identified with $\mathcal M_{flat} (G, C)$.
+	
+	\begin{center}
+		\textbf{MAKE YOUR OWN GRAPHIC HERE}
+	\end{center}
+	
+	 This functor will depend on the point $p \in C$ corresponding to the Wilson line. Consider the product $\mathcal M_{flat} (G, C) \times C$. There is a universal $G$-bundle $\mathcal E$ over this space, given by taking a point in $\mathcal M_{flat}$ and restricting the corresponding bundle to a point in $C$. 
+	
+	Given any coherent sheaf on $\mathcal M_{flat}$, we can tensor this with $R(\mathcal E)$. This is the action of the Wilson loop insertion on the space.
+	
+	Consider the structure sheaf $\mathcal O_x$ of a point $x \in \mathcal M_{flat}(\check G, C)$. For any representation $\check R$, the Wilson loop maps $\mathcal O_x$ to $\mathcal O_x \otimes \check{R}$.
+	Thus $\mathcal O_x$ is an eigenobject for the functor $W_{\check R}(p)$, which acts on it by tensoring it with the vector space $\check R(\mathcal E_p)_x$. In fact, letting $p$ vary we see that it is an eigenobject for all $W_{\check R}(p)$. Another way of saying this is that the eigenvalue is the flat $\check G$-bundle $\check R(\mathcal E)_x$ on $C$.
+	
+	More directly, this flat bundle is obtained by taking the flat principle bundle on $C$ corresponding to $x$ and forming the associated bundle via $\check R$.
+	
+	The action of the `t Hooft operators is more difficult to see. They will end up acting by Hecke transformations on the space of boundary conditions. By Monotonen-Olive duality, it turns out that the brane corresponding to a fiber of the Hitchin fibration in $\mathcal M_H(G, C)$ is a common eigenobject for all operators.
+	

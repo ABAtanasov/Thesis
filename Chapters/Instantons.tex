@@ -1,0 +1,51 @@
+\chapter{Instantons and the ADHM Construction\label{ch:instantons}}
+
+Instantons are objects of significant interest to both physicists and mathematicians. 
+For physicists, they represent \emph{classical solutions to the equations of motion}. In the context of field theory, and more specifically \emph{Yang-Mills Field Theory}, instantons correspond to nontrivial field configurations on a given spacetime manifold. 
+
+Donaldson used the interesting mathematical properties of Yang-Mills instantons on $\mathbb R^4$ to prove novel and extremely surprising statements about the nontrivial smooth structures that can be associated to $\mathbb R^4$ uniquely among all Euclidean spaces\cite{donaldson1984}. 
+
+A useful picture comes from quantum mechanics, of a particle in a double-well potential. Having a particle localized at the bottom of either well gives rise to a classical solution. Perturbative corrections around this minimum due to the quantum theory may give rise to harmonic-oscillator-type structure within the well, but is completely unable to account for the possibility of \emph{quantum tunneling} across the barrier into the second well of the potential. To account for this, we must understand the space of classical solutions in addition to performing perturbation theory. 
+
+Mathematically, this often manifests itself in the fact that $e^{-1/x}$ has every higher derivative vanish as $x \to 0^+$. It is also the same phenomenon that allows for the existence of \emph{bump functions} in real analysis and also for \emph{asymptotic expansions} in various areas of physics and engineering.
+
+
+\section{Instantons in Classical Yang-Mills Field Theory} % (fold)
+\label{sec:instantons_in_classical_yang_mills_field_theory}
+
+Yang-Mills gauge theory is a gauge theory with gauge group $G = \mathrm{SU}(n)$. In four dimensions, the objects of study are $G$-bundles and associated $G$-bundles on Euclidean 4-space $M = \rr^4$. $\rr^4$ has a Riemannian metric, so we have a Hodge-star operator giving a (metric-dependent) canonical isomorphism:
+\[
+	\star: \Omega^k \to \Omega^{n-k}.
+\]
+From the prior section, gauge theory on $\mathbb R^4$ involves a connection $1$-form $A$ transforming in the $\ad\gg$ representation. From this, we obtain the curvature form $F$, again transforming in the adjoint action, by applying the covariant exterior derivative:
+\begin{equation}
+	F = \dd_A A = \dd A + [A, A]
+\end{equation}
+Note that 
+
+In this case, the action of the theory is given by:
+\[
+	S_E[A] := \frac{1}{8\pi} \int \tr(F \wedge \star F)
+\]
+\begin{prop}
+	$\tr(F \wedge \star F)$ is gauge independent and globally defined.
+\end{prop}
+\begin{proof}
+	Since $F$ transforms in the adjoint representation, the cyclic property of the trace gives:
+	\[
+		\tr(F \wedge \star F) \to \tr(g F g^{-1} \wedge g \star F g^{-1}) = \tr(F \wedge \star F)
+	\]
+\end{proof}
+We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard calculus of variations. Consider a local perturbation A + tα
+
+
+
+\begin{defn}
+	A Hermitian vector bundle $\pi: E \to M$ over a base space $M$ is a complex vector bundle $E$ over $M$ equipped with a Hermitian inner product on each fiber.
+\end{defn}
+
+\begin{defn}[Connection on a Vector Bundle]
+	
+\end{defn}
+
+% section instantons_in_classical_yang_mills_field_theory (end)

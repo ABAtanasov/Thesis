@@ -1,0 +1,34 @@
+Chapter 1
+Historical Background of Number Theory and Field Theory
+
+Chapter 2 "Mosaic in Mathematics":
+	1: The Abelian case: Pontryagin duality
+	2: Spectral Decompositions 
+	3: Background in Lie Theory
+	4: Geometric Rep Theory
+
+Chapter 3 "Quantum Field Theory":
+	1: Classical Field Theory
+	2: The Feynman Path Integral
+	3: TQFT
+		1D
+		2D
+		3D, 4D, and higher
+	?? CFT/Virasoro ??
+
+Chapter 4 "Gauge Theory": 
+	1: Gauge Theory Definition
+	2: Wilson Loops
+	3: Instantons
+	4: Dimensional Reduction to Monopoles 
+	5: `t Hooft Operators
+	
+Chapter 5 "N=4 Super Yang-Mills":
+	1: Reduction from Ten Dimensions
+	2: Topological Twisting
+		\hat A-model
+		\hat B-model
+		note on quantum geometric Langlands
+	3: Boundary Conditions 
+
+Appendix in category/group theory? 

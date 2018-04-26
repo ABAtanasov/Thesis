@@ -1,0 +1,589 @@
+\chapter{Magnetic Monopoles and the Equations of Bogomolny and Nahm\label{ch:monopoles}}
+	
+	The goal of this chapter is to give the reader a gentle introduction to the notable discoveries in the study of monopoles in $\mathbb R^3$.
+	
+	In section 1 we give two derivations of the Bogomolny equations. The first approach derives the equations directly from the anti-self-duality (ASD) conditions for instanton solutions in $\mathbb R^4$ by treating the fourth component of the connection 1-form, $A_4$, as a scalar field $\phi$ and ignoring translations $\partial_4$ along the $x_4$ direction. The second approach works directly with the action to derive not only the Bogomolny equations but also an integrality condition on the asymptotics of $\phi$ that allow $\frak{su}(2)$ monopole solutions, much like instantons, to be characterized by a single number $k$: the magnetic charge\footnote{For general $\frak{su}(n)$ instantons, $n-1$ numbers are required, associated to the Cartan subalgebra of $\frak{g}$. We restrict to the $\frak{su}(2)$ case, as most authors do, although the generalization of many of these statements to other real Lie groups is not difficult. For the purposes of the Langlands program $\frak{su}(2)$ will play a special role \cite{witten2010}.}.
+	
+	In section 2, we then study the (moduli) space of directed lines on $\mathbb R^3$ and make the identification between this space and the (holomorphic) tangent bundle of the Riemann sphere $T \mathbb{CP}^1$. From here, we motivate Hitchin's use of a 1-dimensional scattering equation along a line $(D_{t} - i \phi)s = 0$ to characterize monopole solutions to the Bogomolny equations as giving rise to a holomorphic vector bundle $\tilde E$ over $T\mathbb{CP}^1$ corresponding to the solution space of the scattering equation for a given line. An asymptotic analysis of the solutions to this equation naturally leads to both Hitchin's spectral curve $\Gamma$ and Donaldson's rational map theorem.
+	
+	In section 3, we motivate the Nahm transform by analogy to the ADHM construction for instantons from the prior chapter. The story is a little bit more complicated here, since rather than a reduction to linear data, we have a reduction to a Sobolev space of functions on the line segment $(0, 2)$. The Nahm equations are the related to the spectral curve $\Gamma$. We finally show how a solution of Nahm's equation gives rise to a monopole solution $(A, \phi)$ on $\mathbb R^3$.
+		
+	The main ideas relating to understanding the Bogomolny equations can be simply diagrammed in the triangle of Figure~\ref{fig:triangle}. 
+	\begin{figure}
+		\[
+		\begin{tikzcd}
+		& \text{Bogomolny Equations } \arrow[ddr,"\text{Scattering Equation [Hitchin]}"] \arrow[d,dashed] &\\
+		& \text{Rational Functions } R_k & \\
+		\text{Nahm's Equations}\arrow[uur,"\text{ADHM-like construction [Nahm]}"] \arrow[ur, dashed] && \text{Spectral Curve } \Gamma \arrow[ll,"\text{Sheaf Cohomology [Hitchin]}"] \arrow[ul, dashed]
+		\end{tikzcd}
+		\]
+		\caption{The triangle of ideas in the construction of monopoles.}
+		\label{fig:triangle}
+	\end{figure}
+
+	Historically, the Bogomolny equations were first introduced by Bogomolny \cite{bogomolny1976} together with Prasad and Sommerfield \cite{prasad1975} in their studies of spherically-symmetric single-monopole solutions to nonabelian gauge theories. Explicitly, the $\frak{su}(2)$ single-monopole solution takes the form
+	\begin{equation*}
+		\begin{aligned}
+			A &= \left(\frac{1}{\sinh{|x|}} - \frac{1}{|x|} \right) \epsilon_{ijk} \frac{x_j}{|x|} \sigma_k dx^i\\
+			\phi &= \left(\frac{1}{\tanh{|x|}} - \frac{1}{|x|} \right) \frac{x_i}{|x|} \sigma_i
+		\end{aligned}
+	\end{equation*}
+	where $\sigma_i$ are the generators of $\frak{su}(2)$ and we are using Eisntein summation convention.
+	
+	In \cite{hitchin1982}, Hitchin considered the complex structure of geodesics (i.e. directed lines) in $\mathbb R^3$ and used this together with the previous scattering ideas in the Atiyah-Ward $\mathcal A_k$ ansatz \cite{atiyah1977} to develop his approch using the spectral curve (righthand arrow in Figure~\ref{fig:triangle}). 
+	In a separate approach, Nahm \cite{nahm1982} made use of the ADHM ansatz to formulate the solutions to the Bogomolny equations for $\frak{su}(2)$ in terms of solutions to a coupled system of differential equations, now known as the Nahm equations:
+	\begin{equation*}
+		\frac{dT_j}{ds}(s) = \epsilon_{ijk} [T_j(s), T_k(s)]
+	\end{equation*} 
+	where $T_i$ for $i \in \{1, 2, 3\}$ are $k\times k$-matrix valued functions of $s$ on the interval $(0, 2)$, subject to certain conditions. This is the lefthand arrow of Figure~\ref{fig:triangle}.
+	
+	The equivalence of these two approaches, corresponding to the bottom arrow in Figure~\ref{fig:triangle} was demonstrated by Hitchin in \cite{hitchin1983}. Hitchin considered the spectral curve of a monopole and constructed a set of Nahm data associated to it, from which one could obtain Nahm's equations. This construction involved methods from sheaf cohomology for the construction of a necessary set of bundles $\mathcal L^s$ over $T \mathbb{CP}^1$.
+	This general circle of ideas for $\mathrm{SU}(n)$ monopoles was completed in \cite{hurtubise1989}.
+	
+	Remarkably, these three various descriptions of monopoles can all be related using relatively straightforward constructions to a fourth object: the space of rational functions of a complex variable $z$ with denominator of degree $k$. This is the rational map constructed by Donaldson \cite{donaldson1984nahm}.
+	
+	In general, the role of the Nahm transform in understanding the moduli space instanton-like solutions in $\mathbb R^4 / \Lambda$ for $\Lambda$ a subgroup of translations in $\mathbb R^4$ is as follows:
+	
+	\[
+	\begin{tikzcd}
+	\text{Yang-Mills(-Higgs) on }\mathbb R^4/\Lambda
+	 \arrow[rr, Leftrightarrow,"\text{Nahm Transform}",swap]&&
+	\text{Nahm Equations on } (\mathbb R^4)^*/\Lambda^*
+	\end{tikzcd}
+	\]
+	
+	% \[
+	% \begin{tikzcd}
+	% & \text{Yang-Mills(-Higgs) on }\mathbb R^4/\Lambda\\
+	% \begin{aligned}
+	% 	&\Lambda\text{-invariant}\\
+	% 	&\text{instantons}\text{ on } \mathbb R^4
+	% \end{aligned} \arrow[ur,Leftrightarrow,"\text{Reduction}"]
+	% \arrow[rd, Leftrightarrow,"\text{Nahm Transform}",swap]
+	%  &\\
+	% & \text{Nahm Equations on } (\mathbb R^4)^*/\Lambda^* %\arrow[uu, Leftrightarrow]
+	% \end{tikzcd}
+	% \]
+	
+	\section{Monopoles on $\mathbb R^3$}
+	We give here an exposition to magnetic monopoles, following the book of Atiyah and Hitchin \cite{atiyahhitchin1988}.
+	
+	\subsection{From the Reduction of the ASD Equations}
+	Taking the source-free Yang-Mills equations on $\mathbb R^4$, consider solutions that are translation invariant under one coordinate, say $x_4$. There are two ways forward: either by immediately considering the ASD connections together with translation invariance or by building up the action and seeing how the 3D analogue of the ASD connections emerges. 
+	
+	\begin{obs}[ASD Connection]
+		The ASD conditions for instantons on $\mathbb R^4$ can be explicitly written as
+		\begin{equation}
+			F_{14}=-F_{32}, \quad F_{24}=-F_{13}, \quad F_{34}=-F_{21}
+		\end{equation}
+		For $F$ translation invariant w.r.t. $x_4$, we get
+		\begin{equation}
+			\partial_{2} A_3 - \partial_3 A_2 + [A_2, A_3] = \partial_1 A_4 + [A_1, A_4]
+		\end{equation}
+		and the two other permutations. Taking $A_4 = \phi$ gives that all three of these equations can be written as
+		\begin{equation}
+			\star F = \dd_A \phi.
+		\end{equation}
+		These are the \textbf{Bogomolny equations}. Any solution to this gives us a translation-invariant instanton in $\mathbb R^4$. Note that these do not satisfy the decay conditions necessary for the instantons of the ADHM construction.
+	\end{obs}
+	
+	\subsection{From the Yang-Mills-Higgs Action on $\mathbb R^3$}
+	To derive an effective action for the $\mathbb R^3$ field theory from translation invariance in $\mathbb R^4$ we first write:
+	\begin{equation*}
+		\begin{aligned}
+			A_{4D} &= A_1\, dx^1 + A_2\, dx^2 + A_3\, dx^3 + \phi dx^4.
+		\end{aligned}
+	\end{equation*}
+	Under the translation assumption, the spatial symmetry group of 4D Euclidean transformations $\mathrm{ISO}(4) = \mathbb R^4 \rtimes SO(4)$ reduces down to the 3D group $\mathrm{ISO}(3) = \mathbb R^3 \rtimes SO(3)$. With this reduced symmetry, the $x^4$ component of $A$ (namely $\phi$) remains invariant under $\mathrm{SO}(3)$ transformations and does not mix with the other three components. Thus, we have a reduction of $A$ from lying in $\Omega^1(\mathbb R^4)$, as a fundamental representation of $\mathrm{SO}(4, \mathbb R)$ fiberwise to lying in an inhomogeneous direct sum $\Omega^1(\mathbb R^3) \oplus \Omega^0(\mathbb R^3)$ of the fundamental $\mathrm{SO}(3, \mathbb R)$ representation of $\mathrm{SO}(3)$ with the trivial one.
+	
+	Note that both $A$ and $\phi$ are still valued in $\frak g$ and transform in the adjoint representation. The covariant derivative becomes $(\dd_A)_{3D} = \dd_{3D} + A$, since $\phi\, dx^4 = 0$ on any vector in $\mathbb R^3$. Now note that the 4D curvature form becomes
+	% \begin{equation*}
+% 		\begin{aligned}
+% 			(d_{3D}+ A_{3D} + \phi dx^4)(A_{3D} +\phi dx^4) &= (d_{3D} + A_{3D}) A_{3D} + \phi dx^4 \wedge A_{3D} + A_{3D} \wedge \phi dx^4+ (\phi dx^4) \wedge (\phi dx^4)\\
+% 			&= F_{3D} + \phi dx^4 \wedge A_{3D} + A_{3D} \wedge \phi dx^4
+% 		\end{aligned}
+% 	\end{equation*}
+	% where it is important to note that $D_{3D}$ is defined by its action on a $p$-form by:
+% 	\begin{equation}
+% 		D_{3D} \omega = d\omega + A_{3D} \wedge \Omega + (-1)^{p+1} \Omega \wedge
+% 	\end{equation}
+%
+	
+	% One crucial thing to note is that we still have a relic of the 4D wedge product $\phi \wedge A_i = - A_i \wedge \phi$, which is not how the 3D wedge product would behave for a scalar. Similarly $\phi \wedge \phi = 0$.
+	
+	% The curvature form becomes:
+	
+	\begin{equation}
+		(\dd_A)_{3D}(A_{3D} + \phi) = F_{3D} + (\dd_A)_{3D} \phi.
+	\end{equation}
+	From now on we write $F$ for $F_{3D}$ and $\dd_A$ for $(\dd_A)_{3D}$. The associated action is then
+	\begin{equation}
+		S = \frac{1}{8\pi} \int \mathrm{Tr} \left[F \wedge \star F + (\dd_A \phi) \wedge \star (\dd_A \phi)\right] = \frac{1}{8\pi} \int \left[(F,F) + (\dd_A \phi,\dd_A \phi)\right].
+	\end{equation}
+	where $(\Omega, \Omega) := \mathrm{Tr} [\Omega \wedge \star \Omega]$ denotes the inner product on $p$-forms induced by the metric on $\mathbb R^3$. From now on, we restrict to the case $\frak g = \frak{su}(2)$, though many of the more general results for $\frak{su}(n)$ follow analogously.
+	
+	
+	Letting $B_R$ be ball of radius $R$ centered at the origin in $\mathbb R^3$, we recover the action as the limit of the integral:
+	\begin{equation*}
+		\lim_{R \to \infty} \frac{1}{8\pi} \int_{B_R} \left[ (F - \star \dd_A \phi, F - \star \dd_A \phi) + 2\, (\star \dd_A \phi, F) \right]
+	\end{equation*}
+	Before tackling this last term, make the following observations:
+	\begin{obs}
+		For the above action to be well-defined, we require $|F(\vec x)| = O(|x|^{-2})$ and $|\dd \phi(\vec x) |= O(|x|^{-2})$. This implies that the killing norm of $\phi$, $|\phi|$, tends to a constant value as $|x| \to \infty$.
+	\end{obs}
+	\begin{obs}
+		If $(A(\vec x), \phi(\vec x))$ is solution to the equations of motion, then $(c A(\vec x/c), c \phi(\vec x/c))$ is also a solution.  
+	\end{obs}
+	For this reason, without loss of generality we may assume $|\phi(\vec x)| \to 1$ as $|x| \to \infty$. For $R$ large, this makes $\phi|_{S_R}: S^2_R \to S^2$ map from the sphere of radius $R$ in $\mathbb R^3$ to the unit sphere $S^2$ in $\frak{su}(2)$. 
+	
+	
+	Let's make one more observation before tackling the second term
+	\begin{equation}
+		\begin{aligned}
+			\dd(\phi, \star F) &= \dd \mathrm{Tr}[\phi F]\\
+			&= \mathrm{Tr}[\dd\phi \wedge F - \phi\, \dd F]\\
+			& = \mathrm{Tr}[\dd_A \phi \wedge F - \phi A \wedge F + \phi\, A \wedge F] \\
+			&= (\dd_A \phi, \star F)\\
+			&= (\star \dd_A \phi, F)
+		\end{aligned}
+	\end{equation}	
+	This implies that the second term can be written as a boundary term:
+	\begin{equation*}
+		\int_{B_R} (\star \dd_A \phi, F) = \int_{S^2_R} \mathrm{Tr}[F \phi]
+	\end{equation*}
+	Note $\phi$ acting on a bundle $E$ transforming in the fundamental representation of $\frak{su}(2)$ has two eigenspaces of opposite imaginary eigenvalues, and by assumption that $|\phi|\to 1$, these eigenvalues cannot both be zero. Thus, they cannot cross and this gives us two well-defined line bundles $L_+, L_-$ over $S^2_R$ corresponding to the positive and the negative eigenvalues.
+	\begin{prop}
+		$E = L_+ \oplus L_-$ has vanishing first Chern class $c_1(E) = 0$.
+	\end{prop}
+	\begin{proof}
+		This follows from the fact that $\frak{su}(2)$ is traceless
+		% Note that the rank-two vector bundle $E$ over $\mathbb R^4$ corresponding the the fundamental representation of $\frak{su}(2)$ is topologically trivial since $\mathbb R^4$ is. Its restriction to $S_R^2$ must be as well, and this is precisely $L_+ \oplus L_-$.
+	\end{proof}
+	\begin{cor}
+		The first Chern class of $L_+$ is $c_1(L_+) = +k$ and $L_-$ is $c_1(L_-) = -k$ for an integer $k$
+		\footnote{It should be noted that (besides the non-monopole case of $k = 0$), this makes the bundle $E$ nontrivial. This means that $E$ cannot just be the restriction of a (necessarily trivial) vector bundle over $\mathbb R^3$. To understand this: the non-triviality of $E$ can be seen to come from singularities induced on the vector bundle by the insertion of monopole. In the $k=1$ BPS case, this corresponds to $E$ being a nontrivial bundle on $\mathbb R^3 \backslash \{0\}$}.
+	\end{cor}
+	\begin{proof}
+		After picking an orientation so that the first Chern class of $L_+$ is positive, the corollary immediately follows upon observing that the Chern classes of complex line bundles over the sphere are always integral, and the first Chern class of a direct sum is the sum of the individual first Chern classes. 
+	\end{proof}
+	\begin{prop}
+		$\lim_{R\to \infty}\int_{S_R^2} (F, \phi) = \pm 4\pi k$.
+	\end{prop}
+	\begin{proof}
+		By definition, the first Chern class of a vector bundle $E$ is $\frac{i}{2\pi} \int_{S^R} \text{Tr}(\Omega)$ for $\Omega$ the curvature two-form associated to $E$. Now note that on the eigenbundles of $\phi$, we have that since $|\phi| \to 1$, it acts as $\pm i$ ($\sigma_3$ up to gauge) so that we must have (from before)
+		\begin{equation}
+			\lim_{R \to \infty } i \int_{S_R^2} \text{Tr}(F_{L_+}) - i \int_{S_R^2} \text{Tr}(F_{L_+}) = \pm  (2\pi k c_1(L_+) + 2 \pi k c_1(L_-))  = \pm 4 \pi k.
+		\end{equation}
+	\end{proof}
+	As we take $R \to \infty$ , this proposition gives us an action of
+	\begin{equation}
+		S = \frac{1}{8\pi} \int_{B_R}  ||F - \star \dd_A \phi||^2 \pm k.
+	\end{equation}
+	In this case, the absolute minimum is achieved when $(A, \phi)$ satisfy the following:
+	\begin{prop}[\textbf{Bogomolny Equations}]\label{prop:bogomolny}
+		The monopole solutions for Yang-Mills theory on $\mathbb R^3$ satisfy
+		\begin{equation}
+			\star F(\vec x) = \dd_A \phi(\vec x)
+		\end{equation}
+		subject to the constraints (after rescaling of axes and fields) that:
+		\begin{enumerate}
+			\item $|\phi(\vec x)| \to 1 - \frac{k}{2r} $ as $|x|=r \to \infty$,
+			\item $\partial |\phi(\vec x)|/\partial \Omega = O(r^{-2})$, where $\Omega$ denotes any angular variable in polar coordinates,
+			\item $|\dd_A \phi(\vec x)| = O(r^{-2})$.
+		\end{enumerate}
+		The norm $|\phi|$ is the standard killing norm on $\frak g = \frak{su}(2)$. These equations can also describe $\frak{su}(n)$ monopoles, with adapted decay conditions.
+	\end{prop}
+	
+	Note under $\phi \to -\phi$ we get that the Bogomolny equations with $k \leq 0$ become the anti-Bogomolny equations and $F = -\star \dd_A \phi$ and $k \geq 0$. Further, spatial inversion together with $A\to-A$ can flip these to the Bogomolny equations with $k \geq 0$. Therefore, it is enough look at solutions to the Bogomolny equations for $k \geq 0$.
+	
+	\begin{defn}[Magnetic Charge]
+		The positive integer $k$ is called the \textbf{monopole number} or \textbf{magnetic charge} of the monopole solution.
+	\end{defn}
+	
+	Though our analysis has been for $\frak{su}(2)$, the $\frak{u}(1)$ case has the same equations characterizing a monopole solution.
+	\begin{obs}
+		Note when $\frak g = \frak u(1)$, and using the notation $B_k = \epsilon_{ijk} F_{ij}$ the Bogomolny equation becomes $B = \nabla \phi$, giving the first known magnetic monopole, the \textbf{Dirac Monopole}:
+		\begin{equation*}
+			\phi = \frac{k}{2r}.
+		\end{equation*}
+	\end{obs}
+	
+	\begin{nb}
+		We aim to study the solutions of the Bogomolny equations modulo the action of the gauge group $\mathcal G$. However, not all gauge transformations preserve the decay conditions on $\dd_A \phi$ and $|\partial \phi/\partial \Omega|$. Consequently, we study the Bogomolny equations modulo the restricted gauge group $\tilde{\mathcal G}$ of transformations that tend to a constant element $g$ as $|x| \to \infty$.
+	\end{nb}
+	
+	
+	\section{Hitchin's Scattering Equation, Donaldson's Rational Map, and the Spectral Curve}
+	
+	\subsection{The moduli spaces $N_k$ and $M_k$}
+	
+	We make the following notational definition
+	\begin{defn}
+		Let $N_k$ be the space of gauge-equivalent $\frak{su}(2)$ monopoles of magnetic charge $k$.
+	\end{defn}
+	This is our main object of study in what follows.
+	
+	This section involves studying the solutions of ``scattering-type'' equations along directed lines in $\mathbb R^3$. Consequently, the covariant derivative operator when restricted to a line, say along a line parallel to the $x_1$ axis, becomes:
+	\begin{equation}
+		\dd_A \to \frac{d}{dx_1} + A_1
+	\end{equation}
+	In this case, we can make a gauge transformation
+	$$A \to g A g^{-1} + g^{-1} dg$$
+	so as to make $A_1 = 0$. This simplifies the covariant derivative along lines parallel to the $x_1$ axis to become just $\dd_A \to \frac{d}{dx_1}$.
+	
+	A copy of $U(1)$ still remains to act on $A_2$ and $A_3$. Thus, as $x_1 \to \infty$, because the decay conditions on $\phi$, we have that any gauge transformation tends to a constant element in this $U(1)$ subgroup. In this context, define:
+	\begin{defn}[Framing]
+		Define a \textbf{framed gauge transformation} \cite{hitchin1983, nakajima1993} to be one that tends to the identity as $x_1 \to \infty$.
+	\end{defn}
+	If we only identify solutions modulo \emph{framed} gauge, then the asymptotic $U(1)$ element as $x_1 \to \infty$ will differentiate between solutions that are otherwise equivalent modulo the full gauge group. We thus make a definition
+	\begin{defn}
+		Define $M_k$ to the the space of solutions to the Bogomolny equations modulo framed gauge. This is fibered over $N_k$ with fiber $S_1$
+		$$S_1 \hookrightarrow M_k \twoheadrightarrow N_k$$
+	\end{defn}
+	\begin{proof}
+		We have seen that upon choosing $A_1 = 0$, gauge transformations can still have an asymptotic value in a $U(1) \cong S^1$ subgroup. Thus, quotienting out by only \emph{framed} gauge transformations to get $M_k$ leaves a piece of $S^1$ information that $N_k$ does not have. We will call this $S^1$ element the \emph{phase} of a given monopole solution. 
+	\end{proof}
+	\begin{nb}
+		$M_k$ depends on a choice of oriented $x_1$-axis in $\mathbb R^3$. A more coordinate-free way of defining this extension $M_k$ of $N_k$ is given in \cite{atiyahhitchin1988}. It relies on a simple observation from the previous section that asymptotically the restriction of $E$ over $S^2_R$ is a direct sum of $k$-twisted bundles: $E_k = L_{-k} \oplus L_{k}$. The automorphism group in $\mathrm{SU}(2)$ fixing this direct sum is exactly the $U(1)$ diagonal action:
+		\begin{equation*}
+			\begin{pmatrix}
+				e^{i\theta} & 0 \\
+				0 & e^{-i\theta}
+			\end{pmatrix}
+		\end{equation*}
+		Thus, up to this $U(1)$ automorphism determining phase, every $k$-monopole solution is asymptotically equivalent to a fixed $E_k$. Informally: restricting the gauge transformation group so as to retain this automorphism information gives us $M_k = N_k \times S^1$.
+	\end{nb}
+		% Now let $t$ be the coordinate along the $x_1$ axis and $z=x_2 + i x_3$ a complex number characterizing the remaining directions.
+		
+	\subsection{Hitchin's Scattering Transform}
+	In \cite{hitchin1982} Hitchin made use of a scattering method to show the following equivalence:
+	\begin{theorem}[Hitchin]
+		Given a solution $(A, \phi)$ to the Bogomolny equations satisfying the criteria of \ref{prop:bogomolny}, then let $\ell$ be a directed line in $\mathbb R^3$ pointing along a direction $\hat n$ with distance parameterized by $t$ and consider the following \textbf{scattering equation} along $\ell$
+		\begin{equation}
+			(D_{\hat n} - i \phi) \psi = 0.
+		\end{equation}
+		Here $D_{\hat n}$ is a restriction of the covariant derivative $\dd_A$ to act along $\ell$, $\phi$ is the scalar field restricted to $\ell$, and $\psi$ is a section of the restriction of the vector bundle $E$ associated to the fundamental representation $\mathbb C^2$ to the line $\ell$. 
+		
+		The solutions to this equation form a complex two-dimensional space $\tilde E_{\ell}$ of sections. If $A, \phi$ satisfy the Bogomolny equations, then $\tilde E_\ell$ is a holomorphic vector bundle over the space of directed lines in $\mathbb R^3$.
+	\end{theorem}
+	
+	There are several propositions that need to be developed before this theorem can be made sense of. Firstly, 
+	\begin{prop}
+		The space of directed lines in $\mathbb R^3$ forms a complex variety isomorphic to the tangent bundle to the Riemann sphere $T \mathbb{CP}^1$ with a real structure $\sigma$.
+	\end{prop}
+	\begin{proof}
+		Once a normal direction $\hat n$ is chosen, a directed line $\ell$ in $\mathbb R^3$ is uniquely determined by a vector $\vec v \perp \hat n$. Thus our space is
+		\begin{equation}
+			\{ (n, v) : |n| = 1, u \cdot v = 0\}
+		\end{equation}
+		Clearly $\hat n$ sits on a sphere $S^2$ and $(\hat n, v)$ form $T S^2$. It is sufficient to find a complex structure to make this into the complex variety $T \mathbb{CP}^1$. We will form a complex structure on $\mathbb{CP}^1$ and then this lifts to one on the tangent bundle. 
+		The complex structure $J$ acting on a point $(n, v)$ is given by taking $J(v) = \hat n \times v$. This corresponds exactly to the complex structure on the holomorphic tangent bundle of the Riemann sphere.
+		
+		The real structure $\sigma$ comes from reversing the orientation of a line $(\hat n, v) \to (-\hat n, v)$. It is easy to see $\sigma^2 = 0$, and since it reverses orientation in $\mathbb R^3$ is takes $J \to -J$.
+	\end{proof}
+	\begin{eg}
+		To make this picture clearer for the reader, let's note that given a point $(x_1, x_2, x_3)$, each direction $\hat n$ has a unique line $(\hat n, v)$ passing through this point.
+		Thus, a point $\vec x \in \mathbb R^3$ determines a section $s: \mathbb{CP}^1 \to T\mathbb{CP}^1$. Explicitly, picking a local coordinate $\zeta$ on $\mathbb{CP}^1$ we get:
+		\begin{equation}
+			s(\zeta) = ((x_1 + i x_2) - 2x_3 \zeta - (x_1 - i x_2)\zeta^2) \frac{d}{d\zeta}.
+		\end{equation}
+		The fact that the coefficient is a degree 2 polynomial in $\zeta$ is a consequence of the tangent bundle being a bundle of degree 2 over $\mathbb{CP}^1$. Note further that this corresponds to describing $\mathbb R^3$ as the space of real holomorphic vector fields on the Riemann sphere, namely $\frak{so}(3, \mathbb R)$.
+	\end{eg}
+
+	Next, let us try to study this scattering equation. It will be useful to restrict, without loss of generality, to lines parallel to the $x_1$ axis. 
+	
+	\begin{prop}
+		The solutions to the scattering equation on a line form a two dimensional space.
+	\end{prop}
+	\begin{proof}
+		In the gauge $A_1 = 0$ developed before, this is an easy consequence of the fact that $E$ is rank two and so upon decomposing $E$ into eigenspaces of $\phi$,  $L_+ \oplus L_-$, the scattering equation decouples into two linear differential equations:
+		\begin{equation}
+			\left[\frac{d}{dx} - i\lambda_j(x_1)\right] s_j = 0, \qquad j = 1,2.
+		\end{equation}
+		Because these equations are both linear and first-order, they each have a one-dimensional space of solutions.
+	\end{proof}
+	We can now understand the vector bundle that Hitchin constructed on $T \mathbb{CP}^1$.
+	\begin{obs}
+		Let $\tilde E \to T \mathbb{CP}^1$ denote the two-dimensional space of solutions to the scattering equation associated to a given line in $\mathbb R^3$. This forms a vector bundle.
+	\end{obs}
+	We are now ready to prove Hitchin's theorem.
+	\begin{prop}[Construction of a Holomorphic Vector Bundle]
+		If $(A, \phi)$ satisfy the Bogomolny equations, then $\tilde E$ is holomorphic.
+	\end{prop}
+	\begin{proof}
+		Hitchin appeals to a theorem of Nirenberg \cite{nirenberg1957}: that it is sufficient to construct an operator
+		$$\bar \partial: \Gamma(T \mathbb{CP}^1, \tilde E) \to \Gamma(T \mathbb{CP}^1, \Omega^{(0,1)}(\tilde E)).$$
+		The existence of $\bar \partial$ on $\tilde E$ would give $\tilde E$ a holomorphic structure for which $\bar \partial$ plays the role of the anti-holomorphic differential.
+		Let $s$ be a section of $\tilde E$ for a given directed line $\ell$ in $\mathbb R^3$. Let $t$ be the coordinate alone this line an $x,y$ be orthogonal coordinates in the plane perpendicular to $\ell$. In this case, define:
+		\begin{equation}
+			\bar \partial s = \left[ D_x + i D_y \right] s (dx - i dy).
+		\end{equation}
+		Where $D_x, D_y$ are shorthand for the $x$ and $y$ components of the covariant derivative $\dd_A$.
+		
+		It is easy to show that this operator satisfies the Leibniz rule together with $(\bar \partial)^2 = 0$, but we must show that it is \emph{well-defined} as an operator from $\Gamma(T \mathbb{CP}^1, \tilde E) \to \Gamma(T \mathbb{CP}^1, \Omega^{(0,1)}(\tilde E))$. Namely, we must show that it fixes $\tilde E$, meaning that:
+		\begin{equation}
+			\left(\frac{d}{dt} - i \phi \right)\left(D_x + i D_y \right) = 0.
+		\end{equation}
+		But this can be written as the requirement that the following commutator vanishes:
+		\begin{equation}
+			\begin{aligned}
+				0 &= \left[\frac{d}{dt} - i \phi, D_x + i D_y \right] = F_{12} + i F_{13} - D_y \phi + i D_x \phi\\
+				& \Rightarrow F_{12} = D_y \phi \quad F_{31} = D_x \phi.
+			\end{aligned}
+		\end{equation}
+		These are exactly the Bogomolny equations, as desired. We have thus shown that Hitchin's construction works.
+	\end{proof}
+	\subsection{The Spectral Curve}
+	Given the above discussion, it is worth trying to understand what the solutions of this scattering equation mean. We know from before that the null space of the scattering operator consists of two linearly independent solutions, $s_0$ and $s_1$. Let us look at their asymptotics. Again, let $\ell$ be a line parallel to the $x_1$ axis with $A_1 = 0$. Then
+	\begin{prop}
+		As $t \to \infty$, the two solutions to Hitchin's scattering equation are combinations of the following two solutions:
+		\begin{equation}
+			s_0(t) = t^{k/2} e^{-t}\, e_0, \qquad s_1(t) = t^{-k/2} e^{t}\, e_1
+		\end{equation}
+		where $e_0$ and $e_1$ are constant vectors in $E$ in the asymptotic gauge.
+	\end{prop}
+	\begin{proof}
+		Since $A_1 = 0$, the scattering equation becomes
+		\begin{equation}
+			\frac{d}{dt} - i \phi = 0.
+		\end{equation}
+		Using asymptotics on $\phi$ from the prior section, we get
+		\begin{equation}
+			\frac{d}{dt} - i \left(1 - \frac{k}{2t} \right)\begin{pmatrix}
+				i & 0\\
+				0 & -i
+			\end{pmatrix} + O(1/t^2) = 0.
+		\end{equation}
+		This yields two differential equations:
+		\begin{equation}
+			\frac{d}{dt} + \left(1 - \frac{k}{2t}\right) + O(1/t^2) = 0, \qquad \frac{d}{dt} - \left(1 - \frac{k}{2t}\right) + O(1/t^2) = 0,
+		\end{equation}
+		which in turn yield two solutions as $t \to \infty$:
+		\begin{equation}
+			s_0(t) \to t^{k/2} e^{-t}\, e_0, \qquad s_1(t) \to t^{-k/2} e^{t}\, e_1.
+		\end{equation}
+	\end{proof}
+	Note that (by $t$-reversal symmetry) we must have the same type of solutions as $t \to -\infty$. Namely, there is a basis where one solution blows up as $t \to -\infty$ and the other decays to zero. The solution that decays to zero, $s'$, must necessarily be some linear combination of the $t\to \infty$ solutions $s_0$ and $s_1$. We thus have:
+	\begin{equation}
+		s' = a s_0 + b s_1.
+	\end{equation}
+	In the special case that $b=0$, we get that $s'$ decays not only as $t \to -\infty$ but also as $t \to \infty$. Physically, this is called a \textbf{bound state}.
+	\begin{defn}[Bound state]
+		A bound state $\psi(\vec x)$ is a state of a physical system that decays ``sufficiently quickly'' (i.e. as $e^{-|x|}$) as $|x| \to \infty$). It captures the notion of a localized particle. 
+	\end{defn}
+	Since the linear combination for $s'$ is a relationship between sections of a holomorphic line bundle, the ratio $a/b$ is a well-defined meromorphic function on $T \mathbb{CP}^1$. Fixing $\hat n$, the poles of this function generically give $k$ points on $T_{\hat n} \mathbb{CP}^1$. Letting $\hat n$ vary gives Hitchin's \textbf{spectral curve} $\Gamma$ on $T \mathbb {CP}^1$. Note this is a $k$-fold cover of $\mathbb{CP}^1$, and an application of the Riemann-Hurwitz formula would yield that $\Gamma$ in fact has genus $k-1$. We will illustrate more on why this curve deserves its name using the Nahm transform in section 4.
+	
+	Hitchin gives the following theorem, which we will state without proof:
+	\begin{theorem}[Hitchin]
+		If two monopole solutions $(A, \phi), (A', \phi')$ have spectral curves $\Gamma', \Gamma$, then $(A, \phi)$ is a gauge transform of $(A', \phi')$.
+	\end{theorem}
+	Note that here there is no assumption on framing. The spectral curve itself does not carry information about the phase of the monopole solution. On the other hand, the section $s'$ associated to a given line for a monopole solution gives rise to a distinguished line bundle $\mathcal L$ over $\Gamma$, alongside the standard restriction of the vector bundle $\tilde E$ to $\Gamma$.
+	
+	Note that $\Gamma$ is holomorphic and \emph{real} in the sense that it is preserved by the real structure $\sigma$ on $T\mathbb{CP}^1$.
+	
+	The proof that a spectral curve satisfying the conditions imposed on $\Gamma$ will give rise to a monopole solution is done by going through the Nahm equations. As mentioned before, Hitchin \cite{hitchin1983} showed using ideas from sheaf cohomology that a spectral curve on $T \mathbb{CP}^1$ naturally gives rise to a set of Nahm data from which the Nahm equations can be constructed. In this way, the construction of monopoles goes in the direction of Figure~\ref{fig:triangle}.
+	
+	
+	\subsection{The Rational Map}
+	Let $x_1 = t$ and $z = x_2 + i x_3$. Let $\ell$ be a line parallel to the $x_1$ axis. Note it is determined by its intersection $z$ with the $x_2, x_3$ plane. $a$ and $b$ are as before: the linear combination of $s' = a s_0 + b s_1$, the solution decaying as $t \to -\infty$.
+	
+	It is a powerful result of Donaldson \cite{donaldson1984nahm} that tells us: for a fixed direction $x_1$ we not only obtain a meromorphic function of the lines $\ell$ parallel to $x_1$, namely $S(z) = a(z)/b(z)$, but that in fact \emph{any} meromorphic function on $\mathbb{CP}^1$ with denominator degree $k$ has an interpretation as a $k$-monopole solution. This rational function depends on the point of $M_k$ specifying the monopole. In this sense it is \emph{almost} gauge invariant, except for the $S^1$ phase associated to it. The poles of this rational function correspond to when the solution has $s' = s_0$ from before, namely a bound state. 
+	
+	We state Donaldson's result:
+	\begin{theorem}[Donaldson]
+		For any $m \in M_k$, the scattering function $S_m$ is a rational function of degree $k$ with $S_m(\infty) = 0$. Denote this space of rational functions by $R_k$. The identification of $m \to S_m$ gives a scattering map diffeomorphism $M_k \to R_k$.
+	\end{theorem}
+
+	\begin{eg}
+		For $k=1$ we have $R_k$ takes functions of the form $\frac{\alpha}{z-\beta}$, which turns out to correspond to a monopole at $(\log{1/\sqrt{|\alpha|}}, \mathrm{Re}(\beta), \mathrm{Im}(\beta))$. The argument of $\alpha$ describes the $U(1)$ phase at $t \to \infty$. This means $M_1$ has complex structure $\mathbb C \times \mathbb C^\times$.
+	\end{eg}
+	\begin{eg}
+		For higher $k$, in the generic case a rational function in $R_k$ will split as a sum of simple poles
+		$$\sum_{i} \frac{\alpha_i}{z-\beta_i}.$$
+		This has the interpretation of monopoles having centers at positions $(\log{1/\sqrt{|\alpha_i|}}, \mathrm{Re}(\beta_i), \mathrm{Im}(\beta_i))$ and phases described by the arguments of the $\alpha_i$.
+	\end{eg}
+	
+	
+
+	% \subsection{The Spectral Curve}
+	% Note that every oriented line $\ell$ in $\mathbb R^3$ is specified by a unit vector $\hat n$ tangent to the direction of the line and a displacement vector $v$ from the origin, perpendicular to $\hat n$. This can be recognized as the holomorphic tangent bundle to the Riemann sphere: $T \mathbb {CP}^1$.
+
+	% $\Gamma$ is in fact holomorphic, and satisfies the following conditions
+	% \begin{enumerate}
+	% 	\item $\Gamma$ is real with respect to the real structure $\sigma$ on $T \mathbb {CP}^1$.
+	% 	\item $\Gamma$ has no multiple components.
+	% \end{enumerate}
+	
+	
+	% Each point on this curve corresponds to a line on $\mathbb R^3$ with a nontrivial bound state solution in the null space of our differential operator. We thus get a line bundle $\mathcal L$ over $\Gamma$. The benefit of working with $\Gamma$ is that it is independent of axis choice.
+
+	% A given pair $(\Gamma, \mathcal L)$ satisfies the following conditions
+	% \begin{enumerate}
+	% 	\item $\mathcal L$ takes the form of a line bundle $\mathcal L^s(k-2)$ defined on $T \mathbb {CP}^1$ by the transition function $\zeta^{-k} e^{-s \eta/\zeta}$
+	% 	\item $\mathcal L^s(k) |_{\Gamma}$ is nontrivial for $0 < s < 2$ and trivial for $s = 2$
+	% \end{enumerate}
+	% So long as such a pair satisfies the above conditions, it gives a one-to-one correspondence with the solutions of the Bogomolny equations.
+
+
+	% We will at least make the observation that there is a \textbf{rational map} from $\Gamma, \mathcal L$ to $R_k$, so that Donaldson's theorem from the previous section may be seen to apply.
+	% \begin{cons}[Rational Map of Spectral Curve]
+	% 	Let $q(\eta)$ be the equation of the spectral curve at $T_0 \mathbb {CP}^1$, namely $\zeta = 0$. Now let $a$ be a trivialization of $\mathcal L^2$ so that $J a \cdot a = 1 \in H^0(\Gamma, \mathcal L^2 \mathcal L^{-2}) = \mathbb C$. Let $b^0(\eta, \zeta), b^1(\eta, \zeta)$ be the two trivializations of $\mathcal L^2$ of $\Gamma$ on the opposite hemispheres so that (working with the transition function)
+	% 	\begin{equation}
+	% 		b^0(\eta, \zeta) = \exp(-2\eta/\zeta) b^1(\eta,\zeta)
+	% 	\end{equation}
+	% 	Now let $p$ be equal to $b^1(\eta, 0)$ modulo $q(\eta)$ be the equation for the global section over $\zeta = 0$.
+	% 	Then $p(z)/q(z)$ is the rational function associated to the monopole, with respect to an $x_1$ axis choice at $\zeta = 0$ at the point $(x_2 + i x_3) = z$.
+	% \end{cons}
+
+	\section{The Nahm Equations}
+	\subsection{Motivation}
+	By adopting the monad construction of ADHM, Nahm succeeded in adapting their formalism to solving the 3D Bogomolny equation. The idea of Nahm (and indeed, the idea behind the Nahm transform more broadly) was to recognize monopoles on $\mathbb R^3$ as solutions to the anti-self-duality equations in $\mathbb R^4$ that were invariant under translation along one direction, and then appropriately modify ADHM to account for the different decay conditions and symmetries of the configuration.
+
+	We present a review of the ADHM construction from the prior section. In what follows, a \textbf{quaternionic vector space of dimension $k$} is taken to mean $k$ copies of $\mathbb C^2$, $\mathbb C^{2k}$, where each copy has quaternionic structure. 
+
+	\begin{review}
+		The ADHM construction for $\frak{su}(2)$ starts with $W$ a real vector space of dimension $k$ and $V$ a quaternionic vector space of dimension $k+1$ with inner product respecting the quaternionic structure. Then, for a given $x\in\mathbb R^4$ it forms the operator:
+		\begin{equation}
+			\Delta(x): W \to V.
+		\end{equation}
+		The operator $\Delta(x)$ is written as $Cx + D$ where $C, D$ are constant matrices and $x \in \mathbb H$ is viewed a quaternionic variable once a correspondence is made $\mathbb R^4 \cong \mathbb H$.
+		 % $D$ has quaternion entries and acts on $W \otimes \mathbb H$ while $C$ acts on $W$.
+		
+		If $\Delta$ is of maximal rank, then the adjoint $\Delta^*(x): V \to W$ has a one-dimensional quaternionic subspace $E_x$ that, as $x$ varies, can be described as a bundle over $\mathbb H \cong \mathbb R^4$. The orthogonal projection to $E_x$ (viewed as a horizontal subspace) in $V$ defines the (Ehresman) connection on the vector bundle $E \to \mathbb R^4$. \cite{hitchin1983}
+	\end{review}
+
+	Here, we will use the zero-indexed $(x_0, x_1, x_2, x_3)$ to label the coordinates so that the imaginary quaternionic structure of the latter three becomes more clear. Nahm's approach \cite{nahm1982} was to seek vector spaces $W, V$ fulfilling the same function, and look for the following conditions:
+	\begin{enumerate}
+		\item $\Delta(x)^* \Delta(x)$ is real and invertible (as before).
+		\item $\ker \Delta(x)^* \Delta(x)$ has quaternionic dimension 1 (as before).
+		\item $\Delta(x + x_0) = U(x_0)^{-1} \Delta(x) U(x_0)$.
+	\end{enumerate}
+	This last point is equivalent to the translation invariance of the connection in $x_0$, up to gauge transformation.
+
+	Because of this new condition, unlike the case of ADHM, $V$ and $W$ turn out to be infinite dimensional. Consequently, $\Delta, \Delta^*$ become differential (Dirac) operators.
+	
+	\subsection{Construction}
+
+	% As before, $V, W$ are quaternionic vector spaces of dimension $k$.
+	To construct $V$, first consider the space of all complex-valued $L^2$ integrable functions on the interval $(0,2)$. Denote this space by $H^0$ (this notation coming from the fact that this is the zeroth Sobolev space). This space has a real structure coming not only from $f(s) \to \bar f(s)$ but also from $f(s) \to \bar f(2-s)$. Define $V = H^0 \otimes \mathbb C^k \otimes \mathbb H$, where $\mathbb C^k$ is taken to have a real structure. 
+
+	Similarly, we define $W$ by considering the space of functions whose derivatives are $L^2$ integrable. This will be denoted by $H^1$ (again with motivation deriving from a corresponding Sobolev space concept). Define 
+	$$W = \{H^1 \otimes \mathbb C^k : f(0) = f(1) = 0\}.$$
+
+	% We take $V = H^0([0, 2]) \otimes \mathbb C^2 \otimes \mathbb C^k$ with $\mathbb C^2$ the quaternions and take $W = \{f \in H^1([0, 2])\otimes \mathbb C^2 : f(0)=f(2)=0\}$, again with $\mathbb C^2$ the quaternions.
+
+	Now define $\Delta: W \to V$ by
+	%
+	% Nahm constructs his vector bundle $E$ at a point $x \in \mathbb R^3$ as the null-space of a quaternionic differential operator $\Delta^*(x)$ operating on a variable $s$ on the interval $(0, 2)$. It is defined as
+	\begin{equation}
+		\Delta(x) f= i\frac{df}{ds} +x_0 f + \sum_{i=1}^3 (x_i e_i + i T_i(s) e_i) f,
+	\end{equation}
+	where $e_i$ denote multiplication by the quaternions $i,j,k$ respectively and $T_i(s)$ are $k \times k$ matrices. It is clear that this operator is the form $C x + D$ with $C = 1$ and $D = i \frac{d}{ds} + i \sum T_j e_j$.
+
+	Using the language of \cite{hitchin1983} we make the following proposition
+	\begin{prop}
+		The following hold:
+		\begin{enumerate}
+			\item The requirement that $\Delta$ is quaternionic implies $T_i(s) = T_i(2-s)^*$.
+			\item The requirement that $\Delta$ is real implies $T_i(s)$ are anti-hermitian and also that $[T_i, T_j] = \epsilon_{ijk} \frac{dT_k}{dt}$.
+			\item The requirement that $\Delta$ is invariant under $x_0$ translation is automatically satisfied
+			\item The requirement that $\Delta^*$ has kernel of quaternionic dimension 1 comes from requiring that the residues of $T_i$ at $s=0, 2$ form a representation of $\mathrm{SU}(2)$
+		\end{enumerate}
+	\end{prop}
+	\begin{proof}
+		The first two are relatively straightforward to see. The new condition follows immediately from
+		\begin{equation}
+			\begin{aligned}
+			e^{i x_0 (s-1)} [\Delta(x)] e^{-i x_0 (s-1)} f &= e^{i x_0 (s-1)} \left[i \frac{d}{ds} + \dots \right](e^{-i x_0 (s-1)} f) \\
+			&=   \Delta(x)f + x_0 f \\
+			&=  \Delta(x+x_0)f.
+			\end{aligned}
+		\end{equation}
+		The last item states that since the residues of a $k \times k$ matrix valued functions are themselves $k \times k$ matrices, that in fact the commutation relations of these residue matrices at $s=0$ and $2$ form $k$-dimensional representations of $\mathrm{SU}(2)$. This requires a bit of work, and can be found in \cite{hitchin1983}.
+	\end{proof}
+	We thus have the following data:
+	\begin{center}
+		$T_1(s), T_2(s), T_3(s)$ $k\times k$ matrix-valued functions for $s \in (0, 2)$ satisfying
+	\begin{equation}
+		\frac{dT_i}{ds} + \epsilon_{ijk} [T_j, T_k] = 0.
+	\end{equation}
+	\end{center}
+	together with the requirements
+	\begin{enumerate}
+		\setlength\itemsep{0in}
+		\item $T_i(s)^{*} = - T_i(s)$
+		\item $T_i(2-s) = - T_i(s)$
+		\item $T_i$ has simple poles at $0$ and $2$ and is otherwise analytic
+		\item At each pole, the residues $T_1, T_2, T_3$ define an irreducible representation of $\frak{su}(2)$.
+	\end{enumerate}
+	These are \textbf{Nahm's equations}. 
+	
+	For a given solution of Nahm's equations, the associated Dirac operator $\Delta^*(x)$, depending on a chosen $\vec x$, can be shown to again yield a 1-dimensional quaternionic (2-dimensional complex) kernel $E_x$. Here, though, it does not specify a connection on $\mathbb R^4$ but instead gives rise to $A$ and $\phi$ through the following way construction:
+	\begin{cons}[3D Monopole from Nahm's Equations]
+		Pick an orthonormal basis of $E_x = \ker \Delta^*(x) \cong C^2$. Call this $v_1, v_2$. We view $E_x$ as a fiber at $x$ corresponding to a $\mathbb C^2$ bundle, and construct $\phi$ and $A$ by their actions on a given $v_a$ at $x$.
+		\begin{equation}
+			\begin{aligned}
+				\phi(\vec x)(v_a) &= i \frac{v_1}{||v_1||_{L^2}} \int_{0}^2 (v_1, (1-s) v_a) ds + i  \frac{v_2}{||v_2||_{L^2}} \int_0^2 (v_2, (1-s) v_a) ds,\\
+				A(\vec x)(v_a) &= \frac{v_1}{||v_1||_{L^2}} \int_{0}^2 (v_1, \partial_i v_a) ds + \frac{v_2}{||v_2||_{L^2}} \int_0^2 (v_2, \partial_i v_a) ds.
+			\end{aligned}
+		\end{equation}
+	\end{cons}
+
+
+	\subsection{The Spectral Curve in Nahm's Equations}
+	For any complex number $\zeta$ we can make a definition:
+	\begin{equation}
+		\begin{aligned}
+			A(\zeta) &= (T_1 + i T_2) + 2T_3 \zeta - (T_1 - i T_2) \zeta^2,\\
+			A_+ &= i T_3 - (i T_1 + T_2 )\zeta.
+		\end{aligned}
+	\end{equation}
+	Nahm's equations can then be recast as:
+	\begin{equation}
+		\frac{dA}{ds} = [A_+, A].
+	\end{equation}
+	This is the \textbf{Lax Form} of Nahm's equations.
+	This can be solved by considering the curve $\mathbf S$ in $\mathbb C^2$ with coordinates $(\eta, \zeta)$ defined by
+	$$\det\left(\eta - A(\zeta) \right).$$
+	\begin{prop}
+		The above equation is independent of $s$.
+	\end{prop}
+	\begin{proof}
+		Let $v$ be an eigenvector of $A$ and let it evolve as $\frac{dv}{ds}=A_+ v$. Then
+		\begin{equation}
+			\frac{d(Av)}{ds} = [A_+, A] v + A A_+ v = A_+ A v = \lambda A_+ v,
+		\end{equation}
+		so this gives
+		\begin{equation}
+			\frac{d}{ds}(A - \lambda v) = 0.
+		\end{equation}
+		Since $A - \lambda v = 0$ at $s=0$, it is always zero.
+		Thus, this curve of eigenvalues is independent of $s$.
+	\end{proof}
+	It is in fact a remarkable result that:
+	\begin{prop}
+		The curve $\mathbf S$ constructed above is the same as the spectral curve $\Gamma$ constructed previously.
+	\end{prop}
+		Hitchin showed this by associating to a given spectral curve $\Gamma$ a set of Nahm data in \cite{hitchin1983}.
+
+
+
+	\section{The Nahm Transform and Periodic Monopoles}
+
+	The Nahm transform is a nonlinear generalization of the Fourier transform, related to the Fourier-Mukai transform. It allows for the construction of instantons on $\mathbb R^4/\Lambda$. Some examples are below:
+
+	\begin{enumerate}
+		\item $\Lambda = 0$: ADHM Construction of Instantons on $\mathbb R^4$,
+		\item $\Lambda = \mathbb R$: The monopole construction that this paper has described,
+		\item $\Lambda = \mathbb R \times \mathbb Z$: Periodic monopoles on $\mathbb R^3$ (calorons, c.f. \cite{nye2003}),
+		\item $\Lambda = (\mathbb R \times \mathbb Z)^2$: Hitchin system on a torus.
+	\end{enumerate}
+
+	% \textbf{Two possible final sections: }
+	%
+	% \begin{enumerate}
+	% 	\item \textbf{Relation to Hitchin Systems and the Higgs Curve $\Sigma$}~\cite{cherkis2007}
+	% \end{enumerate}
+
+	% \section{Connection to the work of Witten}
+	

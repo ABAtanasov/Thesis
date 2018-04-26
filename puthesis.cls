@@ -36,7 +36,7 @@
 \newcommand*{\extravspace}[1]{\vspace{0in}}
 %% Setup a command to set spacing for body text; also used to restore spacing after long tables in document
 \newcommand*{\bodyspacing}{
-  \doublespacing
+  \singlespacing
 }
 %% Setup a command to set spacing for long tables, to be used manually in document
 \newcommand*{\tablespacing}{
@@ -67,42 +67,42 @@
   \begin{center}
     \LARGE \@title
   \end{center}
-  \vspace{.6in}
-  \extravspace{.6in}
-  \begin{center}
-    \@author
-  \end{center}
-  \vspace{.6in}
-  \extravspace{.6in}
-  \begin{center}
-    A Dissertation Presented to the Faculty of\\
-    Yale University \\
-    in Candidacy for the Combined Degrees of \\
-    Bachelor and Master of Sciences\\
-	in Mathematics
-  \end{center}
-  \vspace{.3in}
-  \extravspace{.3in}
-  \begin{center}
-    Recommended for Acceptance \\
-    by the \@deptpref \\
-    \@dept \\
-    Adviser: \@adviser
-  \end{center}
-  \vspace{.3in}
-  \extravspace{.3in}
+	  \vspace{.6in}
+	  \extravspace{.6in}
+	  \begin{center}
+	    \@author
+	  \end{center}
+	  \vspace{.6in}
+	%   \extravspace{.6in}
+	%   \begin{center}
+	%     A Dissertation Presented to the Faculty of\\
+	%     Yale University \\
+	%     in Candidacy for the Combined Degrees of \\
+	%     Bachelor and Master of Sciences\\
+	% in Mathematics
+	%   \end{center}
+	%   \vspace{.3in}
+	%   \extravspace{.3in}
+	  \begin{center}
+	%     Recommended for Acceptance \\
+	%     by the \@deptpref \\
+	%     \@dept \\
+	    Adviser: \@adviser
+	  \end{center}
+	%   \vspace{.3in}
+	%   \extravspace{.3in}
   \begin{center}
     \@submitted
   \end{center}
   \clearpage
   }}
 \newcommand*{\makecopyrightpage}{
-  \thispagestyle{empty}
-  \vspace*{0in}
-  \begin{center}
-    \copyright\ Copyright by \@author, \@copyrightyear. \\
-    All rights reserved.
-  \end{center}
+  % \thispagestyle{empty}
+  % \vspace*{0in}
+  % \begin{center}
+  %   \copyright\ Copyright by \@author, \@copyrightyear. \\
+  %   All rights reserved.
+  % \end{center}
   \clearpage}
 \newcommand*{\makeabstract}{
   \newpage
