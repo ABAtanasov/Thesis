@@ -82,8 +82,6 @@ The eigenvalue data plays a particularly important role both in the Langlands co
 \section{Weil's Rosetta Stone and Geometric Langlands} % (fold)
 \label{sec:weil_s_rosetta_stone_and_geometric_langlands}
 
-
-
 The following table \cite{Yoo18} \cite{nlab:function_field_analogy} captures the \emph{function field analogy}, otherwise known as Weil's \emph{Rosetta stone}. 
 \begin{table}[h!]
 	\centering
@@ -129,7 +127,7 @@ It is the hope and goal of this correspondence that the extremely difficult numb
 		
 In this section, we will attempt to give an alternative motivation for the geometric Langlands program as a generalized non-abelian analogue of the Fourier transform. 
 
-First let us begin by working with a locally-compact abelian group $G$. We make the following definition:
+First let us begin by working with a locally-compact abelian group $G$. Such groups have a unique normalized Haar measure. We make the following definition:
 \begin{defn}[Unitary Character]
 	For $G$ locally-compact and abelian, a \textbf{unitary character} of $G$ is a group homomorphism $\chi: G \to U(1)$.
 \end{defn}
@@ -213,7 +211,10 @@ It will turn out that to understand the Fourier transform in the non-abelian cas
 \section{The Geometric Langlands Correspondence} % (fold)
 \label{sec:the_geometric_langlands_correspondence}
 
+To begin with an illustration of the categorification mentioned in the previous chapter, we will illustrate the \textbf{Fourier-Mukai} transform, and generalize from there. 
 
+When viewing $G$ as a topological category: a topological space equipped with Haar measure, the natural space of functions to study is $\mathrm{Fun}(G) = L^2(G)$. For an algebraic category $H$, the study of functions on $H$ is often replaced by instead studying \emph{sheaves} on $H$.
+ 
 \begin{table}[h!]
 	\centering
 \begin{tabular}{|c|c|c|}
@@ -221,7 +222,7 @@ It will turn out that to understand the Fourier transform in the non-abelian cas
 	\hline
 	Space of ``functions'' & $L^2(G) \cong L^2(\hat G)$ & $\mathcal D (\mathrm{Bun}_G) \cong \, ???$\\
 	Operators & $G \lacts L^2(G)$ & $\mathrm{Sat}_G \lacts \mathcal D (\mathrm{Bun}_G)$\\
-	Eigenbasis & $e^{ikx}$ & $???$
+	Eigenbasis & $\{e^{ikx}\}_{t \in \hat G}$ & $\{???\}_{\star \in ???}$
 	\end{tabular}
 \caption{The analogy of Fourier analysis as an abelian case of the geometric Langlands correspondence}
 \label{table:fourier}

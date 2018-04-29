@@ -1,41 +1,78 @@
 \chapter{Gauge Theory\label{ch:gauge}}
 
 	Gauge theory will play a central role in understanding the geometric Langlands correspondence physically. The role of the group $G$ in the Langlands correspondence is played by the gauge group in the physical theory. 
-	
-
-	
-	\begin{nb}
-		Just because a bundle is topologically trivial does not mean it is flat, nor vice versa. Flatness is an algebraic condition on the curvature 2-form $F = 0$ while triviality is a global topological condition on the vector bundle in question. 
-	\end{nb}
 
 	\section{Fiber Bundles}
 	\subsection{Definitions and Examples}
-		We are working on a manifold $M$ which we will call our \textbf{base space}. On this, we have a \textbf{coordinate bundle}:
+		We will be working on a manifold $M$ (not necessarily Riemannian). In the first definition, we can assume $M$ is just a topological space. 
+	\begin{defn}[Fiber Bundle]
+		We define a \textbf{fiber bundle} on a topological space
+		\begin{itemize}
+			\item A topological space $E$ called the \textbf{total space}
+			\item A topological space $M$ called the \textbf{base space}
+			\item A topological space $F$ called the \textbf{fiber} 
+			\item A \textbf{projection map} $\pi: E \to M$ that is surjective so that $\pi^{-1}(p) := E_p$ is homeomorphic to $F$. This is the fiber over $p$.
+			\item For each $x \in E$ there is an open neighborhood $U \subseteq M$ of $p = \pi(x)$ so that there is a homeomorphism $\psi$ from $U \times F$ to $\pi^{-1}(U)$ in such a way that projection $p_1$ onto the first factor of $U \times F$ gives $\pi$
+			\[
+			\begin{tikzcd}
+				U \times F \arrow[rd,swap,"p_1"] \arrow[rr,"\psi"] && \pi^{-1}(U) \arrow[dl,"\pi"]\\
+				& U &
+			\end{tikzcd}
+			\]
+		\end{itemize}
+	\end{defn}
+	Fiber bundles generalize the notion of cartesian products of two spaces $M$ and $F$ by allowing for the same local product structure but much more interesting global ``twisted structure''. For $p \in M$, the space $E_{p} := \pi^{-1}(p)$ is called the \textbf{fiber over $p$ of $E$} and is homeomorphic to the fiber $F$. 
+	
+	
+	In physics, especially when calculations are to be performed, manifolds are often described in terms of a set of coordinate charts $U_\alpha$ that are homeomorphic to $\mathbb R^n$ with $n = \dim M$ and $\alpha \in I$ is an index in some indexing set, not necessarily finite\footnote{But in the case of $M$ compact, $I$ can always be made finite.}. A covering of $M$ in terms of coordinate charts 
+	\[
+		M = \bigcup_{\alpha \in A} U_\alpha.
+	\]
+	together with homeomorphisms $\varphi_\alpha: U_\alpha \to \mathbb R^n$ is called an \textbf{atlas} for $M$. In order to make sense of $M$ in terms of an atlas, we define \textbf{transition maps} between different $U_\alpha$ that intersect.
+	\begin{defn}[Transition Map]
+		Given an atlas $\{U_{\alpha}\}_{\alpha \in I}$, the transition maps $\tau_{\alpha \to \beta}: U_\alpha \to U_\beta$ defined by $\varphi_\beta \circ \varphi_{\alpha}^{-1}$
+	\end{defn} 
+	By using transition maps, we can transport data locally defined on $U_{\alpha}$ to other parts of $M$ by ``moving it across'' other $U_\beta$. This data often comes from the fiber bundles over $M$.
+	
+	In physics, this perspective is particularly important, as it gives us an ability to ``glue together'' locally trivial bundles on the $U_\alpha$ to construct a globally nontrivial fiber bundle. In the cases of interest to us, fiber bundles will have a group of automorphism that will act on the fibers when comparing the data across different $U_\alpha$.
+	We define this more precisely:
+	\begin{defn}[Coordinate Bundle]
+		A \textbf{coordinate bundle} consists of 
+		\begin{itemize}
+			\item A fiber bundle, defined as before
+			\[
+			\begin{tikzcd}
+				F \arrow[r] & E  \arrow[d,"\pi"] \\ 
+				& M
+			\end{tikzcd}
+			\]
+			\item A group $G$, called the \textbf{structure group} of $E$ acting freely on each fiber\footnote{A $G$-action is free iff $\forall f \in F \, g f = f  \Rightarrow g = 1$. The reason we consider free actions is that if $G$ did not act freely, then the stabilizer of $F$ would give a normal subgroup $N$. Upon passing to the quotient we would get a free action of $G/N$.}.
+			\item A set of open coverings $\{ U_\alpha \}_{\alpha \in I}$ of $M$ with diffeomorphisms $\phi_\alpha: U_\alpha \times F \rightarrow \pi^{-1} (U_i)$ called \textbf{local trivializations} so that the following diagram commutes. 
+			\[
+			\begin{tikzcd}[row sep=2.5em]
+			U_\alpha \times F \arrow[dr,swap,"p_1"] \arrow{rr}{\psi_\alpha} && \pi^{-1}(U_\alpha) \arrow{dl}{\pi} \\
+			 & U_\alpha \\
+			\end{tikzcd}
+			\]
+			\item On $U_{\alpha \beta} := U_\alpha \cap U_\beta$, $\psi_\beta^{-1} \psi_\alpha$ acts as a diffeomorphism\footnote{This is a diffeomorphism in this case because we are considering a $C^\infty$ fiber bundle. If we were considering continuous, differentiable, or holomorphic fiber bundles this map would be continuous, differentiable, or holomorphic respectively.} coinciding with the action of an element of $G$ on each $E_p$ (we say ``fiberwise"). 
+		\end{itemize}
+		% $\psi_\alpha$ captures the explicit isomorphism data between the fiber object $F$ and the fiber at a point $F_p$. $\psi_{\alpha, F_p} (f) = \psi_\alpha (p, x)$
+	\end{defn}
 		
-		\begin{defn}[Coordinate Bundle]
-			A coordinate bundle consists of 
-			\begin{itemize}
-				\item A \textbf{total space} $E$
-				\item A base space $M$
-				\item A \textbf{fiber} $F$
-				\item A surjection $\pi : E \rightarrow M $ called \textbf{projection} to a point $p$ on $M$ so that $\pi^{-1}(p) := E_p \cong F$. This is the fiber over $p$.
-				\item A \textbf{Lie Group} $G$ freely acting on the fiber: $G \lacts F$ s.t. $g f = f \, \forall f \in F \Rightarrow g = 1$.
-				\item A set of open coverings $\{ U_\alpha \}_{\alpha \in I}$ of $M$ with diffeomorphisms $\phi_\alpha: U_\alpha \times F \rightarrow \pi^{-1} (U_i)$ called \textbf{local trivializations} so that the following diagram commutes. 
-				\[
-				\begin{tikzcd}[row sep=2.5em]
-				U_\alpha \times F \arrow{dr}{p_1} \arrow{rr}{\psi_\alpha} && \pi^{-1}(U_\alpha) \arrow{dl}{\pi} \\
-				 & U_\alpha \\
-				\end{tikzcd}
-				\]
-				\item On $p \in U_{\alpha \beta} := U_\alpha \cap U_\beta$, $\psi_\beta^{-1} \psi_\alpha$ acts as a diffeomorphism coinciding with the action of an element of $G$ on each $E_p$ (we say ``fiberwise"). 
-			\end{itemize}
-			In this way $\psi_\alpha$ gives rise to a diffeomorphism between $F$ and $F_p$ given by $\psi_{\alpha, F_p} (f) = \psi_\alpha (p, x)$
-		\end{defn}
-		Fiber bundles generalize the notion of cartesian products of two spaces $M$ and $F$ by allowing for the same local product structure but much more interesting global ``twisted structure''.
+	In gauge theory, $G$ is taken to be a \textbf{Lie group} called the \textbf{structure group} of $E$. 
+	\begin{defn}
+		A Lie group is a group that is also a differentiable manifold so that the group operations of multiplication and inversion are compatible with the  differentiable structure. 
+	\end{defn}
+	A basic working knowledge of Lie theory is assumed, however we will go over relevant aspects of Lie groups in the following sections of this chapter.
+	
+	\begin{nb}
+		In the above, we described $\varphi_\alpha$, $\tau_{\alpha}$ as \emph{homeomorphisms}, which are indeed morphisms in the category of topological spaces. If we wish to work in other categories, such as $C^r$-differentiable, smooth, analytic, or complex manifolds, then the transition functions would have to be $C^r$-differentiable, smooth, convergent Taylor series, or holomorphic respectively. 
+		If we were working in the category of algebraic varieties, the corresponding maps we consider would have to be \emph{regular}.
+	\end{nb}	
+		%
+		% From this we can define the vertical component of a point in the total space: $f_\alpha: E \rightarrow F$ by $f_\alpha = \psi^{-1}_{\alpha, \pi}$.
 		
-		From this we can define the vertical component of a point in the total space: $f_\alpha: E \rightarrow F$ by $f_\alpha = \psi^{-1}_{\alpha, \pi}$. 
-		
-		We can also identify $\psi^{-1}_{\beta, p} \circ \psi_{\alpha, p}$ with an element in $G$ by $g_{\alpha, \beta}: U_{\alpha \beta} \rightarrow G$.
+		We can also identify $\psi^{-1}_{\beta, p} \circ \psi_{\alpha, p}$ with an element in $G$ by $g_{\alpha, \beta}: U_{\alpha \beta} \rightarrow G$ acting fiberwise on the overlap of the two bundles over $U_\alpha, U_\beta$ to translate data from one coordinate patch into the other.
 		\begin{prop}
 			$g_{\alpha \beta}$ satisfies 
 			\begin{itemize}
@@ -54,35 +91,34 @@
 		\begin{proof}
 			These are all easy to check just by the definition of $g_{\alpha \beta}$ as a composition of the $\psi_\alpha$ and by invoking the cartesian properties of local trivialization.
 		\end{proof}
-		The equivalence class of a coordinate bundle on $M$ is called a \textbf{fiber bundle} over $M$. 
+		The equivalence class of a set of coordinate bundles on $M$ is called a corresponding fiber bundle over $M$.
 		
-		Fiber bundles whose fibers are are vector spaces are called vector bundles. Examples are the tangent/cotangent spaces to a manifold, and any tensor/symmetric/exterior powers thereof. We will see that we can view vector fields, $p$-forms, and many other interesting, physically-relevant, objects as ``slices'' or \textbf{sections} of fiber bundles.
+		Fiber bundles whose fibers are are vector spaces are called \textbf{vector bundles}. A rank $n$ vector bundle over a field $\kk$ will have structure group $G \subseteq \GL_n(\kk)$. Examples are the tangent/cotangent bundles of a manifold, and any tensor/symmetric/exterior powers thereof. We will see that we can view vector fields, $p$-forms, and many other interesting and physically-relevant objects as \textbf{sections} of fiber bundles, to be described in the later sections.
 		
 		\subsection{Morphisms and Extensions}
 		The morphisms in the category of fiber bundles are called \textbf{bundle maps}:
 		
 		\begin{defn}[Bundle Map]
-			For two fiber bundles $\pi: E \rightarrow M, \pi': E' \rightarrow M'$ a bundle map is a smooth map $\bar f: E \rightarrow E'$ that naturally induces a smooth map on the base spaces so that the following diagram commutes:
+			For two fiber bundles $\pi: E \rightarrow M, \pi': E' \rightarrow M'$ a bundle map is a smooth map $\overline f: E \rightarrow E'$ that naturally induces a smooth map on the base spaces so that the following diagram commutes:
 			\[
 			\begin{tikzcd}
-			E \arrow{r}{\bar f} \arrow{d}{\pi} & E' \arrow{d}{\pi'} \\
+			E \arrow{r}{\overline f} \arrow{d}{\pi} & E' \arrow{d}{\pi'} \\
 			M \arrow{r}{f} & M
 			\end{tikzcd}
 			\]
 		\end{defn}
-		
-
-		Two bundles are equivalent if there is a bundle map so that both $\bar f$ and $f$ are diffeomorphisms. 
-				
-		If we have a fiber bundle $\pi: E \rightarrow M$ and $\varphi: N \rightarrow M$ for another manifold $N$, then we can pull back $E$ to form a bundle over $N$. 
+		From this we obtain the way which we will identify two bundles as identical.
+		\begin{defn}[Equivalence of fiber bundles]
+			Two bundles are equivalent if there is a bundle map so that both $\overline f$ and $f$ are diffeomorphisms. 
+		\end{defn}
+		If we have a fiber bundle $\pi: E \rightarrow M$ and $\varphi: N \rightarrow M$ for another manifold $N$, then we can pull back $E$ to form a bundle over $N$
 		\begin{equation}
-			\varphi^* E = \{(y,[f,p]) \in N \times E s.t. \varphi(y) = p \}
+			\varphi^* E = \{(y,[f,p]) \in N \times E \; s.t. \; \varphi(y) = p \}.
 		\end{equation}
 		We have projection on the second factor of $\varphi^* E$ as a map $g: \varphi^* E \rightarrow E$. 
-		
 		This is the \textbf{pullback bundle} $\varphi^* E$.
 		\begin{defn}[Pullback Bundle]
-			For a map $\varphi: N \rightarrow M$ and $E$ a fiber bundle over $M$ so that $\pi: E \rightarrow M$, we define the pullback bundle $\varphi^* M$ so that the following diagram commutes:
+			For a map $\varphi: N \rightarrow M$ and $E$ a fiber bundle over $M$ so that $\pi: E \rightarrow M$, we define the pullback bundle $\varphi^* E$ so that the following diagram commutes:
 			\[
 			\begin{tikzcd}
 			\varphi^* E \arrow{r}{g} \arrow{d}{\pi'} & E \arrow{d}{\pi} \\
@@ -90,17 +126,20 @@
 			\end{tikzcd}
 			\]
 		\end{defn}
+		Let us consider an example which will appear later in the context of studying a monopole placed at the origin of $\rr^3$.
+		\begin{eg}
+			Consider a vector bundle over $\rr^3 \backslash \{0\}$. The restriction of this vector bundle to the sphere $S^2$ gives rise to a vector bundle on $S^2$ which is the same as the pullback bundle induced from $\iota: S^2 \to \rr^3$
+		\end{eg}
 		
-		We can take products of these bundles as topological spaces in the obvious way: 
-		\begin{equation}
-			E \times E' \xrightarrow{\pi \times \pi'} M \times M'
-		\end{equation}
-		
-		In the special case where $M = M'$ we get 
+		We can take products of fiber bundles as topological spaces in the obvious way to obtain a fiber bundle over $M \times M'$,
+		\[
+			E \times E' \xrightarrow{\pi \times \pi'} M \times M'.
+		\]
+		In the special case where $M = M'$ we can also define 
 		\begin{defn}[Direct Sum of Vector Bundles]
-			For $E, E'$ vector bundles over $M$ we can define their sum as $E \oplus E'$ to be $M$ with $F \oplus F'$ fibered over every point. 
-			More succinctly, it is the pullback bundle of the map $f: M \rightarrow M \times M$.
+			For $E, E'$ vector bundles over $M$ with structure groups $G, G'$ respectively, we can define their sum as $E \oplus E'$ to be pullback bundle $E \times E'$ along the diagonal map $\Delta: M \rightarrow M \times M$.
 			
+			More explicitly, this is a fiber bundle over $M$ with $F \oplus F'$ fibered over every point. 
 			The structure group of $E \oplus E'$ is the product $G \times G'$ of the structure groups of the original bundles and it acts diagonally on their sum.
 			\begin{equation}
 				G^{E \oplus E'} = \left \{ \begin{pmatrix}
@@ -110,27 +149,23 @@
 			\end{equation}
 			and the transition functions act diagonally in the same way. 
 		\end{defn}
-		
-		Alternatively we could have defined 
-		\begin{equation}
-			\bar E = \{ ([p, f], [p, f']) \in E \times E'\}
-		\end{equation}
-		which is a bundle over $M$ as well, and its easy to see this is also the direct sum bundle. 
-		
 		Similarly, we can define arbitrary direct sums of bundles recursively:
 		\begin{equation}
 			E_1 \oplus \dots \oplus E_r 
 		\end{equation}
 		
 		
-		For some intuition about when fiber bundles are \emph{nontrivial}, consider the following theorem
+		For some intuition about when fiber bundles are \emph{nontrivial}, consider the following theorem which we state without proof but refer to \cite{bott1982} chapter 3. Stated simply: taking the pullback of a bundle along a map is topologically invariant under homotopy of the map. 
 		\begin{theorem}
 			Let $\pi:E \rightarrow M$ be a fiber bundle over $M$ and consider maps $f, g$ from $N \rightarrow M$ so that $f, g$ are homotopic, then the pullback bundles are equivalent: $f^* E \cong g^* E$ over $N$.
 		\end{theorem}
 		An important fact is the following corollary:
 		\begin{cor}
-			If $M$ is contractible, every fiber bundle $\pi: E \rightarrow M$ is topologically trivial.
+			If $M$ is contractible, every fiber bundle $\pi: E \rightarrow M$ is topologically trivial\footnote{In the language of classifying spaces, $M$ being trivial implies there is only one homotopy class of map $M \to BG$, so that consequently the only fiber bundle over $M$ is the trivial one}.
 		\end{cor}
+		\begin{proof}
+			Let $f: pt \to M$ and $g: M \to pt$ be such that $f \circ g \sim id|_M$ and $g \circ f \sim id|_{pt}$. Then because pullback respects homotopy equivalence, we will have that $E \sim (f \circ g)^* E \sim f^* (g^*E)$ but $g^* E$ is the (necessarily trivial) bundle on a point, so this will pull back along $f$ to the trivial bundle along $f$.
+		\end{proof}
 		
 		\subsection{Principal Bundles}
 		
@@ -188,10 +223,10 @@
 		A \textbf{global section} of the fiber bundle $\pi: E \rightarrow M$ is a map $s: M \rightarrow E$ so that $\pi \circ s = \text{id}$. When it's restricted, $s: U \subseteq M \rightarrow E$, we call $s$ a \textbf{local section}. The set of smooth global sections is denoted by $\Gamma^\infty (M, E)$. 
 		
 		\begin{eg}
-			The set of all smooth $r$-forms on $M$ is $\Gamma^\infty(M, \Lambda^r (T^* M))$ on which the structure group acts on each wedge. Note the different action of the structure group on different $r$-forms is exactly what makes the components of various $r$-forms ``$r$-times covariant''. 
+			The set of all smooth $r$-forms on $M$ is $\Gamma^\infty(M, \Lambda^r (T^* M))$ on which the structure group acts on each component of $M$. % Note the different action of the structure group on different $r$-forms is exactly what makes the components of various $r$-forms ``$r$-times covariant''.
 		\end{eg}
 		
-		When the group is fibered over the manifold, then on the local cartesian structure, we can easily pick the section $p \mapsto [p,e]$.
+		When the group is fibered over the manifold, then on the local cartesian structure, we can easily pick the section $p \mapsto [p,s(p)]$.
 		
 		\begin{prop}
 			For a principal bundle $P(M,G)$, any local trivialization $\psi: U \times G \rightarrow \pi^{-1} (U)$ defines a local section by $s: p \mapsto \psi(p, e)$ and conversely any local section defines a trivialization by $\psi(p,g) = s(p) g$
