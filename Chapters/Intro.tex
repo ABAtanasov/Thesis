@@ -5,18 +5,18 @@ The aim of this chapter is to give a both a conceptual and historical overview o
 \section{The Langlands Program in Number Theory} % (fold)
 \label{sec:the_langlands_program_in_number_theory}
 
-One of the greatest problems in mathematics, known as \emph{Fermat's Last Theorem}, conjectured there does not exist any integer solution to the following equation:
+\emph{Fermat's Last Theorem}, once known as the ``greatest unsolved problem in mathematics'', conjectures that there does not exist any integer solution to the following equation:
 $$a^n + b^n = c^n, \qquad n > 2$$
 that is nontrivial. A solution is nontrivial is none of $a, b, c$ is zero.
 
-The proof of Fermat's last theorem relied on some of the most intricate mathematics developed at the end of the 20th century. The central theorem necessary for the proof of Fermat's last theorem is as follows\footnote{In fact, this theorem is strictly stronger than is necessary. It was enough for Wiles et al.\ to prove that a special family of elliptic curves is modular. The case for general elliptic curves has since been proven by Christophe Breuil, Brian Conrad, Fred Diamond, and Richard
-Taylor \cite{Yoo18}.}.
+The proof of Fermat's last theorem relied on some of the most intricate mathematics developed at the end of the 20th century. The central theorem necessary for the proof of Fermat's last theorem is as follows.
 \begin{theorem}[Modularity Theorem for Elliptic Curves]
 	Every elliptic curve is modular.
 \end{theorem}
 
-Fermat's last theorem follows from a special case of the modularity conjecture. The modularity conjecture for elliptic curves turns out to follow from a special case of a special case of the \emph{Langlands conjectures} \cite{Langlands1970}.
-More precisely, it is a corollary of the Langlands correspondence for $G = \mathrm{GL}_2$ over $\qq$. This part of the Langlands conjecture remains unproven as of May 2018 \cite{Yoo18}. 
+Fermat's last theorem follows from a special case of the modularity conjecture. The modularity conjecture for elliptic curves turns out to follow from a special case of a special case of the \emph{Langlands conjectures}, originally formulated by Robert Langlands in 1970 \cite{Langlands1970}.
+More precisely, it is a corollary of the Langlands correspondence for $G = \mathrm{GL}_2$ over $\qq$ \footnote{In fact, the modularity theorem is strictly stronger than necessary. It was enough for Wiles et al.\ to prove that a special family of elliptic curves is modular. The case for general elliptic curves has since been proven by Christophe Breuil, Brian Conrad, Fred Diamond, and Richard
+Taylor \cite{breuil2001}.}. This part of the Langlands conjecture remains unproven as of May 2018 \cite{Yoo18}. 
 
 We give a sketch of the statement of the number-theoretic Langlands correspondence, intended towards an audience with some background in \emph{Galois theory} and the language of \emph{adeles}. 
 
@@ -24,11 +24,11 @@ Begin by considering the \textbf{absolute Galois group} of the rationals:
 \[
 	\mathrm{Gal}(\bar \qq/\qq)
 \]
-Here $\bar \qq$ is the algebraic completion of $\qq$, consisting of all algebraic numbers. This Galois group is tremendously large. As an example of its size, there is an open conjecture known as the \emph{inverse galois problem} that 
+Here $\bar \qq$ is the algebraic completion of $\qq$, consisting of all algebraic numbers. This Galois group is tremendously large. As an example of its size, there is an open conjecture known as the \emph{inverse Galois problem} that 
 \begin{conj}[Inverse Galois]
 	Every finite group is contained in $\mathrm{Gal}(\bar \qq/\qq)$.
 \end{conj}
-The number theoretic Langlands correspondence considers the $n$-dimensional representations of the absolute Galois group (called \emph{Galois representations}) and relates them to certain representations known as \emph{automorphic representations}. To define this, we first make the definition
+The number theoretic Langlands correspondence considers the $n$-dimensional representations of the absolute Galois group (called \emph{Galois representations}) and relates them to certain representations known as \emph{automorphic representations}. To define these latter types of representations, we first make the definition
 \begin{defn}[Ring of adeles]
 	The \textbf{ring of adeles} of $\qq$ is defined as 
 	\[
@@ -40,7 +40,7 @@ The number theoretic Langlands correspondence considers the $n$-dimensional repr
 	\]
 \end{defn}
 
-Since $\mathbb A_\qq$ is a ring, we can (in a basis-dependent way) define $\GL_n(\mathbb A_\qq)$ as the set of $n \times n$ matrices with entires in $\mathbb A_\qq$. Further, because $\qq \hookrightarrow \mathbb A_\qq$, we also have 
+Since $\mathbb A_\qq$ is a ring, we can define $\GL_n(\mathbb A_\qq)$ as the set of $n \times n$ matrices with entries in $\mathbb A_\qq$. Further, because $\qq \hookrightarrow \mathbb A_\qq$, we also have 
 \[
 	\GL_n(\qq) \hookrightarrow \GL_n(\mathbb A_\qq)
 \]
@@ -60,7 +60,7 @@ Thought not absolutely precise \cite{Yoo18}, this is a good first-order descript
 \end{idea}
 More than just an equivalence of sets, though, the Langlands correspondence states that a certain set of \emph{eigenvalue data} must agree on both sides. 
 
-From the perspective of the absolute Galois group (henceforth referred to as the \emph{Galois side}), this eigenvalue data is called the \textbf{Frobenius eigenvalues} of this representation. The Frobenius automorphism $x \to x^p$ is the generator of the Galois group of any finite extension $\mathrm{Gal}(\mathbb F_q/\mathbb F_p)$. Given a finite-dimensional representation of $\mathrm{Gal}(\bar \qq/\qq)$ as well as a conjugacy class, one can lift the Frobenius automorphism to a conjugacy class. The eigenvalues (well-defined for a given conjugacy class) of these elements are the Frobenius eigenvalues of that representations. 
+From the perspective of the absolute Galois group (henceforth referred to as the \emph{Galois side}), this eigenvalue data is called the \textbf{Frobenius eigenvalues} of this representation. For $p$ a prime, the Frobenius automorphism $x \to x^p$ is the generator of the Galois group of any finite extension $\mathrm{Gal}(\mathbb F_q/\mathbb F_p)$. Given a finite-dimensional representation of $\mathrm{Gal}(\bar \qq/\qq)$ as well as a conjugacy class, one can lift the Frobenius automorphism to a conjugacy class. The eigenvalues (well-defined for a given conjugacy class) of these elements are the Frobenius eigenvalues of that representation. 
 
 From the perspective of the automorphic representations (henceforth referred to as the \emph{automorphic side}), the eigenvalue data is more difficult to see. 
 \textbf{Finish this}
@@ -75,15 +75,13 @@ It is worth mentioning that the Langlands conjecture over $G = \mathrm{GL}_1$ is
 
 Many questions in number theory can be formulated in terms of questions about the nature of the absolute Galois group. On the other hand, automorphic representations can be studied using analytic methods, which would imply that deep number-theoretic data can be made accessible by studying these analytic objects.
 
-The eigenvalue data plays a particularly important role both in the Langlands correspondence and in its geometric analogue. The study of this will become the study of the \emph{geometric Satake} symmetries acting on both sides of the geometric Langlands equivalence, and this thesis will explore how ideas from physics can give a concrete realization of the eigenvalue data in terms of \emph{operator insertions} in quantum field theory. 
+The eigenvalue data plays a particularly important role both in the Langlands correspondence and its geometric analogue. The study of this will become the study of the \emph{geometric Satake} symmetries acting on both sides of the geometric Langlands equivalence, and this thesis will explore how ideas from physics can give a concrete realization of the eigenvalue data in terms of \emph{operator insertions} in quantum field theory. 
 
 % section the_langlands_program (end)
 
 \section{Weil's Rosetta Stone and Geometric Langlands} % (fold)
 \label{sec:weil_s_rosetta_stone_and_geometric_langlands}
 
-
-It is the hope and goal of this correspondence that the extremely difficult number-theoretic Langlands program might become more accessible when phrased in the language of the second or third columns. A reason to believe this might be so is because the power of modern algebraic geometry, as developed by Grothendieck, Deligne, and others, becomes a prominent force in driving our understanding of columns two and three. 
 
 
 The following table \cite{Yoo18} \cite{nlab:function_field_analogy} captures the \emph{function field analogy}, otherwise known as Weil's \emph{Rosetta stone}. 
@@ -115,126 +113,119 @@ The following table \cite{Yoo18} \cite{nlab:function_field_analogy} captures the
 	$\mathrm{Gal}(\bar F/F)$ & \parbox{6cm}{$\mathrm{Gal}(\bar F/F) = \pi_1^{\text{\'et}}(\spec F, \spec \bar F)$\\
 	$\twoheadrightarrow \mathrm{Gal}(F^{\text{unr}}/F) = \pi_1^{\text{\'et}}(C, x)$} & $\pi_1(C, x)$\\
 	\hline
-	
 	\hline
 \end{tabular}
 \caption{Weil's \emph{Rosetta stone}}
 \label{table:rosetta}
 \end{table}
-%
-%
-%
-% \begin{table}[h!]
-% 	\centering
-% \begin{tabular}{|c|c|c|}
-% 	\hline
-% 	Number Theory & Curves over $\ff_q$ & Riemann Surfaces\\
-% 	\hline
-% 	\hline
-% 	$\zz \subset \qq$ & $\ff_q[t] \subset \ff_q(t)$ & $\OO^{hol}_\cc \subset \OO^{mer}_\cc$ \\
-% 	\hline
-% 	$\spec \zz$ & $\mathbb A^1_{\ff_q}$ & $\cc$\\
-% 	\hline
-% 	$\spec \zz \cup \{\infty\}$ & $\mathbb P^1_{\ff_q}$ (projective line) & $\cp^1$ (Riemann sphere)\\
-% 	\hline
-% 	$p$ prime number & $x \in \ff_p$ & $x \in \cc$\\
-% 	\hline
-% 	\hline
-% 	$\zz_p$ (p-adic integers) & $\ff_q[t-x]$ power series around $x$ & \parbox{6cm}{\vspace{0.1in} $\cc[[z-x]]$ holomorphic on formal disk around $x$\vspace{0.1in}}\\
-% 	\hline
-% 	$\qq_p$ (p-adic numbers) & $\ff_q((t-x))$ Laurent series around $x$ & \parbox{6cm}{\vspace{0.1in} $\cc((z-x))$ holomorphic on punctured formal disk around $x$\vspace{0.1in} }\\
-% 	\hline
-% 	$\mathbb A_\qq$ (adeles) & $\mathbb A_{\ff_q}$ function field adeles & \parbox{6cm}{\vspace{0.1in} $\prod_{x \in \cc}^{res} \cc((z-x))$ restricted product of functions on all punctured disks, with all but finitely many extending to the unpunctured disk\vspace{0.1in} }\\
-% 	\hline
-% 	\hline
-% 	$F/\qq$ (number fields) & \parbox{5cm}{$F/\ff_q(t)$ or $\ff_q(C)/\ff_q(\mathbb P^1)$\\(function fields)}& $C \to \cp^1$ (branched covers)\\
-% 	\hline
-% 	$\mathrm{Gal}(\bar F/F)$ & \parbox{6cm}{$\mathrm{Gal}(\bar F/F) = \pi_1^{\text{\'et}}(\spec F, \spec \bar F)$\\
-% 	$\twoheadrightarrow \mathrm{Gal}(F^{\text{unr}}/F) = \pi_1^{\text{\'et}}(C, x)$} & $\pi_1(C, x)$\\
-% 	\hline
-%
-% 	\hline
-% \end{tabular}
-% \caption{The geometric Langlands analogy}
-% \label{table:geometriclanglands}
-% \end{table}
+
+It is the hope and goal of this correspondence that the extremely difficult number-theoretic Langlands program might become more accessible when phrased in the language of the second or third columns of Table~\ref{tab:rosetta}. A reason to believe this might be so is because the power of modern algebraic geometry, as developed by Grothendieck, Serre, Deligne, and others, becomes a prominent force in driving our understanding of columns two and three. 
+
 
 % section weil_s_rosetta_stone_and_geometric_langlands (end)
 
-\section{The Fourier Transform and Pontryagin Duality} % (fold)
-\label{sec:the_fourier_transform_and_pontryagin_duality}
+\section{The Fourier Transform, Pontryagin Duality, and Geometric Langlands} % (fold)
+\label{sec:the_fourier_transform_pontryagin_duality_and_geometric_langlands}
 		
-		In this section, we will be working with a locally-compact abelian group $G$. We make the following definition:
-		\begin{defn}[Unitary Character]
-			For $G$ locally-compact and abelian, a \textbf{unitary character} of $G$ is a group homomorphism $\chi: G \to U(1)$.
-		\end{defn}
-		From this definition, we define the following group, which plays a role as a \emph{dual} to $G$. It is called the \textbf{Pontryagin dual}.
-		\begin{defn}
-			The set of all unitary characters $\chi$ together with multiplication given by $\chi_1 \cdot \chi_2 \in \mathrm{Hom}(G, U(1))$.
-		\end{defn}
-		
-		\begin{eg}
-			We have the following examples:
-			\begin{enumerate}
-				\item Let $G = S^1$, then the space of unitary characters is precisely of the form $e^{inx}: G \to U(1)$. This makes $\widehat G = \mathbb Z$.
-				\item Let $G = \mathbb Z$, then $\chi(1)$ determines the representation uniquely, and so $\widehat G = U(1)$.
-				\item 			Let $G = \mathbb R$, then $e^{ikx} : \mathbb R \to U(1)$ is free to have $k$ vary over $\mathbb R$ so $\widehat G = \mathbb R$.
-			\end{enumerate}
-			
-		\end{eg}
+In this section, we will attempt to give an alternative motivation for the geometric Langlands program as a generalized non-abelian analogue of the Fourier transform. 
 
-		Notice in all these cases that $\widehat{\widehat G} \cong G$. This is in fact true more general, and we have the following theorem:
-		\begin{theorem}[Pontryagin Duality]
-			$G \to \widehat{\widehat G}$ is an isomorphism of groups, given by sending $g \to  g'$ which is given by $g' (\chi) = \chi (g)$.
-		\end{theorem}
-		
-		\begin{obs}
-			The $L^2$-integrable functions on $G$ have a basis given by characters. 
-		\end{obs}
-		\begin{eg}
-			We have the following examples:
-			\begin{enumerate}
-				\item $f: S^1 \to \mathbb C$ has $f(\theta) = \sum_{n} a_n e^{i n \theta}$. This is known as the \textbf{Fourier series}.
-				\item $f: \mathbb Z \to \mathbb C$ has $f(n) = \int_{0}^{2\pi} F(\theta) e^{i n \theta}$. This is known as the \textbf{discrete time series}.
-				\item $f: \mathbb R \to \mathbb R$ has $f(x) = \int_{-\infty}^\infty \widehat{f(k)} e^{ikx}$. This is known as the \textbf{Fourier transform}.
-			\end{enumerate}
-		\end{eg}
-		
-		Let us now try to generalize the ideas of the Fourier transform to a more direct case. It is useful to view the Fourier transform as letting us see two different sides of the same object. Let that object be the direct product of the group $G$ and $\hat G$. 
-		The reason this space is worth considering is by noting that there is a unique function on this space, which we can call the \textbf{Kernel} $K: G \times \hat G \to \mathbb C$ defined by $K(g, \chi) = \chi (g)$. In the case of  $G=\mathbb R$, this function is exactly $e^{i k x}, x \in \mathbb R, k \in \widehat{ \mathbb R} = \mathbb R$, that is viewed as a function on \emph{both} time and frequency space.
-		
-		This space is also endowed with two obvious projections (namely to either factor of the product).		
-		\[
-		\begin{tikzcd}
-		  & G \times \hat G \arrow[ld,"\pi_G"] \arrow[rd,swap,"\pi_{\hat G}"]&\\
-		G & & \hat G
-		\end{tikzcd}
-		\]
-		Any function $f$ on $G$ can be ``pulled back'' to a function on $G \times \hat G$, namely by ignoring the second component $f'(g, \hat g) = f(g)$. We will denote this pulled back function by $\pi_{G}^* f = f \circ \pi_G$.
-		
-		Further, a suitable distribution on $G \times \hat G$ can be ``pushed forward'' to either $G$ or $\hat G$ by integrating it over $\hat G$ or $G$ respectively. We will denote these by $(\pi_G)_*$ and $(\pi_{\hat G})_*$, again respectively.
-		
-		Now if $\hat f$ is a distribution on $\hat G$, we get that $\pi_{\hat G}^* \hat f$ is a distribution on $G \times \hat G$. This can be pushed forward to a function on $G$ by integrating over the $\hat G$ coordiantes, but because $\pi_{\hat G}^* \hat f$ is constant on the $G$-coordinate, this function will just be a constant independent of $G$.
-		
-		On the other hand, if we look at:
-		\begin{equation}
-			f (g) := {(\pi_{G})}_* ([{\pi_{\hat G}}^* \hat f] K) = \int_{\chi \in \hat G} [(\hat f \circ \pi_{\hat G}) (g, \chi)] K(g, \chi)\, d\chi
-		\end{equation}
-		we obtain exactly the Fourier transform. For $G = \mathbb R$ this gives us:
-		\begin{equation}
-			f(x) = \int_{\mathbb R} \widehat{f(k)} e^{ikx} dk.
-		\end{equation}
-		
-		The reason that the Fourier transform finds so much use in practice is that it serves as an eigendecomposition for the derivative operator. More broadly, on $\mathbb R^n$, the eigenfunctions are plane waves $e^{i\vec k \cdot \vec x}$, which yield eigenvalues both under $\partial_x$ and also under the translation operator more generally $\vec x \mapsto \vec x + \vec y$. Any abelian group acts on itself by translation\footnote{Keep in mind that right and left action coincide for an abelian group.}. Consequently, it acts on the functions living on it, $\mathrm{Fun}(G)$, by translation $f(x) \to f(x - y)$. Note however that the unitary characters satisfy:
-		\begin{equation}
-			y \cdot \chi(x) = \chi(x - y) = \chi(-y) \chi(x)
-		\end{equation}
-		so that the characters \emph{diagonalize} the translation operator as an eigenbasis, exactly as $e^{ikx}$ did on the real line.
-		
-		We have just treated Fourier analysis successfully for the category of locally-compact abelian groups. The natural next question is of course
-		\begin{ques}
-			How does Fourier analysis look like for more general groups? That is, what is the non-abelian analogue of the Fourier transform?
-		\end{ques}
-		Already, one can see that the naive ideas from before will not hold up as well. For one, translation operators no longer commute, and so cannot be simultaneously diagonalizable with an eigenbasis of unitary characters. As we move to explore the non-abelian setting, the Pontryagin dual group $\hat G$ will be replaced by the Langlands dual group $^L G$, and of course Pontryagin duality will become a very special case of Langlands duality.
-		
-		It will turn out that to understand the Fourier transform in the non-abelian case, we will have to appeal to \emph{categorification}, one of the deepest aspects of twenty-first century mathematics.
+First let us begin by working with a locally-compact abelian group $G$. We make the following definition:
+\begin{defn}[Unitary Character]
+	For $G$ locally-compact and abelian, a \textbf{unitary character} of $G$ is a group homomorphism $\chi: G \to U(1)$.
+\end{defn}
+From this definition, we define the following group, which plays a role as a \emph{dual} to $G$. It is called the \textbf{Pontryagin dual}.
+\begin{defn}
+	The set of all unitary characters $\chi$ together with multiplication given by $\chi_1 \cdot \chi_2 \in \mathrm{Hom}(G, U(1))$.
+\end{defn}
+
+\begin{eg}
+	We have the following examples:
+	\begin{enumerate}
+		\item Let $G = S^1$, then the space of unitary characters is precisely of the form $e^{inx}: G \to U(1)$. This makes $\widehat G = \mathbb Z$.
+		\item Let $G = \mathbb Z$, then $\chi(1)$ determines the representation uniquely, and so $\widehat G = U(1)$.
+		\item 			Let $G = \mathbb R$, then $e^{ikx} : \mathbb R \to U(1)$ is free to have $k$ vary over $\mathbb R$ so $\widehat G = \mathbb R$.
+	\end{enumerate}
+
+\end{eg}
+
+Notice in all these cases that $\widehat{\widehat G} \cong G$. This is in fact true more general, and we have the following theorem:
+\begin{theorem}[Pontryagin Duality]
+	$G \to \widehat{\widehat G}$ is an isomorphism of groups, given by sending $g \to  g'$ which is given by $g' (\chi) = \chi (g)$.
+\end{theorem}
+
+\begin{obs}
+	The $L^2$-integrable functions on $G$ have a basis given by characters. 
+\end{obs}
+\begin{eg}
+	We have the following examples:
+	\begin{enumerate}
+		\item $f: S^1 \to \mathbb C$ has $f(\theta) = \sum_{n} a_n e^{i n \theta}$. This is known as the \textbf{Fourier series}.
+		\item $f: \mathbb Z \to \mathbb C$ has $f(n) = \int_{0}^{2\pi} F(\theta) e^{i n \theta}$. This is known as the \textbf{discrete time series}.
+		\item $f: \mathbb R \to \mathbb R$ has $f(x) = \int_{-\infty}^\infty \widehat{f(k)} e^{ikx}$. This is known as the \textbf{Fourier transform}.
+	\end{enumerate}
+\end{eg}
+
+Let us now try to generalize the ideas of the Fourier transform to a more direct case. It is useful to view the Fourier transform as letting us see two different sides of the same object. Let that object be the direct product of the group $G$ and $\hat G$. 
+The reason this space is worth considering is by noting that there is a unique function on this space, which we can call the \textbf{kernel} $K: G \times \hat G \to \mathbb C$ defined by $K(g, \chi) = \chi (g)$. In the case of  $G=\mathbb R$, this function is exactly $e^{i k x}, x \in \mathbb R, k \in \widehat{ \mathbb R} = \mathbb R$, that is viewed as a function on \emph{both} time and frequency space.
+
+This space is also endowed with two obvious projections (namely to either factor of the product).		
+\[
+\begin{tikzcd}
+  & G \times \hat G \arrow[ld,"\pi_G"] \arrow[rd,swap,"\pi_{\hat G}"]&\\
+G & & \hat G
+\end{tikzcd}
+\]
+Any function $f$ on $G$ can be ``pulled back'' to a function on $G \times \hat G$, namely by ignoring the second component $f'(g, \hat g) = f(g)$. We will denote this pulled back function by $\pi_{G}^* f = f \circ \pi_G$.
+
+Further, a suitable distribution on $G \times \hat G$ can be ``pushed forward'' to either $G$ or $\hat G$ by integrating it over $\hat G$ or $G$ respectively. We will denote these by $(\pi_G)_*$ and $(\pi_{\hat G})_*$, again respectively.
+
+Now if $\hat f$ is a distribution on $\hat G$, we get that $\pi_{\hat G}^* \hat f$ is a distribution on $G \times \hat G$. This can be pushed forward to a function on $G$ by integrating over the $\hat G$ coordinates, but because $\pi_{\hat G}^* \hat f$ is constant on the $G$-coordinate, this function will just be a constant independent of $G$.
+
+On the other hand, if we look at:
+\begin{equation}
+	f (g) := {(\pi_{G})}_* ([{\pi_{\hat G}}^* \hat f] K) = \int_{\chi \in \hat G} [(\hat f \circ \pi_{\hat G}) (g, \chi)] K(g, \chi)\, d\chi
+\end{equation}
+we obtain exactly the Fourier transform. For $G = \mathbb R$ this gives us:
+\begin{equation}
+	f(x) = \int_{\mathbb R} \widehat{f(k)} e^{ikx} dk.
+\end{equation}
+
+The reason that the Fourier transform finds so much use in practice is that it serves as an eigendecomposition for the derivative operator. More broadly, on $\mathbb R^n$, the eigenfunctions are plane waves $e^{i\vec k \cdot \vec x}$, which yield eigenvalues both under $\partial_x$ and also under the translation operator more generally $\vec x \mapsto \vec x + \vec y$. Any abelian group acts on itself by translation\footnote{Keep in mind that right and left action coincide for an abelian group.}. Consequently, it acts on the functions living on it, $\mathrm{Fun}(G)$, by translation $f(x) \to f(x - y)$. Note however that the unitary characters satisfy:
+\begin{equation}
+	y \cdot \chi(x) = \chi(x - y) = \chi(-y) \chi(x)
+\end{equation}
+so that the characters \emph{diagonalize} the translation operator as an eigenbasis, exactly as $e^{ikx}$ did on the real line.
+
+\begin{fact}
+	The Fourier transform diagonalizes the action of $G$ on the space of functions $L^2(G) \cong L^2(\hat G)$.
+\end{fact}
+
+We have just treated Fourier analysis successfully for the category of locally-compact abelian groups. A natural next question is:
+\begin{ques}
+	How could we build upon the ideas Fourier analysis to generalize to non-abelian groups? That is, what could be the non-abelian analogue of the Fourier transform?
+\end{ques}
+Already, one can see that the naive ideas from before will not hold up as well. For one, translation operators no longer commute, and so cannot be simultaneously diagonalizable with an eigenbasis of unitary characters. As we move to explore the non-abelian setting, the Pontryagin dual group $\hat G$ will be replaced by the Langlands dual group $^L G$, and of course Pontryagin duality will become a very special case of Langlands duality.
+
+It will turn out that to understand the Fourier transform in the non-abelian case, we will have to appeal to \emph{categorification}, one of the deepest aspects of twenty-first century mathematics.
+
+% section the_fourier_transform_pontryagin_duality_and_geometric_langlands (end)
+
+\section{The Geometric Langlands Correspondence} % (fold)
+\label{sec:the_geometric_langlands_correspondence}
+
+
+\begin{table}[h!]
+	\centering
+\begin{tabular}{|c|c|c|}
+	& Abelian (classical) & Non-abelian (categorified)\\
+	\hline
+	Space of ``functions'' & $L^2(G) \cong L^2(\hat G)$ & $\mathcal D (\mathrm{Bun}_G) \cong \, ???$\\
+	Operators & $G \lacts L^2(G)$ & $\mathrm{Sat}_G \lacts \mathcal D (\mathrm{Bun}_G)$\\
+	Eigenbasis & $e^{ikx}$ & $???$
+	\end{tabular}
+\caption{The analogy of Fourier analysis as an abelian case of the geometric Langlands correspondence}
+\label{table:fourier}
+\end{table}
+
+% section the_geometric_langlands_correspondence (end)
+

@@ -15,5 +15,11 @@
 *.blend#
 *.DS_Store
 *old.*
+*.bbl
+*.blg
+*.lof
+*.lot
+*.out
+*.bst
 Thumbs.db
 Chapters/*.pdf
