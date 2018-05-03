@@ -2,23 +2,67 @@
 
 The aim of this chapter is to first develop for the reader a picture of $\mathcal N = 4$ Supersymmetric Yang-Mills (SYM) theory together with its topological twists. With this, we bring together the ideas of the previous chapters and study the actions of line defects on the categories of boundary conditions of two topological twists of $\mathcal N=4$ SYM.
 
-\section{Reduction from Ten Dimensions} % (fold)
-\label{sec:reduction_from_ten_dimensions}
+\section{Setting the Stage} % (fold)
+\label{sec:setting_the_stage}
 
-% section reduction_from_ten_dimensions (end)
+\subsection{Reduction from Ten Dimensions} % (fold)
+\label{sub:reduction_from_ten_dimensions}
 
-One of the simplest ways to arrive at 4D $\mathcal N=4$ SYM is to begin with gauge theory in 10 dimensions with gauge group $G$ \cite{kapustin2006}. The action here is:
+One of the simplest ways to arrive at 4D $\mathcal N=4$ SYM is to begin with gauge theory in 10 dimensions with gauge group $G$ \cite{kapustin2006}. In the 10D theory, we have two fields, $A$ and $\lambda$. $A$ is a connection on a $G$-bundle $E$ while $\lambda$ transforms as what physicists would call a ``positive chirality spinor with values in the adjoint representation'', so $\lambda \in \Gamma(M, S^+ \otimes E)$. We have $F = \dd_A A$.
+
+``Bosonic'' will be taken to mean terms consisting of only the connection $A$ and its derivatives. ``Ferminionic'' will be taken to mean terms involving a the spinor $\lambda$. For more information and motivation see \cite{schwartz2014}.
+
+The generator of supersymmetry is a spinor in $S^+$. This theory has $16$ supercharges $Q_a$. The \emph{supersymmetric variation} of the fields are given by:
+\[
+\begin{aligned}
+	\sum_a [\epsilon^a Q_a, A_I] &= i \overline \epsilon \Gamma_I \lambda\\
+	\sum_a [\epsilon^a Q_a, \lambda] &= \Gamma^{IJ} F_{IJ} \epsilon
+\end{aligned}	
+\]
+The action here is:
 \begin{equation}
-	S = \int \tr \left(F_{IJ} F^{IJ}\right)
+	S = \frac{1}{e^2} \int \tr \left(F_{10D} \wedge \star F_{10D} - i \overline \lambda \Gamma \dd_A \lambda \right) 
 \end{equation}
 
+The reduction to 4 dimensions is done in a similar manner to how we proceeded in Chapter~\ref{ch:monopoles}. Namely, we assume all fields are independent of the last six direction. This gives us a connection $A =A_\mu d^\mu$ in 4D together with six scalar fields $\phi_i$. The curvature $F_{10}$ decomposes into three terms. The first is the curvature in 4D, $F$, the second consists of covariant derivatives of the $\phi_i$, $\dd_A \phi_i$, and the last consists of commutators $[\phi_i, \phi_j]$. All together, the bosonic part of the action can be written in physics convention as:
+\begin{equation}
+	\frac{1}{e^2} \int_M \tr\left( F \wedge \star F + \sum_i \dd_A \phi \wedge \star (\dd_A \phi) +  \sum_{i < j} [\phi_i, \phi_j]^2 \mathrm{Vol}_M \right)
+\end{equation}
+The fermionic part can be similarly decomposed into Weyl spinors $\lambda^a$ to give the full action.
+% \begin{equation}
+% 	S = \frac{1}{e^2} \int dx^4 \tr\left( \frac{1}{2} F_{\mu \nu} F^{\mu \nu} + \sum_i D_\mu \phi^i D^\mu \phi_i + \frac12 \sum_{i,j} [\phi_i, \phi_j]^2 \right)
+% \end{equation}
+On $M=\rr^4$ the theory has 16 supersymmetries $\overline Q_{a, \alpha}$ and $Q^a_{\cdot \alpha}$ transforming as spinors and dual spinors in the $R$-symmetry group $\mathrm{Spin}(6)$.
 
-\section{Topological Twisting} % (fold)
-\label{sec:topological_twisting}
+\begin{phys}
+	$\mathcal N=4$ Super-Yang Mills theory is the field unique theory of maximal supersymmmetry in four dimensions.
+\end{phys}
+
+% subsection reduction_from_ten_dimensions (end)
+
+\subsection{Montonen-Olive Duality} % (fold)
+\label{sub:montonen_olive_duality}
+
+	\begin{concept}[Montonen-Olive Duality]
+		In 4D $\mathcal N = 4$ supersymmetric Yang-Mills theory with gauge group $G$ and complex coupling constant $\tau$, any correlator of observables
+		\[
+			\left< \mathcal O_1 \dots \mathcal O_n \right>_{\tau, G} := \int \mathcal{D}\{ Fields \}\, \mathcal O_1 \dots \mathcal O_n \, e^{-S}
+		\]
+		can be rewritten in terms of Yang-Mills theory with inverse coupling constant $-1/\tau$ on the Langlands dual group $\check G$ as a correlator of dual operators $\tilde {\mathcal O_1} \dots \tilde {\mathcal O_n}$
+		\[
+			\left< \mathcal O_1 \dots \mathcal O_n \right>_{\tau, G} = \left< \tilde{\mathcal O_1} \dots \mathcal O_n \right>_{-1/\tau, \check G}.
+		\]
+	\end{concept}
+	In particular $\mathcal N = 4$ super Yang-Mills theory has a $\mathbb{CP}^1$ family of topological twists. Two of these will be relevant here, known as the $\hat A$-model and the $\hat B$-model\footnote{This notation comes from the fact that, upon compactification down to two dimensions, these models become the $A$ and $B$ topological sigma models discussed before}. This twisting introduces an asymmetry between $G$ and $\check G$.  
+
+% subsection montonen_olive_duality (end)
+
+\subsection{Topological Twisting} % (fold)
+\label{sub:topological_twisting}
 
 	First recall from Chapter \ref{ch:phys} Section \ref{sec:supersymmetry} the following definition: 
 	\begin{defn}[Subsector]
-		Given a supersymmetry operator $Q$ s.t. $Q^2 = \frac{1}{2} [Q, Q] = 0$, we define the subsector of our theory $\mathcal E$ by the set of $Q$ invariants, and denote this as $(\mathcal E, [Q, -])$.
+		Given a supersymmetry operator $Q$ such that $Q^2 = \frac{1}{2} [Q, Q] = 0$, we define the subsector of our theory $\mathcal E$ by the set of $Q$ invariants, and denote this as $(\mathcal E, [Q, -])$.
 		
 		Slightly more precisely, $[Q, -]$ defines a differential operator, and the ``observables'' become exactly those gauge-invariant quantities annihilated by $Q$ modulo those that are $Q$-exact.
 	\end{defn}
@@ -49,18 +93,15 @@ One of the simplest ways to arrive at 4D $\mathcal N=4$ SYM is to begin with gau
 		Any such subsector defines a theory that is independent of the Riemannian metric (i.e. diffeomorphism invariant). The path integral localizes to $Q$-invariant configurations.
 	\end{prop}
 
-% section topological_twisting (end)
+% subsection topological_twisting (end)
 
-\section{Montonen-Olive Duality} % (fold)
-\label{sec:montonen_olive_duality}
+% section setting_the_stage (end)
 
-	
-% section montonen_olive_duality (end)
 
 \section{Wilson Lines} % (fold)
 \label{sec:wilson_lines}
 
-	In general, the connection 1-form, $A$, gives a way to transport data along any given vector bundle $E$ associated to a representation $R$ of $G$. This allows us to compare the values of fields operators at different points by integrating along $E$ using our connection. The result is: 
+	In general, the connection 1-form, $A$, gives a way to transport data along any given vector bundle $E$ associated to a representation $R$ of $G$. This allows us to compare the values of fields operators at different points by integrating along $E$ using our connection. Recalling the definition of holonomy from Section~\ref{sub:holonomy} The result is: 
 	\begin{equation}
 		W_R (\gamma) = \exp\left(\int_\gamma A \right)
 	\end{equation}

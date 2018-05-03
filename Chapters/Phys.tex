@@ -9,27 +9,28 @@
 	
 	
 	Here is a mathematical formulation of classical field theory:
-	\begin{defn}[Classical Field Theory]
+	\begin{phys}[Classical Field Theory]
 		A classical field theory $\mathcal E$ is a collection of the following data:
 		\begin{itemize}
 			\item A manifold $M$ known as the \textbf{spacetime} of the theory.
-			\item A space $\mathrm{Map}(M, X)$ of section maps $\Phi: M \to X$, where $X$ is a Riemannian manifold called the ``target space''. Any such $\Phi$ is called a \textbf{field}.
-			\item An action functional $S[\Phi]$ from the space of field configurations into $\cc$ (or more generally some number field).
+			\item A fiber bundle $E \to M$ (or more generally some set of fiber bundles $E_i \to M$)
+			\item A space $\mathcal F$ of sections of $E \to M$ called \textbf{fields} on $M$.
+			\item An action $S[\Phi]$ from the space of fields into $\cc$.
 		\end{itemize}
 		Classical field theory studies solutions to the \textbf{classical equations of motion}
-		$$\{\varphi \in \mathcal F \; \text{s.t.} \; \delta S(\varphi) = 0 \}.$$
-	\end{defn}
+		$$\{\varphi \in \mathcal F \mid \; \delta S(\varphi) = 0 \}.$$
+	\end{phys}
 	\begin{eg}
 		When $X = \mathbb R$, we get a single scalar field $\phi$ (here $\Phi$ is $\phi$). An action for this field theory is often given by:
 		$$S[\phi] = \int_M |\partial_\mu \phi|^2.$$
 	\end{eg}
 	\begin{eg}
 		Classical electromagnetism is defined by $X=T^* M$ with an action given by:
-		$$S[A] = \int_M F \wedge \star F, \qquad F := \mathrm dA.$$
+		$$S[A] = \int_M F \wedge \star F, \qquad F := \dd A.$$
 		Here $F = dA$ is the \emph{curvature form} or \emph{electromagnetic field-strength tensor}.
 		
 		More generally, Yang-Mills theory (to be more thoroughly defined and discussed in the next section) takes $X=T^* M \otimes \frak g$ and given 
-		$$S[A] = \int_M \mathrm{Tr}\left( F \wedge \star F \right), \qquad F := \mathrm dA + A \wedge A.$$
+		$$S[A] = \int_M \mathrm{Tr}\left( F \wedge \star F \right), \qquad F := \dd A + A \wedge A.$$
 		where the trace is taken over the Lie algebra using the Killing form. 
 	\end{eg}
 	
@@ -41,19 +42,19 @@
 			\mathcal Z = \int \mathcal D\Phi\, e^{- S[\Phi]}.
 		\end{equation}
 		This is an integral taken over the space of all fields. The measure on this space is mathematically ill-defined in general. 
-		\begin{defn}[Classical Observable]
-			A classical observable is a functional from the set of field configurations to the ground field $\mathbf k$.
-		\end{defn}
-		\begin{defn}[Observable]
-			A \textbf{quantum observable} (which we will refer to as just an \emph{observable} in these lectures) is a functional from the a field theory into the ground field $\mathbf k$. In the Feynman picture, it can be seen as a statistical average of classical observables over all field configurations.
-		\end{defn}
+		\begin{phys}[Classical Observable]
+			A classical observable is a function from the set of field configurations into $\cc$.
+		\end{phys}
+		\begin{phys}[Observable]
+			A \textbf{quantum observable} (which we will refer to as just an \emph{observable} in these lectures) is a function from the a field theory into the ground field $\mathbf k$. In the Feynman picture, it can be seen as a statistical average of classical observables over all field configurations.
+		\end{phys}
 		The partition function is an observable, as is the \textbf{1-point correlation function} at a point $x_1$:
 		$$\left< \Phi(x_1) \right> := \frac{1}{\mathcal Z} \int \mathcal D\Phi \, \Phi(x_1) e^{-S[\Phi]}.$$
 		In this example, the path integral over all configurations of $\Phi$ probes $\Phi$ at this single point, giving essentially an expectation value. We can take expectation values of many different operators, e.g. $\phi(x_1), \partial_\mu \phi(x_1), \mathbf{1}, \phi(x_1) \partial_\mu \phi(x_1)$ on $X$. We denote operators by $\OO$. More generally, we define \textbf{correlation functions} as 
 		$$\left< \mathcal O_1 \dots \mathcal O_n \right>_g := \frac{1}{\mathcal Z} \int \mathcal D\Phi \, \mathcal O_1 \dots \mathcal O_n e^{-S[\Phi]}.$$
-		\begin{defn}[TQFT]
-			If the correlation functions of a given quantum field theory are independent of the metric $g$, then the corresponding theory is called a \textbf{topological quantum field theory} (TQFT).
-		\end{defn}
+		\begin{phys}[TQFT]
+			If the correlation functions of a given quantum field theory are independent of the metric $g$, then the corresponding theory is called a \textbf{topological quantum field theory} (TQFT) in physics.
+		\end{phys}
 	\noindent 	In fact metric independence implies diffeomorphism invariance.
 		\begin{eg}[Chern Simmons Theory]
 			It turns out the correlation functions of Chern-Simmons theory on a 3-manifold $M$ with $\Phi$ being the field $A: M \to T^* M \otimes \frak g$ and the action given by
@@ -61,13 +62,13 @@
 			This is clear because the metric has no role in defining the action.
 		\end{eg}
 
-		\begin{prop}[Operator Product Expansion]
+		\begin{phys}[Operator Product Expansion]
 			 Within the path integral, a product of two local fields can be replaced by a (possibly infinite) sum over individual fields. Namely, given two operators $\OO_a, \OO_b$ and evaluation points $x_1, x_2$, there is an open neighborhood $U$ around $x_2$ such that
 			\begin{equation}
 				\OO_a (x_1) \OO_b(x_2) = \sum_c C_{ab}^c(x_1-x_2) \OO_c(x_2)
 			\end{equation}
 		where $\OO_c$ are other operators in the quantum field theory, and the $C_{ab}^c$ are analytic functions on $U \backslash \{ x_2 \}$ (that often become singular as $x_1 \to x_2$).
-		\end{prop}
+		\end{phys}
 	
 		In the 2D case, this yields the (possibly familiar) Laurent series associated with CFT. The structure constants contain valuable information about the QFT that allow onw to view it \emph{algebraically}. In particular, they satisfy \textbf{associativity conditions}. The philosophy of the OPE is as follows: % \textbf{(elaborate Phil's point here)}.
 % 		This leads naturally to the next idea
@@ -96,36 +97,63 @@
 	\end{defn} 
 	
 	\begin{theorem}
-		The category of 2-dimensional topological quantum field theories is the same as the category of Frobenius algebras.
+		The category of 2-dimensional topological quantum field theories is the same as the category of commutative Frobenius algebras.
 	\end{theorem}
 	
 	In general, besides just considering $n$-bordisms between $n-1$ manifolds, one might also be inclined to consider the  \textbf{extended} topological quantum field theory in $n$-dimensions.
-	These are difficult to define, and would in principle rely on the language of $n$-categories to give a satisfactory definition. W 
+	These are difficult to define, and would in principle rely on the language of $n$-categories to give a satisfactory definition. 
+	
+	We can at least summarize 
+	
+	\textbf{STILL NOT FINISHED}
 	
 	% section topological_quantum_field_theory (end)
 
 	\section{Supersymmetry} % (fold)
 	\label{sec:supersymmetry}
+	%
+	\subsection{Spin Representations} % (fold)
+	\label{sub:spin_representations}
+
+		Given a special orthogonal group in Euclidean or Minkowski space, $\SO(p, q$, the Spin group is defined to be the universal cover of $\SO(p, q)$.
+		
+		\textbf{TALK ABOUT $S^+$ and $S^-$}
+
+	% subsection spin_representations (end)
 
 	\begin{defn}
 	A \textbf{Lie superalgebra} is a $\mathbb Z_2$-graded Lie algebra with a commutator bracket satisfying:
 		$$[x, y]= -(-1)^{|x||y|} [y, x]$$
-		In our case, we will be extending the familiar \emph{Poincare algebra} of $\mathrm{Lie}\{ \mathrm{SO}(3, 1) \ltimes \mathbb R^4  \}$ by $\mathcal N$ ``odd'' vectors, which transform in the fundamental representation of $\mathrm{SL(2, \mathbb C)}$, which is a projective \emph{spinor} representation of the Lorentz group. 
+	Where $|\cdot|$ is the $\zz_2$ grading.
 	\end{defn}
-	The brackets between the odd vectors $\{Q^A_\alpha, Q^B_\beta \} $ give rise to various central elements $Z^{AB}$ in the algebra. These are called \emph{supercharges}:
-	$$\{Q^A_\alpha, Q^B_\beta \} = \epsilon_{\alpha \beta} Z^{AB}$$
-	and they satisfy
-	$$Z^{AB} = -Z^{BA}$$
-	So that there are a total of $\mathcal N (\mathcal N - 1)/2$ distinct supercharges in a theory with $\mathcal N$ supersymmetry generators. 
-	\begin{defn}[R-symmetry group]
-		The group of transformations exchanging the supercharges. For the case of $\mathcal N = 4$ this is $\mathrm{Spin}(6)$
+	In our case, we will be extending the familiar \emph{Poincare algebra} of $\mathrm{Lie}\{ \mathrm{SO}(3, 1) \ltimes \mathbb R^4  \}$ by $\mathcal N$ ``odd'' vectors, which transform in the fundamental representation of $\mathrm{SL(2, \mathbb C)}$, which is a projective \emph{spinor} representation of the Lorentz group. The space of odd vectors is denoted by $\Pi S$.
+	\begin{defn}[Super-Poincare Algebra]
+		A \textbf{super-Poincare algebra}, $\frak{spoin}$, is a Lie superalgebra arising as an extension
+		\[
+			\begin{tikzcd}
+				\Pi S^{\oplus \mathcal N} \arrow[r] & \frak{spoin} \arrow[r] & \frak{poin}
+			\end{tikzcd}
+		\]
+		of the Poincare algebra $\frak{Poin}$ by the vector space of odd vectors, taken to be in odd degree.
 	\end{defn}
+	% Here, we have not described the nature of this extension. It suffices to say that the anti-commutator $\{Q_\alpha, \bar Q_\beta \}$
 	
-	\begin{defn}[Subsector]
-		Given a supersymmetry operator $Q$ s.t. $Q^2 = \frac{1}{2} [Q, Q] = 0$, we define the subsector of our theory $\mathcal E$ by the set of $Q$ invariants, and denote this as $(\mathcal E, [Q, -])$.
+	The brackets between the odd vectors $\{Q^A_\alpha, Q^B_\beta \} $ give rise to  central elements $Z^{AB}$ in the algebra. These are called \emph{supercharges} and arise as:
+	$$\{Q^A_\alpha, Q^B_\beta \} = \epsilon_{\alpha \beta} Z^{AB}.$$
+	They satisfy
+	$$Z^{AB} = -Z^{BA}.$$
+	So that there are a total of $\mathcal N (\mathcal N - 1)/2$ distinct supercharges in a theory with $\mathcal N$ supersymmetry generators. 
+	
+	\begin{defn}[$R$-symmetry group]
+		The \textbf{$R$-symmetry} group is the group of outer automorphisms of the super-Poincare group which fixes the underlying Poincare group. 
+	\end{defn}
+	For the case of $\mathcal N = 4$ the $R$-symmetry group turns out to be $\SU(4) \cong \mathrm{Spin}(6)$. For a deeper review of the subject, see \cite{quevedo2010}.
+	
+	\begin{phys}[Sector]
+		Given a supersymmetry operator $Q$ such that $Q^2 = \frac{1}{2} [Q, Q] = 0$, we define the sector of our theory $\mathcal E$ associated to $Q$ to the set of $Q$ invariants, and denote this as $(\mathcal E, [Q, -])$.
 		
 		Slightly more precisely, $[Q, -]$ defines a differential operator, and the ``observables'' become exactly those gauge-invariant quantities annihilated by $Q$ modulo those that are $Q$-exact.
-	\end{defn}
+	\end{phys}
 
 	% section supersymmetry (end)
 	

@@ -30,7 +30,7 @@ Magnetic Monopoles, `t Hooft Lines,
 \submitted{Spring 2018}  % degree conferral date (January, April, June, September, or November)
 \copyrightyear{2018}  % year in which the copyright is secured by publication of the dissertation.
 \author{Alexander B. Atanasov}
-\adviser{Philsang Yoo}  %replace with the full name of your adviser
+\advisor{Philsang Yoo}  %replace with the full name of your advisor
 % \departmentprefix{Program in}  % defaults to "Department of", but programs need to change this.
 \department{Mathematics}
 
@@ -69,6 +69,9 @@ Magnetic Monopoles, `t Hooft Lines,
 \usepackage{mathtools}
 %%% For figures
 \usepackage{graphicx}
+%%% For tables
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 %\usepackage{subfig,rotate}
 
 %%% for comments
@@ -195,10 +198,10 @@ Magnetic Monopoles, `t Hooft Lines,
 \input{abstract}
 }
 
-\acknowledgements{
-%I would like to thank...
-\input{acknowledgements}
-}
+% \acknowledgements{
+% %I would like to thank...
+% \input{acknowledgements}
+% }
 
 % \dedication{To my parents.}
 
@@ -222,6 +225,7 @@ Magnetic Monopoles, `t Hooft Lines,
 \newtheorem{cor}[theorem]{Corollary}
 \newtheorem{obs}[theorem]{Observation}
 \newtheorem{ind}[theorem]{Indication}
+\newtheorem{mot}[theorem]{Motivation}
 \newtheorem{fact}[theorem]{Fact}
 \newtheorem{goal}{Goal}
 \newtheorem{idea}[theorem]{Idea}
@@ -233,6 +237,7 @@ Magnetic Monopoles, `t Hooft Lines,
 
 \theoremstyle{definition}
 \newtheorem{defn}[theorem]{Definition}
+\newtheorem{phys}[theorem]{Physical Concept}
 \newtheorem{concept}[theorem]{Concept}
 \newtheorem{view}{View}
 \newtheorem{cons}[theorem]{Construction}
@@ -245,6 +250,7 @@ Magnetic Monopoles, `t Hooft Lines,
 \def\spec{\mathrm{Spec}\,}
 \def\maxspec{\mathrm{MaxSpec}\,}
 \def\dd{\mathrm{d}}
+\def\im{\mathrm{im}\,}
 \def\zz{\mathbb{Z}}
 \def\rr{\mathbb{R}}
 \def\cc{\mathbb{C}}
@@ -252,15 +258,22 @@ Magnetic Monopoles, `t Hooft Lines,
 \def\qq{\mathbb{Q}}
 \def\ff{\mathbb{F}}
 \def\kk{\mathbf{k}}
-\def\tr{\mathrm{Tr}\,}
-\def\Ad{\mathrm{Ad}\,}
-\def\ad{\mathrm{ad}\,}
+\def\fq{\mathbb{F}_q}
+\def\fp{\mathbb{F}_p}
 \def\gg{\frak{g}}
+\def\gl{\frak{gl}}
+\def\sl{\frak{sl}}
 \def\su{\frak{su}}
+\def\so{\frak{so}}
 \def\SU{\mathrm{SU}}
 \def\SO{\mathrm{SO}}
 \def\GL{\mathrm{GL}}
-\def\OO{\mathcal O}
+\def\SL{\mathrm{SL}}
+\def\Gal{\mathrm{Gal}}
+\def\tr{\mathrm{Tr}\,}
+\def\Ad{\mathrm{Ad}\,}
+\def\ad{\mathrm{ad}\,}
+\def\OO{\mathcal{O}}
 
 \makeatletter
 \def\@tempa#1{\@xp\@tempb\meaning#1\@nil#1}

@@ -7,45 +7,362 @@ Donaldson used the interesting mathematical properties of Yang-Mills instantons 
 
 A useful picture comes from quantum mechanics, of a particle in a double-well potential. Having a particle localized at the bottom of either well gives rise to a classical solution. Perturbative corrections around this minimum due to the quantum theory may give rise to harmonic-oscillator-type structure within the well, but is completely unable to account for the possibility of \emph{quantum tunneling} across the barrier into the second well of the potential. To account for this, we must understand the space of classical solutions in addition to performing perturbation theory. 
 
-Mathematically, this often manifests itself in the fact that $e^{-1/x}$ has every higher derivative vanish as $x \to 0^+$. It is also the same phenomenon that allows for the existence of \emph{bump functions} in real analysis and also for \emph{asymptotic expansions} in various areas of physics and engineering.
+Mathematically, one way that this can manifest itself is in the fact that $e^{-1/x}$ has every higher derivative vanish as $x \to 0^+$. It is the same phenomenon that allows for the existence of \emph{bump functions} in real analysis and also for \emph{asymptotic expansions} in various areas of physics and engineering.
+
+For the purposes of this thesis, instantons will not themselves play a central role, but their close relatives in three dimensions will: magnetic monopoles. In order to understand the construction of monopoles, however, it will be important to first understand the famous self-duality equation and ADHM construction of instantons. 
 
 
 \section{Instantons in Classical Yang-Mills Field Theory} % (fold)
 \label{sec:instantons_in_classical_yang_mills_field_theory}
 
-Yang-Mills gauge theory is a gauge theory with gauge group $G = \mathrm{SU}(n)$. In four dimensions, the objects of study are $G$-bundles and associated $G$-bundles on Euclidean 4-space $M = \rr^4$. $\rr^4$ has a Riemannian metric, so we have a Hodge-star operator giving a (metric-dependent) canonical isomorphism:
+\subsection{The Equations of Motion} % (fold)
+\label{sub:the_equations_of_motion}
+
+Yang-Mills gauge theory is a gauge theory with gauge group $G = \mathrm{SU}(n)$. In four dimensions, the objects of study are $G$-bundles and associated $G$-bundles on Euclidean 4-space $M = \rr^4$. $\rr^4$ has a Riemannian metric, so we have a Hodge-star operator giving an isomorphism:
 \[
 	\star: \Omega^k \to \Omega^{n-k}.
 \]
-From the prior section, gauge theory on $\mathbb R^4$ involves a connection $1$-form $A$ transforming in the $\ad\gg$ representation. From this, we obtain the curvature form $F$, again transforming in the adjoint action, by applying the covariant exterior derivative:
+From the prior section, gauge theory on $\mathbb R^4$ involves a connection $1$-form $A$ transforming in the $\ad\gg$ representation. From this, we obtain the field-strength $F$, again transforming in the adjoint action, by applying the covariant exterior derivative:
 \begin{equation}
 	F = \dd_A A = \dd A + [A, A]
 \end{equation}
-Note that 
+Both $F$ and $\star F$ are $\frak g$-valued 2-forms. On the other hand $F \wedge \star F$ is a $\gg$-valued 4-form. Taking the trace of this over the Lie algebra gives a 4-form that can be integrated over $M$, $\tr F \wedge \star F$. This is equivalently denoted by $||F||^2$ since $\tr (F \wedge \star  F)$ corresponds exactly to the inner product norm on $\frak g$-valued 2-forms induced by the killing form.
 
-In this case, the action of the theory is given by:
-\[
-	S_E[A] := \frac{1}{8\pi} \int \tr(F \wedge \star F)
-\]
 \begin{prop}
 	$\tr(F \wedge \star F)$ is gauge independent and globally defined.
 \end{prop}
 \begin{proof}
 	Since $F$ transforms in the adjoint representation, the cyclic property of the trace gives:
 	\[
-		\tr(F \wedge \star F) \to \tr(g F g^{-1} \wedge g \star F g^{-1}) = \tr(F \wedge \star F)
+		\tr(F \wedge \star F) \to \tr(g F g^{-1} \wedge g \star F g^{-1}) = \tr(F \wedge \star F).
 	\]
 \end{proof}
-We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard calculus of variations. Consider a local perturbation A + tα
+It is important to recall that the field strength corresponds to a curvature 2-form on some principal $\SU(n)$-bundle, $P$. Given such a field strength 2-form on $M$, it can be pulled back to any bundle $E$ associated to $P$. 
 
-
-
-\begin{defn}
-	A Hermitian vector bundle $\pi: E \to M$ over a base space $M$ is a complex vector bundle $E$ over $M$ equipped with a Hermitian inner product on each fiber.
-\end{defn}
-
-\begin{defn}[Connection on a Vector Bundle]
-	
-\end{defn}
+In Yang-Mills theory, the action is given by:
+\begin{equation}
+	S[A] := \frac{1}{8\pi} \int_M \tr(F \wedge \star F)
+\end{equation}
+We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard calculus of variations. Consider a small perturbation $A + t \alpha$.
+		\begin{equation*}
+			\begin{aligned}
+				\mathcal F[A + t \alpha] &= \dd (A + t \alpha) + A \wedge A + t [A, \alpha] + O(t^2) \\
+				&= \mathcal F[A] + t (d \alpha + A \wedge \alpha)\\
+				&= \mathcal F[A] + \dd_{A} \alpha
+			\end{aligned}
+		\end{equation*}
+		so that to order $t$:
+		\begin{equation*}
+			\begin{aligned}
+				||\mathcal F[A + t \alpha]||^2 &= ||\mathcal F[A + t \alpha]||^2 + 2 t (\mathcal F[A], \dd_{A} \alpha)\\
+				&\Rightarrow (\mathcal F[A], \dd_{A} \alpha) = 0 ~ \forall \alpha.
+			\end{aligned}
+		\end{equation*}
+		The adjoint of the covariant derivative is the codifferential $\star \dd_A \star$, so that we can equivalently write this as:
+		\[
+			\forall \alpha \; (\star \dd_A \star \mathcal F[A], \alpha) = 0 \Rightarrow \dd_A \star F = 0.
+		\]
+		Except for the case of an abelian gauge theory, these will in general give second-order nonlinear differential equations in the connection that are difficult to solve for explicitly. Though we will not be able to easily talk about general field configurations, we \emph{will} be able to talk about field configurations that are minima for the action on the principal $\SU(n)$ bundle $P$ that the theory is defined on. To do this, we must first understand a connection between a certain integral of the field strength and the topology of $P$.
 
 % section instantons_in_classical_yang_mills_field_theory (end)
+
+\subsection{The Instanton Number} % (fold)
+\label{sub:the_instanton_number}
+
+		Though the action is defined by $\int_M \tr(F \wedge \star F)$, we define
+		\begin{defn}[Instanton Number]
+			The \textbf{instanton number} $k$ for a given field configuration is given by
+			\begin{equation}
+				k := \int_M \tr(F \wedge F).
+			\end{equation}
+		\end{defn}
+
+		Recall from the definition of Chern classes in \ref{defn:chern} that the Chern numbers are independent of the choice of connection. Recall further that the first few Chern numbers were given by:
+		\[
+			c_1(E) := \frac{i}{2\pi} \int_{M} \tr(F) \qquad c_2(E) := \frac{1}{8\pi^2} \int_M \left[\tr(F \wedge F) - \tr(F) \wedge \tr(F)\right]
+		\]
+		Note that since $\su(n)$ consists of only traceless matrices, $c_1$ vanishes, and thus for any associated bundle $\su(n)$-bundle $E$ we have:
+		\[
+			c_1(E) = 0 \qquad c_2(E) = \frac{1}{8\pi^2} \int_M \tr(F \wedge F) = k.
+		\]
+		Thus in our case, the instanton number is simply the second Chern class, and in particular is a \emph{topological invariant of the bundle $E$, independent of the connection}.
+		
+% subsection the_instanton_number (end)
+
+\subsection{The ASD Equations} % (fold)
+\label{sub:the_asd_equations}
+
+	We are now in a place where we can understand the equations defining the local minima of the action. Note first by basic properties of $\star$ that
+	\begin{equation}
+		\star \star: \Omega^2(M, \gg) \to \Omega^2(M, \gg)
+	\end{equation}
+	is equal to $1$ for $M = \rr^4$. This means that this operator has two eigenspaces corresponding to $+1$ and $-1$, giving a decomposition
+	\begin{equation}
+		\Omega^2(M, \gg) = \Omega^2(M, \gg)^+ \oplus \Omega^2(M, \gg)^-.
+	\end{equation}
+	So in general $F$ can be expressed as a sum $F = F_+ + F_-$ of 2-forms in these two spaces. Moreover since these two spaces are orthogonal by the Hermiticity of $\star$, $(F_+, F_-) = 0$. On one hand, then:
+	\[
+	\begin{aligned}
+		S[A] &= \int_M \tr(F \wedge \star F)\\
+			 &= \int_M \tr((F_+ + F_-) \wedge \star(F_+ + F_-))\\
+			 &= \int_M \tr(F_+ \wedge \star F_+) + \int_M \tr(F_+ \wedge \star F_+)\\
+	\end{aligned}
+	\]
+	Note that the action integral is the integral of $||F||^2$ is is necessarily positive. Now consider the following manipulation:
+	\[
+	\begin{aligned}
+		8\pi^2 k &= \int_M \tr(F \wedge F) \\
+		  &= \int_M \tr((F_+ + F_-)\wedge (F_+ + F_-)) \\
+		  &= \int_M \tr(F_+ \wedge F_+) + \int_M \tr(F_- \wedge F_-) \\
+		  &= \int_M \tr(F_+ \wedge F_+) + \int_M \tr(F_- \wedge F_-) \\
+		  &= \int_M \tr(F_+ \wedge \star F_+) - \int_M \tr(F_- \wedge \star F_-)\\
+		  &= \int_M ||F_+||^2 - \int_M ||F_-||^2.
+	\end{aligned}
+	\]
+	Using the triangle inequality we get:
+	\begin{equation}
+		S[A] \geq |8 \pi^2 k|.
+	\end{equation}
+	It is also easy to see that equality will be satisfied iff $F = F_+$ or $F=F_-$.
+	
+	We thus have the \textbf{anti-self-dual equations} for instantons:
+	\begin{equation}\label{eq:asd1}
+		\star F = - F,
+	\end{equation}
+	or component-wise:
+	\begin{equation}
+		\begin{aligned}
+			F_{12} + F_{34} &= 0\\
+			F_{14} + F_{23} &= 0\\
+			F_{14} + F_{32} &= 0.
+		\end{aligned}
+	\end{equation}
+	% Since $F_{12} := \dd_A A = [\dd_A, \dd_A]$
+	
+	We see that the instanton number depends on the principal bundle, and that the instanton number of the trivial bundle is zero. 
+	
+	\begin{nb}
+		$\su(n)$-instantons do not exist in Minkowski space $\rr^{3,1}$, since $\star^2 = -1$ would have eigenvalues $\pm i$ and $F = \pm i F$ would contradict that $F$ is a real object as an $\su(n)$-valued 2-form.
+	\end{nb}
+
+% subsection the_asd_equations (end)
+
+
+	\subsection{Classifying Principal Bundles over $S^4$} % (fold)
+	\label{sub:classifying_principal_bundles_over_s_4}
+
+		In our above analysis, and the construction of instantons that is to follow, we make several assumptions about $F$ and $A$.
+		\begin{itemize}
+			\item For the above integrals to have made sense, we must require that $F(\vec x)$ decays ``sufficiently quickly'' as $|\vec x| \to \infty$.
+			\item Consequently we must also have $A$ ``tend to a constant''. In the language of gauge theory, $A$ must become ``pure gauge'' $g \dd g^{-1}$ as $|\vec x| \to \infty$.
+			\item We thus restrict the gauge group to consist of only \textbf{framed} gauge transformations, defined below.
+		\end{itemize}
+		\begin{defn}
+			A framed gauge transformation on $\rr^4$ is one that tends to a constant group element as $|\vec x| \to \infty$.
+		\end{defn}
+
+		We first change the setting from $\rr^4$ to $S^4$. Because of the decay of the fields, this will still give a well-defined field strength and vector potential on $S^4$. The following argument is directly from \cite{lindenhovius2011}.
+	
+		We will now understand the instanton number in terms of a \emph{clutching function} defined on $S^3$ connecting the two hemispheres of $S^4$. First, note that on an open disk, the form $\tr (F \wedge F)$ (by virtue of being locally exact) can be written as 
+		\[
+			\dd \tr \left[F \wedge A - \frac13 A^3 \right] = \tr( F \wedge F)
+		\]
+		where $A^3 = A \wedge A \wedge A$.
+		Now take $D_N$ and $D_S$ be two disks overlapping on $S^3$. The $G$-bundle must have an overlap function $\rho: S^3 \to G$.
+	
+		Now the integral becomes:
+		\[
+		\begin{aligned}
+			8\pi k &= \int_{S^4} \tr (F \wedge F)\\
+				   &= \int_{D_S} \tr (F_S \wedge F_S) + \int_{D_N} \tr (F_N \wedge F)\\
+				   &= \int_{\partial D_S} \tr \left[F_S \wedge A_S - \frac13 A_S^3 \right] 
+				   + \int_{\partial D_N} \tr \left[F_N \wedge A_N - \frac13 A_N^3 \right]\\
+				   &= \int_{S^3} \left( \tr \left[F_S \wedge A_S - \frac13 A_S^3 \right] + \tr \left[F_N \wedge A_N - \frac13 A_N^3 \right] \right).
+		\end{aligned}
+		\]
+		After some manipulations, changing $A_N, F_N$ to $A_S, F_S$ by transforming according to $\rho$, this all reduces to:
+		\[
+			k = - \frac{1}{24\pi^2} \int_{S^3} \tr((\rho \dd \rho)^3)
+		\]
+		and this can now be expressed as the pullback of $\rho$ acting on the Mauer-Cartan form on some $\SU(2)$-homotopic subgroup of $G$ by Bott's theorem. Hence,
+		\[
+			k = - \frac{1}{24\pi^2} \int_{S^3} \rho^* \tr(\Theta^3) = \frac{\deg \rho}{24} \int_{\SU(2)} \tr(\Theta^3).
+		\]
+		On $\SU(2)$, the triple wedge of the Mauer-Cartan form gives a volume form whose integral is exactly $24\pi^2$.
+
+		\begin{prop}
+			The homotopy classes of maps $S^3 \to \mathrm{SU}(2)$ are classified by integers.
+		\end{prop}
+		\begin{proof}
+			This follows from noting that $\SU(2) \cong S^3$ and $\pi_3(S^3) = \zz$.
+		\end{proof}
+		\noindent Consequently, we have our result.
+		\begin{prop}
+			 The instanton number $k$ must be an integer equal to the negative of the degree of the clutching function $\rho$ defining the principal $G$-bundle on $S^4$.
+		\end{prop}
+		
+		\noindent With the stage set, will now discuss the method for constructing \emph{all} instantons on $\rr^4$. This is the \textbf{ADHM construction} of Atiyah, Hitchin, Drinfeld, and Mannin \cite{atiyah65}.
+
+	% subsection classifying_principal_bundles_over_s_4 (end)
+
+
+\section{Construction of Instantons} % (fold)
+\label{sec:construction_of_instantons}
+	
+	In the ADHM construction, we make use of an identification $\rr^4 \cong \cc^2$. 
+	
+	We will show how this construction will give a bundle $E$ over $S^4$ with topological charge $-k$. The proof that this exhaustively gives \emph{all} instantons can be found in \cite{donaldson1988}.
+	
+	\subsection{Holomorphic and Hermitian Vector Bundles} % (fold)
+	\label{sub:holomorphic_and_hermitian_vector_bundles}
+	
+	\textbf{FINISH THIS}
+	
+	% subsection holomorphic_and_hermitian_vector_bundles (end)
+	
+	\subsection{The Data}
+	
+	Let $x_1, x_2, x_3, x_4$ parameterize a $\mathbb R^4$, and write this as $\mathbb C^2$ using $z_1 = x_2 + i x_1, z_2 = x_4 + i x_3$. In terms of the complex coordinates, we get
+	\begin{equation}
+		\begin{aligned}
+			D_1 &= \frac{1}{2} ({\dd_A}_2 - i {\dd_A}_1)\\
+			D_2 &= \frac{1}{2} ({\dd_A}_4 - i {\dd_A}_3)
+		\end{aligned}
+	\end{equation}
+	We can express anti-self duality of $\mathcal F_{\mu \nu}$ in terms of these $D_\mu$ through two equations:
+	\begin{equation}
+		\begin{aligned}
+			\left[ D_1, D_2 \right] &= 0\\
+			[D_1, D_1^\dagger] + [D_2, D_2^\dagger] &= 0
+		\end{aligned}
+	\end{equation}
+	
+	% The idea behind ADHM is to take ``Fourier transforms'' of these $D_i$ to matrices $B_i$.
+	
+	\begin{defn}[ADHM System]
+		Let $U$ be a $4$-dimensional space with complex structure. An \textbf{ADHM System} on $\cc^2$ is a set of linear data:
+		\begin{enumerate}
+			\item Vector spaces $V,W$ over $\mathbb C$ of dimensions $k,n$ respectively.
+			\item Complex $k \times k$ matrices $B_1, B_2$, a $k\times n$ matrix $I$, and an $n\times k$ matrix $J$.
+		\end{enumerate}
+		
+		We can see this diagrammatically by the following quiver:
+		\[
+			\begin{tikzcd}
+				W \arrow[r,bend left,"I"] & V \arrow[l,bend left,"J"] \arrow[out=30,in=90,loop,swap,"B_1"] \arrow[out=330,in=270,loop,"B_2"]
+			\end{tikzcd}
+		\]
+		
+		A set of ADHM Data is an ADHM system if it satisfies the following constraints:
+		\begin{enumerate}
+			\item The ADHM equations:
+			\begin{equation}
+				\begin{aligned}
+					[B_1, B_2] + IJ&=0\\
+					[B_1, B_1^\dagger] + [B_2, B_2^\dagger] + II^\dagger - J^\dagger J &= 0
+				\end{aligned}
+			\end{equation}
+			\item For $(x,y) \in  \cc^2$ with $x = (z_1, z_2), y = (w_1, w_2)$, the map:
+			\begin{equation}
+				\alpha_{x,y} = 
+				\begin{pmatrix}
+					w_2 J - w_1 I^\dagger \\
+					-w_2 B_1 - w_1 B_2^\dagger - z_1 \\
+					w_2 B_2 - w_1 B_1^\dagger + z_2
+				\end{pmatrix}
+			\end{equation}
+			is injective from $V$ to $W \oplus (V\otimes \cc^2)$ while
+			\[
+			\beta_{x,y} = \begin{pmatrix}
+				w_2 I + w_1 J^\dagger & w_2 B_2 - w_1 B_1^\dagger + z_2 & w_2 B_1 + w_1 B_2^\dagger + z_1
+			\end{pmatrix}	
+			\]
+			is surjective from $W \oplus (V \otimes \cc^2)$ to $V$.
+		\end{enumerate}
+	\end{defn}
+	
+	It is an easy check to see
+	\begin{obs}
+		If $B_1, B_2, I, J$ satisfy the above conditions, then for $g \in \mathrm(k), h \in \mathrm{SU}(n)$, 
+		\[
+			(g B_1 g^{-1}, g B_2 g^{-1}, gI, Jg^{-1})
+		\]
+		also satisfies the ADHM equations.
+	\end{obs}
+	
+	We can recast the ADHM equations into a more succinct form.
+	\begin{prop}
+		The ADHM equations are satisfied iff
+		\[
+		\begin{tikzcd}
+			0 \arrow[r]&V \arrow[r,"\alpha_{x,y}"] & W \oplus (V \otimes \cc^2) \arrow[r,"\beta_{x,y}"] & V \arrow[r] & 0
+		\end{tikzcd}
+		\]
+		is a complex, namely $\beta \circ \alpha = 0$.
+	\end{prop}
+	\begin{proof}
+		We need both $\beta \alpha = 0$ as well as surjectivity of $\beta$ and injectivity of $\alpha$. The equation $\beta \alpha = 0$ reduces to a quadratic polynomial in the $w_1, w_2$ with the two ASD equations emerging as coefficients.
+	\end{proof}
+	
+	% \begin{prop}
+	% 	The topological charge of $E \to S^4$ is $-k$.
+	% \end{prop}
+	
+	\begin{theorem}[ADHM construction]
+		There is a one-to-one correspondence between equivalence classes of solutions to the ADHM system and gauge equivalence classes of anti-self-dual $\mathrm{SU}(n)$-connections $\mathcal A$ with instanton number $k$.
+	\end{theorem}
+	
+	A full proof of this theorem is beyond the scope of this thesis. Nonetheless, we show how such a set of data gives rise to a 2-dimensional $\SU(n)$-associated bundle $E$ over $S^4$. 
+	
+	Succinctly: the only nontrivial cohomology group of this complex is $\ker \beta_{x,y}/ \mathrm{im}\, \alpha_{x,y}$. This gives a vector bundle over $\cc^2 \times \cc^2$ which can be identified with $\mathbb H^2$. An equivariance condition on the data under quaternionic action will let this descend to a vector bundle on $\mathbb{HP}^1 \cong S^4$. This 2D complex vector bundle will be associated to some appropriate principal bundle and have instanton number $k$.
+	
+	In quaternionic language, the ADHM equations become easier to work with. To each $x = (q_1, q_2) \in \cc^2$, we can associate a quaternionic operator acting on $\cc^2$ as:
+	\begin{equation}
+		(q_1, q_2) \mapsto z = \begin{pmatrix}
+			\bar q_2 & -q_1\\
+			\bar q_2 & q_2
+		\end{pmatrix}.
+	\end{equation}
+	For $(q_1, q_2) \neq 0$ this is a rank two linear operator.
+	
+	We can we write the ADHM equations by defining an operator:
+	\begin{equation}
+		\Delta_{x,y} := \begin{pmatrix}
+			\beta^\dagger_{x,y} & \alpha_{x,y}
+		\end{pmatrix}.
+	\end{equation}
+	Then it is easy to see that (with $x=(z_1, z_2)$ and $y=(w_1, w_2)$)
+	\begin{equation}
+		\Delta_{x, y} = a w + b z
+	\end{equation}
+	where $w, z$ are the quaternionic matrices corresponding to the complex pairs $(w_1, w_2), (z_1, z_2)$ and 
+	\begin{equation}
+		a = \begin{pmatrix}
+			I^\dagger & J\\
+			B_2^\dagger & -B_1\\
+			B_1^\dagger & B_2
+		\end{pmatrix}, \qquad b = \begin{pmatrix}
+			0 & 0\\
+			I_k & 0\\
+			0 & I_k
+		\end{pmatrix}
+	\end{equation}
+	are the by $n+ 2n$ by $2k$ matrices, with $I_k$ here denoting the identity. We similarly have \footnote{The notation here is suggestive. $\Delta^\dagger$ is a Dirac operator, and solutions to the ADHM equations are $\Psi(x,y)$ so that $\Delta^\dagger \Psi = 0$.}
+	\begin{equation}
+		\Delta^\dagger_{x,y} = \begin{pmatrix}
+			\beta_{x,y}\\
+			\alpha^\dagger_{x,y}
+		\end{pmatrix} =
+		(a w  + b z)^\dagger.
+	\end{equation}
+	Importantly, the kernel of this operator is $\ker \beta_{x,y} \cap \ker \alpha^\dagger_{x,y}$ which can be rewritten as $\ker \beta_{x,y} \cap \mathrm{im}(\alpha)^\perp_{x,y}$. By the definition of orthogonal complement together with $\beta_{x,y} \circ \alpha_{x,y} = 0 \Rightarrow \im \alpha_{x,y} \subseteq \ker \beta_{x,y}$, this intersection is seen to be isomorphic to $\ker \beta_{x,y} / \mathrm{im}\, \alpha_{x,y}$.
+	
+	We see that $x, y$ can be interpretted as two quaternions on $\mathbb H^2$. We have an action of the quaternionic operators on this space by $(x, y) \to (x q, y q)$. The space $\ker \Delta^\dagger_{x, y} \to (x, y)$ gives rise to a rank two vector bundle $\tilde E$ on $\mathbb H^2$. Observe of the following equivariance condition:
+	\begin{equation}
+		\Delta^\dagger_{xq, yq} = (a w q + b z q)^\dagger = q^\dagger \Delta^\dagger.
+	\end{equation}
+	For $q \neq 0$, $q^\dagger$ maintains full rank, so the kernel of $\Delta^\dagger_{xq, yq}$ is the same as the kernel of $\Delta^\dagger_{x,y}$. This means that $\tilde E$ descends to a vector bundle on $\mathbb{HP}^1 \cong S^4$.
+
+% section construction_of_instantons (end)
+
+

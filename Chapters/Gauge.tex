@@ -26,15 +26,15 @@
 	
 	In physics, especially when calculations are to be performed, manifolds are often described in terms of a set of coordinate charts $U_\alpha$ that are homeomorphic to $\mathbb R^n$ with $n = \dim M$ and $\alpha \in I$ is an index in some indexing set, not necessarily finite\footnote{But in the case of $M$ compact, $I$ can always be made finite.}. A covering of $M$ in terms of coordinate charts 
 	\[
-		M = \bigcup_{\alpha \in A} U_\alpha.
+		M = \bigcup_{\alpha \in I} U_\alpha.
 	\]
-	together with homeomorphisms $\varphi_\alpha: U_\alpha \to \mathbb R^n$ is called an \textbf{atlas} for $M$. In order to make sense of $M$ in terms of an atlas, we define \textbf{transition maps} between different $U_\alpha$ that intersect.
+	together with homeomorphisms $\psi_\alpha: U_\alpha \to \mathbb R^n$ is called an \textbf{atlas} for $M$. In order to make sense of $M$ in terms of an atlas, we define \textbf{transition maps} between different $U_\alpha$ that intersect.
 	\begin{defn}[Transition Map]
 		Given an atlas $\{U_{\alpha}\}_{\alpha \in I}$, the transition maps $\tau_{\alpha \to \beta}: U_\alpha \to U_\beta$ defined by $\varphi_\beta \circ \varphi_{\alpha}^{-1}$
 	\end{defn} 
 	By using transition maps, we can transport data locally defined on $U_{\alpha}$ to other parts of $M$ by ``moving it across'' other $U_\beta$. This data often comes from the fiber bundles over $M$.
 	
-	In physics, this perspective is particularly important, as it gives us an ability to ``glue together'' locally trivial bundles on the $U_\alpha$ to construct a globally nontrivial fiber bundle. In the cases of interest to us, fiber bundles will have a group of automorphism that will act on the fibers when comparing the data across different $U_\alpha$.
+	In physics, this perspective is particularly important, as it gives us an ability to ``glue together'' locally trivial bundles on the $U_\alpha$ to construct a globally nontrivial fiber bundle. For the fiber bundles of interest to us, there will be a group $G$ of automorphisms that acts on the fibers when comparing the data across different $U_\alpha$. We will later refer to $E$ as an \textbf{associated bundle} to $G$.
 	We define this more precisely:
 	\begin{defn}[Coordinate Bundle]
 		A \textbf{coordinate bundle} consists of 
@@ -46,7 +46,7 @@
 				& M
 			\end{tikzcd}
 			\]
-			\item A group $G$, called the \textbf{structure group} of $E$ acting freely on each fiber\footnote{A $G$-action is free iff $\forall f \in F \, g f = f  \Rightarrow g = 1$. The reason we consider free actions is that if $G$ did not act freely, then the stabilizer of $F$ would give a normal subgroup $N$. Upon passing to the quotient we would get a free action of $G/N$.}.
+			\item A group $G$, called the \textbf{structure group} of $E$ acting effectively on each fiber\footnote{A $G$-action is effective if only the identity element acts trivially i.e. $\forall g\in G \, \exists f \in F \mid gf \neq x$. The reason for this is that if $G$ did not act effectively, then elements that act trivially would give a normal subgroup $N$. Upon passing to the quotient we would get an effective action of $G/N$ on $F$.}.
 			\item A set of open coverings $\{ U_\alpha \}_{\alpha \in I}$ of $M$ with diffeomorphisms $\phi_\alpha: U_\alpha \times F \rightarrow \pi^{-1} (U_i)$ called \textbf{local trivializations} so that the following diagram commutes. 
 			\[
 			\begin{tikzcd}[row sep=2.5em]
@@ -54,46 +54,51 @@
 			 & U_\alpha \\
 			\end{tikzcd}
 			\]
-			\item On $U_{\alpha \beta} := U_\alpha \cap U_\beta$, $\psi_\beta^{-1} \psi_\alpha$ acts as a diffeomorphism\footnote{This is a diffeomorphism in this case because we are considering a $C^\infty$ fiber bundle. If we were considering continuous, differentiable, or holomorphic fiber bundles this map would be continuous, differentiable, or holomorphic respectively.} coinciding with the action of an element of $G$ on each $E_p$ (we say ``fiberwise"). 
+			\item For each $p \in U_\alpha \cap U_\beta$, $\psi_\beta^{-1} \psi_\alpha$ act continuously on the fiber $\pi^{-1}(p)$, coinciding the action of an element of $G$.
 		\end{itemize}
+		% diffeomorphism\footnote{This is a diffeomorphism in this case because we are considering a $C^\infty$ fiber bundle. If we were considering continuous, differentiable, or holomorphic fiber bundles this map would be continuous, differentiable, or holomorphic respectively.}
+		
 		% $\psi_\alpha$ captures the explicit isomorphism data between the fiber object $F$ and the fiber at a point $F_p$. $\psi_{\alpha, F_p} (f) = \psi_\alpha (p, x)$
 	\end{defn}
 		
-	In gauge theory, $G$ is taken to be a \textbf{Lie group} called the \textbf{structure group} of $E$. 
+	In gauge theory, $G$ is taken to be a \textbf{Lie group} called the \textbf{structure group} of $E$.
 	\begin{defn}
 		A Lie group is a group that is also a differentiable manifold so that the group operations of multiplication and inversion are compatible with the  differentiable structure. 
 	\end{defn}
 	A basic working knowledge of Lie theory is assumed, however we will go over relevant aspects of Lie groups in the following sections of this chapter.
 	
 	\begin{nb}
-		In the above, we described $\varphi_\alpha$, $\tau_{\alpha}$ as \emph{homeomorphisms}, which are indeed morphisms in the category of topological spaces. If we wish to work in other categories, such as $C^r$-differentiable, smooth, analytic, or complex manifolds, then the transition functions would have to be $C^r$-differentiable, smooth, convergent Taylor series, or holomorphic respectively. 
+		In the above, we described $\varphi_\alpha$, $\tau_{\alpha \to \beta}$, and $\psi_\beta^{-1} \psi_\alpha$ as \emph{homeomorphisms}, which are indeed morphisms in the category of topological spaces. If we wish to work in other categories, such as $C^r$-differentiable, smooth, analytic, or complex manifolds, then the transition functions would have to be $C^r$-differentiable, smooth, convergent Taylor series, or holomorphic respectively. 
 		If we were working in the category of algebraic varieties, the corresponding maps we consider would have to be \emph{regular}.
 	\end{nb}	
 		%
 		% From this we can define the vertical component of a point in the total space: $f_\alpha: E \rightarrow F$ by $f_\alpha = \psi^{-1}_{\alpha, \pi}$.
 		
-		We can also identify $\psi^{-1}_{\beta, p} \circ \psi_{\alpha, p}$ with an element in $G$ by $g_{\alpha, \beta}: U_{\alpha \beta} \rightarrow G$ acting fiberwise on the overlap of the two bundles over $U_\alpha, U_\beta$ to translate data from one coordinate patch into the other.
+		At the fiber over each point, since we can identify $\psi^{-1}_{\beta, p} \circ \psi_{\alpha, p}$ with an element in $G$, we write $g_{\alpha, \beta}: U_{\alpha \beta} \rightarrow G$ to denote the $G$ action fiberwise on the overlap of the two bundles over $U_\alpha, U_\beta$. This translates data from one coordinate patch into the other.
 		\begin{prop}
 			$g_{\alpha \beta}$ satisfies 
 			\begin{itemize}
-				\item $g_{\alpha \alpha} = 1$
-				\item $g_{\alpha \beta} = g^{-1}_{\beta \alpha}$
-				\item $g_{\alpha \beta} g_{\beta \gamma} = g_{\alpha \gamma}$
+				\item (identity) $g_{\alpha \alpha} = 1$
+				\item (inversion) $g_{\alpha \beta} = g^{-1}_{\beta \alpha}$
+				\item (cocycle condition) On $U_\alpha \cap U_\beta \cap U_\gamma$ $g_{\alpha \beta} g_{\beta \gamma} = g_{\alpha \gamma}$
 			\end{itemize}
-
-			Moreover 
-			\begin{enumerate}
-				\item $g_{\alpha \beta} f_\beta = f_\alpha$\\ That is, $g_{\alpha \beta}$ maps the fiber corresponding to $U_\beta$ to the fiber corresponding to $U_\alpha$.
-				\item $\psi_{j} (p, f) = \psi_{i} (p, g_{ij} f)$
-			\end{enumerate}
+			\label{prop:cocycle}
 		\end{prop}
+		% One way to look at fiber bundles (c.f. \cite{lindenhovius2011}) is to define on the restriction of $E$ to each $U_\alpha$, functions $f_\alpha: U_\alpha \to F$ given by $f_\alpha(x) := p_2 p_1^{-1} (p)$
+%
+% 			Moreover, pick $x \in U_\alpha \cap U_\beta$ and $F_\alpha, F_\beta$ be the fibers over $x$ of $E$ as a bundle on $U_\alpha, U_\beta$ respectively.
+% 			\begin{enumerate}
+% 				\item $g_{\alpha \beta} F_\beta = F_\alpha$, that is $g_{\alpha \beta}$ gives the isomorphism to the the fiber corresponding to $U_\beta$ to the fiber corresponding to $U_\alpha$.
+% 				\item $\psi_{\beta} (p, f) = \psi_{\alpha} (p, g_{\alpha \beta} f)$
+% 			\end{enumerate}
+%
+%
+% 		\begin{proof}
+% 			These are all easy to check just by the definition of $g_{\alpha \beta}$ as a composition of the $\psi_\alpha$ and by invoking the cartesian properties of local trivialization.
+% 		\end{proof}
+		The equivalence class of a set of coordinate bundles on $M$ gives the corresponding fiber bundle over $M$.
 		
-		\begin{proof}
-			These are all easy to check just by the definition of $g_{\alpha \beta}$ as a composition of the $\psi_\alpha$ and by invoking the cartesian properties of local trivialization.
-		\end{proof}
-		The equivalence class of a set of coordinate bundles on $M$ is called a corresponding fiber bundle over $M$.
-		
-		Fiber bundles whose fibers are are vector spaces are called \textbf{vector bundles}. A rank $n$ vector bundle over a field $\kk$ will have structure group $G \subseteq \GL_n(\kk)$. Examples are the tangent/cotangent bundles of a manifold, and any tensor/symmetric/exterior powers thereof. We will see that we can view vector fields, $p$-forms, and many other interesting and physically-relevant objects as \textbf{sections} of fiber bundles, to be described in the later sections.
+		Fiber bundles whose fibers are vector spaces are called \textbf{vector bundles}. The \textbf{rank} of a vector bundle is the dimension of the vector space fiber. A rank $n$ vector bundle over a field $\kk$ will have its structure group $G \subseteq \GL_n(\kk)$. Examples are the tangent/cotangent bundles of a manifold, and any tensor/symmetric/exterior powers thereof. We will see that we can view vector fields, $p$-forms, and many other interesting and physically-relevant objects as \textbf{sections} of fiber bundles, to be described in the later sections.
 		
 		\subsection{Morphisms and Extensions}
 		The morphisms in the category of fiber bundles are called \textbf{bundle maps}:
@@ -103,7 +108,7 @@
 			\[
 			\begin{tikzcd}
 			E \arrow{r}{\overline f} \arrow{d}{\pi} & E' \arrow{d}{\pi'} \\
-			M \arrow{r}{f} & M
+			M \arrow{r}{f} & M.
 			\end{tikzcd}
 			\]
 		\end{defn}
@@ -113,7 +118,7 @@
 		\end{defn}
 		If we have a fiber bundle $\pi: E \rightarrow M$ and $\varphi: N \rightarrow M$ for another manifold $N$, then we can pull back $E$ to form a bundle over $N$
 		\begin{equation}
-			\varphi^* E = \{(y,[f,p]) \in N \times E \; s.t. \; \varphi(y) = p \}.
+			\varphi^* E = \{(y,[f,p]) \in N \times E \mid \varphi(y) = p \}.
 		\end{equation}
 		We have projection on the second factor of $\varphi^* E$ as a map $g: \varphi^* E \rightarrow E$. 
 		This is the \textbf{pullback bundle} $\varphi^* E$.
@@ -122,7 +127,7 @@
 			\[
 			\begin{tikzcd}
 			\varphi^* E \arrow{r}{g} \arrow{d}{\pi'} & E \arrow{d}{\pi} \\
-			N \arrow{r}{\varphi} & M
+			N \arrow{r}{\varphi} & M.
 			\end{tikzcd}
 			\]
 		\end{defn}
@@ -136,7 +141,7 @@
 			E \times E' \xrightarrow{\pi \times \pi'} M \times M'.
 		\]
 		In the special case where $M = M'$ we can also define 
-		\begin{defn}[Direct Sum of Vector Bundles]
+		\begin{defn}[Whitney Sum of Vector Bundles]
 			For $E, E'$ vector bundles over $M$ with structure groups $G, G'$ respectively, we can define their sum as $E \oplus E'$ to be pullback bundle $E \times E'$ along the diagonal map $\Delta: M \rightarrow M \times M$.
 			
 			More explicitly, this is a fiber bundle over $M$ with $F \oplus F'$ fibered over every point. 
@@ -151,7 +156,7 @@
 		\end{defn}
 		Similarly, we can define arbitrary direct sums of bundles recursively:
 		\begin{equation}
-			E_1 \oplus \dots \oplus E_r 
+			E_1 \oplus \dots \oplus E_r.
 		\end{equation}
 		
 		
@@ -161,34 +166,50 @@
 		\end{theorem}
 		An important fact is the following corollary:
 		\begin{cor}
-			If $M$ is contractible, every fiber bundle $\pi: E \rightarrow M$ is topologically trivial\footnote{In the language of classifying spaces, $M$ being trivial implies there is only one homotopy class of map $M \to BG$, so that consequently the only fiber bundle over $M$ is the trivial one}.
+			If $M$ is contractible, every fiber bundle $\pi: E \rightarrow M$ is topologically trivial\footnote{In the language of classifying spaces, $M$ being trivial implies there is only one homotopy class of map $M \to BG$, so that consequently the only fiber bundle over $M$ is the trivial one.}.
 		\end{cor}
 		\begin{proof}
 			Let $f: pt \to M$ and $g: M \to pt$ be such that $f \circ g \sim id|_M$ and $g \circ f \sim id|_{pt}$. Then because pullback respects homotopy equivalence, we will have that $E \sim (f \circ g)^* E \sim f^* (g^*E)$ but $g^* E$ is the (necessarily trivial) bundle on a point, so this will pull back along $f$ to the trivial bundle along $f$.
 		\end{proof}
 		
-		\subsection{Principal Bundles}
+		\subsection{Principal Bundles} % (fold)
+		\label{sub:principal_bundles}
 		
-		When the structure group acts freely and transitively on the fiber, we can identify $F$ with $G$. In this case, we get a \textbf{principal $G$-bundle}. This will be an object of central interest in what follows. In general, unlike $G$ itself, $F$ need not have a canonical choice of identity element. Indeed, if it did then the bundle would necessarily have to be the trivial $M \times G$. We give a an example for motivation:
+
+		
+		We have seen that in general, the structure group of a fiber bundle acts effectively on the fibers. More strictly, when $G$ acts freely\footnote{A free $G$-action on $F$ is one where $\forall f \in F, gf = f \Rightarrow g = 1$ i.e. each element has only the identity fixing it. This is a more restrictive form of effective action.} and transitively\footnote{A transitive $G$-action on $F$ is one with a single $G$-orbit, i.e. any element can be taken to any other.} \emph{from the right}\footnote{The reason for defining this to be a \emph{right} action is so that it can commute with transition maps, which are taken to act from the \emph{left} \cite{stackoverflow1}.} on the fiber, we can identify $F$ with $G$. In this case, we get a \textbf{principal $G$-bundle}. This will be an object of central interest in what follows.
+		
+		\begin{obs}
+			The fibers of a principal $G$-bundle are \emph{homeomorphic} to $G$
+		\end{obs}
+		\begin{proof}
+			Let $P \to M$ be a principal $G$-bundle and pick a point $p \in M$. Take a point $f \in \pi^{-1}(p)$. We can construct a homeomorphism $\varphi: G \to \pi^{-1}(p)$ by sending $g \mapsto p g$. To prove that this is invertible, note that the action is transitive, so $\varphi$ is certainly surjective. Further, if $p g = p g'$ then $p = p g {g'}^{-1}$ so necessarily $g = g'$, and we have injectivity as a map between topological spaces.
+		\end{proof}
+		
+		
+		Though \emph{topologically} each fiber $F$ of a principal $G$-bundle looks like $G$, unlike $G$, $F$ need not have a canonical choice of identity element, and consequently does not generically have canonical groups structure. Indeed, if it did then the bundle would necessarily have to be the trivial $M \times G$. Such a space, that looks like $G$ after ``forgetting'' which point is the identity is called a \textbf{$G$-torsor}. 
+		
+		We give a an example for motivation:
 		\begin{eg}[Frame Bundle]
 			The fiber bundle of all \textbf{frames}, namely choices of bases in an $n$-dimensional space is a principal $\mathrm{GL}_n$ bundle.
 		\end{eg}
 		The frame bundle is generally nontrivial. 
 		
-		\begin{prop}
-			A principal bundle is equipped with a natural right action of $G$, $R_g$ so that $R_g: \pi^{-1} (U_\alpha) \rightarrow \pi^{-1} (U_\alpha)$ by acting on the fiber appropriately $R_g (p, h) = (p, hg)$. 
-		\end{prop}
+		\begin{eg}
+			As another example, taking $G$ to be a discrete group and $\tilde X \to X$ be the universal cover of a topological space $X$, we get that $\tilde X$ is a principal $G$-bundle on $X$ with $G=\pi_1(X)$.
+		\end{eg}
 		
-		We state the following theorem without proof (c.f. Chapter 9 of \cite{lee2003})
-		\begin{theorem}
-			When $G$ is a compact Lie Group acting smoothly and freely on a manifold $M$, the orbit space $M/G$ is a topological manifold with dimension $\dim M - \dim G$ and a unique smooth structure so that $\pi: M \rightarrow M/G$ is a smooth submersion (differential is locally surjective). 
-		\end{theorem}
-		
+		Since $G$ acts transitively on the fiber, there is only one $G$ orbit and we can form the quotient $P/G$ in a well-defined way. We then have that $P/G$ is homeomorphic to $M$.
+		% We state the following theorem (c.f. Chapter 9 of \cite{lee2003}).
+	% 	\begin{theorem}
+	% 		When $G$ is a compact Lie Group acting smoothly and freely on a manifold $M$, the orbit space $M/G$ is a topological manifold with dimension $\dim M - \dim G$ and a unique smooth structure so that $\pi: M \rightarrow M/G$ is a smooth submersion (differential is locally surjective).
+	% 	\end{theorem}
+	%
 		\begin{cor}
 			For a principal bundle $P(M,G)$ we get $\dim P = \dim M + \dim G$
 		\end{cor}
 		
-		If $M,F$ are two manifolds and $G$ has an action $G \times F \rightarrow F$, then for an open cover $\{ U_\alpha \}$ of $M$ with a map $g_{\alpha \beta}: U_{\alpha}\cap U_{\beta} \to G$ we can construct a fiber bundle by first building the set
+		If $M,F$ are two manifolds and $G$ has an action $G \times F \rightarrow F$, then for an open cover $\{ U_\alpha \}$ of $M$ with a map $g_{\alpha \beta}: U_{\alpha}\cap U_{\beta} \to G$ satisfying the conditions of Proposition \ref{prop:cocycle} we can construct a fiber bundle by first building the set
 		\begin{equation}
 			X = \bigcup_\alpha U_\alpha \times F
 		\end{equation} 
@@ -208,96 +229,119 @@
 				P = X/\sim, ~ X = \bigcup_\alpha U_\alpha \times G
 			\end{equation}
 		\end{prop}
-		In certain contexts that we will encounter later, the $g_{\alpha \beta}$ are referred to as \textbf{clutching functions}.
-		Note that there was no requirement here that $G$ be compact. \\
+		In certain contexts that we will encounter later, the $g_{\alpha \beta}$ are referred to as \textbf{clutching functions}.		%
+		% Note that there was no requirement here that $G$ be compact. \\
 		
 		\begin{eg}
 			Take $M = \cp^1$ the Riemann sphere and consider constructing a $G$-bundle over it. The Riemann sphere can be decomposed as a union of two copies of $\cc$ with overlap exactly on the cylinder $\cc^{\times}$. On each copy of $\cc$ the $G$-bundle is trivializable since $\cc$ is contractible. A clutching function would be a map $\rho: \cc^\times \to G$, and this gives rise to a principal $G$-bundle on $M$. 
 		\end{eg}
 		
+		This discussion leads naturally to the next subsection. 
+		
+		% subsection principal_bundles (end)
+		
+		\subsection{Associated Bundles}
+		Take a principal bundle $P(M,G)$ and let $F$ be a space with associated automorphism $\mathrm{Aut}(F)$ so that $\rho: G \to \mathrm{Aut}(F)$ is a \emph{faithful} representation. Then $g \cdot f$ is a well-defined faithful left $G$-action.
+		\begin{defn}
+			Given a principal bundle $\pi: P \to M$ and group action $\rho: G \to \mathrm{Aut}(F)$, the \textbf{associated bundle} is given by taking the product space $P \times F$ and forming the quotient space:
+			\[
+				(P \times F) / G
+			\]
+			given by identifying:
+			\[
+				(x g, f) \sim (x, \rho(g) f).
+			\]
+			This is the \textbf{fiber product} $P \times_{G, \rho} F$. The projection map:
+			\[
+				\pi': (P \times F) / G \to M
+			\]
+			given by sending $(x, f)$ to $\pi(x)$ is well-defined since $\pi(x g) = \pi(x)$.
+		\end{defn}
+		Note that the (equivalence classes of) a coordinate bundles in section 3.1.1 gives an associated bundle.
+		
+		
+		% \begin{equation}
+% 			g \cdot ([p, h], f) = ([p, hg], \rho(g)^{-1} f)
+% 		\end{equation}
+% 		This is a free action as well. Then if $G$ is compact (important) we have the orbit space
+% 		\begin{equation}
+% 			E_\rho = P(M,G) \times F/G
+% 		\end{equation}
+% 		is a manifold
+%
+% 		\begin{theorem}
+% 			The space $E_\rho$ can be made into a fiber bundle over $M$ with fiber $F$ called the \textbf{associated fiber bundle} of $P(M,G)$.
+% 		\end{theorem}
+% 		\begin{proof}
+% 			(Following \cite{lindenhovius2011})
+% 			We make $P \times F$ into a bundle by defining the projection
+% 			\begin{equation}
+% 				\pi_\rho ([p, h], f) = p
+% 			\end{equation}
+% 			and trivializations $\psi_\alpha: U_\alpha \times F \rightarrow \pi^{-1}(U)\alpha$ by
+% 			\begin{equation}
+% 				(\psi_\rho)_\alpha (p, f) = ([p, s_\alpha (p)] , f)
+% 			\end{equation}
+% 			and inverse
+% 			\begin{equation}
+% 				(\psi_\rho)_\alpha^{-1} ([p, g], f) = [p, \rho(g) f]
+% 			\end{equation}
+% 		\end{proof}
+		
+		Two associated bundles that we'll care about are $P(M,G) \times_{\mathrm{Ad}} G$ and $P(M,G) \times_{\mathrm{ad}} \frak g$.
+		Every fiber bundle with some structure group $G$ arises as an associated bundle to some principal $G$-bundle.
+		
+		Importantly, the study of equivalence classes of $G$-bundles can be equivalently cast as a study of certain associated bundles. 
 		
 		\subsection{Sections and Lifts}
 		
-		As mentioned before, any specific smooth vector field on a manifold $M$ can be viewed as a smooth ``slice'' of the vector bundle of the tangent spaces of $M$: $TM$. This motivates the notion of a \textbf{section} of a fiber bundle that associates to each base point $p\in M$ an element $f$ in the fiber $F_p$, giving together $(p,f)\in E$.
+		As mentioned before, any specific smooth vector field on a manifold $M$ can be viewed as a smooth map from $M$ to the the tangent bundle of $M$: $TM$. This motivates the notion of a \textbf{section} of a fiber bundle that associates to each base point $p\in M$ an element $f$ in the fiber $E_p$. Explicitly:
+		\begin{defn}[Section of a Fiber Bundle]
+			A \textbf{global section} of the fiber bundle $\pi: E \rightarrow M$ is a map $s: M \rightarrow E$ so that $\pi \circ s = \text{id}$. 
+			
+			When we have, $s: U \subseteq M \rightarrow E$, we call $s$ a \textbf{local section}. The set of global sections is denoted by $\Gamma(M, E)$. In different contexts, this may mean sections that are continuous, smooth, holomorphic, regular, etc. For smooth sections, this space is often denoted $\Gamma^\infty(M,E)$.
+		\end{defn}
 		
-		A \textbf{global section} of the fiber bundle $\pi: E \rightarrow M$ is a map $s: M \rightarrow E$ so that $\pi \circ s = \text{id}$. When it's restricted, $s: U \subseteq M \rightarrow E$, we call $s$ a \textbf{local section}. The set of smooth global sections is denoted by $\Gamma^\infty (M, E)$. 
 		
 		\begin{eg}
-			The set of all smooth $r$-forms on $M$ is $\Gamma^\infty(M, \Lambda^r (T^* M))$ on which the structure group acts on each component of $M$. % Note the different action of the structure group on different $r$-forms is exactly what makes the components of various $r$-forms ``$r$-times covariant''.
+			The set of all smooth $r$-forms on $M$ is $\Gamma^\infty(M, \Lambda^r (T^* M))$ on which the structure group $G$ of $T^*M$ acts on each component. % Note the different action of the structure group on different $r$-forms is exactly what makes the components of various $r$-forms ``$r$-times covariant''.
 		\end{eg}
-		
-		When the group is fibered over the manifold, then on the local cartesian structure, we can easily pick the section $p \mapsto [p,s(p)]$.
+		% When the group is fibered over the manifold, then on the local cartesian structure, we can easily pick the section $p \mapsto [p,s(p)]$.
 		
 		\begin{prop}
 			For a principal bundle $P(M,G)$, any local trivialization $\psi: U \times G \rightarrow \pi^{-1} (U)$ defines a local section by $s: p \mapsto \psi(p, e)$ and conversely any local section defines a trivialization by $\psi(p,g) = s(p) g$
 		\end{prop}
 		
-		By using sections, we can prove the existence of lifts. That is, for a principal bundle $P(M,G)$ over $M$, and a map $\varphi: M \to N$ we can get a principal bundle over $N$ by forming the projection $\varphi \circ \pi$.
-		
-		\begin{prop}
-			For a principal bundle $P(M,G)$ and $\varphi: M \rightarrow N$, then $\varphi$ is smooth iff $\varphi \circ \pi$ is smooth according to the following diagram.
-			\[
-			\begin{tikzcd}
-				P(M,G) \arrow{d}{\pi} \arrow{rd}{\varphi \circ \pi}\\
-				M \arrow{r}{\varphi} & N
-			\end{tikzcd}
-			\]
-		\end{prop}
-		\begin{proof}
-			If $\varphi$ is smooth, then $\varphi \circ \pi$ is a composition of smooth maps. On the other hand, if $\varphi \circ \pi$ is smooth, then for each point $p$ there is a coordinate neighborhood $U_\alpha$ on which we have trivial fiber structure. Take a local section $s_\alpha$ so that $\varphi \circ \pi \circ s = \varphi|_{U_\alpha}$.
-		\end{proof}
-		
-		\begin{prop}
-			For $P(M,G)$ principal and $\tilde \varphi: P(M,G) \rightarrow N$ a smooth $G$-invariant map so that 
-			\begin{equation}
-				\tilde \varphi(x g) = \tilde \phi (x), ~ x \in P(M,G)
-			\end{equation}
-			then there is a unique map $\phi$ induced on the base space so that the following diagram commutes:
-			\[
-			\begin{tikzcd}
-				P(M,G) \arrow{d}{\pi} \arrow{rd}{\tilde \varphi}\\
-				M \arrow[r,dashed, "\varphi"] & N
-			\end{tikzcd}
-			\]
-			and is given by $\tilde \phi([x, g]) = \varphi(x)$. This is well-defined.
-		\end{prop}
-		
-		\subsection{Associated Bundles}
-		Take a principal bundle $P(M,G)$ and let $F$ be a space with associated automorphism $\mathrm{Aut}(F)$ so that $\rho: G \rightarrow \mathrm{Aut}(F)$ is a faithful representation. Then $g \cdot f$ is a well-defined notion, with free action, and we can consider the (right) action of $G$ on $P(M,G) \times F$ by
-		\begin{equation}
-			g \cdot ([p, h], f) = ([p, hg], \rho(g)^{-1} f)
-		\end{equation}
-		This is a free action as well. Then if $G$ is compact (important) we have the orbit space
-		\begin{equation}
-			E_\rho = P(M,G) \times F/G
-		\end{equation}
-		is a manifold
-		
-		\begin{theorem}
-			The space $E_\rho$ can be made into a fiber bundle over $M$ with fiber $F$ called the \textbf{associated fiber bundle} of $P(M,G)$. 
-		\end{theorem}
-		\begin{proof}
-			(Following \cite{lindenhovius2011})
-			We make $P \times F$ into a bundle by defining the projection 
-			\begin{equation}
-				\pi_\rho ([p, h], f) = p
-			\end{equation}
-			and trivializations $\psi_\alpha: U_\alpha \times F \rightarrow \pi^{-1}(U)\alpha$ by
-			\begin{equation}
-				(\psi_\rho)_\alpha (p, f) = ([p, s_\alpha (p)] , f)
-			\end{equation}
-			and inverse
-			\begin{equation}
-				(\psi_\rho)_\alpha^{-1} ([p, g], f) = [p, \rho(g) f]
-			\end{equation}
-		\end{proof}
-		
-		From this, if $F$ is a group then we can make $\pi_\rho^{-1}(p)$ into a group at each fiber in the obvious way, defining $[(p, v)][p, w] = [p, v w]$. And if $F$ is a vector space then we can do the same construction to make each fiber have vector space structure.		
-		Two associated bundles that we'll care about are $P(M,G) \times_{\mathrm{Ad}} G$ and $P(M,G) \times_{\mathrm{ad}} \frak g$.
-		
-		The study of equivalence classes of $G$-bundles can be equivalently cast as a study of their associated bundles. 
-		
-		\textbf{ELABORATE HERE}
+		% By using the language of sections, we can prove the existence of lifts. That is, for a principal bundle $P(M,G)$ over $M$, and a map $\varphi: M \to N$ we can get a principal bundle over $N$ by forming the projection $\varphi \circ \pi$.
+		%
+		% \textbf{FIX}
+		% \begin{prop}
+		% 	For a principal bundle $P(M,G)$ and $\varphi: M \rightarrow N$, then $\varphi$ is smooth iff $\varphi \circ \pi$ is smooth according to the following diagram.
+		% 	\[
+		% 	\begin{tikzcd}
+		% 		P(M,G) \arrow{d}{\pi} \arrow{rd}{\varphi \circ \pi}\\
+		% 		M \arrow{r}{\varphi} & N
+		% 	\end{tikzcd}
+		% 	\]
+		% \end{prop}
+		% \begin{proof}
+		% 	If $\varphi$ is smooth, then $\varphi \circ \pi$ is a composition of smooth maps. On the other hand, if $\varphi \circ \pi$ is smooth, then for each point $p$ there is a coordinate neighborhood $U_\alpha$ on which we have trivial fiber structure. Take a local section $s_\alpha$ so that $\varphi \circ \pi \circ s = \varphi|_{U_\alpha}$.
+		% \end{proof}
+		%
+		% \begin{prop}
+		% 	For $P(M,G)$ principal and $\tilde \varphi: P(M,G) \rightarrow N$ a smooth $G$-invariant map so that
+		% 	\begin{equation}
+		% 		\tilde \varphi(x g) = \tilde \phi (x), ~ x \in P(M,G)
+		% 	\end{equation}
+		% 	then there is a unique map $\phi$ induced on the base space so that the following diagram commutes:
+		% 	\[
+		% 	\begin{tikzcd}
+		% 		P(M,G) \arrow{d}{\pi} \arrow{rd}{\tilde \varphi}\\
+		% 		M \arrow[r,dashed,"\varphi"] & N
+		% 	\end{tikzcd}
+		% 	\]
+		% 	and is given by $\tilde \phi([x, g]) = \varphi(x)$. This is well-defined.
+		% \end{prop}
 		
 		\section{Lie Theory}
 		
@@ -336,11 +380,11 @@
 		\end{equation}
 		A vector space endowed with such a bilinear form and satisfying the Jacobi identity is a \textbf{Lie algebra}.
 		
-		Most important is when $M$ itself has group structure, so is a \textbf{Lie group}, which we will denote by $G$. Then the vector fields on $G$ of course also form a Lie algebra, just by virtue of the manifold structure of $G$. 
+		Most important is when $M$ itself has group structure, so is a Lie group, which we will denote by $G$. Then the vector fields on $G$ of course also form a Lie algebra, just by virtue of the manifold structure of $G$. 
 		
 		We state the following proposition without proof
 		\begin{prop}
-			Let $\varphi: G_1 \rightarrow G_2$ be a diffeomorphism of Lie groups, then $\varphi_*: \mathrm{Vect}(G_1) \rightarrow \mathrm{Vect}(G_2)$ is a homomorphism of Lie algebras. 
+			Let $\varphi: G_1 \rightarrow G_2$ be a homomorphism of Lie groups, then $\varphi_*: \mathrm{Vect}(G_1) \rightarrow \mathrm{Vect}(G_2)$ is a homomorphism of Lie algebras. 
 		\end{prop}
 		
 		For a Lie group, group elements induce automorphisms on the manifold by left multiplication, denoted $L_g$ and by right multiplication $R_g$:
@@ -360,30 +404,27 @@
 		 \end{equation}
 		
 		A vector field $X$ is left-invariant if $(L_g)_* X(h) = X(gh)$. 
-		
-		
 		By the proposition, we get that $(L_g)_* [X, Y] = [(L_g)_* X, (L_g)_* Y]$ so these left-invariant vector fields in fact form a Lie algebra for the group. Physically, this is the set of vector fields corresponding to the isometries of $G$.
 		
 		In local coordinates, the commutator can be written as:
 		\begin{equation}
 			\begin{aligned}
 				X = &X^\mu \partial_\mu, ~ Y = Y^\mu \partial_\mu\\
-				[X,Y] = &(X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu) \partial_\mu
+				[X,Y] = &(X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu) \partial_\mu.
 			\end{aligned}
 		\end{equation}
-		
 		Left-invariant vectors flow in a way that is consistent with the group action:
 		\begin{equation}
-			(L_g)_* X(e) = X(g)
+			(L_g)_* X(e) = X(g).
 		\end{equation}
-		The set of all left-invariant vector fields can be uniquely extracted from their value at the identity by this rule, and in fact for any vector $x \in T_e G$, there is a corresponding left-invariant vector field $X(g) = (L_g)_* x$. Therefore the tangent space to the identity gives rise to a Lie algebra which we will call the Lie algebra of $G$ and denote by $\frak g$. This Lie algebra (often referred to as \emph{the} Lie algebra $\frak g$ associated to the group $G$) is finite dimensional when $G$ is.
+		The set of all left-invariant vector fields can be uniquely extracted from their value at the identity by this rule, and in fact for any vector $x \in T_e G$, there is a corresponding left-invariant vector field $X(g) = (L_g)_* x$. Therefore the tangent space to the identity gives rise to a Lie algebra which we will call \emph{the} Lie algebra of $G$ and denote by $\frak g$. The Lie algebra of $G$ is finite dimensional when $G$ is and its dimension is equal to the dimension of $G$.
 		
 		
 		Now because we define the Lie algebra as the ``tangent space to the identity'', it is worth asking ``how does the Lie algebra appear at a generic point, $g$, on the group?''. The idea is to bring that vector back to the identity using $G$ and see what it looks like. 
 		
 		This is accomplished by using the \textbf{Maurer-Cartan form} $\Theta$, which is a $\frak g$-valed 1-form on $G$ so that 
 		\begin{equation}
-			\Theta(g) = (L_{g^{-1}})_*
+			\Theta(g) = (L_{g^{-1}})_*.
 		\end{equation}
 		Note that this maps from $\mathrm{Vect}(G) \rightarrow \frak g$. It takes a vector $v$ at point $g$ and traces it back to the natural vector at the identity that would have gotten pushed forward to $v$ under $g$.
 		
@@ -431,7 +472,28 @@
 		\end{prop}
 		For a proof see \cite{humphreys2012}.
 		
-		\section{Connections on Principal Bundles}
+		\section{The Group of Gauge Transformations}
+		
+		We use the ideas form the section on gauge transformation in \cite{lindenhovius2011} to build the following definition
+		\begin{defn}[Gauge Transformation]
+			Let $P$ be a principle bundle over $M$ with structure group $G$. A diffeomorphism $\Phi: P \to P$ is a \textbf{gauge transformation} if it satisfies the following two properties
+			\begin{itemize}
+				\item $\Phi$ preserves fibers so that the following diagram commutes
+				\[
+					\begin{tikzcd}
+						P \arrow[rr,"\Phi"] \arrow[rd,"\pi"] & & P \arrow[ld,"\pi"]\\
+						& M &
+					\end{tikzcd}
+				\]
+				\item $\Phi$ commutes with the right $G$ action on $P$. 
+			\end{itemize}
+			Diffeomorphisms satisfying these conditions form a group referred to as the \textbf{group of gauge transformations}\footnote{Some authors may refer to this as the \emph{gauge group}. For us, the gauge group will be the $G$ we started with while this (much larger) group will be denoted $\mathcal G$.}. 
+		\end{defn}
+		
+		\section{Connections on Principal Bundles} % (fold)
+		\label{sec:connections_on_principal_bundles}
+		
+		There are several different and equivalent ways to characterize the notion of a \textbf{connection} on a principal $G$-bundle. 
 		
 		\subsection{The Ehresman Connection}
 		
@@ -490,7 +552,7 @@
 			$(R_g)_* V_p = V_{pg}$: pushforward acts equivariantly on vertical subspaces.
 		\end{cor}
 		\begin{proof}
-			Let $X(p) \in V_p$ pick $A \in \frak g$ s.t. the corresponding fundamental vector field $\sigma(A) (p) = X(p)$. Then we just look at
+			Let $X(p) \in V_p$ pick $A \in \frak g$ so that the corresponding fundamental vector field is $\sigma(A) (p) = X(p)$. Then we just look at
 			\begin{equation}
 				(R_g)_* \sigma(A) (p) = \sigma(\mathrm{ad}_{g^{-1}} A)(pg)
 			\end{equation} 
@@ -505,9 +567,9 @@
 		\]
 		An injection of $T_{\pi(p)} P$ into $P$ to make the above sequence split is called a \textbf{horizontal subspace} $H_pP$. 
 		\begin{defn}[Horizontal Subspace]
-			A horizontal subspace is a subspace $H_p P$ of $T_p P$ s.t.
+			A horizontal subspace is a subspace $H_p P$ of $T_p P$ such that
 			\begin{equation}
-				T_p P = V_p P \oplus H_p P
+				T_p P = V_p P \oplus H_p P.
 			\end{equation}
 		\end{defn}
 		 We'll abbreviate this by $H_p$ and the vertical subspace by $V_p$ when our principal bundle is unambiguous.
@@ -528,40 +590,213 @@
 	
 		Naturally, for any choice of $HP$, we have a corresponding projection operator $\pi_H$ on vector fields $\pi_H: \mathrm{Vect}(P(M,G)) \rightarrow HP$  and similarly $\pi_V = id - \pi_H$, both with corresponding equivariance conditions.
 	
+		\subsection{Differential Forms on Principal Bundles}
+	
 		\begin{prop}
 			We have the following correspondence:
 		\emph{
 		\begin{center}
 			\begin{tabular}{c c c c}
-				\shortstack{Ehresman\\ Connections $HP$} & $\longleftrightarrow$ \shortstack{Horizontal/Vertical\\Projection Operators $H/V$} & $\longleftrightarrow$ & \shortstack{$\frak g$-valued\\1-forms $\omega$}
+				\shortstack{Ehresman\\ Connections $HP$} & $\longleftrightarrow$ \shortstack{Horizontal/Vertical\\Projection Operators $H/V$} & $\longleftrightarrow$ & \shortstack{$\frak g$-valued\\1-forms $\alpha$}
 			\end{tabular}
 		\end{center}}
 		Each of the above are smooth on $E$, and have appropriate equivariance conditions:
 		\begin{itemize}
 			\item $R_g H_p = H_{pg}$: Horizontal subspaces are $G$-equivariant
 			\item $[R_g]_* H = H [R_g]$: Horizontal projection commutes with $G$ action of ``changing gauge''
-			\item $\omega(pg) = R_g^* \omega = g^{-1} \omega(p) g$: The 1-form is $G$-covariant
+			\item $\alpha(pg) = R_g^* \alpha = g^{-1} \alpha(p) g$: The 1-form is $G$-covariant
 		\end{itemize}
 		\end{prop}
 		
 		
-		\subsection{The Group of Gauge Transformations}
-			A diffeomorphism $\Phi: P \to P$ is a \textbf{gauge transformation} if it satisfies
-			\begin{enumerate}
-				\item $\pi \circ \Phi = \pi$, so $\Phi$ acts fiberwise
-				\item $R_g \circ \Phi = \Phi \circ R_g$, so $\Phi$ is $G$-equivariant.
-			\end{enumerate}
-			the group of all such diffeomorphisms is called the \textbf{gauge group} of $P$ and denoted by $\mathcal G$.
+		\begin{defn}
+			Given two $\gg$-valued differential forms $\alpha, \beta$ of ranks $p$ and $q$ respectively their wedge product is defined as
+						\[
+							(\alpha \wedge \beta)(v_1, \dots, v_{p+q}) = \frac{1}{(p+q)!} \sum_{\sigma \in S_n} \mathrm{sgn}(\sigma)\, [\alpha(v_{\sigma(1)}, \dots, v_{\sigma(p)}), \beta(v_{\sigma(p+1)}, \dots, v_{\sigma(p+q)})].
+						\]
+		\label{defn:wedgeforms}
+		\end{defn}
 		
+		
+		The following lemmas, which we take from \cite{kobayashi1963}, are important in translating from a picture of $k$-forms on $P$ and $k$-forms on $M$.
+		\begin{lemma}
+			Let $\alpha$ be a $k$ form on a $G$-principal bundle $P \to M$. $\alpha$ will descend to a unique $k$-form $\overline \alpha$ on $M$ if the following are satisfied:
+			\begin{itemize}
+				\item $\alpha(v_1, \dots, v_k) = 0$ if $v_i$ is vertical for any $i$,
+				\item $R_g^* \alpha = \alpha$, i.e. $\alpha(R_g v_1, \dots, R_g v_k)=\alpha(v_1, \dots, v_k)$.
+			\end{itemize}
+			In this case, we will have $\alpha = \pi^* \overline \alpha$.
+			\label{lem:pushdown1}
+		\end{lemma}
+		\begin{proof}
+			Let $\{\overline v_i\}_{i=1}^k$ be set of $k$ vectors in $T_p M$ and $\{v_i\}_{i=1}^k$ be a set of $k$ vectors in $T_x M$ for any $x \in \pi^{-1} (p)$ so that $\pi_* v_i = \overline v_i$. We define
+			\[
+				\overline \alpha(\overline v_1, \dots, \overline v_k) := \alpha(v_1, \dots, v_k)
+			\]
+			This is well-defined regardless of the choice of $\{v_i\}$ for given $\{\overline v_i\}$ since by hypothesis $\alpha$ is zero on the kernel of $\pi_*$. It is also independent of the choice of $x \in \pi^{-1}(p)$ by the hypothesis of $\alpha$'s invariance under right $G$ action.
+		\end{proof}
+		
+		\begin{lemma}
+			If $\alpha \in \Omega^1 (P, \frak g)$ descends to a form $\overline \alpha$ on $M$, then we have:
+			\begin{equation}
+				\dd_\omega \alpha = \dd \alpha
+			\end{equation}
+			\label{lem:pushdown2}
+		\end{lemma}
+		\begin{proof}
+			This follows from the following manipulation:
+			\[
+				\begin{aligned}
+					(\dd_\omega \alpha) (v_1, \dots, v_k) &= (\dd \alpha) (h v_1, \dots, h v_n)\\
+					& = (\dd \pi^* \overline \alpha) (h v_1, \dots, h v_n)\\
+					& = (\pi^* \dd \overline \alpha) (h v_1, \dots, h v_n)\\
+					& = (\dd \overline \alpha) (\pi_* h v_1, \dots, \pi_* h v_n)\\
+					& = (\dd \overline \alpha) (\pi_* v_1, \dots, \pi_* v_n)\\
+					& = (\pi^* \dd \overline \alpha) (v_1, \dots, v_n)\\
+					& = (\dd \alpha) (v_1, \dots, v_n).
+				\end{aligned}
+			\]
+		\end{proof}
+
+		\subsection{Holonomy} % (fold)
+		\label{sub:holonomy}
+		
+		% subsection holonomy (end)
+		
+		A particularly important aspect of this thesis will be the action of Wilson loops when inserted into gauge theories. Wilson loops are defined in terms of something known as the \textbf{Holonomy}.
+		
+		The \textbf{concatenation} of two paths $\gamma_1, \gamma_2$ such that $\gamma_1(1) = \gamma_2(0)$ is the (piecewise smooth) curve given by
+		\[
+			\gamma'(t) := \begin{cases}
+				\gamma_(2t)\text{ if } t \leq 1/2\\
+				\gamma_(2t-1) \text{ if } 1/2 \leq t \leq 1.
+			\end{cases}
+		\]
+		
+		\begin{prop}
+			Given a principal $G$-bundle $\pi:P\to M$, consider a smooth path $\gamma: [0, 1] \to M$. Given a point $p \in \pi^{-1}(\gamma(0))$, there is a unique lift $\tilde \gamma$ so that $\pi(\tilde \gamma) = \gamma$ and $\tilde \gamma'(t) \in H_{\tilde \gamma'(t)}P$. This is called the \textbf{horizontal lift} of $\gamma$
+		\end{prop}
+		\begin{proof}
+			The result follows by noting that the condition that the lift be horizontal is a first order differential equation with unique specified initial conditions. By smoothness, there exists a unique solution.
+		\end{proof}
+		
+		This can be generalized to piecewise smooth curves similarly.
+		
+		\begin{defn}
+			The \textbf{holonomy group} for the connection $\omega$ at point $p \in P$, denoted $\mathrm{Hol}_p(\omega)$,  is the subgroup of $G$ consisting of elements that are holonomies around some loop $\gamma \subseteq M$.
+			
+			The \textbf{restricted holonomy group} $\mathrm{Hol}_p^0(\omega)$ is analogous, but considers only curves that are \emph{contractible}.
+		\end{defn}
+		Note that both of these are indeed subgroups, with multiplication of elements corresponding to the concatenation of the associated loops.
 		
 		\section{Chern-Weil Theory}
 		
+		In physics, relevant quantities such as the action, the instanton number, and the gauge field Lagrangian are expressed in terms of polynomials of the field strength $F$. Mathematically, Chern-Weil theory is concerned with the study of polynomials of the curvature form $\Omega$ on the associated principal $G$-bundle. These can be related to the cohomology classes of $M$.
+		
 		\subsection{Symmetric Invariant Polynomials on $\frak g$}
 		
-		Consider $\gg$ as an affine algebraic variety ($\cong \cc^{\dim \gg}$), and consider the ring of functions $\cc [\gg]$. Since $G \lacts \gg$ by $\Ad_G$, we naturally have a $G$-action on this space of polynomials
+		Consider $\gg$ as an affine algebraic variety ($\cong \cc^{\dim \gg}$), and consider the ring of functions $\cc [\gg]$. Since $G \lacts \gg$ by $\Ad_G$-action, we naturally have a $G$-action on this space of polynomials
 		\[
-			\cc [\gg] \racts G
+			\cc [\gg] \racts G.
 		\]
-		Taking $f(x) \to f(\Ad_g x)$. Polynomials that are fixed by this action are called \textbf{invariant polynomials} on $\gg$.
+		Taking $f(x) \to f(\Ad_g x)$. Polynomials that are fixed by this action are called \textbf{invariant polynomials} on $\gg$, and are denoted by $\cc[\gg]^G$.
 		
+		\begin{eg}
+			Take $\gg = \gl_n$. The following are invariant polynomials on $\gg$:
+			\begin{itemize}
+				\item $\tr x^n$ for any $n \in \zz^+$,
+				\item $\det (x - \lambda \cdot 1)$ for any  $\lambda \in \cc$.
+			\end{itemize}
+			Invariance under $x \to gxg^{-1}$ follows from the cyclic properties of the trace in the first case and the fact that the determinant map is a homomorphism in the second case.
+		\end{eg}
 		
+		\begin{defn}
+			A polynomial $f$ on $\cc[\gg]$ is called \textbf{homogenous} of degree $k$ if $f(a x) = a^k f(x)$ for $x \in \gg, a \in \cc$.
+		\end{defn}
+		
+		\begin{obs}
+			A homogenous degree $k$ polynomial corresponds to an element of $\mathrm{Sym}^k (\gg^*)$: a $k$-linear symmetric functional $f: \prod_{i=1}^k \gg \to \cc$.
+		\end{obs}
+		
+		We ask what it would mean to apply $f$ to the $\gg$-valued 2-form $\Omega$. By using Definition \ref{defn:wedgeforms} to construct a $k$-fold wedge products of 2-forms, we get a $2k$ form:
+		\[
+			f(\Omega)(v_1, \dots, v_{2k}) = \frac{1}{(2k)!} \sum_{\sigma \in S_n} \mathrm{sgn}(\sigma)\, f\left(\Omega(v_{\sigma(1)}, \dots, v_{\sigma(2)}), \dots ,\Omega(v_{\sigma(2k-1)}, \dots, v_{\sigma(2k)})\right).
+		\]
+		We now note that $f(\Omega)$ satisfies the requirements of Lemmas \ref{lem:pushdown1} and \ref{lem:pushdown2} so that 
+		\[
+			\dd f(\Omega) = \dd_\omega f(\Omega).
+		\]
+		Since $\dd_\omega$ acts as a graded derivation
+		\[
+			\dd_\omega (\alpha \wedge \beta) = (\dd_\omega \alpha) \wedge \beta + (-1)^{|\alpha|} \alpha \wedge (\dd_\omega \beta),
+		\]
+		and since $\dd_\omega \Omega = 0$ we get that $f(\Omega)$ is closed. Further, since $f(\Omega)$ descends to a $2k$-form $\overline{f(\Omega)}$, we get a closed $2k$ form on $M$, so that
+		\begin{equation}
+			[\overline{f(\Omega)}] \in H^{2k} (M).
+		\end{equation}
+		We formulate the following proposition:
+		\begin{theorem}[Chern-Weil]
+			Let $f$ be an invariant homogenous polynomial of degree $k$ on $\frak g$ and $\Omega$ be the curvature 2-form associated to some connection $\omega$ on a principle bundle $P$. Then $\overline{f(\Omega)}$ is a representative of a cocycle class in $H^{2k}(M)$ independent of the choice of connection.
+		\label{thm:chern-weil}
+		\end{theorem}
+		\begin{proof}(Adopted from \cite{matthew2012})
+			We have proved everything other than connection independence. For this, let $\omega_0, \omega_1$ be two different connection 1-forms on $P$. We can perform a homotopy and use the fact that cohomology is homotopy invariant. Consider $P$ as a principal $G$-bundle on $M \times [0, 1]$ and let $\omega':= t p^* \omega_0 + (1-t)  p^* \omega_1$ be the 1-form given by pulling back the appropriate combination of $\omega_0$ and $\omega_1$. Then using $\iota_t: M \to M \times [0,1]$ sending $p \to (p, t)$, $f(\Omega')$ can be pulled back from $M \times [0, 1]$ to a $2k$-form on $M$. Since $\iota_0$ and $\iota_1$ are homotopic:
+			\[
+				\iota_0^* \overline{f(\Omega')} \sim \iota_1^* \overline{f(\Omega')}
+			\]
+			must lie in the same cohomology class. This are easily seen to be equal to $\overline{f(\Omega_0)}$ and $\overline{f(\Omega_1)}$, respectively.
+		\end{proof}
+
+		We have the following corollary. 
+		\begin{cor}
+			For a manifold $M$, $\overline{f(\Omega_1)}$ is locally exact on each coordinate patch. The form $K$ so that $\dd K = \overline{f(\Omega_1)}$ on a given $U_\alpha$ is the \textbf{Chern-Simmons} form.
+		\end{cor}
+		
+		\subsection{Chern Classes}
+		
+		Let $P$ be a principal $G$ bundle and $E$ be an associated complex vector bundle on which $G$ acts nontrivially. For $G$ semisimple, this can be taken to be the adjoint bundle, but also for $G$ a classical, linear algebraic group, we can take the bundle to be associated to the defining representation. Let $n$ denote the rank of $E$.
+		
+		In either case, the curvature form $F \in \Omega^2(M, \gg)$ corresponding to a connection on $E$ gives rise to the following polynomial in $F$ that is easily seen to be symmetric-invariant:
+		\begin{equation}
+			c(F) := \det(1 - \frac{t F}{2\pi i})
+		\end{equation}
+		This polynomial is not homogenous, but rather splits into a sum of homogenous polynomials in even degree:
+		\begin{equation}
+			c(F) = 1 + t c_1(F) + t^2 c_2(F) + \dots = \sum_{k=1}^n t^k c_k(F)
+		\end{equation}
+		where $c_k \in \Omega^{2k}(M)$. Clearly $c_k(F) = 0$ if $2k > \dim M$.
+		% where $c_i(F) \in H^{2i}(M)$ .
+		
+		By using simple matrix identities such as $\exp{\tr A} = \det \exp A$ one can arrive at a more explicit form of the first few of these polynomials
+		\[
+			c(F) = 1 + i \frac{\tr(F)}{2\pi} t + \frac{\tr(F \wedge F) - \tr(F) \wedge \tr(F)}{8\pi^2} t^2 + \dots + \frac{i \det F}{2\pi} t^n
+		\]
+		
+		 By theorem by Theorem \ref{thm:chern-weil}, the cohomology classes $[c_i(F)]$ are independent of the connection used to define $F$. Consequently, we can define 
+		 \begin{defn}[Chern class] \label{defn:chern}
+		 	The \textbf{Chern classes} for the bundle $E$ are the cohomology classes in $H^*(M)$ associated with each $c_i(F)$. We write 
+			\[
+				c_i(E) := [c_i (F)].
+			\]
+			The \textbf{Chern numbers} for the bundle $E$ are given by
+			\[
+				c_i(E) := \int_{M} c_i(F)
+			\]
+			and are again independent of the connection. 
+		 \end{defn}
+		 
+		
+ 		\begin{prop}
+ 			Let $E = \bigoplus_{j=1}^m E_j$. Then
+ 			\[
+ 				c(E) = c(E_1) \cdot \dots \cdot c(E_m)
+ 			\]
+ 		\end{prop}
+ 		\begin{proof}
+ 			Because the gauge group acts as block matrices, the field strength tensor can be decomposed into blocks acting separately on each $E_j$ so that the determinant factors:
+ 			\[
+ 				\det\left(I - \frac{t F}{2\pi i}\right) = \det\left(I - \frac{t F_1}{2\pi i}\right) \wedge \dots \wedge \det \left(I - \frac{t F_m}{2\pi i}\right).
+ 			\]
+			Thus, the associated Chern class is a cup product of the cohomology classes corresponding to each differential form in this wedge.
+ 		\end{proof}
+		 
