@@ -43,21 +43,24 @@
 		\end{equation}
 		This is an integral taken over the space of all fields. The measure on this space is mathematically ill-defined in general. 
 		\begin{phys}[Classical Observable]
-			A classical observable is a function from the set of field configurations into $\cc$.
-		\end{phys}
-		\begin{phys}[Observable]
-			A \textbf{quantum observable} (which we will refer to as just an \emph{observable} in these lectures) is a function from the a field theory into the ground field $\mathbf k$. In the Feynman picture, it can be seen as a statistical average of classical observables over all field configurations.
+			A classical observable (which we may refer to just by the term \emph{observable}) is a function from the set of field configurations into $\cc$. The corresponding \textbf{quantum observable} is defined as a path integral of a classical observable over the space of fields. 
+			\[
+				\left< \OO \right> = \int \mathcal D \, \Phi \OO(\Phi) \, e^{-S[\Phi]}
+			\]
+			
+			In the Hilbert-space language, a quantum observable is an operator-valued distribution on the space of fields. 
 		\end{phys}
 		The partition function is an observable, as is the \textbf{1-point correlation function} at a point $x_1$:
 		$$\left< \Phi(x_1) \right> := \frac{1}{\mathcal Z} \int \mathcal D\Phi \, \Phi(x_1) e^{-S[\Phi]}.$$
-		In this example, the path integral over all configurations of $\Phi$ probes $\Phi$ at this single point, giving essentially an expectation value. We can take expectation values of many different operators, e.g. $\phi(x_1), \partial_\mu \phi(x_1), \mathbf{1}, \phi(x_1) \partial_\mu \phi(x_1)$ on $X$. We denote operators by $\OO$. More generally, we define \textbf{correlation functions} as 
+		In this example, the path integral over all configurations of $\Phi$ probes $\Phi$ at this single point, giving essentially an expectation value. We can take expectation values of many different operators, e.g. $\phi(x_1), (\partial_\mu \phi)(x_1), \mathbf{1}, \phi(x_1) (\partial_\mu \phi)(x_1)$ on $X$. We denote operators by $\OO$. More generally, we define \textbf{correlation functions} as 
 		$$\left< \mathcal O_1 \dots \mathcal O_n \right>_g := \frac{1}{\mathcal Z} \int \mathcal D\Phi \, \mathcal O_1 \dots \mathcal O_n e^{-S[\Phi]}.$$
 		\begin{phys}[TQFT]
 			If the correlation functions of a given quantum field theory are independent of the metric $g$, then the corresponding theory is called a \textbf{topological quantum field theory} (TQFT) in physics.
 		\end{phys}
-	\noindent 	In fact metric independence implies diffeomorphism invariance.
-		\begin{eg}[Chern Simmons Theory]
-			It turns out the correlation functions of Chern-Simmons theory on a 3-manifold $M$ with $\Phi$ being the field $A: M \to T^* M \otimes \frak g$ and the action given by
+		As an example, consider the following.
+	% \noindent 	In fact metric independence implies diffeomorphism invariance.
+		\begin{eg}[Chern Simons Theory]
+			It turns out the correlation functions of Chern-Simons theory on a 3-manifold $M$ with $\Phi$ being the field $A: M \to T^* M \otimes \frak g$ and the action given by
 			$$S[A] \, \propto\,  \int_{M} \mathrm{Tr}\left(A \wedge dA + \frac23 A \wedge A \wedge A \right)$$
 			This is clear because the metric has no role in defining the action.
 		\end{eg}
@@ -65,9 +68,10 @@
 		\begin{phys}[Operator Product Expansion]
 			 Within the path integral, a product of two local fields can be replaced by a (possibly infinite) sum over individual fields. Namely, given two operators $\OO_a, \OO_b$ and evaluation points $x_1, x_2$, there is an open neighborhood $U$ around $x_2$ such that
 			\begin{equation}
-				\OO_a (x_1) \OO_b(x_2) = \sum_c C_{ab}^c(x_1-x_2) \OO_c(x_2)
+				\OO_a (x_1) \OO_b(x_2) \sim \sum_c C_{ab}^c(x_1-x_2) \OO_c(x_2)
 			\end{equation}
-		where $\OO_c$ are other operators in the quantum field theory, and the $C_{ab}^c$ are analytic functions on $U \backslash \{ x_2 \}$ (that often become singular as $x_1 \to x_2$).
+			where $f \sim g$ implies that $f - g$ stays nonsingular as $x_1 \to x_2$.
+		Here $\OO_c$ are other operators in the quantum field theory, and the $C_{ab}^c$ are analytic functions on $U \backslash \{ x_2 \}$ (that often become singular as $x_1 \to x_2$). 
 		\end{phys}
 	
 		In the 2D case, this yields the (possibly familiar) Laurent series associated with CFT. The structure constants contain valuable information about the QFT that allow onw to view it \emph{algebraically}. In particular, they satisfy \textbf{associativity conditions}. The philosophy of the OPE is as follows: % \textbf{(elaborate Phil's point here)}.
@@ -115,9 +119,12 @@
 	\subsection{Spin Representations} % (fold)
 	\label{sub:spin_representations}
 
+		\textbf{NOT FINISHED}
+
 		Given a special orthogonal group in Euclidean or Minkowski space, $\SO(p, q$, the Spin group is defined to be the universal cover of $\SO(p, q)$.
 		
 		\textbf{TALK ABOUT $S^+$ and $S^-$}
+		
 
 	% subsection spin_representations (end)
 
