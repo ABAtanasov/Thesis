@@ -113,9 +113,9 @@
 			Two bundles are equivalent if there is a bundle map so that both $\overline f$ and $f$ are diffeomorphisms. 
 		\end{defn}
 		If we have a fiber bundle $\pi: E \rightarrow M$ and $\varphi: N \rightarrow M$ for another manifold $N$, then we can pull back $E$ to form a bundle over $N$
-		\begin{equation}
+		\[
 			\varphi^* E = \{(y,[f,p]) \in N \times E \mid \varphi(y) = p \}.
-		\end{equation}
+		\]
 		We have projection on the second factor of $\varphi^* E$ as a map $g: \varphi^* E \rightarrow E$. 
 		This is the \textbf{pullback bundle} $\varphi^* E$.
 		\begin{defn}[Pullback Bundle]
@@ -142,19 +142,18 @@
 			
 			More explicitly, this is a fiber bundle over $M$ with $F \oplus F'$ fibered over every point. 
 			The structure group of $E \oplus E'$ is the product $G \times G'$ of the structure groups of the original bundles and it acts diagonally on their sum.
-			\begin{equation}
+			\[
 				G^{E \oplus E'} = \left \{ \begin{pmatrix}
 					g^E & 0 \\
 					0 & g^{E'}
 				\end{pmatrix} : g^E \in G, g^{E'} \in G' \right \}
-			\end{equation}
+			\]
 			and the transition functions act diagonally in the same way. 
 		\end{defn}
 		Similarly, we can define arbitrary direct sums of bundles recursively:
-		\begin{equation}
+		\[
 			E_1 \oplus \dots \oplus E_r.
-		\end{equation}
-		
+		\]
 		
 		For some intuition about when fiber bundles are \emph{nontrivial}, consider the following theorem which we state without proof but refer to \cite{bott1982} chapter 3. Stated simply: taking the pullback of a bundle along a map is topologically invariant under homotopy of the map. 
 		\begin{theorem}
@@ -206,24 +205,24 @@
 		\end{cor}
 		
 		If $M,F$ are two manifolds and $G$ has an action $G \times F \rightarrow F$, then for an open cover $\{ U_\alpha \}$ of $M$ with a map $g_{\alpha \beta}: U_{\alpha}\cap U_{\beta} \to G$ satisfying the conditions of Proposition \ref{prop:cocycle} we can construct a fiber bundle by first building the set
-		\begin{equation}
+		\[
 			X = \bigcup_\alpha U_\alpha \times F
-		\end{equation} 
+		\]
 		and quotienting out by the relation
-		\begin{equation}
+		\[
 			(x, f) \in U_\alpha \times F \sim (x', f') \in U_\beta \times F \Longleftrightarrow x=x', f=g_{\alpha \beta}(x) f' 
-		\end{equation}
+		\]
 		
 		Then $E = X/\sim$ is a fiber bundle over $M$. We can locally denote elements of $E$ by $[x,f]$ so that
-		\begin{equation}
+		\[
 			\pi(x,f) = x, ~ \psi_\alpha(x,f) = [x,f].
-		\end{equation}
+		\]
 		
 		\begin{prop}
 			For a fiber bundle $\pi: E \rightarrow M$ with overlap functions $g_{\alpha \beta}: U_{\alpha \beta} \rightarrow G$ between charts, we can form a principal bundle $P$ so that 
-			\begin{equation}
+			\[
 				P = X/\sim, ~ X = \bigcup_\alpha U_\alpha \times G
-			\end{equation}
+			\]
 		\end{prop}
 		In certain contexts that we will encounter later, the $g_{\alpha \beta}$ are referred to as \textbf{clutching functions}.		%
 		% Note that there was no requirement here that $G$ be compact. \\
@@ -344,28 +343,28 @@
 		Although standard knowledge on the definition of a Lie Group/Algebra is assumed, let's try to motivate the ideas within this field in a more geometric way than is often done. \\
 		
 		Consider a manifold $M$, and consider $\text{Vect}(M)$, the space of all smooth vector fields on $M$. For a map $\varphi: M \rightarrow N$ we have a notion of \textbf{pushforward} $\varphi_*: \text{Vect}(M) \rightarrow \text{Vect}(N)$ on vector fields given by their actions on functions as
-		\begin{equation}
+		\[
 			[\varphi_* (v)] (f) = v (\varphi^* (f))
-		\end{equation}
+		\]
 		A smooth vector field $X$ on $M$ gives rise to \textbf{flows} that are solutions to the differential equation of motion
-		\begin{equation}
+		\[
 			\frac{d}{dt} f(\gamma(t)) = X f.
-		\end{equation}
+		\]
 		One could argue, more strongly, that in fact the \emph{entire field} of ordinary differential equations has an interpretation as equations of motion along flows of vector fields. Such a viewpoint has brought forward the lucrative insights of symplectic geometry. 
 		
 		The motion along this flow is expressed as the exponential:
-		\begin{equation}
+		\[
 			f(\gamma(t)) = e^{t X} f(p), ~ p = \gamma(0)
-		\end{equation}
+		\]
 		
 		Now consider two vector fields $X,Y$ on $M$. Let $Y$ flow along $X$ so we move along $X$ giving:
-		\begin{equation}
+		\[
 			e^{tX} Y = Y(\gamma(t)) \in T_{\gamma(t)}M
-		\end{equation}
+		\]
 		Note that the reverse flow $e^{-t X}$ maps $T_{\gamma(t)} M \to T_{\gamma(0)}M = T_pM$, so acts by pushforward on $e^{tX} Y$ equivalent to:
-		\begin{equation}
+		\[
 			e^{tX} Y e^{-tX} \in T_p
-		\end{equation}
+		\]
 		We can compare this to $Y$ and take the local change by dividing through by $t$ as $t \to 0$, giving the Lie derivative
 		\begin{equation}
 			\mathcal L_X Y := \frac{e^{tX} Y e^{-tX} - Y}{t}
@@ -384,35 +383,33 @@
 		\end{prop}
 		
 		For a Lie group, group elements induce automorphisms on the manifold by left multiplication, denoted $L_g$ and by right multiplication $R_g$:
-		\begin{equation}
+		\[
 			\begin{aligned}
 				R_g: G \rightarrow G, ~ g: h \mapsto gh\\
 				L_g: G \rightarrow G, ~ g: h \mapsto hg
 			\end{aligned}
-		\end{equation}
-		
+		\]
 		 We have that each group element induces (by pushforward) a map between tangent spaces 
-		 \begin{equation}
+		\[
 		 	\begin{aligned}
 		 		(L_g)_*: T_h G \rightarrow T_{gh} G\\
 				(R_g)_*: T_h G \rightarrow T_{hg} G
 		 	\end{aligned}
-		 \end{equation}
-		
+		\]
 		A vector field $X$ is left-invariant if $(L_g)_* X(h) = X(gh)$. 
 		By the proposition, we get that $(L_g)_* [X, Y] = [(L_g)_* X, (L_g)_* Y]$ so these left-invariant vector fields in fact form a Lie algebra for the group. Physically, this is the set of vector fields corresponding to the isometries of $G$.
 		
 		In local coordinates, the commutator can be written as:
-		\begin{equation}
+		\[
 			\begin{aligned}
 				X = &X^\mu \partial_\mu, ~ Y = Y^\mu \partial_\mu\\
 				[X,Y] = &(X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu) \partial_\mu.
 			\end{aligned}
-		\end{equation}
+		\]
 		Left-invariant vectors flow in a way that is consistent with the group action:
-		\begin{equation}
+		\[
 			(L_g)_* X(e) = X(g).
-		\end{equation}
+		\]
 		The set of all left-invariant vector fields can be uniquely extracted from their value at the identity by this rule, and in fact for any vector $x \in T_e G$, there is a corresponding left-invariant vector field $X(g) = (L_g)_* x$. Therefore the tangent space to the identity gives rise to a Lie algebra which we will call \emph{the} Lie algebra of $G$ and denote by $\frak g$. The Lie algebra of $G$ is finite dimensional when $G$ is and its dimension is equal to the dimension of $G$.
 		
 		
@@ -420,7 +417,7 @@
 		
 		This is accomplished by using the \textbf{Maurer-Cartan form} $\Theta$, which is a $\frak g$-valed 1-form on $G$ so that 
 		\begin{equation}
-			\Theta(g) = (L_{g^{-1}})_*.
+			\Theta(g) := (L_{g^{-1}})_*.
 		\end{equation}
 		Note that this maps from $\mathrm{Vect}(G) \rightarrow \frak g$. It takes a vector $v$ at point $g$ and traces it back to the natural vector at the identity that would have gotten pushed forward to $v$ under $g$.
 		
@@ -440,27 +437,27 @@
 		
 		\begin{defn}[Adjoint Action on $G$]
 			For each $g$ we can consider the homomorphism $\mathrm{Ad}_g: h \mapsto g h g^{-1}$ or $\mathrm{Ad}_g = L_g \circ R_{g^{-1}}$. This defines a representation
-			\begin{equation}
+			\[
 				\mathrm{Ad}: g \rightarrow \mathrm{Diff}(G)
-			\end{equation}
+			\]
 		\end{defn}
 		
 		\begin{defn}[Adjoint Representation of $\frak g$]
 			The pushforward of this action gives rise to the \textbf{adjoint representation} of the Lie group $\frak g$ by
-			\begin{equation}
+			\[
 				(\mathrm{Ad}_g)_* = (L_g \circ R_{g^{-1}})_* 
-			\end{equation}
+			\]
 			From the product rule, this acts as $[g, -]$ at the identity. We denote this as
-			\begin{equation}
+			\[
 				\mathrm{ad}: \frak g \rightarrow \mathrm{End}~ \frak g
-			\end{equation}
+			\]
 		\end{defn}
 		
 		The Jacobi identity ensures that $\mathrm{ad}$ is a homomorphism. If the center of $G$ is zero then $\mathrm{ad}$ is faithful and we have an embedding into $\mathrm{GL}(n)$. This is nice because it also shows that after a central extension, every Lie algebra can be represented into $\mathrm{GL}(n)$, a weaker form of Ado's theorem.
 		
 		Moreover the adjoint representation gives rise to a natural metric on $\gg$ called the \textbf{Killing Form} given by
 		\begin{equation}
-			\kappa (X, Y) = \mathrm{Tr}(\mathrm{ad}(X) \mathrm{ad}(Y))
+			\kappa (X, Y) := \mathrm{Tr}(\mathrm{ad}(X) \mathrm{ad}(Y))
 		\end{equation}
 		
 		\begin{prop}
@@ -470,9 +467,7 @@
 		
 		\section{The Group of Gauge Transformations}
 		
-		\textbf{MIGHT WANT TO ADD TO HERE}
-		
-		We use the ideas form the section on gauge transformation in \cite{lindenhovius2011} to build the following definition
+		We use the ideas from the section on gauge transformation in \cite{lindenhovius2011} to build the following definition
 		\begin{defn}[Gauge Transformation]
 			Let $P$ be a principle bundle over $M$ with structure group $G$. A diffeomorphism $\Phi: P \to P$ is a \textbf{gauge transformation} if it satisfies the following two properties
 			\begin{itemize}
@@ -495,55 +490,57 @@
 		
 		\subsection{The Ehresman Connection}
 		
-		\textbf{WANT TO ADD MORE}
 		
 		Take a $G$-principal bundle $\pi: P \rightarrow M$. 
-		Just like $\xi \in \frak g$ gives rise to a vector field $X_\xi$ on $G$, it also canonically gives rise to a vector field $\sigma(\xi)$ on $P$.
+		Just as $\xi \in \frak g$ gives rise to a vector field $X_\xi$ on $G$, it also canonically gives rise to a vector field $\sigma(\xi)$ on $P$.
 		\begin{defn}[\textbf{Fundamental Vector Field} of $\xi$]
 			Let $\xi \in \frak g$ and consider $\exp(t \xi) \in G$ so that for $p \in P$ we get $c_p(t) = R_{\exp(t \xi)} p$ which depends smoothly on $p$. Note $c'_p(0) \in T_p P$ at each point.
-			\begin{equation}
-				\sigma: \frak g \rightarrow \text{Vect}(P), ~ [\sigma(\xi)](p) \mapsto \left[ \frac{d}{dt} p e^{t \xi}\right]_{t=0}
-			\end{equation}
+			\[
+			\sigma: \frak g \rightarrow \text{Vect}(P), ~ [\sigma(\xi)](p) \mapsto \left[ \frac{d}{dt} p e^{t \xi}\right]_{t=0}
+			\]
 		\end{defn}
-		The \textbf{vertical subspace} $V_p P$ at a point $p$ of a fiber bundle is the tangent space at $p$ restricted to the fiber over $x$, i.e. $T_p (\pi^{-1}(x))|_{F_x}$. Equivalently, this is $\ker \pi_*$. Note
-		\begin{equation}
-			\pi_* \circ \sigma(x) = \frac{d}{dt} (\pi \circ c_p(t))|_{t=0} = \frac{d}{dt} (p) = 0
-		\end{equation} 
+		\begin{defn}[Vertical Subspace]
+			The \textbf{vertical subspace} $V_p P$ at a point $p$ of a fiber bundle is the tangent space at $p$ restricted to the fiber over $x$, i.e. $T_p (\pi^{-1}(x))|_{F_x}$. Equivalently, this is $\ker \pi_*$.
+		\end{defn}
+		Note, by virtue of $\sigma(\xi)$ lying along the $G$-fiber. 
+		\[
+		\pi_* \circ \sigma(x) = \frac{d}{dt} (\pi \circ c_p(t))|_{t=0} = \frac{d}{dt} (p) = 0
+		\]
 		so $\sigma(x) \in V_p P$. 
-		Since $E$ is a manifold of dimension $\dim M + \dim G$, $\pi_*: T_pE \rightarrow T_{\pi(p)}M$ has a kernel of dimension $\dim G = \dim \frak g$
+		Since $P$ is a manifold of dimension $\dim M + \dim G$, $\pi_*: T_pP \rightarrow T_{\pi(p)}M$ has a kernel of dimension $\dim G = \dim \frak g$
 		In fact:
 		\begin{prop}
-			$\sigma_p$ is a Lie algebra isomorphism between $\frak g$ and $V_pP$
+			$\sigma_p$ is a Lie algebra isomorphism between $\frak g$ and $V_pP$.
 		\end{prop}
-		 \begin{proof}
-		 	Since $G$ acts freely on principal bundles, $\sigma$ is injective, so in fact it must be an isomorphism.
-		 \end{proof}
+		\begin{proof}
+		Since $G$ acts freely on principal bundles, $\sigma$ is injective, so in fact it must be an isomorphism.
+		\end{proof}
 	
 		\begin{lemma}[Properties of $\sigma$]
 			We get that $\sigma$ satisfies:
 			\begin{enumerate}
 				\item $[R_{g}]_* \sigma(x) = \sigma(\text{ad}_{g^{-1}} x)$,
-				\item $[g_i]_* \sigma(x) = g_i(p) x$.
+				\item $[g_i]_* \sigma(x)|_p = g_i(p) x$.
 			\end{enumerate}
 		\end{lemma}
 		\begin{proof}
 			\begin{enumerate}
 				\item We have
-				\begin{equation}
-					\begin{aligned}
-						\left[ R_{g} \right]_* [\sigma(x)](p)  &= \frac{d}{dt} (R_g p e^{tx}) \\
-						& = \frac{d}{dt} p g \text{Ad}_{g^{-1}} e^{tx}\\ 
-						& = \frac{d}{dt} p g \exp[ t (\text{ad}_{g^{-1}} x) ]\\
-						& = [\sigma(\text{ad}_{g^{-1}} x)] (pg)
-					\end{aligned}.
-				\end{equation}
+				\[
+				\begin{aligned}
+					\left[ R_{g} \right]_* [\sigma(x)](p)  &= \frac{d}{dt} (R_g p e^{tx}) \\
+					& = \frac{d}{dt} p g \text{Ad}_{g^{-1}} e^{tx}\\ 
+					& = \frac{d}{dt} p g \exp[ t (\text{ad}_{g^{-1}} x) ]\\
+					& = [\sigma(\text{ad}_{g^{-1}} x)] (pg).
+				\end{aligned}
+				\]
 				\item Secondly,
-				\begin{equation}
-					\begin{aligned}
-						\left[g_i\right]_* [\sigma(x)](p) &= \frac{d}{dt} g_i p e^{t x}\\
-											&= g_i(p) x
-					\end{aligned}.
-				\end{equation}
+				\[
+				\begin{aligned}
+					\left[g_i\right]_* [\sigma(x)]|_p &= \frac{d}{dt} g_i p e^{t x}\\
+										&= g_i(p) x.
+				\end{aligned}	
+				\]
 			\end{enumerate}
 		\end{proof}
 	
@@ -553,9 +550,9 @@
 		\end{cor}
 		\begin{proof}
 			Let $X(p) \in V_p$ pick $A \in \frak g$ so that the corresponding fundamental vector field is $\sigma(A) (p) = X(p)$. Then we just look at
-			\begin{equation}
+			\[
 				(R_g)_* \sigma(A) (p) = \sigma(\mathrm{ad}_{g^{-1}} A)(pg)
-			\end{equation} 
+			\]
 			which is vertical. It's easy to go back from $pg$ to $g$ as well by picking $A \in \frak g$ so that $X(pg) = \mathrm{ad}_{g^{-1}} A$.
 		\end{proof}
 	
@@ -565,50 +562,74 @@
 			0 \arrow{r} & V_p P \arrow{r} & T_p P \arrow[r,"\pi_*"] & T_{\pi(p)}M \arrow{r} & 0
 		\end{tikzcd}	
 		\]
-		An injection of $T_{\pi(p)} P$ into $P$ to make the above sequence split is called a \textbf{horizontal subspace} $H_pP$. 
+		An injection of $T_{\pi(p)} M$ into $T_p P$ to make the above sequence split is called a \textbf{horizontal subspace} at $p$ $H_pP$. 
 		\begin{defn}[Horizontal Subspace]
 			A horizontal subspace is a subspace $H_p P$ of $T_p P$ such that
-			\begin{equation}
+			\[
 				T_p P = V_p P \oplus H_p P.
-			\end{equation}
+			\]
 		\end{defn}
-		 We'll abbreviate this by $H_p$ and the vertical subspace by $V_p$ when our principal bundle is unambiguous.
+		We'll abbreviate this by $H_p$ and the vertical subspace by $V_p$ when our principal bundle is unambiguous.
 	 
-		Crucially, there is \emph{no canonical choice of} $H_p$, reflecting the physical fact there is no ``god-given'' way to compare local gauges between different points. For a gauge $g$ at $x$, a vector on $T_x M$ should lift to a vector on $T_{[x,g]} P$ given by lifting to a horizontal subspace. A choice of horizontal gives rise to the following:
-		\begin{defn}
+		Crucially, there is \emph{no canonical choice of} $H_p$, reflecting the physical fact there is no ``god-given'' way to compare local gauges between different points. For a given gauge, a vector on $T_x M$ should lift to a vector on $T_p P$ for some $p$ corresponding to that gauge choice. The lift will lie in a horizontal subspace which will depend on the gauge choice in an infinitesimal neighborhood around $x$. A global choice of horizontal subspace gives rise to the following:
+		\begin{defn}\label{def:ehresman}
 		An \textbf{Ehresmann connection} is a choice of horizontal subspace at each point $p \in P$ so that
 			\begin{enumerate}
 				\item Any smooth vector field $X$ splits as a sum of two smooth vector fields: a \textbf{vertical field} $X_V$ and a \textbf{horizontal field} $X_H$ so that at each point $p \in P$ we have $X_V \in V_p$, $X_H \in H_p$. That is, the choice of $H_p$ varies smoothly.
 				\item $G$ acts equivariantly on $H_{pg}$:
-				\begin{equation}
-					H_{pg} = (R_{g})_* H_p
-				\end{equation}
+				\[
+					H_{pg} = (R_{g})_* H_p.
+				\]
 			\end{enumerate}
 		\end{defn}
 	
 		We will denote the collection of our choice of $H_p P$ by $HP$ and similarly define $VP$ to be the (always canonical) collection of vertical subspaces. We say any vector field can be split into a vector field $X^H \in HP$ and $X^V \in VP$.
 	
 		Naturally, for any choice of $HP$, we have a corresponding projection operator $\pi_H$ on vector fields $\pi_H: \mathrm{Vect}P \rightarrow HP$  and similarly $\pi_V = id - \pi_H$, both with corresponding equivariance conditions.
+		
+		Note that $1 - \pi_*$ acts on $T_p P$ as a projection operator onto the vertical subspace $V_p P$. A choice of horizontal subspace gives us an analogous projection operator $H$ acting on $T_p P$, mapping to the horizontal subspace. Moreover it is easy to check that (by the equivariance of the horizontal subspace), we must have
+		\[
+			[R_g]_* \circ H = H \circ [R_g]_*.
+		\]
+		
+		Just as $\pi_*$ killed the vertical subspace, given a horizontal subspace, we would like to construct a similar operator that kills off the horizontal component and acts as a projection onto the vertical component. This role will be played by a \textbf{connection 1-form}
+
+		\begin{defn}[Connection 1-form on Principal Bundle]\label{def:connection}
+			A connection 1-form, $\omega$, is an element of $\Omega^1(P, \frak g)$ satisfying:
+			\begin{itemize}
+				\item $\omega \circ \sigma = id$, that is $\sigma \circ \omega$ is a projection onto $V_p$.
+				\item $R_g^* \omega = \ad_{g^{-1}} \omega$.
+			\end{itemize}
+		\end{defn}
+		The first condition says that, after identifying the vertical subspace with $\frak g$, $\omega$ acts trivially. The second condition is standard equivariance, since the right ad-action of $G$ on $\omega$ would exactly look like $g^{-1} \omega g$. 
 	
-		\subsection{Differential Forms on Principal Bundles}
-	
+		We now have the following equivalence:
 		\begin{prop}
-			We have the following correspondence:
+			A choice of Ehresman connection on $P$ is in one-to-one correspondence with the choice of a connection 1-form on $P$
+		\end{prop}
+		\begin{proof}
+			Given a projection operator $H$ to the horizontal subspace satisfying the equivariance properties of \ref{def:ehresman}, $H_p P$, $1-H$ would be a projector onto the vertical subspace. Then $\sigma^{-1} (1- H)$ gives us a functional on $T_{p}$ valued in $\frak g$ that satisfies the properties of Definition \ref{def:connection}. This is our 1-form.
+			
+			Conversely, given a connection 1-form $\omega$, $1-\sigma \circ \omega$ gives us a projection onto a subspace trivially intersecting the vertical subspace. By the equivariance properties of $\omega$, this subspace satisfies the equivariance conditions in \ref{def:ehresman} and so we are done. 
+		\end{proof}
+		
+	
+		We thus have the following correspondence:
 		\emph{
 		\begin{center}
 			\begin{tabular}{c c c c}
-				\shortstack{Ehresman\\ Connections $HP$} & $\longleftrightarrow$ \shortstack{Horizontal/Vertical\\Projection Operators $H/V$} & $\longleftrightarrow$ & \shortstack{$\frak g$-valued\\1-forms $\alpha$}
+				\shortstack{Ehresman\\ Connections $HP$} & $\longleftrightarrow$ \shortstack{Horizontal\\Projection Operators $H$} & $\longleftrightarrow$ & \shortstack{Connection\\1-forms $\omega$}
 			\end{tabular}
 		\end{center}}
 		Each of the above are smooth on $E$, and have appropriate equivariance conditions:
 		\begin{itemize}
-			\item $R_g H_p = H_{pg}$: Horizontal subspaces are $G$-equivariant
-			\item $[R_g]_* H = H [R_g]$: Horizontal projection commutes with $G$ action of ``changing gauge''
-			\item $\alpha(pg) = R_g^* \alpha = g^{-1} \alpha(p) g$: The 1-form is $G$-covariant
+			\item $R_g H_p = H_{pg}$: Horizontal subspaces are $G$-equivariant,
+			\item $[R_g]_* H = H [R_g]$: Horizontal projection commutes with $G$ action of changing gauge,
+			\item $\omega(pg) = R_g^* \omega = g^{-1} \omega(p) g$: The 1-form is $G$-covariant.
 		\end{itemize}
-		\end{prop}
-		
-		
+
+		\subsection{Differential Forms on Principal Bundles}
+
 		\begin{defn}
 			Given two $\gg$-valued differential forms $\alpha, \beta$ of ranks $p$ and $q$ respectively their wedge product is defined as
 						\[
@@ -688,6 +709,8 @@
 			The \textbf{restricted holonomy group} $\mathrm{Hol}_p^0(\omega)$ is analogous, but considers only curves that are \emph{contractible}.
 		\end{defn}
 		Note that both of these are indeed subgroups, with multiplication of elements corresponding to the concatenation of the associated loops.
+		
+		A connection is called \textbf{irreducible} if the centralizer of the holonomy group in $G$ is precisely the center $Z(G)$.
 		
 		\section{Chern-Weil Theory}
 		

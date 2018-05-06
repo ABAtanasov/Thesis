@@ -1,6 +1,6 @@
 \chapter{The Basics of Field Theory\label{ch:phys}}
 
-	This chapter aims to give a background into the physical ideas needed to understand the remainder of this paper
+	This chapter aims to give a background into the physical ideas needed to understand the remainder of this paper.
 	
 	\section{Classical Field Theory} % (fold)
 	\label{sec:classical_field_theory}
@@ -14,17 +14,17 @@
 		\begin{itemize}
 			\item A manifold $M$ known as the \textbf{spacetime} of the theory.
 			\item A fiber bundle $E \to M$ (or more generally some set of fiber bundles $E_i \to M$)
-			\item A space $\mathcal F$ of sections of $E \to M$ called \textbf{fields} on $M$.
+			\item A space $\mathcal F$ of sections of $E \to M$ called \textbf{fields} on $M$. A specific field will be denoted $\Phi \in \mathcal F$ in this chapter, though depending on the theory, different variables will label the different fields.
 			\item An action $S[\Phi]$ from the space of fields into $\cc$.
 		\end{itemize}
 		Classical field theory studies solutions to the \textbf{classical equations of motion}
 		$$\{\varphi \in \mathcal F \mid \; \delta S(\varphi) = 0 \}.$$
 	\end{phys}
-	\begin{eg}
+	\begin{eg}[Scalar Field in 1D]
 		When $X = \mathbb R$, we get a single scalar field $\phi$ (here $\Phi$ is $\phi$). An action for this field theory is often given by:
 		$$S[\phi] = \int_M |\partial_\mu \phi|^2.$$
 	\end{eg}
-	\begin{eg}
+	\begin{eg}[Electromagnetism and Yang-Mills theory]
 		Classical electromagnetism is defined by $X=T^* M$ with an action given by:
 		$$S[A] = \int_M F \wedge \star F, \qquad F := \dd A.$$
 		Here $F = dA$ is the \emph{curvature form} or \emph{electromagnetic field-strength tensor}.
@@ -34,11 +34,19 @@
 		where the trace is taken over the Lie algebra using the Killing form. 
 	\end{eg}
 	
+	\begin{eg}[Nonlinear Sigma Model]
+		As a last example in this section, consider a spacetime $M$ and a manifold $T$ known as the \textbf{target space}. Let $T$ have Riemannian metric. A field $\Sigma: M \to T$ is a section of the trivial bundle $E = T \times M$. Note that $T$ is not assumed to be a vector space, unlike the previous two examples. The action is given by
+		\[
+			S[\Sigma] = \int_M \left(\frac12 |\dd\Sigma|^2 - V(\Sigma) \right)
+		\]
+		where $V$ is some $\rr$-valued function on $T$ called the \textbf{potential}. If no potential is explicitly specified then we take $V = 0$.
+	\end{eg}
+	
 	\section{Quantum Field Theory and the Operator-Product Expansion} % (fold)
 	\label{sec:quantum_field_theory_and_the_operator_product_expansion}
 	
-		Though we do not know how to make sense of quantum field theory, the intuitive picture that we have of it is given by the \textbf{Feynman Path Integral}. For a given quantum field theory, there is quantity known as the \textbf{partition function}, defined as:
-		\begin{equation}
+		Though we do not know how to make sense of many mathematical aspects of quantum field theory, the intuitive picture that we have of it is given by the \textbf{Feynman Path Integral}. For a given quantum field theory, there is quantity known as the \textbf{partition function}, defined as:
+		\begin{equation}\label{eq:Z}
 			\mathcal Z = \int \mathcal D\Phi\, e^{- S[\Phi]}.
 		\end{equation}
 		This is an integral taken over the space of all fields. The measure on this space is mathematically ill-defined in general. 
@@ -47,13 +55,12 @@
 			\[
 				\left< \OO \right> = \int \mathcal D \, \Phi \OO(\Phi) \, e^{-S[\Phi]}
 			\]
-			
-			In the Hilbert-space language, a quantum observable is an operator-valued distribution on the space of fields. 
+			In the Hilbert space language, a quantum observable is an operator-valued distribution on the space of fields. 
 		\end{phys}
 		The partition function is an observable, as is the \textbf{1-point correlation function} at a point $x_1$:
 		$$\left< \Phi(x_1) \right> := \frac{1}{\mathcal Z} \int \mathcal D\Phi \, \Phi(x_1) e^{-S[\Phi]}.$$
 		In this example, the path integral over all configurations of $\Phi$ probes $\Phi$ at this single point, giving essentially an expectation value. We can take expectation values of many different operators, e.g. $\phi(x_1), (\partial_\mu \phi)(x_1), \mathbf{1}, \phi(x_1) (\partial_\mu \phi)(x_1)$ on $X$. We denote operators by $\OO$. More generally, we define \textbf{correlation functions} as 
-		$$\left< \mathcal O_1 \dots \mathcal O_n \right>_g := \frac{1}{\mathcal Z} \int \mathcal D\Phi \, \mathcal O_1 \dots \mathcal O_n e^{-S[\Phi]}.$$
+		$$\left< \mathcal O_1 \dots \mathcal O_n \right>_g := \frac{1}{\mathcal Z} \int \mathcal D\Phi \, \mathcal O_1 \dots \mathcal O_n \, e^{-S[\Phi]}.$$
 		\begin{phys}[TQFT]
 			If the correlation functions of a given quantum field theory are independent of the metric $g$, then the corresponding theory is called a \textbf{topological quantum field theory} (TQFT) in physics.
 		\end{phys}
@@ -64,6 +71,16 @@
 			$$S[A] \, \propto\,  \int_{M} \mathrm{Tr}\left(A \wedge dA + \frac23 A \wedge A \wedge A \right)$$
 			This is clear because the metric has no role in defining the action.
 		\end{eg}
+		
+		
+		\begin{remark}
+			Though for our case of a simple scalar field $\Phi$, the partition function is indeed defined as in Equation~\eqref{eq:Z}, more generally fields may be taken to be sections of a bundle associated to a principal $G$-bundle for a gauge group $G$. In this case, the quantum theory often sums over all classes of principal $G$ bundles $P$. For example, in the case of Yang-Mills theory
+			\begin{equation}
+				\mathcal Z := \sum_{P} \int \mathcal DA \, e^{- S[A]}.
+			\end{equation}
+			An explanation of these concepts will follow in the next chapter. This will be important in the definition of supersymmetric Yang-Mills theory considered in Chapter~\ref{ch:finale}.
+		\end{remark}
+		
 
 		\begin{phys}[Operator Product Expansion]
 			 Within the path integral, a product of two local fields can be replaced by a (possibly infinite) sum over individual fields. Namely, given two operators $\OO_a, \OO_b$ and evaluation points $x_1, x_2$, there is an open neighborhood $U$ around $x_2$ such that
@@ -77,12 +94,13 @@
 		In the 2D case, this yields the (possibly familiar) Laurent series associated with CFT. The structure constants contain valuable information about the QFT that allow onw to view it \emph{algebraically}. In particular, they satisfy \textbf{associativity conditions}. The philosophy of the OPE is as follows: % \textbf{(elaborate Phil's point here)}.
 % 		This leads naturally to the next idea
 		\begin{idea}
-			The OPE coefficients, together with the 1-point correlation functions completely determine the $n$-point correlation functions in a quantum field theory. 
+			The OPE coefficients, together with the 1-point correlation functions completely determine the $n$-point correlation functions in certain quantum field theories. 
 		\end{idea}
 	\noindent 	For example, a two-point function is simply given by:
 		\begin{equation}
-			\left< \OO_a(x_1) \OO_b(x_2) \right> = \sum_c C^c_{ab}(x_1 - x_2) \left< \mathcal O_c (x_2) \right>
+			\left< \OO_a(x_1) \OO_b(x_2) \right> = \sum_c C^c_{ab}(x_1 - x_2) \left< \mathcal O_c (x_2) \right>.
 		\end{equation}
+	
 	
 	% section quantum_field_theory_and_the_operator_product_expansion (end)
 	
@@ -90,26 +108,121 @@
 	\section{Topological Quantum Field Theory} % (fold)
 	\label{sec:topological_quantum_field_theory}
 	
-	An understanding of topological quantum field theory. 
+	An understanding of topological quantum field theory (TQFT) will be crucial for developing the arguments of Chapter~\ref{ch:finale}. We will use the notes of \cite{carqueville2017} to develop this section. TQFT turns out to be much more than just a type of physical theory, but in fact has rich mathematical structure closely related to the ideas of representation theory and higher category theory. Here we will be working with TQFTs over $\cc$, though there are many generalizations from $\cc$ to different fields or rings more generally.
 	
-	In categorical language, we say:
+	\subsection{Oriented, Closed TQFTs in $n$ Dimensions} % (fold)
+	\label{sub:oriented_closed_tqfts_in_n_dimensions}
+	
+	
+	The motivation for $n$-dimensional TQFT from physics is as follows. We would want a physical theory that is metric-independent to satisfy the following: 
+	\begin{itemize}
+		\item The partition function $\mathcal Z$ on a closed manifold $M$ is a number $\mathcal Z(M) \in \cc$ depending only on the topological information of $M$.
+		\item For a manifold $M$ with boundary $\partial M$, the field theory will depend on the boundary conditions for the fields on $\partial M$. Accordingly, in the example of a single scalar field $\Phi$ we will write
+		\[
+			\mathcal Z(M) (\varphi) := \int_{\Phi|_{\partial M} = \varphi} \mathcal D \Phi\, e^{- S[\Phi]}.
+		\]
+		Thus $\mathcal Z(M)$ gives a functional on the fields on $\partial M$. The space of all these functionals form a Hilbert space $\mathcal H_{\partial M}$. Note this is similar to the Hilbert space picture defined on $\rr^{3,1}$, where we must pick a time direction to define a $3$-manifold on which our Hilbert space of states is associated to. So more generally, Hilbert space corresponds to the space of functionals for the boundary values of fields on a codimension $1$ manifold.
+		\begin{figure}
+			\centering
+		    \begin{tikzpicture}
+		        \node[draw,tqft/reverse pair of pants] (A) {};
+		        \node[tqft boundary circle,draw] at (A.outgoing boundary 1) {};
+		        \node at (A.outgoing boundary 1) {};
+		    \end{tikzpicture}	
+			\caption{An example of a 2D manifold $M$ with boundary $\partial M$ consisting of three disconnected circles. Here we will have $\mathcal Z(M)$ will be an element of $\mathcal Z(\partial M) = \ZZ(S^1) \otimes \ZZ(S^1) \otimes \ZZ(S^1)$.}
+			\label{fig:tqft1}
+		\end{figure}
+		\item Extending this idea, for a closed $(n-1)$-manifold $E$, $\mathcal Z(E)$ will give a vector space $\mathcal H_E$ that can be thought of as the space of functionals on the fields living on $E$. Unlike in quantum mechanics, it will turn out that this space is \textbf{finite dimensional} for almost all TQFTs.
+		\item Our assumptions about locality in quantum mechanics lead us to ask that if $E$ is a disjoint union $E = E_1 \sqcup E_2$, then:
+		\[
+			\ZZ(E) = \ZZ(E_1) \otimes \ZZ(E_2).
+		\]
+	\end{itemize}
+	These physical ideas, together with a few other axioms will give us our definition of TQFT. First, in a time evolution picture of Hilbert space, the role of the evolution is played by objects known as ``bordisms'', connecting $(n-1)$ manifold $E$ and $F$ by $N$ manifolds $M$ so that the boundary of $M$ is $\bar E \sqcup F$. Note the orientation reversal of $E$. This is necessary so that we can identify bordisms as elements in $\mathcal H_{F} \otimes \mathcal H_{\bar E} = \mathcal H_{F} \otimes \mathcal H_E^*  = \mathrm{Hom}(E, F)$, namely linear maps between Hilbert spaces.
+
+	We must define what we mean by $\mathrm{Bord_n}$ as well as what ``symmetric monoidal'' means.
+	\begin{defn}[Bordism]
+		An $n$-dimensional bordism between two closed $(n-1)$-manifolds $E$ and $F$ is a triple $(M, \iota_{in},\iota_{out})$ consisting of an oriented compact $n$-manifold $M$ with boundary together with injections $\iota_{in}: \bar E \to \partial M$ and $\iota_{out}: F \to \partial F$ so that that $\iota_{in} \sqcup \iota_{out}: \bar E \sqcup \bar F$ is an orientation-preserving diffeomorphism of $\bar E \sqcup \bar F$ to $\partial M$. Two bordisms $(M, \iota_{in}, \iota_{out}), (M', \iota'_{in}, \iota'_{out})$ are diffeomorphic if there is an orientation-preserving diffeomorphism on $M$ so that the following diagram commutes.
+		\[
+			\begin{tikzcd}
+				& M\arrow[dd,"\psi"] &\\
+				E\arrow[ur,"\iota_{in}"]\arrow[dr,swap,"\iota'_{in}"] & & \arrow[ul,swap,"\iota_{out}"]\arrow[dl,"\iota'_{out}"] F\\
+				& M' &
+			\end{tikzcd}
+		\]
+	\end{defn}
 	\begin{defn}
-		A \textbf{$n$-dimensional topological quantum field theory} is a symmetric monoidal functor:
-			\[
-				\mathcal Z: \mathrm{Bord_n} \to \mathrm{Vect}_{\kk}
-			\]
-	\end{defn} 
+		The category $\mathrm{Bord_n}$ consists of objects that are all closed $(n-1)$ dimensional manifolds. Morphisms in $\mathrm{Bord_n}$ are (equivalence classes) of \textbf{bordisms} $E \to F$. 
+	\end{defn}
+	
+	\begin{defn}[Symmetric Monoidal Category]
+		A category $\CC$ is called \textbf{monoidal} if there is a bifunctor $\otimes: \CC \times \CC \to \CC$ that is associative up to natural isomorphism as well as an object $I \in \CC$ that is a left and right identity for $\CC$ up to natural isomorphism. Further, $\CC$ is \textbf{symmetric monoidal} if $A \otimes B$ is naturally isomorphic to $B \otimes A$ for all $A, B \in \CC$.
+	\end{defn}
+	
+	\noindent Let $\CC$ and $\mathcal D$ be two symmetric monoidal categories. A functor $\mathcal F: \CC \to \mathcal D$ is \textbf{symmetric monoidal} it preserves the symmetric monoidal structure of $\CC$ and $\mathcal D$ 
+	
+	\begin{eg}
+		The obvious example of a symmetric monoidal category is the category of vector spaces over a field $\kk$, $\mathrm{Vect}_{\kk}$. The bifunctor here is the usual tensor product and the identity $I$ is $\kk$ viewed as a vector space. 
+	\end{eg}
+	
+	\begin{obs}
+		The category $\mathrm{Bord_n}$ is symmetric monoidal.
+	\end{obs}
+	Note that for any two closed $(n-1)$-manifolds $E, F$ in $\mathrm{Bord_n}$, their disjoint union $E \sqcup F$ is also in $\mathrm{Bord_n}$. This gives us monoidal structure. The unit object is the \emph{empty set} $\emptyset$, viewed as an $(n-1)$-manifold. The fact that $E \sqcup F$ is naturally isomorphic to $F \sqcup E$ comes from the canonical \textbf{symmetric braiding} bordism illustrated in \ref{fig:tqft2}.
+	
+	
+	\begin{figure}
+		\centering
+\begin{tikzpicture}% [
+%   tqft/.cd,
+%   cobordism/.style={draw},
+%   every upper boundary component/.style={draw},
+%   every lower boundary component/.style={draw},
+% ]
+	\node[draw, tqft/cylinder to next](A) {};
+	\node[draw, tqft/cylinder to prior](B) {};
+	\node[tqft boundary circle,draw] at (A.outgoing boundary 1) {};
+	\node[tqft boundary circle,draw] at (B.outgoing boundary 1) {};
+\end{tikzpicture}
+	\caption{The symmetric braiding bordism illustrated for the case of $\mathrm{Bord}_2$, giving the category symmetric monoidal structure.}
+	\label{fig:tqft2}
+	\end{figure}
+	
+	We can now make a precise definition of an $n$-dimensional TQFT. 
+	\begin{defn}[TQFT]
+		 A $n$-dimensional (oriented, closed) topological quantum field theory over a field $\kk$ is a symmetric monoidal functor
+		 \[
+		 	\ZZ: \mathrm{Bord}_n \to \mathrm{Vect}_{\kk}.
+		 \]
+	\end{defn}
+	
+	For more worked examples motivating this formalism, we again refer the reader to \cite{carqueville2017}. The following theorem is a major step forward in driving our understand of 2D TQFT. Moving into higher dimensions is much harder. 
 	
 	\begin{theorem}
-		The category of 2-dimensional topological quantum field theories is the same as the category of commutative Frobenius algebras.
+		The category of 2-dimensional topological quantum field theories over $\kk$ is the same as the category of commutative Frobenius algebras over $\kk$.
 	\end{theorem}
+	A Frobenius algebra $A$ is an associative algebras with a nondegenerate bilinear form $\sigma: A \otimes A \to A$ so that $\sigma(a b, c) = \sigma(a, bc)$.
 	
-	In general, besides just considering $n$-bordisms between $n-1$ manifolds, one might also be inclined to consider the  \textbf{extended} topological quantum field theory in $n$-dimensions.
-	These are difficult to define, and would in principle rely on the language of $n$-categories to give a satisfactory definition. 
+	\subsection{Extended TQFTs} % (fold)
+	\label{sub:extended_tqfts}
+		
+	For an $n$-dimensional manifold $M$, the ideas of TQFT allow us to slice up into smaller $n$-manifolds that are ``glued together'' along $(n-1)$ manifolds. Topological invariants about $M$ can be recovered by studying how this gluing functorially translates into linear algebraic data.
 	
-	We can at least summarize 
+	In general, besides just considering $n$-bordisms between $n-1$ manifolds, one might also be inclined to consider the  \textbf{extended} topological quantum field theory in $n$-dimensions. Such TQFTs consider objects of codimension greater than one more generally. 
 	
-	\textbf{STILL NOT FINISHED}
+	These are difficult to define, and would in principle rely on the language of $n$-categories to give a satisfactory definition. If the reader is familiar with $\cc$-linear categories, then a $k$-extended TQFT of dimension $n$ is \cite{nlab:extended_topological_quantum_field_theory} a symmetric $n$-tensor functor $\ZZ$ mapping
+	\begin{itemize}
+		\item smooth compact $n$ manifolds to elements of $\cc$,
+		\item smooth compact $n-1$ manifolds to vector spaces over $\cc$,
+		\item bordisms of smooth compact $n-1$ manifolds to $\cc$-linear maps on vector spaces,
+		\item smooth compact $n-2$ manifolds to $\cc$-linear categories,
+		\item bordisms of smooth compact $n-1$ manifolds to $\cc$-linear functors between the $\cc$-linear categories,
+		\item \dots 
+		\item smooth compact $n-k$ manifolds to $\cc$-linear $(n-1)$-categories,
+		\item bordisms of smooth compact $n-1$ manifolds to $\cc$-linear $(n-1)$ functors between the $\cc$-linear $(n-1)$-categories.
+	\end{itemize}
+	
+	Fortunately, for our case, we will only need to understand $2$-extended TQFT in dimension $4$. It will turn out that our codimension two manifolds will give rise to our categories of interest: $\mathcal D(\mathrm{Bun}_G)$ and $\mathcal{QC}(\mathrm{Flat}_{\check G})$. Studying how these arise categories of boundary conditions in the topologically twisted $\mathcal N=4$ TQFT is beyond the scope of this thesis, but it is worth mentioning for the sake of completeness. 
 	
 	% section topological_quantum_field_theory (end)
 
@@ -119,14 +232,29 @@
 	\subsection{Spin Representations} % (fold)
 	\label{sub:spin_representations}
 
-		\textbf{NOT FINISHED}
-
-		Given a special orthogonal group in Euclidean or Minkowski space, $\SO(p, q$, the Spin group is defined to be the universal cover of $\SO(p, q)$.
+		Consider a (real or complex) special orthogonal group $\SO(V, Q)$ in Euclidean or Minkowski space $V$ with nondegenerate quadratic form $Q$ that induces a symmetric bilinear form $\left < \cdot, \cdot \right>$. The Spin group $\Spin(V, Q)$ is defined to be the universal cover of $\SO(V, Q)$. Spin representations are in a sense the ``simplest'' representations of $\Spin(V, Q)$ that does not descend to a representation of the corresponding orthogonal group. 
 		
-		\textbf{TALK ABOUT $S^+$ and $S^-$}
+		We will first look at spin representations of $\SO(n, \cc)$. In this setting, there is a basis in which $Q(\vec z) = z_1^2 + \dots + z_n^2$. 
+		\begin{defn}[Isotropic Subspace]
+			A subspace $W \subseteq V$ is \textbf{totally isotropic} if every vector $v \in W$ has $Q(v) = 0$. 
+		\end{defn}
+		For $n=2k$ (this is the case that will be relevant to us), it turns out that we can form an orthogonal decomposition of $V$ into $W \oplus W^*$ that are maximal totally isotropic subspaces. 
 		
-
+		Then to define the spin representation of $\so(2k, \cc)$, we take the exterior algebras
+		\[
+			S = \Lambda^\bullet (W), \qquad S' = \Lambda^\bullet(W^*).
+		\]
+		These turn out to be isomorphic representations of $\so(n, \cc)$, so let us focus on $S$. When $n = 2k$ is even, we also get that $S$ reduces into a sum of two distinct irreducible representations corresponding to the even and odd degrees of this exterior algebra. We denote these by $S^+$ and $S^-$, respectively. They are both representations of dimension $2^{k-1}$. In terms of a root system, the highest weights for $S^+$ and $S^-$ are
+		\[
+			\left(\frac12, \frac12, \dots, \frac12, \frac12\right), \text{ and } \left(\frac12, \frac12, \dots, \frac12, -\frac12\right)
+		\]
+		respectively. 
+		
+		
 	% subsection spin_representations (end)
+
+	\subsection{Lie Superalgebras} % (fold)
+	\label{sub:lie_superalgebras}
 
 	\begin{defn}
 	A \textbf{Lie superalgebra} is a $\mathbb Z_2$-graded Lie algebra with a commutator bracket satisfying:
@@ -143,7 +271,7 @@
 		\]
 		of the Poincare algebra $\frak{Poin}$ by the vector space of odd vectors, taken to be in odd degree.
 	\end{defn}
-	% Here, we have not described the nature of this extension. It suffices to say that the anti-commutator $\{Q_\alpha, \bar Q_\beta \}$
+	% Here, we have not described the nature of this extension. It suffices to say that the anti-commutator $\{Q_\alpha, \overline Q_\beta \}$
 	
 	The brackets between the odd vectors $\{Q^A_\alpha, Q^B_\beta \} $ give rise to  central elements $Z^{AB}$ in the algebra. These are called \emph{supercharges} and arise as:
 	$$\{Q^A_\alpha, Q^B_\beta \} = \epsilon_{\alpha \beta} Z^{AB}.$$

@@ -65,6 +65,8 @@ Magnetic Monopoles, `t Hooft Lines,
 
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{gensymb}
+\usepackage{tikz}
+\usepackage{tqft}
 \usepackage{tikz-cd}
 \usepackage{mathtools}
 %%% For figures
@@ -198,12 +200,12 @@ Magnetic Monopoles, `t Hooft Lines,
 \input{abstract}
 }
 
-% \acknowledgements{
-% %I would like to thank...
-% \input{acknowledgements}
-% }
+\acknowledgements{
+%I would like to thank...
+\input{acknowledgements}
+}
 
-% \dedication{To my parents.}
+\dedication{To my parents.}
 
 \fi  % disable frontmatter
 
@@ -227,6 +229,7 @@ Magnetic Monopoles, `t Hooft Lines,
 \newtheorem{ind}[theorem]{Indication}
 \newtheorem{mot}[theorem]{Motivation}
 \newtheorem{fact}[theorem]{Fact}
+\newtheorem{remark}[theorem]{Remark}
 \newtheorem{goal}{Goal}
 \newtheorem{idea}[theorem]{Idea}
 
@@ -275,6 +278,9 @@ Magnetic Monopoles, `t Hooft Lines,
 \def\Ad{\mathrm{Ad}\,}
 \def\ad{\mathrm{ad}\,}
 \def\OO{\mathcal{O}}
+\def\ZZ{\mathcal{Z}}
+\def\CC{\mathcal{C}}
+
 
 
 \makeatletter
@@ -342,7 +348,7 @@ Magnetic Monopoles, `t Hooft Lines,
 \addcontentsline{toc}{chapter}{Bibliography}
 
 % include your .bib file
-\bibliography{thesis}
+\bibliography{thesis.bib}
 
 \end{document}
 

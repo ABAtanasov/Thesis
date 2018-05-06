@@ -8,7 +8,7 @@ The aim of this chapter is to first develop for the reader a picture of $\mathca
 \subsection{Reduction from Ten Dimensions} % (fold)
 \label{sub:reduction_from_ten_dimensions}
 
-One of the simplest ways to arrive at 4D $\mathcal N=4$ SYM is to begin with gauge theory in 10 dimensions with gauge group $G$ \cite{kapustin2006}. In the 10D theory, we have two fields, $A_{10D}$ and $\lambda$. $A_{10D}$ is a connection on a principal $G$-bundle $P$ while $\lambda$ transforms as what physicists would call a ``positive chirality spinor with values in the adjoint representation'', so $\lambda \in \Gamma(M, S^+ \otimes \ad P)$. We have $F_{10D} = \dd_{A_{10D}} A_{10D}$.
+One of the simplest ways to arrive at 4D $\mathcal N=4$ SYM is to begin with gauge theory in 10 dimensions with gauge group $G$ \cite{kapustin2006}. Throughout this chapter, we will be working in \emph{Euclidean signature}. In the 10D theory, we have two fields, $A_{10D}$ and $\lambda$. $A_{10D}$ is a connection on a principal $G$-bundle $P$ while $\lambda$ transforms as what physicists would call a ``positive chirality spinor with values in the adjoint representation'', so $\lambda \in \Gamma(M, S^+ \otimes \ad P)$. We have $F_{10D} = \dd_{A_{10D}} A_{10D}$.
 
 ``Bosonic'' will be taken to mean terms consisting of only the connection $A_{10D}$ and its derivatives. ``Ferminionic'' will be taken to mean terms involving a the spinor $\lambda$. For more information and motivation see \cite{schwartz2014}.
 
@@ -24,56 +24,86 @@ The action here is:
 	S = \frac{1}{e^2} \int \tr \left(F_{10D} \wedge \star F_{10D} - i \overline \lambda \Gamma \dd_A \lambda \right) 
 \end{equation}
 
-The reduction to 4 dimensions is done in a similar manner to how we proceeded in Chapter~\ref{ch:monopoles}. Namely, we assume all fields are independent of the last six direction. This gives us a connection $A =A_\mu d^\mu$ in 4D together with six scalar fields $\phi_i$. The curvature $F_{10}$ decomposes into three terms. The first is the curvature in 4D, $F$, the second consists of covariant derivatives of the $\phi_i$, $\dd_A \phi_i$, and the last consists of commutators $[\phi_i, \phi_j]$. All together, the bosonic part of the action can be written in physics convention as:
+The reduction to 4 dimensions is done in a similar manner to how we proceeded in Chapter~\ref{ch:monopoles}. Namely, we assume all fields are independent of the last six direction. This gives us a connection $A =A_\mu d^\mu$ in 4D together with six scalar fields $\phi_i$. The curvature $F_{10}$ decomposes into three terms. The first is the curvature in 4D, $F$, the second consists of covariant derivatives of the $\phi_i$, $\dd_A \phi_i$, and the last consists of commutators $[\phi_i, \phi_j]$. All together, the bosonic part of the action can be written as:
 \begin{equation}
 	\frac{1}{e^2} \int_M \tr\left( F \wedge \star F + \sum_i \dd_A \phi \wedge \star (\dd_A \phi) +  \sum_{i < j} [\phi_i, \phi_j]^2 \mathrm{Vol}_M \right)
 \end{equation}
-The fermionic part can be similarly decomposed into four spinors $\lambda^a$ transforming in $\ad(E) \otimes S^+$ and four spinors $\bar \lambda_a$ transforming in $\ad(E) \otimes S^-$. In Minkowski signature $\lambda$ and $\bar \lambda$ are conjugates but in Euclidean signature they are independent \cite{kapustin2008}.
+The fermionic part can be similarly decomposed into four spinors $\lambda^a$ transforming in $\ad(E) \otimes S^+$ and four spinors $\overline \lambda_a$ transforming in $\ad(E) \otimes S^-$. In Minkowski signature $\lambda$ and $\overline \lambda$ are conjugates but in Euclidean signature they are independent \cite{kapustin2008}.
 
-The reduced 4D theory gains an $\mathrm{Spin}(6)$ symmetry acting on the fields which is in fact the $R$ symmetry group from Section~\ref{sec:supersymmetry}. The scalar fields $\phi_i$ transform in the vector representation of this group, while the $\lambda$ and $\bar \lambda$ transform as spinors and dual spinors of this group as well.
+The reduced 4D theory gains an $\mathrm{Spin}(6)$ symmetry acting on the fields which is in fact the $R$ symmetry group from Section~\ref{sec:supersymmetry}. The scalar fields $\phi_i$ transform in the vector representation of this group, while the $\lambda$ and $\overline \lambda$ transform as spinors and dual spinors of this group as well.
 
 % \begin{equation}
 % 	S = \frac{1}{e^2} \int dx^4 \tr\left( \frac{1}{2} F_{\mu \nu} F^{\mu \nu} + \sum_i D_\mu \phi^i D^\mu \phi_i + \frac12 \sum_{i,j} [\phi_i, \phi_j]^2 \right)
 % \end{equation}
 On $M=\rr^4$ the theory has 16 supersymmetries $\overline Q_{a, \alpha}$ and $Q^a_{\cdot \alpha}$ transforming as spinors and dual spinors in $\mathrm{Spin}(6)$ as well as for the spacetime structure group $\mathrm{Spin}(4)$.
 
-There is also a parameter $\frac{1}{8\pi} \int_M \theta F \wedge F$ that can be added to the action where $\theta$ is called the \textbf{instanton angle}. By the usual Chern theory arguments (see Section~\ref{sub:the_instanton_number}), this depend only on the topology of the principal $G$-bundle of the gauge theory.
 
 \begin{phys}
-	$\mathcal N=4$ Super-Yang Mills theory is the field unique theory of maximal supersymmmetry in four dimensions.
+	$\mathcal N=4$ Super-Yang Mills theory is the unique field theory of maximal supersymmmetry in four dimensions.
 \end{phys}
 
-Further, this theory is \emph{scale invariant}. By the usual arguments \cite{schwartz2014}, it is easy to see that the mass dimension of the coupling constant $e$ must be 0. Scale invariance, together with the poincare symmetry of $\rr^4$ combine in this case to form a \emph{conformally invariant} theory known as a \textbf{conformal field theory}. For an exposition on conformal field theory in dimensions greater than two, see \cite{simmons2016}. This conformal invariance will be \emph{crucial} for the necessary duality to make sense, as otherwise the nontrivial renormalization flow would violate the Montonen-Olive duality between electric and magnetic charge, discussed below and summarized in depth in \cite{kapustin2008}.
+Further, this theory is \emph{scale invariant}. By the usual arguments \cite{schwartz2014}, it is easy to see that the mass dimension of the coupling constant $e$ must be 0. Scale invariance, together with the poincare symmetry of $\rr^4$ combine in this case to form a \emph{conformally invariant} theory known as a \textbf{conformal field theory}. For an exposition on conformal field theory in dimensions greater than two, see \cite{simmons2016}. This conformal invariance will be \emph{crucial} for the necessary duality to make sense, as otherwise the nontrivial renormalization flow would violate the Montonen-Olive duality between electric and magnetic charge, to be introduced in the next subsection and summarized in depth in section three of \cite{kapustin2008}.
 
+
+There is also a parameter $\frac{i \theta}{8\pi} \int_M \tr (F \wedge F)$ that can be added to the action where $\theta$ is called the \textbf{instanton angle}. By the usual Chern theory arguments (see Section~\ref{sub:the_instanton_number}), this depend only on the topology of the principal $G$-bundle of the gauge theory.
+\begin{obs}
+	The theory is invariant under $\theta \to \theta + 1$.
+\end{obs}
+\begin{proof}
+	Since $\frac{1}{8\pi} \int_M \tr (F \wedge F)$ is an integer, the path integral is
+	\[
+		\mathcal Z = \sum_{\substack{P \\ \text{principal bundles}}} \int \mathcal D\{ Fields \} \, e^{- S_E[\Phi]}.
+	\]
+	For $\theta \to \theta+1$ we get an additional factor of 
+	\[
+		e^{i \int_M \tr(F \wedge F)}
+	\] 
+	to the action. Since the instanton number is an integer by the same arguments as in Chapter~\ref{ch:instantons}, this will have no effect on any of the observables of the theory.
+\end{proof}
+
+In general $e^2$ and $\theta$ are two parameters determining the coupling properties of the theory, and are more generally bundled together into a single coupling constant $\tau = \theta/2\pi + 4\pi i/e^2$. We have just seen that $\tau \to \tau+1$ is a symmetry of the theory. Next, we will discuss a far less trivial symmetry. 
 
 % subsection reduction_from_ten_dimensions (end)
 
 \subsection{Montonen-Olive Duality} % (fold)
 \label{sub:montonen_olive_duality}
 
+	For this entire chapter, we will take $G$ is a simple Lie group that is not in the $B$ or $C$ series. The \textbf{lacing number} $n_{\gg}$ of $G$ is defined to be $3$ for the group $G_2$, $2$ for the groups $F_4$, and $1$ otherwise. There are also arguments for treating the $B$ and $C$ series (see section 2.2 of \cite{kapustin2006}), equivalently giving them lacing number $2$.
+
+	In physics, a duality between a theory with coupling constant $e$ and coupling constant $1/e$ is called a \emph{strong-weak} duality, more generally known as \textbf{\emph{S}-duality}. What is special about $\mathcal N=4$ super Yang-Mills theory is that it is conjectured to exhibit a strong-weak duality in the coupling constant $\tau$. 
+	
+
 	\begin{concept}[Montonen-Olive Duality]
 		In 4D $\mathcal N = 4$ supersymmetric Yang-Mills theory with gauge group $G$ and complex coupling constant $\tau$, any correlator of observables
 		\[
 			\left< \mathcal O_1 \dots \mathcal O_n \right>_{\tau, G} := \int \mathcal{D}\{ Fields \}\, \mathcal O_1 \dots \mathcal O_n \, e^{-S}
 		\]
-		can be rewritten in terms of Yang-Mills theory with inverse coupling constant $-1/\tau$ on the Langlands dual group $\check G$ as a correlator of dual operators $\tilde {\mathcal O_1} \dots \tilde {\mathcal O_n}$
+		can be rewritten in terms of Yang-Mills theory with inverse coupling constant $-1/n_{\gg} \tau$ on the Langlands dual group $\check G$ as a correlator of dual operators $\tilde {\mathcal O_1} \dots \tilde {\mathcal O_n}$
 		\[
-			\left< \mathcal O_1 \dots \mathcal O_n \right>_{\tau, G} = \left< \tilde{\mathcal O_1} \dots \mathcal O_n \right>_{-1/\tau, \check G}.
+			\left< \mathcal O_1 \dots \mathcal O_n \right>_{\tau, G} = \left< \tilde{\mathcal O_1} \dots \mathcal O_n \right>_{-1/n_\gg \tau, \check G}.
 		\]
+		where $\check G$ is the Langlands dual.
 	\end{concept}
+	
+	Thus, in a given theory with coupling constant $\tau = \theta/2\pi + 4\pi i/e^2$, we have two symmetries $\tau \to \tau+1$ and $\tau \to -1/\tau$ (in the simply laced case), which we know generate the larger set of transformations:
+	\[
+		\tau \to \frac{a \tau + b}{c \tau + d}.
+	\]
+	This is $\SL(2, \zz)$.
 	
 % subsection montonen_olive_duality (end)
 
 \subsection{Topological Twisting} % (fold)
 \label{sub:topological_twisting}
 
-	First recall from Chapter \ref{ch:phys} Section \ref{sec:supersymmetry} the following definition: 
-	\begin{defn}[Subsector]
-		Given a supersymmetry operator $Q$ such that $Q^2 = \frac{1}{2} [Q, Q] = 0$, we define the subsector of our theory $\mathcal E$ by the set of $Q$ invariants, and denote this as $(\mathcal E, [Q, -])$.
+	In this subsection we aim to give the reader a basic understanding of the process of topological twisting, and how this changes a field theory. Recall, from \ref{sec:supersymmetry} the following:
+	\begin{phys}[Sector]
+		Given a supersymmetry operator $Q$ such that $Q^2 = \frac{1}{2} [Q, Q] = 0$, we define the sector of our theory $\mathcal E$ by the set of $Q$ invariants, and denote this as $(\mathcal E, [Q, -])$.
 		
 		Slightly more precisely, $[Q, -]$ defines a differential operator, and the ``observables'' become exactly those gauge-invariant quantities annihilated by $Q$ modulo those that are $Q$-exact.
-	\end{defn}
-
+	\end{phys}
+	
+	
 	\begin{phys}[Topological Twist]
 		Given a supersymmetric (SUSY) field theory $\mathcal E$, a topological twist is a procedure for extracting a sector of $\mathcal E$ that depends only on the topology of the spacetime manifold. The resulting field theory is \textbf{topological} in the definition of Section~\ref{sec:topological_quantum_field_theory}
 	\end{phys}
@@ -108,31 +138,42 @@ Further, this theory is \emph{scale invariant}. By the usual arguments \cite{sch
 	
 	Upon a choice of $Q = u Q_l + v Q_r$, after some manipulation, one can rewrite the Yang-Mills action as:
 	\begin{equation}
-		S = \{ Q , V \} + \frac{i \theta}{8\pi^2} \int_M \tr(F \wedge F) + \frac{i}{4\pi} \frac{v^2-u^2}{v^2+u^2} \int_M \tr (F \wedge F).
+		S = \{ Q , V \} + \frac{i \theta}{8\pi^2} \int_M \tr(F \wedge F) - \frac{1}{e^2} \frac{v^2-u^2}{v^2+u^2} \int_M \tr (F \wedge F).
 	\end{equation}
-	Here $V$ is some relatively complicated gauge invariant function of the fields that will not matter in the observables in the BRST-quantized theory, since it contributes a $Q$-exact term. Note that though there is metric dependence in $V$, the remaining terms involve only $\int_M \tr (F \wedge F)$, which we know to be metric independent, depending only on the topology of the principal bundle. 
+	Here $V$ is some relatively complicated gauge invariant function of the fields that will not matter for the observables in the BRST-quantized theory, since it contributes a $Q$-exact term. Note that though there is metric dependence in $V$, the remaining terms involve only $\int_M \tr (F \wedge F)$, which we know to be metric independent, depending only on the topology of the principal bundle. 
 	
 	\begin{fact}
 		Any such sector obtained by a choice of $Q$ defines a theory that is independent of the Riemannian metric (i.e. diffeomorphism invariant). Further, this topological theory can be defined on a general curved four-manifold $M$.
 	\end{fact}
 	
-	In general, we can bundle $\frac{\theta}{2\pi} +  \frac{v^2-u^2}{v^2+u^2}$ into a single parameter $\Psi$ known as the ``canonical parameter'' by Kapustin and Witten \cite{kapustin2006} and write:
+	In general, we can bundle $\frac{\theta}{2\pi} +  \frac{v^2-u^2}{v^2+u^2} \frac{4\pi i}{e^2}$ into a single parameter $\Psi$ known as the ``canonical parameter'' by Kapustin and Witten \cite{kapustin2006} and write:
 	\[
 		S = \{ Q, V\} + \frac{i \Psi}{4\pi} \int_M \tr (F \wedge F).
 	\]
-	We see that $\mathcal N = 4$ super Yang-Mills theory has a $\mathbb{CP}^1$ family of topological twists. 
-	Two of these will be relevant here, known as the $\hat A$-model and the $\hat B$-model\footnote{This notation comes from the fact that, upon compactification down to two dimensions, these models become the $A$ and $B$ topological sigma models discussed before}. % This twisting introduces an asymmetry between $G$ and $\check G$.
+	We see that $\mathcal N = 4$ super Yang-Mills theory has a $\mathbb{CP}^1$ family of topological twists. Moreover, Montonen-Olive duality acting on the $\mathcal N=4$ theory induces a class of $\SL(2, \zz)$ equivalences on families of topological twists. This comes from the following observation. 
+	\begin{obs}
+		$\Psi$ transforms in the same way as $\tau$ does. Namely, $\tau \to \tau+1$ induces $\Psi \to \Psi + 1$.
+	\end{obs}
+	\begin{proof}
+		This is immediate after writing
+		\[
+			\Psi = \frac{\tau + \overline \tau}{2} + \frac{\tau - \overline \tau}{2} \frac{v^2-u^2}{v^2+u^2}
+		\]
+		and working through the algebra of both transformations.
+	\end{proof}
+	
+	\noindent Two of these twists will be relevant here, known as the $\hat A$-model and the $\hat B$-model\footnote{This notation comes from the fact that, upon compactification down to two dimensions, these models become the $A$ and $B$ topological sigma models discussed before}. % This twisting introduces an asymmetry between $G$ and $\check G$.
 	
 % subsection topological_twisting (end)
 
 \subsection{Equations of Motion in the Topologically Twisted Theory} % (fold)
 \label{sub:equations_of_motion_in_the_topologically_twisted_theory}
 
-	It is worth understanding how the field in the topologically twisted theory transform, and what constraint this puts on their configuration space and equations of motion. 
+	It is worth understanding how the fields in the topologically twisted theory transform, and what constraint this puts on their configuration space and equations of motion. 
 
-	Firstly, $A$ had trivial action under the $\Spin(6)$ subgroup, so the twist will not change how it transforms. The six scalar fields will combine into two distinct fields. One of them is a 1-form valued in $\ad P$, which will be denoted $\phi$ and the other two combine to form a complex scalar field $\sigma$ valued in the complexification of the adjoint bundle. The fermions combine into a 2-form, two 1-forms, and two scalars, but this will not be as important in the story we aim to explain. 
+	Firstly, $A$ transforms trivially under the $R$-symmetry $\Spin(6)$, so the twist will not change how it transforms. The six scalar fields will now have $\Spin(4)$ act nontrivially on them. Since the $\phi_i$ transform as a vector representation of $\Spin(6)$, which is just the defining representation of $\SO(6)$, $\rho: \Spin(4) \to \Spin(6)$ will induce an $\SO(4) \to \SO(6)$ action of the spacetime group on the fields. That means that the $\phi_i$ combine into two distinct fields. One of them (transforming under $\SO(4)$) is a 1-form valued in $\ad P$, which will be denoted $\phi$ and the other two are $\SO(4)$ scalars that can be combined to form a complex scalar field $\sigma, \overline \sigma$ valued in the complexification of the adjoint bundle. These two scalars have an $\SO(2)$ internal symmetry. The fermions combine into one 2-form, two 1-forms, and two scalars, but this will not be as important in the story we aim to explain.
 	
-	For $Q = u Q_l + v Q_r$, define $t = v/u$. The equations of motion generically give
+	For $Q = u Q_l + v Q_r$, define $t = v/u$. The equations given my requiring that the supersymmetric variation of the fermion fields vanishes become (generically) equivalent to the following:
 	\begin{equation}
 		\begin{aligned}
 			(F - \phi \wedge \phi + t D_\phi)^+ &= 0\\
@@ -143,7 +184,7 @@ Further, this theory is \emph{scale invariant}. By the usual arguments \cite{sch
 	\end{equation}
 	where $(\cdot)^+$ and $(\cdot)^-$ as in Chapter~\ref{ch:instantons} denote the self-dual and anti-self-dual parts of a given 2-form. 
 	
-	Our situations of interest are at $t=1$ and $t=i$. Note that at $t = i$, $\Psi = \infty$ and the $\theta$ parameter does not enter into the QFT. On the other hand, for $t = 1$, we get $\Psi = \theta/2\pi$. Thus, we can map a theory with $t=1, \theta=0$ to a theory with $t = i, \theta = 0$ by $\Psi \to -1/\Psi$ and also replacing $G$ with $\check G$.
+	Our situations of interest are at $t=1$ and $t=i$. Note that at $t = i$, $\Psi = \infty$ and the $\theta$ parameter does not enter into the theory. On the other hand, for $t = 1$, we get $\Psi = \theta/2\pi$. Thus, we can map a theory with $t=1, \theta=0$ to a theory with $t = i, \theta = 0$ by $\Psi \to -1/\Psi$, replacing $G$ with $\check G$ as we do this.
 	
 	For $t = 1$ we get
 	\[
@@ -171,10 +212,10 @@ Further, this theory is \emph{scale invariant}. By the usual arguments \cite{sch
 	\[
 	\begin{aligned}
 		F - \phi \wedge \phi + i D_\phi &= 0\\
-		D \star \phi &= 0
+		D \star \phi &= 0.
 	\end{aligned}	
 	\]
-	Upon redefining the connection to a complex connection $\mathcal A := A + i \phi$ we see that this first condition is a flatness condition on a new curvature tensor $\mathcal F := \dd_{\mathcal A} \mathcal A$.  If we allow for the complexified gauge group $\mathcal G_\cc$ to act on this field theory, the equation $D \star \phi = 0$ can be ignored and the space of solutions can be equivalently identified with the solutions to $\mathcal F = 0$ modulo \emph{complex gauge}. Following the notation of \cite{kapustin2008}, this space of field configurations will be called $\mathcal M_{flat}(G, M)$. It is here that the connection to the Langlands program is most immediate.
+	Upon redefining the connection\footnote{More than just simplifying the expression, it turns out that at $t=i$ the connection $A$ is not a BRST invariant, but $\mathcal A$ is.} to a complex connection $\mathcal A := A + i \phi$ we see that this first condition is a flatness condition on a new curvature tensor $\mathcal F := \dd_{\mathcal A} \mathcal A = 0$.  If we allow for the complexified gauge group $\mathcal G_\cc$ to act on this field theory, the equation $D \star \phi = 0$ can be ignored and the space of solutions can be equivalently identified with the solutions to $\mathcal F = 0$ modulo \emph{complex gauge}. Following the notation of \cite{kapustin2008}, this space of field configurations will be called $\mathcal M_{flat}(G, M)$. It is here that the connection to the Langlands program is most immediate.
 	
 	A flat connection on a vector bundle $E \to M$ is the same as a \emph{local system} in algebraic geometry, which in turn is equivalent to a representation of the fundamental group $\pi_1(M) \to G$.
 	 This space will thus capture the geometric object $\mathrm{Flat}_{\check G}$ on the Galois side. Here $M$ is a four-manifold, while in the Langlands correspondence our object of study was a . The solution is to take $M = C \times \Sigma$ for a closed complex curve $C$ and 2-manifold $\Sigma$ (generally with boundary) and perform a dimensional reduction from this topologically twisted theory to a nonlinear sigma model on $\Sigma$ valued in $\mathcal M_{flat}(G, C)$.
@@ -192,7 +233,7 @@ Further, this theory is \emph{scale invariant}. By the usual arguments \cite{sch
 
 	\textbf{WANT TO MOTIVATE OPERATOR PRODUCT EXPANSION BETTER}
 
-	In general, the connection 1-form, $A$, gives a way to transport data along any given vector bundle $E$ associated to a representation $R$ of $G$. This allows us to compare the values of fields operators at different points by integrating along $E$ using our connection. Recalling the definition of holonomy from Section~\ref{sub:holonomy} The result is: 
+	In general, the connection 1-form $A$ gives a way to transport data along a vector bundle $E$ associated to a representation $R$ of $G$. This allows us to compare the values of fields operators at different points by integrating along $E$ using our connection. Recalling the definition of holonomy from Section~\ref{sub:holonomy} The result is: 
 	\begin{equation}
 		W_R (\gamma) = \mathrm{Tr}\, R( \mathrm{Hol}(A, \gamma))
 	\end{equation}
@@ -259,17 +300,16 @@ Further, this theory is \emph{scale invariant}. By the usual arguments \cite{sch
 		
 		The operator product expansion of Wilson lines captures the monoidal category structure of $\mathrm{Rep}(\check G)$. By duality, this category must also be capturing the OPE of `t Hooft lines. Can we say anything about the OPE of `t Hooft lines in terms of $G$, without reference to the dual theory?
 		
-		It turns out, that the answer is ``yes'', and this will give a physical interpretation of the Satake symmetries of the Langlands correspondence.
+		It turns out, that the answer is ``yes'', and this will give a physical interpretation of the geometric Satake equivalence that acts as symmetries of the Langlands correspondence.
 
 % section wilson_lines (end)
 
 	\section{Operator Product Expansion of `t Hooft Lines}
 	
-	\subsection{Reduction to 3D}
+	\subsection{The Hamiltonian Picture in 3D} % (fold)
+	\label{sub:the_hamiltonian_picture_in_3d}
 	
-	\textbf{NEED TO REVISE AFTER MEETING WITH PHIL}
-	
-	Because the operator product expansion is a local process, we can assume our base manifold looks like anything. It turns out to be fruitful to take $X = I \times C \times \mathbb R$. Here, $I$ is the unit interval $(0, 1)$, $C$ is a Riemann surface and $\mathbb R$ is regarded as the ``time'' direction and adopt a Hamiltonian point of view on $W = I \times C$. 
+	Because the operator product expansion is a local process, we can assume our base manifold looks like anything. It turns out to be fruitful to take $X = I \times C \times \mathbb R$. Here, $I$ is the unit interval $(0, 1)$, $C$ is a Riemann surface and $\mathbb R$ is regarded as the ``time'' direction and adopt a Hamiltonian point of view on $W = I \times C$. \textbf{REVISE THIS}
 	
 	The boundary conditions on $I$ matter here, and it turns out that in the $\hat A$ model we should consider \emph{Dirichlet} boundary conditions on one end and \emph{Neumann} boundary conditions on the other. In the language of gauge theory, Dirichlet boundary conditions demand the bundle to be trivial on that boundary, while Neumann boundary conditions allow for it to be arbitrary.
 	
@@ -281,9 +321,9 @@ Further, this theory is \emph{scale invariant}. By the usual arguments \cite{sch
 	Let's write a local coordinate $z \in \cc$ parameterizing $C$ and $\sigma \in \mathbb R$ parameterizing $I$.
 	We can gauge away $A_\sigma = 0$ exactly as we did in Section~\ref{sub:the_moduli_spaces_n_k_and_m_k} when studying the scattering transform for monopoles. These equations reduce to the following:
 	\[
-		\partial_\sigma A_{\bar z} = - i D_{\bar z} \phi.
+		\partial_\sigma A_{\overline z} = - i D_{\overline z} \phi.
 	\]
-	This condition can be interpreted as stating that the isomorphism class of the holomorphic $G$-bundle corresponding to the connection $A_{\bar z}$ is independent of $y$. This is because the right hand side corresponds to changing $A$ by a gauge transformation generated by $-i \phi$. Thus, gauge transforming $A \to A + i \phi$ gives us a holomorphic connection on the new $G$-bundle, putting it in the same holomorphic class.
+	This condition can be interpreted as stating that the isomorphism class of the holomorphic $G$-bundle corresponding to the connection $A_{\overline z}$ is independent of $y$. This is because the right hand side corresponds to changing $A$ by a gauge transformation generated by $-i \phi$. Thus, gauge transforming $A \to A + i \phi$ gives us a holomorphic connection on the new $G$-bundle, putting it in the same holomorphic class.
 	
 	 The only place where this is violated is at the values $\sigma$ where the Bogomolny equations become singular. This is where we have the insertion of a monopole, corresponding to a `t Hooft modification of the bundle. 
 	 

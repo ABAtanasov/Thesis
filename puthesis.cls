@@ -64,36 +64,40 @@
   \thispagestyle{empty}
   \sc
   \vspace*{0in}
+  \onehalfspacing
   \begin{center}
     \LARGE \@title
   \end{center}
+  \doublespacing
 	  \vspace{.6in}
 	  \extravspace{.6in}
 	  \begin{center}
 	    \@author
 	  \end{center}
 	  \vspace{.6in}
-	%   \extravspace{.6in}
-	%   \begin{center}
-	%     A Dissertation Presented to the Faculty of\\
-	%     Yale University \\
-	%     in Candidacy for the Combined Degrees of \\
-	%     Bachelor and Master of Sciences\\
-	% in Mathematics
-	%   \end{center}
-	%   \vspace{.3in}
-	%   \extravspace{.3in}
+	  \extravspace{.6in}
 	  \begin{center}
-	%     Recommended for Acceptance \\
-	%     by the \@deptpref \\
-	%     \@dept \\
+	    A Senior Thesis
+		Presented to the Faculty of\\
+	    Yale University \\
+	    in Candidacy for the Combined Degrees of \\
+	    Bachelor and Master of Sciences\\
+	in Mathematics
+	  \end{center}
+	  \vspace{.3in}
+	  \extravspace{.3in}
+	  \begin{center}
+		% 	    Recommended for Acceptance \\
+		% 	    by the \@deptpref \\
+		% 	    \@dept \\
+		% \vspace{0.3in}
 	    Advisor: \@advisor
 	  \end{center}
-	%   \vspace{.3in}
-	%   \extravspace{.3in}
-  \begin{center}
-    \@submitted
-  \end{center}
+	  \vspace{.3in}
+	  \extravspace{.3in}
+	  \begin{center}
+	    \@submitted
+	  \end{center}
   \clearpage
   }}
 \newcommand*{\makecopyrightpage}{

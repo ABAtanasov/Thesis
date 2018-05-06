@@ -18,11 +18,11 @@ For the purposes of this thesis, instantons will not themselves play a central r
 \subsection{The Equations of Motion} % (fold)
 \label{sub:the_equations_of_motion}
 
-Yang-Mills gauge theory is a gauge theory with gauge group $G = \mathrm{SU}(n)$. In four dimensions, the objects of study are $G$-bundles and associated $G$-bundles on Euclidean 4-space $M = \rr^4$. $\rr^4$ has a Riemannian metric, so we have a Hodge-star operator giving an isomorphism:
+Yang-Mills gauge theory is a theory with gauge group $G = \mathrm{SU}(n)$. In four dimensions, the objects of study are bundles associated to a principal $G$-bundle on Euclidean 4-space $M = \rr^4$. $\rr^4$ has a Riemannian metric, so we have a Hodge-star operator giving an isomorphism:
 \[
-	\star: \Omega^k \to \Omega^{n-k}.
+	\star: \Omega^k \to \Omega^{4-k}.
 \]
-From the prior section, gauge theory on $\mathbb R^4$ involves a connection $1$-form $A$ transforming in the $\ad\gg$ representation. From this, we obtain the field-strength $F$, again transforming in the adjoint action, by applying the covariant exterior derivative:
+From the prior section, gauge theory on $\rr^4$ involves a connection $1$-form $A$ transforming in the $\ad\gg$ representation. From this, we obtain the field-strength $F$, again transforming in the adjoint action, by applying the covariant exterior derivative:
 \begin{equation}
 	F = \dd_A A = \dd A + [A, A]
 \end{equation}
@@ -69,7 +69,7 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 \subsection{The Instanton Number} % (fold)
 \label{sub:the_instanton_number}
 
-		Though the action is defined by $\int_M \tr(F \wedge \star F)$, we define
+		The action is defined by $\int_M \tr(F \wedge \star F)$. Considering $F \wedge F$ gives us another important quantity. 
 		\begin{defn}[Instanton Number]
 			The \textbf{instanton number} $k$ for a given field configuration is given by
 			\begin{equation}
@@ -125,6 +125,8 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 	\end{equation}
 	It is also easy to see that equality will be satisfied iff $F = F_+$ or $F=F_-$.
 	
+	Note that any solution of the self-dual equation $F=F_+$ can be obtained from a solution of the anti-self-dual equation $F=F_-$ by performing a spatial flip $x_1 \to - x_1$.
+	
 	We thus have the \textbf{anti-self-dual equations} for instantons:
 	\begin{equation}\label{eq:asd1}
 		\star F = - F,
@@ -155,20 +157,20 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 		\begin{itemize}
 			\item For the above integrals to have made sense, we must require that $F(\vec x)$ decays ``sufficiently quickly'' as $|\vec x| \to \infty$.
 			\item Consequently we must also have $A$ ``tend to a constant''. In the language of gauge theory, $A$ must become ``pure gauge'' $g \dd g^{-1}$ as $|\vec x| \to \infty$.
-			\item We thus restrict the gauge group to consist of only \textbf{framed} gauge transformations, defined below.
+			\item We thus restrict the gauge group to consist of only \textbf{framed} gauge transformations, defined next.
 		\end{itemize}
 		\begin{defn}
 			A framed gauge transformation on $\rr^4$ is one that tends to a constant group element as $|\vec x| \to \infty$.
 		\end{defn}
 
-		We first change the setting from $\rr^4$ to $S^4$. Because of the decay of the fields, this will still give a well-defined field strength and vector potential on $S^4$. The following argument is directly from \cite{lindenhovius2011}.
+		We first change the setting from $\rr^4$ to $S^4$. Because of the decay of the fields, extending the bundle to $S^4$ with framed gauge transformation will give a well-defined field strength and vector potential on $S^4$. The following argument is directly from \cite{lindenhovius2011}.
 	
-		We will now understand the instanton number in terms of a \emph{clutching function} defined on $S^3$ connecting the two hemispheres of $S^4$. First, note that on an open disk, the form $\tr (F \wedge F)$ (by virtue of being locally exact) can be written as 
+		We will understand how to compute the instanton number on $S^4$ by using a \emph{clutching function} defined on $S^3$ connecting the two hemispheres of $S^4$. First, note that on an open disk, the form $\tr (F \wedge F)$ (by virtue of being locally exact) can be written as 
 		\[
 			\dd \tr \left[F \wedge A - \frac13 A^3 \right] = \tr( F \wedge F)
 		\]
 		where $A^3 = A \wedge A \wedge A$.
-		Now take $D_N$ and $D_S$ be two disks overlapping on $S^3$. The $G$-bundle must have an overlap function $\rho: S^3 \to G$.
+		Now take $D_N$ and $D_S$ two disks overlapping on $S^3$. The $G$-bundle must have an overlap function $\rho: S^3 \to G$.
 	
 		Now the integral becomes:
 		\[
@@ -201,7 +203,7 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 			 The instanton number $k$ must be an integer equal to the negative of the degree of the clutching function $\rho$ defining the principal $G$-bundle on $S^4$.
 		\end{prop}
 		
-		\noindent With the stage set, will now discuss the method for constructing \emph{all} instantons on $\rr^4$. This is the \textbf{ADHM construction} of Atiyah, Hitchin, Drinfeld, and Mannin \cite{atiyah65}.
+		\noindent With the stage set, will now discuss the method for constructing \emph{all} instantons on $\rr^4$. This is the \textbf{ADHM construction} of Atiyah, Hitchin, Drinfeld, and Manin \cite{atiyah65}.
 
 	% subsection classifying_principal_bundles_over_s_4 (end)
 
@@ -211,7 +213,7 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 	
 	In the ADHM construction, we make use of an identification $\rr^4 \cong \cc^2$. 
 	
-	We will show how this construction will give a bundle $E$ over $S^4$ with topological charge $-k$. The proof that this exhaustively gives \emph{all} instantons can be found in \cite{donaldson1988}.
+	We will show how this construction will give a vector bundle $E$ of rank $n$ over $S^4$ with topological charge $-k$. The proof that this exhaustively gives \emph{all} instantons can be found in \cite{donaldson1988}.
 	
 	\subsection{Holomorphic and Hermitian Vector Bundles} % (fold)
 	\label{sub:holomorphic_and_hermitian_vector_bundles}
@@ -225,11 +227,11 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 	Let $x_1, x_2, x_3, x_4$ parameterize a $\mathbb R^4$, and write this as $\mathbb C^2$ using $z_1 = x_2 + i x_1, z_2 = x_4 + i x_3$. In terms of the complex coordinates, we get
 	\begin{equation}
 		\begin{aligned}
-			D_1 &= \frac{1}{2} ({\dd_A}_2 - i {\dd_A}_1)\\
-			D_2 &= \frac{1}{2} ({\dd_A}_4 - i {\dd_A}_3)
+			D_1 &:= \frac{1}{2} ({\dd_A}_2 - i {\dd_A}_1)\\
+			D_2 &:= \frac{1}{2} ({\dd_A}_4 - i {\dd_A}_3)
 		\end{aligned}
 	\end{equation}
-	We can express anti-self duality of $\mathcal F_{\mu \nu}$ in terms of these $D_\mu$ through two equations:
+	We can express anti-self duality of $\mathcal F_{\mu \nu}$ in terms of these $D_1, D_2$ through two equations:
 	\begin{equation}
 		\begin{aligned}
 			\left[ D_1, D_2 \right] &= 0\\
@@ -237,6 +239,7 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 		\end{aligned}
 	\end{equation}
 	
+	We will now describe how to obtain a holomorphic vector bundle of rank $n$ on $S^4$ together with a connection $1$-form on this bundle that will give a solution to the ASD equations of motion. 
 	% The idea behind ADHM is to take ``Fourier transforms'' of these $D_i$ to matrices $B_i$.
 	
 	\begin{defn}[ADHM System]
@@ -319,8 +322,8 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 	In quaternionic language, the ADHM equations become easier to work with. To each $x = (q_1, q_2) \in \cc^2$, we can associate a quaternionic operator acting on $\cc^2$ as:
 	\begin{equation}
 		(q_1, q_2) \mapsto z = \begin{pmatrix}
-			\bar q_2 & -q_1\\
-			\bar q_2 & q_2
+			\overline q_2 & -q_1\\
+			\overline q_2 & q_2
 		\end{pmatrix}.
 	\end{equation}
 	For $(q_1, q_2) \neq 0$ this is a rank two linear operator.
@@ -357,11 +360,16 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 	\end{equation}
 	Importantly, the kernel of this operator is $\ker \beta_{x,y} \cap \ker \alpha^\dagger_{x,y}$ which can be rewritten as $\ker \beta_{x,y} \cap \mathrm{im}(\alpha)^\perp_{x,y}$. By the definition of orthogonal complement together with $\beta_{x,y} \circ \alpha_{x,y} = 0 \Rightarrow \im \alpha_{x,y} \subseteq \ker \beta_{x,y}$, this intersection is seen to be isomorphic to $\ker \beta_{x,y} / \mathrm{im}\, \alpha_{x,y}$.
 	
-	We see that $x, y$ can be interpretted as two quaternions on $\mathbb H^2$. We have an action of the quaternionic operators on this space by $(x, y) \to (x q, y q)$. The space $\ker \Delta^\dagger_{x, y} \to (x, y)$ gives rise to a rank two vector bundle $\tilde E$ on $\mathbb H^2$. Observe of the following equivariance condition:
+	We see that $x, y$ can be interpretted as two quaternions on $\mathbb H^2$. We have an action of the quaternionic operators on this space by $(x, y) \to (x q, y q)$. The space $\ker \Delta^\dagger_{x, y} \to (x, y)$ gives rise to a rank $n$ vector bundle $\tilde E$ on $\mathbb H^2$. Observe of the following equivariance condition:
 	\begin{equation}
 		\Delta^\dagger_{xq, yq} = (a w q + b z q)^\dagger = q^\dagger \Delta^\dagger.
 	\end{equation}
-	For $q \neq 0$, $q^\dagger$ maintains full rank, so the kernel of $\Delta^\dagger_{xq, yq}$ is the same as the kernel of $\Delta^\dagger_{x,y}$. This means that $\tilde E$ descends to a vector bundle on $\mathbb{HP}^1 \cong S^4$.
+	For $q \neq 0$, $q^\dagger$ maintains full rank, so the kernel of $\Delta^\dagger_{xq, yq}$ is the same as the kernel of $\Delta^\dagger_{x,y}$. This means that $\tilde E$ descends to a vector bundle on $\mathbb{HP}^1 \cong S^4$. This is our desired construction.
+	
+	Moreover, if we take an orthonormal basis of $\ker \Delta^{\dagger} \subseteq W \oplus (V \otimes \cc^2)$, we can construct a $(n+2k) \times n$ matrix $U$ that satisfies the orthonormality condition $U^\dagger U = 1$. Then it can in fact be shown that our connection 1-form is defined in terms of $U$ as:
+	\[
+		A := U^\dagger \, \dd U.
+	\]
 
 % section construction_of_instantons (end)
 

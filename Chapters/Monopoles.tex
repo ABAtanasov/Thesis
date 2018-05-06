@@ -316,15 +316,15 @@
 	\end{prop}
 	\begin{proof}
 		Hitchin appeals to a theorem of Nirenberg \cite{nirenberg1957}: that it is sufficient to construct an operator
-		$$\bar \partial: \Gamma(T \mathbb{CP}^1, \tilde E) \to \Gamma(T \mathbb{CP}^1, \Omega^{(0,1)}(\tilde E)).$$
-		The existence of $\bar \partial$ on $\tilde E$ would give $\tilde E$ a holomorphic structure for which $\bar \partial$ plays the role of the anti-holomorphic differential.
+		$$\overline \partial: \Gamma(T \mathbb{CP}^1, \tilde E) \to \Gamma(T \mathbb{CP}^1, \Omega^{(0,1)}(\tilde E)).$$
+		The existence of $\overline \partial$ on $\tilde E$ would give $\tilde E$ a holomorphic structure for which $\overline \partial$ plays the role of the anti-holomorphic differential.
 		Let $s$ be a section of $\tilde E$ for a given directed line $\ell$ in $\mathbb R^3$. Let $t$ be the coordinate alone this line an $x,y$ be orthogonal coordinates in the plane perpendicular to $\ell$. In this case, define:
 		\begin{equation}
-			\bar \partial s = \left[ D_x + i D_y \right] s (dx - i dy).
+			\overline \partial s = \left[ D_x + i D_y \right] s (dx - i dy).
 		\end{equation}
 		Where $D_x, D_y$ are shorthand for the $x$ and $y$ components of the covariant derivative $\dd_A$.
 		
-		It is easy to show that this operator satisfies the Leibniz rule together with $(\bar \partial)^2 = 0$, but we must show that it is \emph{well-defined} as an operator from $\Gamma(T \mathbb{CP}^1, \tilde E) \to \Gamma(T \mathbb{CP}^1, \Omega^{(0,1)}(\tilde E))$. Namely, we must show that it fixes $\tilde E$, meaning that:
+		It is easy to show that this operator satisfies the Leibniz rule together with $(\overline \partial)^2 = 0$, but we must show that it is \emph{well-defined} as an operator from $\Gamma(T \mathbb{CP}^1, \tilde E) \to \Gamma(T \mathbb{CP}^1, \Omega^{(0,1)}(\tilde E))$. Namely, we must show that it fixes $\tilde E$, meaning that:
 		\begin{equation}
 			\left(\frac{d}{dt} - i \phi \right)\left(D_x + i D_y \right) = 0.
 		\end{equation}
@@ -379,7 +379,7 @@
 	
 	Hitchin gives the following theorem, which we will state without proof:
 	\begin{theorem}[Hitchin]
-		If two monopole solutions $(A, \phi), (A', \phi')$ have spectral curves $\Gamma', \Gamma$, then $(A, \phi)$ is a gauge transform of $(A', \phi')$.
+		If two monopole solutions $(A, \phi), (A', \phi')$ have equivalent spectral curves, then $(A, \phi)$ is a gauge transform of $(A', \phi')$.
 	\end{theorem}
 	Note that here there is no assumption on framing. The spectral curve itself does not carry information about the phase of the monopole solution. On the other hand, the section $s'$ associated to a given line for a monopole solution gives rise to a distinguished line bundle $\mathcal L$ over $\Gamma$, alongside the standard restriction of the vector bundle $\tilde E$ to $\Gamma$.
 	
@@ -469,7 +469,7 @@
 	\subsection{Construction}
 
 	% As before, $V, W$ are quaternionic vector spaces of dimension $k$.
-	To construct $V$, first consider the space of all complex-valued $L^2$ integrable functions on the interval $(0,2)$. Denote this space by $H^0$ (this notation coming from the fact that this is the zeroth Sobolev space). This space has a real structure coming not only from $f(s) \to \bar f(s)$ but also from $f(s) \to \bar f(2-s)$. Define $V = H^0 \otimes \mathbb C^k \otimes \mathbb H$, where $\mathbb C^k$ is taken to have a real structure. 
+	To construct $V$, first consider the space of all complex-valued $L^2$ integrable functions on the interval $(0,2)$. Denote this space by $H^0$ (this notation coming from the fact that this is the zeroth Sobolev space). This space has a real structure coming not only from $f(s) \to \overline f(s)$ but also from $f(s) \to \overline f(2-s)$. Define $V = H^0 \otimes \mathbb C^k \otimes \mathbb H$, where $\mathbb C^k$ is taken to have a real structure. 
 
 	Similarly, we define $W$ by considering the space of functions whose derivatives are $L^2$ integrable. This will be denoted by $H^1$ (again with motivation deriving from a corresponding Sobolev space concept). Define 
 	$$W = \{H^1 \otimes \mathbb C^k : f(0) = f(1) = 0\}.$$
