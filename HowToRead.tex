@@ -1,0 +1,20 @@
+\tikzstyle{block} = [rectangle, draw, % fill=red!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+
+\begin{tikzpicture}[node distance = 4cm, auto]
+    % Place nodes
+	\node [block] (ch3) {Chapter 3};
+    \node [block, below of=ch3] (ch4) {Chapter 4};
+	\node [block, left of=ch3] (ch2) {Chapter 2};
+	\node [block, below of=ch4] (ch5) {Chapter 5};
+	\node [block, below of=ch5] (ch6) {Chapter 6};
+	\node [block, left of=ch2] (ch1) {Chapter 1};
+	
+	 \path [line] (ch2) -- (ch4);
+	 \path [line] (ch3) -- (ch4);
+	 \path [line] (ch4) -- (ch5);
+	 \path [line] (ch5) -- (ch6); 
+	 \path [line] (ch4) -- (ch5);
+	 \path [line] (ch1) -- (ch6);
+\end{tikzpicture}

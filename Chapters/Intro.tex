@@ -1,6 +1,6 @@
 \chapter{Introduction and Overview of the Langlands Program\label{ch:intro}}
 
-The aim of this chapter is to give a conceptual and historical overview of the Langlands program from both it original number-theoretic setting as well as its geometric analogue. The goal is not so much to develop any mathematical background so much as to illustrate to the reader \emph{why} this great web of ideas is important. This chapter is more technical than those that follow.
+The aim of this chapter is to give a conceptual and historical overview of the Langlands program from both its original number-theoretic setting as well as its geometric analogue. The goal is not so much to develop any mathematical background so much as to illustrate to the reader \emph{why} this great web of ideas is important. This chapter is more technical than those that follow.
 
 The following two sections are adopted from the lectures and notes of \cite{Yoo18}. The third and fourth are motivations adopted from the first lecture of \cite{Yoo17} together with various ideas of \cite{Yoo18}.
 
@@ -14,14 +14,15 @@ a^n + b^n = c^n, \qquad n > 2
 \end{equation}
 with $abc\neq 0$. 
 
-The proof of Fermat's last theorem relied on some of the most intricate mathematics developed at the end of the 20th century. A crucial step towards its completion was put forward by Frey and made rigorous by Ribet and Serre. They showed that if the triple $(a,b,c)$ was a solution to (\ref{eqn:fermat-last-theorem}) for an odd prime $n=p$ (which one might assume without loss of generality), then the so-called Frey curve $y^2=x(x-a^p)(x+b^p)$ contradicted Taniyama--Shimura--Weil conjecture, now referred to as the Modularity Theorem. 
-\begin{theorem}[Modularity Theorem for Elliptic Curves]
+The proof of Fermat's last theorem relied on some of the most intricate mathematics developed at the end of the 20th century. A crucial step towards its completion was put forward by Frey and made rigorous by Ribet and Serre. They showed that if the triple $(a,b,c)$ was a solution to (\ref{eqn:fermat-last-theorem}) for an odd prime $n=p$ (which one might assume without loss of generality), then the so-called Frey curve $y^2=x(x-a^p)(x+b^p)$ gives a contradiction to the following theorem, now known as the \emph{Modularity theorem for Elliptic Curves}.
+\begin{theorem}[Taniyama--Shimura--Weil]
 \label{thm:modularity-theorem}
 	Every elliptic curve is modular.
 \end{theorem}
 
-Fermat's last theorem follows from a special case of the modularity conjecture\footnote{In fact, the modularity theorem is strictly stronger than necessary. It was enough for Wiles and Taylor to prove that a special family (the so-called semistable ones) of elliptic curves is modular. The case for general elliptic curves has since been proven by Breuil, Conrad, Diamond, and Taylor \cite{breuil2001}.}. The modularity conjecture for elliptic curves turns out to follow from a special case of a special case of the \emph{Langlands conjectures}, originally formulated by Robert Langlands in a letter to Andre Weil in 1967 \cite{langlands1967}.
-More precisely, it is a corollary of the Langlands correspondence for $G = \mathrm{GL}_2$ over $\qq$. This part of the Langlands conjecture remains unproven as of May 2018. 
+We will not aim to understand what it means here for an elliptic curve to be modular.
+What is important is that Fermat's last theorem follows from the modularity theorem\footnote{In fact, the modularity theorem is strictly stronger than necessary. It was enough for Wiles and Taylor to prove that a special family (the so-called semistable ones) of elliptic curves is modular. The case for general elliptic curves has since been proven by Breuil, Conrad, Diamond, and Taylor \cite{breuil2001}.}. The modularity conjecture for elliptic curves turns out to follow from a special case of a special case of the \emph{Langlands conjectures}, originally formulated by Robert Langlands in a letter to Andre Weil in 1967 \cite{langlands1967}.
+More precisely, it is a corollary of the Langlands correspondence for $G = \mathrm{GL}_2$ over $\qq$. This part of the Langlands conjecture remains unproven as of the present day.
 
 We give a sketch of the statement of the number-theoretic Langlands correspondence, intended towards an audience with some background in \emph{Galois theory} and the language of \emph{adeles}. 
 
@@ -29,7 +30,7 @@ Begin by considering the \textbf{absolute Galois group} of the rationals:
 \[
 	\mathrm{Gal}(\overline{\qq}/\qq),
 \]
-where $\overline{\qq}$ is the algebraic closure of $\qq$, consisting of all algebraic numbers. This Galois group is tremendously large. It is the profinite group obtained as an inverse limit over all finite Galois extensions of $\qq$. It is an open conjecture whether every finite group appears as a Galois group of some Galois extension. 
+where $\overline{\qq}$ is the algebraic closure of $\qq$, consisting of all algebraic numbers. This Galois group is tremendously large. It is the profinite group obtained as an inverse limit over all finite Galois extensions of $\qq$. As an example of its size and complexity, the following is an open conjecture about this group. 
 \begin{conj}[Inverse Galois]
 	Every finite group is contained in $\mathrm{Gal}(\overline{\qq}/\qq)$.
 \end{conj}
@@ -44,7 +45,7 @@ The number theoretic Langlands correspondence considers the $n$-dimensional repr
 		\prod_{p\, \mathrm{prime}}^{res} \qq_p := \left\{ (x_p) \in \prod_{p\, \mathrm{prime}} \qq_p \mid x_p \in \mathbb Z_p \text{ for all but finitely many } p\right\}.
 	\]
 \end{defn}
-Let $\GL_n(\mathbb A_\qq)$ denote the set of $n \times n$ matrices with entries in $\mathbb A_\qq$. Further, because $\qq \hookrightarrow \mathbb A_\qq$ diagonally, we also have 
+Let $\GL_n(\mathbb A_\qq)$ denote the set of $n \times n$ matrices with entries in $\mathbb A_\qq$. Because $\qq \hookrightarrow \mathbb A_\qq$ diagonally, we have 
 \[
 	\GL_n(\qq) \hookrightarrow \GL_n(\mathbb A_\qq)
 \]
@@ -62,9 +63,9 @@ Though not absolutely precise, this is a good first-order description of what an
 \begin{idea}
 	The Langlands correspondence associates to each $n$-dimensional representation of the absolute Galois group $\mathrm{Gal}(\overline \qq/\qq)$ an automorphic representation of $\GL_n(\qq)$.
 \end{idea}
-More than just an equivalence of sets, though, the Langlands correspondence states that a certain set of \emph{eigenvalue data} must agree on both sides. 
+More than just a bijection of sets, though, the Langlands correspondence states that a certain set of \emph{eigenvalue data} must agree on both sides. 
 
-From the perspective of the absolute Galois group (henceforth referred to as the \emph{Galois side}), this eigenvalue data is called the \textbf{Frobenius eigenvalues} of this representation. The Frobenius automorphism $x \to x^p$ is the generator of the Galois group of any finite extension $\mathrm{Gal}(\mathbb F_q/\mathbb F_p)$. Given a finite-dimensional representation of $\mathrm{Gal}(\overline \qq/\qq)$ as well as a conjugacy class, for $p$ an \emph{unramified prime}, one can lift the Frobenius automorphism to a conjugacy class. The eigenvalues (well-defined for a given conjugacy class) of these elements are the Frobenius eigenvalues of that representation. 
+From the perspective of the absolute Galois group (henceforth referred to as the \emph{Galois side}), this eigenvalue data for a given Galois representation is called the \textbf{Frobenius eigenvalues} of the representation. The Frobenius automorphism $x \to x^p$ is the generator of the Galois group of any finite extension $\mathrm{Gal}(\mathbb F_q/\mathbb F_p)$. For $p$ an \emph{unramified prime} in the Galois representation, one can lift the Frobenius automorphism to a conjugacy class. The eigenvalues (well-defined for a given conjugacy class) of these elements are the Frobenius eigenvalues of that representation. 
 
 From the perspective of the automorphic representations (henceforth referred to as the \emph{automorphic side}), the eigenvalue data is more difficult to describe. It relies on the construction of linear operators on the space of automorphic representations known as \textbf{Hecke Operators}. Though a full description of the Hecke eigendata is beyond the scope of this paper, we can give a rough and ``cartoonish'' picture of the most basic case of Hecke eigenvalues (c.f. \cite{miyake1971, kudla2004} for a deeper exposition). In the $\GL_2$ case, the space of automorphic representations is related to the space of modular forms on the upper half plane corresponding to quotients $\Gamma \backslash \mathbb H$ with $\Gamma$ a special type of discrete subgroup of $\SL_2(\mathbb Z)$. 
 
@@ -88,16 +89,16 @@ It is worth mentioning that the Langlands conjecture over $G = \mathrm{GL}_1$ is
 
 Many questions in number theory can be formulated in terms of questions about the nature of the absolute Galois group. On the other hand, automorphic representations can be studied using analytic methods, which would imply that deep number-theoretic data can be made accessible by studying these analytic objects.
 
-The eigenvalue data plays a particularly important role both in the Langlands correspondence and its geometric analogue. The study of this eigenvalue data will become the study of the \emph{geometric Satake} symmetries acting on both sides of the geometric Langlands equivalence, and this thesis will explore how ideas from physics can give a concrete realization of the eigenvalue data in terms of \emph{operator insertions} in quantum field theory \cite{kapustin2006}. 
+The eigenvalue data plays a particularly important role both in the Langlands correspondence and its geometric analogue. The study of this eigenvalue data will become the study of the \emph{Satake} symmetries acting on both sides of the Langlands equivalence. This thesis will explore how ideas from physics can give a concrete realization of the eigenvalue data in the geometric Langlands setting in terms of \emph{operator insertions} in quantum field theory \cite{kapustin2006}. 
 
 % section the_langlands_program (end)
 
 \section{Weil's Rosetta Stone} % (fold)
 \label{sec:weil_s_rosetta_stone}
 
-The Langlands correspondence in number theory also has a close analogy for curves defined over finite fields $\mathbb F_q$. Indeed, translating the number theoretic statements of the Langlands program has over the past fifty years led to an extremely fruitful set of developments in the field of \emph{Arithmetic Geometry}. These developments have led to the famous proofs of the \emph{Weil Conjectures} and the \emph{Riemann Hypothesis over Finite Fields}. We will not discuss these developments here but refer the reader to \cite{osserman2008}. 
+The Langlands correspondence in number theory also has a close analogy for curves defined over finite fields $\mathbb F_q$. % Indeed, translating the number theoretic statements of the Langlands program has over the past fifty years led to an extremely fruitful set of developments in the field of \emph{Arithmetic Geometry}. These developments have led to the famous proofs of the \emph{Weil Conjectures} and the \emph{Riemann Hypothesis over Finite Fields}. We will not discuss these developments here but refer the reader to \cite{osserman2008}.
 
-We \emph{will}, however, illustrate this anology to function fields over $\mathbb F_q$ to motivate the translation of the Langlands program to a more geometric setting. Consider the 1-dimensional affine space $\mathbb A^1 (\mathbb F_q)$. We have $F := \mathbb F_q(t)$ the function field on $\mathbb A^1 (\mathbb F_q)$. This will play the role analogous to the role of $\qq$ before. Before, we could complete $\qq$ at each prime $p$ to get the $p$-adics. For each point $x \in \mathbb A^1 (\mathbb F_q)$, there is a notion of a \emph{completion} for $\mathbb F_q(t)$ at $x$, and also a notion of a \emph{ring of integers} corresponding to the localization $\mathcal O_x$ at $x$.
+We will study this analogy to function fields over $\mathbb F_q$ to motivate the translation of the Langlands program to a more geometric setting. Consider the 1-dimensional affine space $\mathbb A^1 (\mathbb F_q)$. We have $F := \mathbb F_q(t)$ the function field on $\mathbb A^1 (\mathbb F_q)$. This will play the role analogous to the role of $\qq$ before. Before, we could complete $\qq$ at each prime $p$ to get the $p$-adics. For each point $x \in \mathbb A^1 (\mathbb F_q)$, there is a notion of a \emph{completion} for $\mathbb F_q(t)$ at $x$, and also a notion of a \emph{ring of integers} corresponding to the localization $\mathcal O_x$ at $x$.
 
 To understand these completions, we make the following definitions.
 \begin{defn}[Formal Power Series]
@@ -123,13 +124,13 @@ The field $F_x$ corresponding to the completion of $F$ at $x$ can be viewed as t
 \begin{defn}[Adele Ring for $\mathbb F_q(t)$]
 	The ring of adeles of $\mathbb F_q(t)$ is defined as 
 	\[
-		\mathbb A_{\mathbb F_q(t)} := \prod_{x \in \mathbb P^1(\mathbb F_q)}^{res} \mathbb F_{q_x}((t-x))
+		\mathbb A_{\mathbb F_q(t)} := \prod_{x \in \mathbb P^1(\mathbb F_q)}^{res} \mathbb \fq((t-x))
 	\]
 	and the above product is restricted as before in the sense that all but finitely many terms in this product over $x$ lie in $\mathbb F_q [[t-x]]$. Here the completion at the point at infinity corresponds to $\mathbb F_q ((1/t))$.
 \end{defn}
 We naturally have that 
 \[
-	\mathbb O_{\mathbb F_q(t)} := 	\prod_{x \in \mathbb P^1(\mathbb F_q)} \mathbb F_{q_x}[[t-x]]
+	\mathbb O_{\mathbb F_q(t)} := 	\prod_{x \in \mathbb P^1(\mathbb F_q)} \mathbb \fq[[t-x]]
 \]
 sits inside $\mathbb A_{\mathbb F_q(z)}$.
 
@@ -137,12 +138,12 @@ All of this can be generalized to the function field $F$ for a curve $C$ over $\
 
 Already, for a function field of a curve $C$, the analogue of the Galois group in the unramified case is known to be the \textbf{\'etale fundamental group}, and a Galois representation would be a representation of $\pi_1^{\text{\'et}}(C,x) \to \GL_n$ in the unramified case. In analytic language for $C$ a complex curve, the \'etale fundamental group becomes the usual $\pi_1$ and a Galois representation becomes a representation of the fundamental group $\pi_1(C) \to \GL_n$. 
 
-In the unramified case, automorphic representations correspond exactly the $\GL_n(\mathbb O_F)$-invariant functions on $\GL_n (F)\backslash \GL_n(\mathbb A_F)$. This means that the space of automorphic representations corresponds to:
+In the unramified case, automorphic representations correspond exactly the $\GL_n(\mathbb O_F)$-invariant functions on $\GL_n (F)\backslash \GL_n(\mathbb A_F)$, i.e. 
 \[
 	\mathrm{Fun} \left(\GL_n (F)\backslash \GL_n(\mathbb A_F)/\GL_n(\mathbb O_F) \right).
 \]
 
-It is the following theorem of Weil that will be crucial to us in making a connection between with the geometric setting over $\cc$.
+It is the following theorem of Weil that will be crucial to us in making a connection with the geometric setting over $\cc$.
 \begin{theorem}[Weil Uniformization]
 	Take $F$ the function field for a curve $C$ over $\fq$. There is a canonical bijection as sets between
 	\[
@@ -294,19 +295,19 @@ We have just treated Fourier analysis successfully for the category of locally-c
 \begin{ques}
 	How could we build upon the ideas Fourier analysis to generalize to non-abelian groups? That is, what could be the non-abelian analogue of the Fourier transform?
 \end{ques}
-Already, one can see that the naive ideas from before will not hold up as well. For one, translation operators no longer commute, and hence cannot be simultaneously diagonalizable with an eigenbasis of unitary characters. As we move to explore the continuous non-abelian setting, the role of the Pontryagin dual group $\hat G$ will be replaced by the Langlands dual group $\check G$.
+Already, one can see that the naive ideas from before will not hold up as well. For one, translation operators no longer commute, and hence cannot be simultaneously diagonalizable with an eigenbasis of unitary characters. As we move to explore the \emph{continuous non-abelian} setting, the role of the Pontryagin dual group $\hat G$ will be replaced by an object known as the \textbf{Langlands dual group} $\check G$, to be discussed in more detail in Chapter~\ref{ch:finale}.
 % , and of course Pontryagin duality will become a very special case of Langlands duality.
 
-It will turn out that to understand the Fourier transform from an algebraic perspective, we will have to appeal to \emph{categorification}, which in recent years have proved crucial in many fruitful applications.
+Before we ask about the non-abelian case, it will be worthwhile to study how the Fourier transform can be understood algebraically. It will turn out that to understand the Fourier transform from an algebraic perspective, we will have to appeal to \emph{categorification}, which in recent years have proved crucial in many fruitful applications.
 
 % section the_fourier_transform_and_pontryagin_duality (end)
 
 \section{Categorical Harmonic Analysis and Geometric Langlands} % (fold)
 \label{sec:categorical_harmonic_analysis_and_geometric_langlands}
 
-As a motivating example of both the algebraic perspective the idea of categorification mentioned in the previous chapter, we will illustrate the \textbf{Fourier-Mukai} transform. We will assume basic familiarity with the language of line bundles. 
+As a motivating example of both the algebraic perspective and the idea of categorification mentioned in the previous chapter, we will illustrate the \textbf{Fourier-Mukai} transform. We will assume basic familiarity with the language of line bundles. 
 
-When viewing $G$ as an object in a topological setting, namely as a topological space equipped with Haar measure, we consider the space of functions on $G$, $\mathrm{Fun}(G)$. In an algebraic setting, the study of functions on $G$ is often replaced by instead studying \emph{line bundles}, \emph{vector bundles}, or more generally \emph{(quasi-coherent) sheaves}\footnote{We will not attempt to give proper exposition to quasi-coherent sheaves or related objects. For a physicist, a good first-order intuition for coherent sheaves is a generalization of vector bundle, where rank is no longer assumed to be constant but can increase on certain sub-manifolds. Quasi-coherent sheaves then include the possibility for infinite rank of these bundles.}.
+When viewing $G$ as an object in a topological setting, namely as a topological space equipped with Haar measure, we consider the space of functions on $G$, $\mathrm{Fun}(G)$. In an algebraic context, the study of functions on $G$ is often replaced by instead studying \emph{line bundles}, \emph{vector bundles}, or more generally \emph{(quasi-coherent) sheaves}\footnote{We will not attempt to give proper exposition to quasi-coherent sheaves or related objects. For a physicist, a good first-order intuition for coherent sheaves is to think of them as a generalization of vector bundle, where rank is no longer assumed to be constant but can increase on certain sub-manifolds. Quasi-coherent sheaves then include the possibility for infinite rank of these bundles.}.
 
 Let $A$ be an abelian variety, namely a complex torus of the form $A = \cc^g/\Lambda$ such that $A$ is also a projective variety. $A$ is called abelian because it is endowed with the group structure of this torus. We thus have a multiplication operation (along with the two projections):
 \[
@@ -326,9 +327,9 @@ Further, multiplication by an element $x$ gives a map $\mu_x: A \to A$ which is 
 \]
 That is, the group action acts on geometric characters by tensoring each fiber with the 1D vector space of $\mathcal L$ at $x$, $\mathcal L_x$. Equivalently, it acts on the line bundle by tensoring it with the trivial line bundle with fiber canonically isomorphic to $\mathcal L_x$. Note the similarity between this property of \emph{geometric characters} and the property of ordinary \emph{characters} from before, namely $y \cdot e^{ikx} = e^{ik(x-y)} = e^{-iky} e^{ikx}$.
 
-It turns out that the set of geometric characters together with the commutative operation $\otimes$ themselves form an abelian variety known as the \textbf{dual abelian variety} to $A$. This is denoted by
+It turns out that the set of geometric characters on $A$ together with the commutative operation $\otimes$ forms an abelian variety known as the \textbf{dual abelian variety} to $A$. This is denoted by
 \[
-	A^\vee := (\{\text{geometric characters}\}, \otimes)
+	A^\vee := (\{\text{geometric characters}\}, \otimes).
 \]
 From our birds-eye view of what is going on, it looks like $A^\vee$ is playing an analogous role to $\hat G$ of the previous chapter. We have as before the simple diagram
 \[
@@ -337,7 +338,7 @@ From our birds-eye view of what is going on, it looks like $A^\vee$ is playing a
 		A & & A^\vee
 	\end{tikzcd}
 \]
-Just as on $G \times \hat G$ there was a universal function $K$ called the kernel from which the Fourier transform was defined, on $A \times A^\vee$ there is a \emph{universal bundle} known as the \textbf{Poincare line bundle} $\mathcal P$ so that:
+Just as on $G \times \hat G$ there was a universal function $K$ called the kernel from which the Fourier transform was defined, on $A \times A^\vee$ there is a \emph{universal bundle} known as the \textbf{Poincar\'e line bundle} $\mathcal P$ defined so that:
 \[
 	\mathcal P_{(x, \mathcal L)} = \mathcal L_x.
 \]
@@ -358,7 +359,7 @@ Note that a geometric character $\mathcal L$ on $A$ would not correspond to a li
 	\]
 \end{concept}
 
-The correspondences of this categorification are given in Table~\ref{tab:fourier_mukai}. Note in particular how scalars become vector spaces in this categorification, and how vector spaces become categories. 
+Various correspondences of this categorification are given in Table~\ref{tab:fourier_mukai}. Note in particular how scalars become vector spaces in this categorification, and how vector spaces become categories. 
 \begin{table}
 	\centering
 	\begin{tabular}{c c  c}
@@ -377,9 +378,9 @@ The correspondences of this categorification are given in Table~\ref{tab:fourier
 	\label{tab:fourier_mukai}
 \end{table}
  
-Everything so far discussed has been about abelian groups, though we have managed to use this categorified language to arrive at an algebraic picture of the Fourier transform. This will at least give us some motivation to give a statement of the categorical geometric Langlands conjecture. In the Langlands program, we have $G$ a reductive algebraic group. 
+Everything so far discussed has been about abelian groups, though we have managed to use this categorified language to arrive at an algebraic picture of the Fourier transform in this setting. This will at least give us some motivation to give a statement of the categorical geometric Langlands conjecture. In the Langlands program, we have $G$ a reductive algebraic group. 
 
-Our discussion of the Fourier-Mukai transform would naively lead us to formulate some sort of duality transformation taking us from quasi-coherent sheaves on $G$ to quasi-coherent sheaves on some dual group $\check G$. Because the group multiplication is not abelian, the above categorification will not make sense. The correct generalization is more subtle, and the principal geometric objects of study are not $G$ and $\check G$.
+Our discussion of the Fourier-Mukai transform would naively lead us to formulate some sort of duality transformation taking us from quasi-coherent sheaves on $G$ to quasi-coherent sheaves on some dual group $\check G$. Because the group multiplication is not abelian, the above categorification will not make sense. The correct generalization is more subtle, and the principal geometric objects of study are not $G$ and $\check G$ themselves.
 
  
 \begin{table}[h!]
@@ -399,7 +400,7 @@ Our discussion of the Fourier-Mukai transform would naively lead us to formulate
 
 
 Taking a hint from the last section, we recall that the Langlands duality for function fields would take a representation of $\pi_1^{\text{\'et}}(C)$ and relate it to a eigenfunction for Hecke operators on the double coset space, corresponding to $\mathrm{Bun}_G(C)$ by the Weil's uniformization theorem. 
-In the geometric picture, we should expect to take a representation of the fundamental group of our complex curve $C$, $\rho: \pi_1(C) \to \check G$ and obtain some sort of eigen-object on the space (more technically, moduli stack) of $G$ bundles over $C$. 
+In the geometric picture, we should expect to take a representation of the fundamental group of our complex curve $C$, $\rho: \pi_1(C) \to \check G$ and obtain some sort of eigen-object defined on the space (more technically, moduli stack) of $G$ bundles over $C$. 
 
 On the other hand, our discussion of the Fourier-Mukai transform gave us an equivalence of categories of quasi-coherent sheaves on two (dual) algebraic varieties. It can be seen that a representation of the fundamental group $\pi_1 (C) \to \check G$, known also as a \textbf{local system}, gives rise to a flat connection on a $\check G$-principal bundle over $C$, to be discussed in Section~\ref{sub:holonomy}. Viewing the set of flat connections on $\check G$-bundles $C$ as an algebraic space denoted $\mathrm{Flat}_{\check G} (C)$, a flat connection would correspond to a skyscraper sheaf at a given point $x \in \mathrm{Flat}_{\check G} (C)$. 
 
@@ -410,16 +411,16 @@ The full ``meta-conjecture'' of geometric Langlands is then:
 \begin{equation}
 	\mathcal D (\mathrm{Bun_G}(C)) \cong \mathcal{QC} (\mathrm{Flat}_{\check G} (C))
 \end{equation}
-where Satake symmetries act naturally on both sides. This is supposed to be a nonabelian analogue of the Fourier-Mukai transform, so in particular it should take a skyscraper sheaves on the right (i.e. flat $\check G$-connections on $C$) to eigenobjects on the left that are again called Hecke eigensheaves in this setting. Again, the left-hand side will be called the \emph{automorphic side} and the right-hand side will be called the \emph{Galois side}.
+where Satake symmetries act naturally on both sides. This is supposed to be a nonabelian analogue of the Fourier-Mukai transform, so in particular it should take skyscraper sheaves on the right (i.e. flat $\check G$-connections on $C$) to eigenobjects on the left that are again called Hecke eigensheaves in this setting. Again, the left-hand side will be called the \emph{automorphic side} and the right-hand side will be called the \emph{Galois side}.
 
-This original ``meta-conjecture'' was formulated by Beilinson and Drinfeld based off of the work of \cite{beilinson1991}, though even then it was not a full-fledged conjecture as it was not believed to be true in the general setting. It turns out to hold for $G$ an abelian torus, as shown in \cite{laumon1996}.
+This original ``meta-conjecture'' was formulated by Beilinson and Drinfeld based off of their work in \cite{beilinson1991}, though even then it was not a full-fledged conjecture as it was not believed to be true in a general setting. It turns out to hold for $G$ an abelian torus, as shown in \cite{laumon1996}.
 An explicit counterexample for more general $G$ was constructed by V. Lafforgue in \cite{lafforgue2009}.
 
 As a final remark in this story: a refined version of this conjecture is given by Arinkin and Gaitsgory in \cite{arinkin2015}, involving a refinement of the quasi-coherent sheaves on the Galois side to objects known as \emph{ind-coherent} sheaves with a certain support condition. 
 \begin{equation}
 	\mathcal D (\mathrm{Bun_G}(C)) \cong \mathcal{IC}_{N} (\mathrm{Flat}_{\check G} (C))
 \end{equation}
-Though this may seem more complicated, there is reason to believe that these objects can be derived as the right ones to consider on the basis of physical grounds, c.f. \cite{elliott2017}. 
+Though this may seem more complicated, there is reason to believe that these objects can be derived as the right ones to consider on the basis of physical arguments, c.f. \cite{elliott2017}. 
 
 \begin{table}[h!]
 	\centering
@@ -437,9 +438,9 @@ Though this may seem more complicated, there is reason to believe that these obj
 \end{table}
 
 
-Although a full discussion of the concepts that appear in Table~\ref{tab:geometric_langlands} is beyond the scope of this thesis, we can at least give the reader one ``final column'', yielding Table~\ref{tab:langlands_and_physics}. This column is intended to highlight some key points in the relationship between the concepts of geometric Langlands and physics. The original idea and motivation for a connection between the geometric Langlands program and the physics of gauge theory was first investigated by Anton Kapustin and Edward Witten in \cite{kapustin2006}.
+Although a full discussion of the concepts that appear in Table~\ref{tab:geometric_langlands} is beyond the scope of this thesis, we can at least give the reader one ``final column'', yielding Table~\ref{tab:langlands_and_physics}. This column is intended to highlight some key points in the relationship between the concepts of geometric Langlands and physics. The original idea and motivation for a connection between the geometric Langlands program and the physics of gauge theory was first investigated by Anton Kapustin and Edward Witten in \cite{kapustin2006}. In this work, the studied a topological twist of $\mathcal N = 4$ supersymmetric Yang-Mills theory. Here, a duality relates two different coupling regimes of the theory, corresponding to the Galois and automorphic sides of geometric Langlands. The roles of the Satake symmetries are understood in terms of objects known as \emph{line defect operators}, specifically \emph{Wilson and `t Hooft Lines}. These objects will be defined in depth later in this paper. 
 
 
-The action of Wilson loops on the Galois side can be very easily understood using the language of holonomy and flat connections. These rely on the language of gauge theory, to be defined in Chapter~\ref{ch:gauge}. On the other hand, the action of the `t Hooft operators is much more subtle and involved. To be able to fully appreciate this, we must understand the nature of these so-called ``disorder operators'' by first understanding the well-known picture of instantons on $\mathbb R^4$ in Chapter~\ref{ch:instantons} and then restricting this to an understanding of monopoles on $\mathbb R^3$ in Chapter~\ref{ch:monopoles}. Finally, we work in the spirit of Edward Witten's paper \cite{witten2010nahm} we will make use of our understanding of monopoles and use this to understand the action of line defect operators on boundary conditions in the topologically twisted $\mathcal N=4$ theory that will be studied in Chapter~\ref{ch:finale}. 
+The action of Wilson loops on the Galois side can be very easily understood using the language of holonomy and flat connections. These rely on the language of gauge theory, to be defined in Chapter~\ref{ch:gauge}. On the other hand, the action of the `t Hooft operators is much more subtle and involved. To be able to fully appreciate this, we must understand the nature of these so-called ``disorder operators'' by first understanding the well-known picture of instantons on $\mathbb R^4$ in Chapter~\ref{ch:instantons} and then using this to develop an understanding of monopoles on $\mathbb R^3$ in Chapter~\ref{ch:monopoles}. Finally, in the spirit of Edward Witten's paper \cite{witten2010}, in Chapter~\ref{ch:finale} we will make use of our understanding of monopoles to understand the action of line defect operators in the topologically twisted $\mathcal N=4$ theory.
 
 % section categorical_harmonic_analysis_and_geometric_langlands (end)

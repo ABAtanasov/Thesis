@@ -50,8 +50,9 @@
 \bodyspacing
 \frontmatter\maketitlepage\makecopyrightpage\makeabstract
 \makeacknowledgements\makededication\maketoc
-\makelot\clearpage\makelof\clearpage\makelos
-\clearpage\mainmatter
+\makelot\clearpage\makelof\clearpage
+\makeflow
+\mainmatter
 }
 \def\@submitted{\@submittedmonth~\@submittedyear}
 \def\@dept{Mathematics}
@@ -117,6 +118,16 @@
   \@abstract
   \clearpage
   }
+\newcommand*{\makeflow}{
+  \newpage
+  \addcontentsline{toc}{section}{Chapter Flowchart}
+  \begin{center}
+  \Large \textbf{Chapter Dependency Flowchart}
+  \vspace{1in}
+  \input{HowToRead}
+  \end{center}
+  \clearpage
+  }
 \def\makeacknowledgements{
   \ifx\@acknowledgements\undefined
   \else
@@ -141,6 +152,10 @@
     \begin{flushright}
       \@dedication
     \end{flushright}
+	\vspace*{5in}
+	\begin{center}
+	\includegraphics[scale=0.35]{Figures/Hebrew}
+	\end{center}
     \clearpage
   \fi
   }

@@ -1,13 +1,13 @@
 \chapter{Instantons and the ADHM Construction\label{ch:instantons}}
 
 Instantons are objects of significant interest to both physicists and mathematicians. 
-For physicists, they represent \emph{classical solutions to the equations of motion}. In the context of field theory, and more specifically \emph{Yang-Mills Field Theory}, instantons correspond to nontrivial field configurations on a given spacetime manifold. 
-
-Donaldson used the interesting mathematical properties of Yang-Mills instantons on $\mathbb R^4$ to prove novel and extremely surprising statements about the nontrivial smooth structures that can be associated to $\mathbb R^4$ uniquely among all Euclidean spaces\cite{donaldson1984}. 
+For physicists, they represent \emph{classical solutions to the equations of motion of extremal action}. In the context of field theory, and more specifically \emph{Yang-Mills Field Theory}, instantons correspond to nontrivial field configurations on a given spacetime manifold that minimize the action. 
 
 A useful picture comes from quantum mechanics, of a particle in a double-well potential. Having a particle localized at the bottom of either well gives rise to a classical solution. Perturbative corrections around this minimum due to the quantum theory may give rise to harmonic-oscillator-type structure within the well, but is completely unable to account for the possibility of \emph{quantum tunneling} across the barrier into the second well of the potential. To account for this, we must understand the space of classical solutions in addition to performing perturbation theory. 
 
 Mathematically, one way that this can manifest itself is in the fact that $e^{-1/x}$ has every higher derivative vanish as $x \to 0^+$. It is the same phenomenon that allows for the existence of \emph{bump functions} in real analysis and also for \emph{asymptotic expansions} in various areas of physics and engineering.
+
+Donaldson used the interesting mathematical properties of Yang-Mills instantons on $\mathbb R^4$ to prove novel and extremely surprising statements about the nontrivial smooth structures that can be associated to $\mathbb R^4$ uniquely among all Euclidean spaces \cite{donaldson1984}. \emph{Ward's conjecture} \cite{ward1985} states that perhaps \emph{all} integrable ordinary and partial differential equations come from the integrable structure of Instantons on $\rr^4$ given by the ADHM construction discussed in this chapter. 
 
 For the purposes of this thesis, instantons will not themselves play a central role, but their close relatives in three dimensions will: magnetic monopoles. In order to understand the construction of monopoles, however, it will be important to first understand the famous self-duality equation and ADHM construction of instantons. 
 
@@ -18,11 +18,11 @@ For the purposes of this thesis, instantons will not themselves play a central r
 \subsection{The Equations of Motion} % (fold)
 \label{sub:the_equations_of_motion}
 
-Yang-Mills gauge theory is a theory with gauge group $G = \mathrm{SU}(n)$. In four dimensions, the objects of study are bundles associated to a principal $G$-bundle on Euclidean 4-space $M = \rr^4$. $\rr^4$ has a Riemannian metric, so we have a Hodge-star operator giving an isomorphism:
+Yang-Mills gauge theory is a theory with gauge group $G = \mathrm{SU}(n)$. In four dimensions, the objects of study are bundles associated to some principal $G$-bundle on Euclidean 4-space $M = \rr^4$. $\rr^4$ has a Riemannian metric, so we have a Hodge-star operator giving an isomorphism:
 \[
 	\star: \Omega^k \to \Omega^{4-k}.
 \]
-From the prior section, gauge theory on $\rr^4$ involves a connection $1$-form $A$ transforming in the $\ad\gg$ representation. From this, we obtain the field-strength $F$, again transforming in the adjoint action, by applying the covariant exterior derivative:
+From the prior section, gauge theory on $\rr^4$ involves a connection $1$-form $A$ transforming in the $\ad_\gg$ representation. From this, we obtain the field-strength $F$, again transforming in the adjoint action, by applying the covariant exterior derivative:
 \begin{equation}
 	F = \dd_A A = \dd A + [A, A]
 \end{equation}
@@ -73,7 +73,7 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 		\begin{defn}[Instanton Number]
 			The \textbf{instanton number} $k$ for a given field configuration is given by
 			\begin{equation}
-				k := \int_M \tr(F \wedge F).
+				k := \frac{1}{8\pi^2} \int_M \tr(F \wedge F).
 			\end{equation}
 		\end{defn}
 
@@ -123,9 +123,9 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 	\begin{equation}
 		S[A] \geq |8 \pi^2 k|.
 	\end{equation}
-	It is also easy to see that equality will be satisfied iff $F = F_+$ or $F=F_-$.
+	It is easy to see that equality will be satisfied iff $F = F_+$ or $F=F_-$.
 	
-	Note that any solution of the self-dual equation $F=F_+$ can be obtained from a solution of the anti-self-dual equation $F=F_-$ by performing a spatial flip $x_1 \to - x_1$.
+	Note that any solution of the self-dual equation $F=F_+$ can be obtained from a solution of the anti-self-dual equation $F=F_-$ and vice-versa by performing a spatial flip $x_1 \to - x_1$.
 	
 	We thus have the \textbf{anti-self-dual equations} for instantons:
 	\begin{equation}\label{eq:asd1}
@@ -144,7 +144,7 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 	We see that the instanton number depends on the principal bundle, and that the instanton number of the trivial bundle is zero. 
 	
 	\begin{nb}
-		$\su(n)$-instantons do not exist in Minkowski space $\rr^{3,1}$, since $\star^2 = -1$ would have eigenvalues $\pm i$ and $F = \pm i F$ would contradict that $F$ is a real object as an $\su(n)$-valued 2-form.
+		$\su(n)$-instantons do not exist in Minkowski space $\rr^{3,1}$, since $\star^2 = -1$ would have eigenvalues $\pm i$ and $F = \pm i F$ would contradict that $F$ is a real object as an $\su(n)$-valued 2-form. Still, it will turn out that (after Wick rotation) instantons on Euclidean space $\rr^4$ have meaningful roles in understanding the path integral approach to field theory on $\rr^{3,1}$.
 	\end{nb}
 
 % subsection the_asd_equations (end)
@@ -165,14 +165,20 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 
 		We first change the setting from $\rr^4$ to $S^4$. Because of the decay of the fields, extending the bundle to $S^4$ with framed gauge transformation will give a well-defined field strength and vector potential on $S^4$. The following argument is directly from \cite{lindenhovius2011}.
 	
-		We will understand how to compute the instanton number on $S^4$ by using a \emph{clutching function} defined on $S^3$ connecting the two hemispheres of $S^4$. First, note that on an open disk, the form $\tr (F \wedge F)$ (by virtue of being locally exact) can be written as 
+		We will understand how to compute the instanton number on $S^4$ by using a \emph{clutching function} defined on $S^3$ connecting the two hemispheres of $S^4$.
+		The following theorem will be helpful:
+		\begin{theorem}[Bott]
+			Let $G$ be a simple Lie group containing an $\SU(2)$ subgroup. Then every map $S^3 \to G$ is homotopic to a map $S^3 \to \SU(2)$. 
+		\end{theorem}
+		
+		Now note that on an open disk, the form $\tr (F \wedge F)$ (by virtue of being locally exact) can be written as 
 		\[
 			\dd \tr \left[F \wedge A - \frac13 A^3 \right] = \tr( F \wedge F)
 		\]
 		where $A^3 = A \wedge A \wedge A$.
 		Now take $D_N$ and $D_S$ two disks overlapping on $S^3$. The $G$-bundle must have an overlap function $\rho: S^3 \to G$.
 	
-		Now the integral becomes:
+		The integral becomes:
 		\[
 		\begin{aligned}
 			8\pi k &= \int_{S^4} \tr (F \wedge F)\\
@@ -186,11 +192,11 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 		\[
 			k = - \frac{1}{24\pi^2} \int_{S^3} \tr((\rho \dd \rho)^3)
 		\]
-		and this can now be expressed as the pullback of $\rho$ acting on the Mauer-Cartan form on some $\SU(2)$-homotopic subgroup of $G$ by Bott's theorem. Hence,
+		and this can now be expressed as the pullback of $\rho$ acting on the Maurer-Cartan form (defined in \ref{sec:lie_theory}) of some $\SU(2)$-homotopic subgroup of $G$ by Bott's theorem. Hence,
 		\[
 			k = - \frac{1}{24\pi^2} \int_{S^3} \rho^* \tr(\Theta^3) = \frac{\deg \rho}{24} \int_{\SU(2)} \tr(\Theta^3).
 		\]
-		On $\SU(2)$, the triple wedge of the Mauer-Cartan form gives a volume form whose integral is exactly $24\pi^2$.
+		On $\SU(2)$, the triple wedge of the Maurer-Cartan form gives a volume form whose integral is exactly $24\pi^2$.
 
 		\begin{prop}
 			The homotopy classes of maps $S^3 \to \mathrm{SU}(2)$ are classified by integers.
@@ -203,7 +209,7 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 			 The instanton number $k$ must be an integer equal to the negative of the degree of the clutching function $\rho$ defining the principal $G$-bundle on $S^4$.
 		\end{prop}
 		
-		\noindent With the stage set, will now discuss the method for constructing \emph{all} instantons on $\rr^4$. This is the \textbf{ADHM construction} of Atiyah, Hitchin, Drinfeld, and Manin \cite{atiyah65}.
+		\noindent With the stage set, we will now discuss the method for constructing \emph{all} finite-action instantons on $\rr^4$. This is the \textbf{ADHM construction} of Atiyah, Hitchin, Drinfeld, and Manin \cite{atiyah65}.
 
 	% subsection classifying_principal_bundles_over_s_4 (end)
 
@@ -215,12 +221,12 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 	
 	We will show how this construction will give a vector bundle $E$ of rank $n$ over $S^4$ with topological charge $-k$. The proof that this exhaustively gives \emph{all} instantons can be found in \cite{donaldson1988}.
 	
-	\subsection{Holomorphic and Hermitian Vector Bundles} % (fold)
-	\label{sub:holomorphic_and_hermitian_vector_bundles}
-	
-	\textbf{FINISH THIS}
-	
-	% subsection holomorphic_and_hermitian_vector_bundles (end)
+	% \subsection{Holomorphic and Hermitian Vector Bundles} % (fold)
+	% \label{sub:holomorphic_and_hermitian_vector_bundles}
+	%
+	% \textbf{FINISH THIS}
+	%
+	% % subsection holomorphic_and_hermitian_vector_bundles (end)
 	
 	\subsection{The Data}
 	
@@ -307,9 +313,14 @@ We aim to find $A$ so that $S_E[A]$ is a minimum. To do this, we use standard ca
 		We need both $\beta \alpha = 0$ as well as surjectivity of $\beta$ and injectivity of $\alpha$. The equation $\beta \alpha = 0$ reduces to a quadratic polynomial in the $w_1, w_2$ with the two ASD equations emerging as coefficients.
 	\end{proof}
 	
+	Such a sequence is also referred to as a \textbf{monad} in the literature.
+	
 	% \begin{prop}
 	% 	The topological charge of $E \to S^4$ is $-k$.
 	% \end{prop}
+	
+	\subsection{The Construction} % (fold)
+	\label{sub:the_construction}
 	
 	\begin{theorem}[ADHM construction]
 		There is a one-to-one correspondence between equivalence classes of solutions to the ADHM system and gauge equivalence classes of anti-self-dual $\mathrm{SU}(n)$-connections $\mathcal A$ with instanton number $k$.

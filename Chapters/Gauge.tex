@@ -3,10 +3,14 @@
 	Gauge theory will play a central role in understanding the geometric Langlands correspondence physically. The role of the group $G$ in the Langlands correspondence is played by the gauge group in the physical theory. 
 
 	\section{Fiber Bundles}
-	\subsection{Definitions and Examples}
+	\subsection{Definitions and Examples} % (fold)
+	\label{sub:definitions_and_examples}
+	
+	% subsection definitions_and_examples (end)
+	
 		We will be working on a manifold $M$ (not necessarily Riemannian). In the first definition, we can assume $M$ is just a topological space. 
 	\begin{defn}[Fiber Bundle]
-		We define a \textbf{fiber bundle} on a topological space
+		We define a \textbf{fiber bundle} $E$ on a topological space $M$ to be
 		\begin{itemize}
 			\item A topological space $E$ called the \textbf{total space}
 			\item A topological space $M$ called the \textbf{base space}
@@ -42,8 +46,8 @@
 				& M
 			\end{tikzcd}
 			\]
-			\item A group $G$, called the \textbf{structure group} of $E$ acting effectively on each fiber\footnote{A $G$-action is effective if only the identity element acts trivially i.e. $\forall g\in G \, \exists f \in F \mid gf \neq x$. The reason for this is that if $G$ did not act effectively, then elements that act trivially would give a normal subgroup $N$. Upon passing to the quotient we would get an effective action of $G/N$ on $F$.}.
-			\item A set of open coverings $\{ U_\alpha \}_{\alpha \in I}$ of $M$ with diffeomorphisms $\phi_\alpha: U_\alpha \times F \rightarrow \pi^{-1} (U_i)$ called \textbf{local trivializations} so that the following diagram commutes. 
+			\item A group $G$, called the \textbf{structure group} of $E$ acting effectively on each fiber\footnote{A $G$-action is effective if only the identity element acts trivially i.e. $\forall g\in G \, \exists f \in F \mid gf \neq x$. The reason for this is that if $G$ did not act effectively, then elements that act trivially would give a normal subgroup $N$. Upon passing to the quotient we would get an effective action of $G/N$ on $F$.}
+			\item A set of open coverings $\{ U_\alpha \}_{\alpha \in I}$ of $M$ with diffeomorphisms $\phi_\alpha: U_\alpha \times F \rightarrow \pi^{-1} (U_i)$ called \textbf{local trivializations} so that the following diagram commutes
 			\[
 			\begin{tikzcd}[row sep=2.5em]
 			U_\alpha \times F \arrow[dr,swap,"p_1"] \arrow{rr}{\psi_\alpha} && \pi^{-1}(U_\alpha) \arrow{dl}{\pi} \\
@@ -64,7 +68,7 @@
 	A basic working knowledge of Lie theory is assumed, however we will go over relevant aspects of Lie groups in the following sections of this chapter.
 	
 	\begin{nb}
-		In the above, we described $\varphi_\alpha$, $\tau_{\alpha \to \beta}$, and $\psi_\beta^{-1} \psi_\alpha$ as \emph{homeomorphisms}, which are indeed morphisms in the category of topological spaces. If we wish to work in other categories, such as $C^r$-differentiable, smooth, analytic, or complex manifolds, then the transition functions would have to be $C^r$-differentiable, smooth, convergent Taylor series, or holomorphic respectively. 
+		In the above, we described $\varphi_\alpha$, $\tau_{\alpha \to \beta}$, and $\psi_\beta^{-1} \psi_\alpha$ as \emph{homeomorphisms}, which are morphisms in the category of topological spaces. If we wish to work in other categories, such as $C^r$-differentiable, smooth, analytic, or complex manifolds, then the transition functions are appropriately redefined to be functions that are $C^r$-differentiable, smooth, convergent Taylor series, or holomorphic respectively. 
 		If we were working in the category of algebraic varieties, the corresponding maps we consider would have to be \emph{regular}.
 	\end{nb}	
 		%
@@ -92,7 +96,7 @@
 % 		\begin{proof}
 % 			These are all easy to check just by the definition of $g_{\alpha \beta}$ as a composition of the $\psi_\alpha$ and by invoking the cartesian properties of local trivialization.
 % 		\end{proof}
-		The equivalence class of a set of coordinate bundles on $M$ gives the corresponding fiber bundle over $M$.
+		The equivalence class of a set of coordinate bundles on $M$ is the corresponding fiber bundle over $M$.
 		
 		Fiber bundles whose fibers are vector spaces are called \textbf{vector bundles}. The \textbf{rank} of a vector bundle is the dimension of the vector space fiber. A rank $n$ vector bundle over a field $\kk$ will have its structure group $G \subseteq \GL_n(\kk)$. Examples are the tangent/cotangent bundles of a manifold, and any tensor/symmetric/exterior powers thereof. We will see that we can view vector fields, $p$-forms, and many other interesting and physically-relevant objects as \textbf{sections} of fiber bundles, to be described in the later sections.
 		
@@ -129,7 +133,7 @@
 		\end{defn}
 		Let us consider an example which will appear later in the context of studying a monopole placed at the origin of $\rr^3$.
 		\begin{eg}
-			Consider a vector bundle $E  \to \rr^3 \backslash \{0\}$. The pullback  gives rise to a vector bundle on $S^2$. This should be thought of as the restriction of $E$ to the sphere $S^2$
+			Consider a vector bundle $E  \to \rr^3 \backslash \{0\}$. The pullback  gives rise to a vector bundle on $S^2$. This should be thought of as the restriction of $E$ to the sphere $S^2$.
 		\end{eg}
 		
 		We can take products of fiber bundles as topological spaces in the obvious way to obtain a fiber bundle over $M \times M'$,
@@ -140,26 +144,23 @@
 		\begin{defn}[Whitney Sum of Vector Bundles]
 			For $E, E'$ vector bundles over $M$ with structure groups $G, G'$ respectively, we can define their sum as $E \oplus E'$ to be pullback bundle $E \times E'$ along the diagonal map $\Delta: M \rightarrow M \times M$.
 			
-			More explicitly, this is a fiber bundle over $M$ with $F \oplus F'$ fibered over every point. 
-			The structure group of $E \oplus E'$ is the product $G \times G'$ of the structure groups of the original bundles and it acts diagonally on their sum.
-			\[
-				G^{E \oplus E'} = \left \{ \begin{pmatrix}
-					g^E & 0 \\
-					0 & g^{E'}
-				\end{pmatrix} : g^E \in G, g^{E'} \in G' \right \}
-			\]
-			and the transition functions act diagonally in the same way. 
-		\end{defn}
-		Similarly, we can define arbitrary direct sums of bundles recursively:
+		More explicitly, this is a fiber bundle over $M$ with $F \oplus F'$ fibered over every point. 
+		The structure group of $E \oplus E'$ is the product $G \times G'$ of the structure groups of the original bundles and it acts diagonally on their sum.
 		\[
-			E_1 \oplus \dots \oplus E_r.
+			G^{E \oplus E'} = \left \{ \begin{pmatrix}
+				g^E & 0 \\
+				0 & g^{E'}
+			\end{pmatrix} : g^E \in G, g^{E'} \in G' \right \}
 		\]
+		and the transition functions act diagonally in the same way. 
+		\end{defn}
+		Similarly, we can define arbitrary direct sums of bundles $E_1 \oplus \dots \oplus E_r$ recursively using the above definition.
 		
 		For some intuition about when fiber bundles are \emph{nontrivial}, consider the following theorem which we state without proof but refer to \cite{bott1982} chapter 3. Stated simply: taking the pullback of a bundle along a map is topologically invariant under homotopy of the map. 
 		\begin{theorem}
 			Let $\pi:E \rightarrow M$ be a fiber bundle over $M$ and consider maps $f, g$ from $N \rightarrow M$ so that $f, g$ are homotopic, then the pullback bundles are equivalent: $f^* E \cong g^* E$ over $N$.
 		\end{theorem}
-		An important fact is the following corollary:
+		An important fact is the following corollary of this theorem.
 		\begin{cor}
 			If $M$ is contractible, every fiber bundle $\pi: E \rightarrow M$ is topologically trivial\footnote{In the language of classifying spaces, $M$ being trivial implies there is only one homotopy class of map $M \to BG$, so that consequently the only fiber bundle over $M$ is the trivial one.}.
 		\end{cor}
@@ -182,11 +183,11 @@
 		\end{proof}
 		
 		
-		Though \emph{topologically} each fiber $F$ of a principal $G$-bundle looks like $G$, unlike $G$, $F$ need not have a canonical choice of identity element, and consequently does not generically have canonical groups structure. Indeed, if it did then the bundle would necessarily have to be the trivial $M \times G$. Such a space, that looks like $G$ after ``forgetting'' which point is the identity is called a \textbf{$G$-torsor}. 
+		\emph{Topologically} each fiber $F$ of a principal $G$-bundle looks like $G$. Unlike $G$, however. $F$ need not have a canonical choice of identity element and consequently does not generically have canonical groups structure. Indeed, if it did then the bundle would necessarily have to be the trivial one $M \times G$. Such a space, that looks like $G$ after ``forgetting'' which point is the identity is called a \textbf{$G$-torsor}. 
 		
 		We give a an example for motivation:
 		\begin{eg}[Frame Bundle]
-			The fiber bundle of all \textbf{frames}, namely choices of bases in an $n$-dimensional space is a principal $\mathrm{GL}_n$ bundle.
+			The fiber bundle of all \textbf{frames}, namely choices of bases in an $n$-dimensional space $V$ is a principal $\mathrm{GL}_n(V)$ bundle. Given a quadratic form $Q$ that defines a notion of orthonormality, the bundle of all orthogonal frames is a principal $\SO_n(V)$ bundle.
 		\end{eg}
 		The frame bundle is generally nontrivial. 
 		
@@ -200,9 +201,9 @@
 	% 		When $G$ is a compact Lie Group acting smoothly and freely on a manifold $M$, the orbit space $M/G$ is a topological manifold with dimension $\dim M - \dim G$ and a unique smooth structure so that $\pi: M \rightarrow M/G$ is a smooth submersion (differential is locally surjective).
 	% 	\end{theorem}
 	%
-		\begin{cor}
-			For a $G$-principal bundle $P \to M$ we get $\dim P = \dim M + \dim G$.
-		\end{cor}
+		% \begin{cor}
+		% 	For a $G$-principal bundle $P \to M$ we get $\dim P = \dim M + \dim G$.
+		% \end{cor}
 		
 		If $M,F$ are two manifolds and $G$ has an action $G \times F \rightarrow F$, then for an open cover $\{ U_\alpha \}$ of $M$ with a map $g_{\alpha \beta}: U_{\alpha}\cap U_{\beta} \to G$ satisfying the conditions of Proposition \ref{prop:cocycle} we can construct a fiber bundle by first building the set
 		\[
@@ -210,10 +211,10 @@
 		\]
 		and quotienting out by the relation
 		\[
-			(x, f) \in U_\alpha \times F \sim (x', f') \in U_\beta \times F \Longleftrightarrow x=x', f=g_{\alpha \beta}(x) f' 
+			(x, f) \in U_\alpha \times F \sim (x', f') \in U_\beta \times F \Longleftrightarrow x=x', f=g_{\alpha \beta}(x) f' .
 		\]
 		
-		Then $E = X/\sim$ is a fiber bundle over $M$. We can locally denote elements of $E$ by $[x,f]$ so that
+		Then, $E = X/\sim$ is a fiber bundle over $M$. We can locally denote elements of $E$ by $[x,f]$ so that
 		\[
 			\pi(x,f) = x, ~ \psi_\alpha(x,f) = [x,f].
 		\]
@@ -221,7 +222,7 @@
 		\begin{prop}
 			For a fiber bundle $\pi: E \rightarrow M$ with overlap functions $g_{\alpha \beta}: U_{\alpha \beta} \rightarrow G$ between charts, we can form a principal bundle $P$ so that 
 			\[
-				P = X/\sim, ~ X = \bigcup_\alpha U_\alpha \times G
+				P = X/\sim, ~ X = \bigcup_\alpha U_\alpha \times G.
 			\]
 		\end{prop}
 		In certain contexts that we will encounter later, the $g_{\alpha \beta}$ are referred to as \textbf{clutching functions}.		%
@@ -250,9 +251,9 @@
 			\[
 				\pi': (P \times F) / G \to M
 			\]
-			given by sending $(x, f)$ to $\pi(x)$ is well-defined since $\pi(x g) = \pi(x)$.
+			is given by sending $(x, f)$ to $\pi(x)$ is well-defined since $\pi(x g) = \pi(x)$.
 		\end{defn}
-		Note that the (equivalence classes of) a coordinate bundles in section 3.1.1 gives an associated bundle.
+		Note that the (equivalence classes of) a coordinate bundles in section \ref{sub:definitions_and_examples} gives an associated bundle.
 		
 		
 		% \begin{equation}
@@ -338,47 +339,50 @@
 		% 	and is given by $\tilde \phi([x, g]) = \varphi(x)$. This is well-defined.
 		% \end{prop}
 		
-		\section{Lie Theory}
+		\section{Lie Theory} % (fold)
+		\label{sec:lie_theory}
 		
-		Although standard knowledge on the definition of a Lie Group/Algebra is assumed, let's try to motivate the ideas within this field in a more geometric way than is often done. \\
+		% section lie_theory (end)
 		
-		Consider a manifold $M$, and consider $\text{Vect}(M)$, the space of all smooth vector fields on $M$. For a map $\varphi: M \rightarrow N$ we have a notion of \textbf{pushforward} $\varphi_*: \text{Vect}(M) \rightarrow \text{Vect}(N)$ on vector fields given by their actions on functions as
+		Although standard knowledge on the definition of a Lie Group/Algebra is assumed, we will try to motivate the ideas in this field in a more geometric way than is often done. \\
+		
+		Consider a manifold $M$, and take $\text{Vect}(M)$ the space of all smooth vector fields on $M$. For a map $\varphi: M \rightarrow N$ we have a \textbf{pushforward} $\varphi_*: \text{Vect}(M) \rightarrow \text{Vect}(N)$ on vector fields given by
 		\[
-			[\varphi_* (v)] (f) = v (\varphi^* (f))
+			[\varphi_* (v)] (f) = v (\varphi^* (f)).
 		\]
-		A smooth vector field $X$ on $M$ gives rise to \textbf{flows} that are solutions to the differential equation of motion
+		A smooth vector field $X$ on $M$ gives rise to \textbf{flows} $\gamma(t)$ that are solutions to the differential equation of motion
 		\[
 			\frac{d}{dt} f(\gamma(t)) = X f.
 		\]
-		One could argue, more strongly, that in fact the \emph{entire field} of ordinary differential equations has an interpretation as equations of motion along flows of vector fields. Such a viewpoint has brought forward the lucrative insights of symplectic geometry. 
+		Any ordinary differential equations has an interpretation as equations of motion along flows of vector fields in some space.  
 		
-		The motion along this flow is expressed as the exponential:
+		The motion along this flow is expressed as the exponential
 		\[
-			f(\gamma(t)) = e^{t X} f(p), ~ p = \gamma(0)
+			f(\gamma(t)) = e^{t X} f(p), ~ p = \gamma(0).
 		\]
 		
-		Now consider two vector fields $X,Y$ on $M$. Let $Y$ flow along $X$ so we move along $X$ giving:
+		Now consider two vector fields $X,Y$ on $M$. Let $Y$ flow along $X$ so we move along $X$ giving
 		\[
-			e^{tX} Y = Y(\gamma(t)) \in T_{\gamma(t)}M
+			e^{tX} Y = Y(\gamma(t)) \in T_{\gamma(t)}M.
 		\]
 		Note that the reverse flow $e^{-t X}$ maps $T_{\gamma(t)} M \to T_{\gamma(0)}M = T_pM$, so acts by pushforward on $e^{tX} Y$ equivalent to:
 		\[
-			e^{tX} Y e^{-tX} \in T_p
+			e^{tX} Y e^{-tX} \in T_p.
 		\]
 		We can compare this to $Y$ and take the local change by dividing through by $t$ as $t \to 0$, giving the Lie derivative
 		\begin{equation}
-			\mathcal L_X Y := \frac{e^{tX} Y e^{-tX} - Y}{t}
+			\mathcal L_X Y := \frac{e^{tX} Y e^{-tX} - Y}{t}.
 		\end{equation}
 		It is easy to check that this is in fact antisymmetric and gives rise to a bilinear form on $\mathrm{Vect}(M)$
 		\begin{equation}
-			[X,Y]:= L_X Y
+			[X,Y]:= L_X Y.
 		\end{equation}
 		A vector space endowed with such a bilinear form and satisfying the Jacobi identity is a \textbf{Lie algebra}.
 		
 		Most important is when $M$ itself has group structure, so is a Lie group, which we will denote by $G$. Then the vector fields on $G$ of course also form a Lie algebra, just by virtue of the manifold structure of $G$. 
 		
 		We state the following proposition without proof
-		\begin{prop}
+		\begin{prop}\label{prop:pushforward}
 			Let $\varphi: G_1 \rightarrow G_2$ be a homomorphism of Lie groups, then $\varphi_*: \mathrm{Vect}(G_1) \rightarrow \mathrm{Vect}(G_2)$ is a homomorphism of Lie algebras. 
 		\end{prop}
 		
@@ -386,7 +390,7 @@
 		\[
 			\begin{aligned}
 				R_g: G \rightarrow G, ~ g: h \mapsto gh\\
-				L_g: G \rightarrow G, ~ g: h \mapsto hg
+				L_g: G \rightarrow G, ~ g: h \mapsto hg.
 			\end{aligned}
 		\]
 		 We have that each group element induces (by pushforward) a map between tangent spaces 
@@ -396,8 +400,8 @@
 				(R_g)_*: T_h G \rightarrow T_{hg} G
 		 	\end{aligned}
 		\]
-		A vector field $X$ is left-invariant if $(L_g)_* X(h) = X(gh)$. 
-		By the proposition, we get that $(L_g)_* [X, Y] = [(L_g)_* X, (L_g)_* Y]$ so these left-invariant vector fields in fact form a Lie algebra for the group. Physically, this is the set of vector fields corresponding to the isometries of $G$.
+		A vector field $X$ is called \textbf{left-invariant} if $(L_g)_* X(h) = X(gh)$. 
+		By Proposition \ref{prop:pushforward}, we get that $(L_g)_* [X, Y] = [(L_g)_* X, (L_g)_* Y]$ so these left-invariant vector fields in fact form a Lie algebra for the group. Physically, this is the set of vector fields corresponding to the isometries of $G$.
 		
 		In local coordinates, the commutator can be written as:
 		\[
@@ -410,17 +414,18 @@
 		\[
 			(L_g)_* X(e) = X(g).
 		\]
-		The set of all left-invariant vector fields can be uniquely extracted from their value at the identity by this rule, and in fact for any vector $x \in T_e G$, there is a corresponding left-invariant vector field $X(g) = (L_g)_* x$. Therefore the tangent space to the identity gives rise to a Lie algebra which we will call \emph{the} Lie algebra of $G$ and denote by $\frak g$. The Lie algebra of $G$ is finite dimensional when $G$ is and its dimension is equal to the dimension of $G$.
+		The set of all left-invariant vector fields can be uniquely extracted from their value at the identity by this rule, and in fact for any vector $x \in T_e G$, there is a corresponding left-invariant vector field on $G$, $X|_g = (L_g)_* x$. Therefore the tangent space to the identity gives rise to a Lie algebra which we will call \emph{the} Lie algebra of $G$ and denote by $\frak g$. The Lie algebra of $G$ is finite dimensional when $G$ is and its dimension is equal to the dimension of $G$. We will also use the notation $\frak g = \mathrm{Lie}(G)$.
 		
 		
-		Now because we define the Lie algebra as the ``tangent space to the identity'', it is worth asking ``how does the Lie algebra appear at a generic point, $g$, on the group?''. The idea is to bring that vector back to the identity using $G$ and see what it looks like. 
+		Now because we define the Lie algebra as the ``tangent space to the identity'', it is worth asking ``how does the Lie algebra relate to the tangent space at a generic point, $g$, on the group?''. The idea is to bring that vector back to the identity using $G$ and see what it looks like. 
 		
-		This is accomplished by using the \textbf{Maurer-Cartan form} $\Theta$, which is a $\frak g$-valed 1-form on $G$ so that 
+		This is accomplished by using the \textbf{Maurer-Cartan form} $\Theta$, which is a $\frak g$-valed 1-form on $G$ so that for $v \in T_g G$,
 		\begin{equation}
-			\Theta(g) := (L_{g^{-1}})_*.
+			\Theta(g)(v) := (L_{g^{-1}})_* (v).
 		\end{equation}
-		Note that this maps from $\mathrm{Vect}(G) \rightarrow \frak g$. It takes a vector $v$ at point $g$ and traces it back to the natural vector at the identity that would have gotten pushed forward to $v$ under $g$.
+		% Note that this maps from $\mathrm{Vect}(G) \rightarrow \frak g$.
 		
+		For $G$ connected and simply connected, the ``inverse'' of the map $\mathrm{Lie}: G \to \frak g$ is a map $\frak g \to G$ suggestively denoted by $\exp$.
 		\begin{prop}[Properties of $\exp$]
 			For $G$ a compact and connected Lie group, with Lie algebra $\frak g$, we have a map $\exp : \frak g \rightarrow G$.
 			\begin{enumerate}
@@ -453,11 +458,11 @@
 			\]
 		\end{defn}
 		
-		The Jacobi identity ensures that $\mathrm{ad}$ is a homomorphism. If the center of $G$ is zero then $\mathrm{ad}$ is faithful and we have an embedding into $\mathrm{GL}(n)$. This is nice because it also shows that after a central extension, every Lie algebra can be represented into $\mathrm{GL}(n)$, a weaker form of Ado's theorem.
+		The Jacobi identity ensures that $\mathrm{ad}$ is a homomorphism. If the center of $G$ is zero then $\mathrm{ad}$ is faithful and we have an embedding into $\mathrm{GL}(n)$. This is nice because it also shows that after a central extension, every Lie algebra can be embedded into $\mathrm{GL}(n)$, a weaker form of Ado's theorem (that all Lie algebras can be embedded into $\mathrm{GL}(n)$).
 		
 		Moreover the adjoint representation gives rise to a natural metric on $\gg$ called the \textbf{Killing Form} given by
 		\begin{equation}
-			\kappa (X, Y) := \mathrm{Tr}(\mathrm{ad}(X) \mathrm{ad}(Y))
+			\kappa (X, Y) := \mathrm{Tr}(\mathrm{ad}(X) \mathrm{ad}(Y)).
 		\end{equation}
 		
 		\begin{prop}
@@ -480,8 +485,12 @@
 				\]
 				\item $\Phi$ commutes with the right $G$ action on $P$. 
 			\end{itemize}
-			Diffeomorphisms satisfying these conditions form a group referred to as the \textbf{group of gauge transformations}\footnote{Some authors may refer to this as the \emph{gauge group}. For us, the gauge group will be the $G$ we started with while this (much larger) group will be denoted $\mathcal G$.}. 
 		\end{defn}
+		Diffeomorphisms satisfying these conditions form a group referred to as the \textbf{group of gauge transformations}\footnote{Some authors may refer to this as the \emph{gauge group}. For us, the gauge group will be the $G$ we started with while this (much larger) group will be denoted $\mathcal G$.}. 
+		
+		As an illustration for intuition, a gauge choice on a trivial bundle over a space $M$ is just a map $\psi: M \to G$. A gauge transformation is then a section $g \in \Gamma^{\infty} (M, G)$ that acts by left action, transforming $\psi \to g \cdot \psi$.
+		
+		More generally for a principal $G$ bundle $P$ on a coordinate patch $U_\alpha$, gauge choices are maps from $U_\alpha \to P|_{U_\alpha}$, which can be interpreted the same way. 
 		
 		\section{Connections on Principal Bundles} % (fold)
 		\label{sec:connections_on_principal_bundles}
@@ -491,7 +500,11 @@
 		\subsection{The Ehresman Connection}
 		
 		
-		Take a $G$-principal bundle $\pi: P \rightarrow M$. 
+		Take a $G$-principal bundle $\pi: P \rightarrow M$. The tangent space at any point $p \in P$ has a canonical subspace that is killed by $\pi_*$.
+		\begin{defn}[Vertical Subspace]
+			The \textbf{vertical subspace} $V_p P$ at a point $p$ of a fiber bundle is defined as $\ker \pi_*$. This can be thought of as the tangent space at $p$ restricted to the fiber over $\pi(p)$.
+		\end{defn}
+		
 		Just as $\xi \in \frak g$ gives rise to a vector field $X_\xi$ on $G$, it also canonically gives rise to a vector field $\sigma(\xi)$ on $P$.
 		\begin{defn}[\textbf{Fundamental Vector Field} of $\xi$]
 			Let $\xi \in \frak g$ and consider $\exp(t \xi) \in G$ so that for $p \in P$ we get $c_p(t) = R_{\exp(t \xi)} p$ which depends smoothly on $p$. Note $c'_p(0) \in T_p P$ at each point.
@@ -499,9 +512,7 @@
 			\sigma: \frak g \rightarrow \text{Vect}(P), ~ [\sigma(\xi)](p) \mapsto \left[ \frac{d}{dt} p e^{t \xi}\right]_{t=0}
 			\]
 		\end{defn}
-		\begin{defn}[Vertical Subspace]
-			The \textbf{vertical subspace} $V_p P$ at a point $p$ of a fiber bundle is the tangent space at $p$ restricted to the fiber over $x$, i.e. $T_p (\pi^{-1}(x))|_{F_x}$. Equivalently, this is $\ker \pi_*$.
-		\end{defn}
+		
 		Note, by virtue of $\sigma(\xi)$ lying along the $G$-fiber. 
 		\[
 		\pi_* \circ \sigma(x) = \frac{d}{dt} (\pi \circ c_p(t))|_{t=0} = \frac{d}{dt} (p) = 0
@@ -601,7 +612,7 @@
 				\item $R_g^* \omega = \ad_{g^{-1}} \omega$.
 			\end{itemize}
 		\end{defn}
-		The first condition says that, after identifying the vertical subspace with $\frak g$, $\omega$ acts trivially. The second condition is standard equivariance, since the right ad-action of $G$ on $\omega$ would exactly look like $g^{-1} \omega g$. 
+		The first condition says that, after identifying the vertical subspace with $\frak g$, $\omega$ acts trivially. The second condition is standard equivariance, since the right $\mathrm{ad}_G$-action on $\omega$ would exactly look like $g^{-1} \omega g$. 
 	
 		We now have the following equivalence:
 		\begin{prop}
@@ -628,7 +639,24 @@
 			\item $\omega(pg) = R_g^* \omega = g^{-1} \omega(p) g$: The 1-form is $G$-covariant.
 		\end{itemize}
 
+		Given a choice of gauge $s_\alpha$ on a given coordinate patch $U_\alpha$, we can define a $1$-form $A \in \Omega^1(M,\gg)$ by
+		\begin{equation}
+			A = s_\alpha^* \omega.
+		\end{equation}
+		This is the \textbf{connection 1-form on $M$}, and is the object that physicists are more used to working with in gauge theory.
+		\begin{fact}
+			The group of gauge transformations $\mathcal G$ acts on $A$ by
+			\[
+				A \to \ad_{g} A + g^{-1} \dd g.
+			\]
+			where $g$ is a function from $U_\alpha \to G$.
+			Consequently, a connection $A$ that looks like $g^{-1} dg$ can be gauge transformed (by acting with $g^{-1}$) into the field $A=0$, and is consequently called \textbf{pure gauge}.
+		\end{fact}
+		
+
 		\subsection{Differential Forms on Principal Bundles}
+
+	
 
 		\begin{defn}
 			Given two $\gg$-valued differential forms $\alpha, \beta$ of ranks $p$ and $q$ respectively their wedge product is defined as
@@ -638,6 +666,35 @@
 		\label{defn:wedgeforms}
 		\end{defn}
 		
+		Take an associated $G$-bundle $E \to M$ given by $E = P \times_{\rho} F$ a $G$ action $\rho$. The 1-form $\omega$ gives us a way to act on forms $\alpha \in \Omega^p (M, F)$ that satisfy the equivariance condition $R_g^* \alpha = \rho(g^{-1}) \alpha$ by
+		\[
+			\dd_\omega \alpha = \dd \alpha + \rho(\omega) \wedge \alpha.
+		\]
+		This is the \textbf{exterior covariant derivative} associated to $\omega$. 
+		In terms of $A$ this can be written as
+		\begin{equation}
+			\dd_A s := \dd s + \rho (A) \wedge s
+		\end{equation}
+		for a section $s$ of the associated bundle $E$.
+		
+		Given this, we define the \textbf{curvature form} $\Omega$ for a connection $\omega$ on a principal bundle $P$ to be
+		\begin{equation}\label{curvature}
+			\Omega := \dd_\omega \omega = d\omega + \omega \vee \omega.
+		\end{equation}
+		
+		Further, a simple computation gives us the \textbf{Bianchi identity},
+		\begin{equation}
+			\dd_\omega \Omega = 0.
+		\end{equation}
+		
+		Further, we have the \textbf{field-strength tensor} $F$ defined analogously to $A$ as
+		\[
+			F = s^* \Omega
+		\]
+		and satisfying the pulled-back Bianchi identity:
+		\[
+			\dd_A F = 0.
+		\]
 		
 		The following lemmas, which we take from \cite{kobayashi1963}, are important in translating from a picture of $k$-forms on $P$ and $k$-forms on $M$.
 		\begin{lemma}
@@ -684,7 +741,7 @@
 		
 		% subsection holonomy (end)
 		
-		A particularly important aspect of this thesis will be the action of Wilson loops when inserted into gauge theories. Wilson loops are defined in terms of something known as the \textbf{Holonomy}.
+		A particularly important aspect of this thesis will be the action of Wilson loops when inserted into gauge theories. Wilson loops are defined in terms of what is known as the \textbf{holonomy} of a connection.
 		
 		The \textbf{concatenation} of two paths $\gamma_1, \gamma_2$ such that $\gamma_1(1) = \gamma_2(0)$ is the (piecewise smooth) curve given by
 		\[
@@ -712,9 +769,14 @@
 		
 		A connection is called \textbf{irreducible} if the centralizer of the holonomy group in $G$ is precisely the center $Z(G)$.
 		
+		\begin{defn}
+			A connection $\omega$ is called \textbf{flat} if $\Omega = 0$.
+		\end{defn}
+		It is easy to see that if a connection is flat then its holonomy around any contractible closed loop will be zero by Stokes' theorem. That is: the holonomy of a flat connection captures information about the topology of $M$.
+		
 		\section{Chern-Weil Theory}
 		
-		In physics, relevant quantities such as the action, the instanton number, and the gauge field Lagrangian are expressed in terms of polynomials of the field strength $F$. Mathematically, Chern-Weil theory is concerned with the study of polynomials of the curvature form $\Omega$ on the associated principal $G$-bundle. These can be related to the cohomology classes of $M$.
+		In physics, relevant quantities such as the action, the instanton number, and the gauge field Lagrangian are expressed in terms of polynomials of the field strength $F$. Chern-Weil theory is concerned with the study of polynomials of the curvature form $\Omega$ on the associated principal $G$-bundle that are invariant under the action of the gauge group. These can be related to the cohomology classes of $M$.
 		
 		\subsection{Symmetric Invariant Polynomials on $\frak g$}
 		
@@ -774,10 +836,11 @@
 		\begin{cor}
 			For a manifold $M$, $\overline{f(\Omega_1)}$ is locally exact on each coordinate patch. The form $K$ so that $\dd K = \overline{f(\Omega_1)}$ on a given $U_\alpha$ is the \textbf{Chern-Simons} form.
 		\end{cor}
+		This form will play an important role in defining the instanton number for a principal $G$-bundle over $S^4$.
 		
 		\subsection{Chern Classes}
 		
-		Let $P$ be a principal $G$ bundle and $E$ be an associated complex vector bundle on which $G$ acts nontrivially. For $G$ semisimple, this can be taken to be the adjoint bundle, but also for $G$ a classical, linear algebraic group, we can take the bundle to be associated to the defining representation. Let $n$ denote the rank of $E$.
+		Let $P$ be a principal $G$ bundle for $G$ real or complex and let $E$ be an associated \emph{complex} vector bundle on which $G$ acts nontrivially. For $G$ semisimple, this can be taken to be the adjoint bundle, but also for $G$ a classical, linear algebraic group, we can take the bundle to be associated to the defining representation. Let $n$ denote the rank of $E$.
 		
 		In either case, the curvature form $F \in \Omega^2(M, \gg)$ corresponding to a connection on $E$ gives rise to the following polynomial in $F$ that is easily seen to be symmetric-invariant:
 		\begin{equation}
@@ -795,7 +858,7 @@
 			c(F) = 1 + i \frac{\tr(F)}{2\pi} t + \frac{\tr(F \wedge F) - \tr(F) \wedge \tr(F)}{8\pi^2} t^2 + \dots + \frac{i \det F}{2\pi} t^n
 		\]
 		
-		 By theorem by Theorem \ref{thm:chern-weil}, the cohomology classes $[c_i(F)]$ are independent of the connection used to define $F$. Consequently, we can define 
+		 By Theorem \ref{thm:chern-weil}, the cohomology classes $[c_i(F)]$ are independent of the connection used to define $F$. Consequently, we can define 
 		 \begin{defn}[Chern class] \label{defn:chern}
 		 	The \textbf{Chern classes} for the bundle $E$ are the cohomology classes in $H^*(M)$ associated with each $c_i(F)$. We write 
 			\[
@@ -814,6 +877,7 @@
  			\[
  				c(E) = c(E_1) \cdot \dots \cdot c(E_m)
  			\]
+			where the product here is the cup product in cohomology.
  		\end{prop}
  		\begin{proof}
  			Because the gauge group acts as block matrices, the field strength tensor can be decomposed into blocks acting separately on each $E_j$ so that the determinant factors:

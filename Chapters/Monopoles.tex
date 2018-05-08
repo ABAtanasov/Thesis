@@ -84,7 +84,7 @@
 		\begin{equation}
 			\star F = \dd_A \phi.
 		\end{equation}
-		These are the \textbf{Bogomolny equations}. Any solution to this gives us a translation-invariant instanton in $\mathbb R^4$. Note that these do not satisfy the decay conditions necessary for the instantons of the ADHM construction.
+		These are the \textbf{Bogomolny equations}. Any solution to this gives us a translation-invariant instanton in $\mathbb R^4$. Note that these do not satisfy the decay conditions necessary for the instantons of the ADHM construction, so the instantons constructed in the previous chapter \textbf{do not} give rise to nontrivial monopoles in $\rr^3$.
 	\end{obs}
 	
 	\subsection{From the Yang-Mills-Higgs Action on $\mathbb R^3$} % (fold)
@@ -146,23 +146,23 @@
 			&= \mathrm{Tr}[\dd\phi \wedge F - \phi\, \dd F]\\
 			& = \mathrm{Tr}[\dd_A \phi \wedge F - \phi A \wedge F + \phi\, A \wedge F] \\
 			&= (\dd_A \phi, \star F)\\
-			&= (\star \dd_A \phi, F)
+			&= (\star \dd_A \phi, F).
 		\end{aligned}
 	\end{equation}	
 	This implies that the second term can be written as a boundary term:
 	\begin{equation*}
-		\int_{B_R} (\star \dd_A \phi, F) = \int_{S^2_R} \mathrm{Tr}[F \phi]
+		\int_{B_R} (\star \dd_A \phi, F) = \int_{S^2_R} \mathrm{Tr}[F \phi].
 	\end{equation*}
 	Note $\phi$ acting on a bundle $E$ transforming in the fundamental representation of $\frak{su}(2)$ has two eigenspaces of opposite imaginary eigenvalues, and by assumption that $|\phi|\to 1$, these eigenvalues cannot both be zero. Thus, they cannot cross and this gives us two well-defined line bundles $L_+, L_-$ over $S^2_R$ corresponding to the positive and the negative eigenvalues.
 	\begin{prop}
 		$E = L_+ \oplus L_-$ has vanishing first Chern class $c_1(E) = 0$.
 	\end{prop}
 	\begin{proof}
-		This follows from the fact that $\frak{su}(2)$ is traceless
+		This follows from the fact that $\frak{su}(2)$ is traceless.
 		% Note that the rank-two vector bundle $E$ over $\mathbb R^4$ corresponding the the fundamental representation of $\frak{su}(2)$ is topologically trivial since $\mathbb R^4$ is. Its restriction to $S_R^2$ must be as well, and this is precisely $L_+ \oplus L_-$.
 	\end{proof}
 	\begin{cor}
-		The first Chern class of $L_+$ is $c_1(L_+) = +k$ and $L_-$ is $c_1(L_-) = -k$ for an integer $k$
+		The first Chern class of $L_+$ is $c_1(L_+) = +k$ and $L_-$ is $c_1(L_-) = -k$ for an integer $k$.
 		\footnote{It should be noted that (besides the non-monopole case of $k = 0$), this makes the bundle $E$ nontrivial. This means that $E$ cannot just be the restriction of a (necessarily trivial) vector bundle over $\mathbb R^3$. To understand this: the non-triviality of $E$ can be seen to come from singularities induced on the vector bundle by the insertion of monopole. In the $k=1$ BPS case, this corresponds to $E$ being a nontrivial bundle on $\mathbb R^3 \backslash \{0\}$}.
 	\end{cor}
 	\begin{proof}
@@ -225,7 +225,7 @@
 	\begin{defn}
 		Let $N_k$ be the space of gauge-equivalent $\frak{su}(2)$ monopoles of magnetic charge $k$.
 	\end{defn}
-	This is our main object of study in what follows.
+	This is our main object of study in this chapter.
 	
 	This section involves studying the solutions of ``scattering-type'' equations along directed lines in $\mathbb R^3$. Consequently, the covariant derivative operator when restricted to a line, say along a line parallel to the $x_1$ axis, becomes:
 	\begin{equation}
@@ -241,8 +241,12 @@
 	\end{defn}
 	If we only identify solutions modulo \emph{framed} gauge, then the asymptotic $U(1)$ element as $x_1 \to \infty$ will differentiate between solutions that are otherwise equivalent modulo the full gauge group. We thus make a definition
 	\begin{defn}
-		Define $M_k$ to the the space of solutions to the Bogomolny equations modulo framed gauge. This is fibered over $N_k$ with fiber $S_1$
-		$$S_1 \hookrightarrow M_k \twoheadrightarrow N_k$$
+		Define $M_k$ to the the space of solutions to the Bogomolny equations modulo framed gauge. This is fibered over $N_k$ with fiber $S_1$.
+		\[
+			\begin{tikzcd}
+				S_1 \arrow[r,hookrightarrow] &  M_k \arrow[r,twoheadrightarrow]& N_k
+			\end{tikzcd}
+		\]
 	\end{defn}
 	\begin{proof}
 		We have seen that upon choosing $A_1 = 0$, gauge transformations can still have an asymptotic value in a $U(1) \cong S^1$ subgroup. Thus, quotienting out by only \emph{framed} gauge transformations to get $M_k$ leaves a piece of $S^1$ information that $N_k$ does not have. We will call this $S^1$ element the \emph{phase} of a given monopole solution. 
@@ -280,7 +284,7 @@
 		\begin{equation}
 			\{ (n, v) : |n| = 1, u \cdot v = 0\}
 		\end{equation}
-		Clearly $\hat n$ sits on a sphere $S^2$ and $(\hat n, v)$ form $T S^2$. It is sufficient to find a complex structure to make this into the complex variety $T \mathbb{CP}^1$. We will form a complex structure on $\mathbb{CP}^1$ and then this lifts to one on the tangent bundle. 
+		Clearly $\hat n$ sits on a sphere $S^2$ and $(\hat n, v)$ form $T S^2$. It is sufficient to find a complex structure to make this into the complex variety $T \mathbb{CP}^1$. We will form a complex structure on $\mathbb{CP}^1$ which will lift to the tangent bundle. 
 		The complex structure $J$ acting on a point $(n, v)$ is given by taking $J(v) = \hat n \times v$. This corresponds exactly to the complex structure on the holomorphic tangent bundle of the Riemann sphere.
 		
 		The real structure $\sigma$ comes from reversing the orientation of a line $(\hat n, v) \to (-\hat n, v)$. It is easy to see $\sigma^2 = 0$, and since it reverses orientation in $\mathbb R^3$ is takes $J \to -J$.
@@ -404,7 +408,11 @@
 	\begin{eg}
 		For higher $k$, in the generic case a rational function in $R_k$ will split as a sum of simple poles
 		$$\sum_{i} \frac{\alpha_i}{z-\beta_i}.$$
-		This has the interpretation of monopoles having centers at positions $(\log{1/\sqrt{|\alpha_i|}}, \mathrm{Re}(\beta_i), \mathrm{Im}(\beta_i))$ and phases described by the arguments of the $\alpha_i$.
+		This has the interpretation of monopoles having centers at positions
+		\[
+			\left(\log \left[ \frac{1}{\sqrt{|\alpha_i|}} \right], \mathrm{Re}\left(\beta_i\right), \mathrm{Im}\left(\beta_i\right) \right)
+		\]
+		 and phases described by the arguments of the $\alpha_i$.
 	\end{eg}
 	
 	
@@ -453,7 +461,7 @@
 		The operator $\Delta(x)$ is written as $Cx + D$ where $C, D$ are constant matrices and $x \in \mathbb H$ is viewed a quaternionic variable once a correspondence is made $\mathbb R^4 \cong \mathbb H$.
 		 % $D$ has quaternion entries and acts on $W \otimes \mathbb H$ while $C$ acts on $W$.
 		
-		If $\Delta$ is of maximal rank, then the adjoint $\Delta^*(x): V \to W$ has a one-dimensional quaternionic subspace $E_x$ that, as $x$ varies, can be described as a bundle over $\mathbb H \cong \mathbb R^4$. The orthogonal projection to $E_x$ (viewed as a horizontal subspace) in $V$ defines the (Ehresman) connection on the vector bundle $E \to \mathbb R^4$. \cite{hitchin1983}
+		If $\Delta$ is of maximal rank, then the adjoint $\Delta^*(x): V \to W$ has a two-dimensional complex (one-dimensional quaternionic kernel $E_x$ that, as $x$ varies, can be described as a bundle over $\mathbb H \cong \mathbb R^4$. The orthogonal projection to $E_x$ (viewed as a horizontal subspace) in $V$ defines the (Ehresman) connection on the vector bundle $E \to \mathbb R^4$. \cite{hitchin1983}
 	\end{review}
 
 	Here, we will use the zero-indexed $(x_0, x_1, x_2, x_3)$ to label the coordinates so that the imaginary quaternionic structure of the latter three becomes more clear. Nahm's approach \cite{nahm1982} was to seek vector spaces $W, V$ fulfilling the same function, and look for the following conditions:
@@ -524,13 +532,15 @@
 	
 	For a given solution of Nahm's equations, the associated Dirac operator $\Delta^*(x)$, depending on a chosen $\vec x$, can be shown to again yield a 1-dimensional quaternionic (2-dimensional complex) kernel $E_x$. Here, though, it does not specify a connection on $\mathbb R^4$ but instead gives rise to $A$ and $\phi$ through the following way construction:
 	\begin{cons}[3D Monopole from Nahm's Equations]
-		Pick an orthonormal basis of $E_x = \ker \Delta^*(x) \cong C^2$. Call this $v_1, v_2$. We view $E_x$ as a fiber at $x$ corresponding to a $\mathbb C^2$ bundle, and construct $\phi$ and $A$ by their actions on a given $v_a$ at $x$.
+		Pick an orthonormal basis of $E_x = \ker \Delta^*(x) \cong 
+	\cc^2$. Call this $v_1, v_2$. We view $E_x$ as a fiber at $x$ corresponding to a $\mathbb C^2$ bundle, and construct $\phi$ and $A$ by their actions on a given $v_a$ at $x$.
 		\begin{equation}
 			\begin{aligned}
 				\phi(\vec x)(v_a) &= i \frac{v_1}{||v_1||_{L^2}} \int_{0}^2 (v_1, (1-s) v_a) ds + i  \frac{v_2}{||v_2||_{L^2}} \int_0^2 (v_2, (1-s) v_a) ds,\\
 				A(\vec x)(v_a) &= \frac{v_1}{||v_1||_{L^2}} \int_{0}^2 (v_1, \partial_i v_a) ds + \frac{v_2}{||v_2||_{L^2}} \int_0^2 (v_2, \partial_i v_a) ds.
 			\end{aligned}
 		\end{equation}
+		This defines them as operators on $\mathrm{End}(E_x)$ for each $x$, and in particular as a $\frak u(2)$-valued function and 1-form respectively.
 	\end{cons}
 
 
