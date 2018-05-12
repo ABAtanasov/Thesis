@@ -2,7 +2,7 @@
 
 The aim of this chapter is to first develop for the reader a picture of $\mathcal N = 4$ Supersymmetric Yang-Mills (SYM) theory together with its topological twists. With this, we bring together the ideas of the previous chapters and study the actions of line defects on the categories of boundary conditions of two topological twists of $\mathcal N=4$ SYM.
 
-	Since geometric Langlands associates to each 2D complex curve an equivalence of categories, and since TQFT associates a category to each codimension two submanifold, following a blurb of Witten in \cite{witten2017}, the reason that the Langlands correspondence is realized by a duality of a gauge theory in four dimensions is that $2+2=4$. Moreover, a quick mathematical calculation gives that $4-1 = 3$. Taking one dimension to be ``time'', we will see that the line operators of the 4D theory can be viewed as acting like point insertions of singularities along a given 3-manifold $W$. This is where the Bogomolny equations of the prior chapter shall enter into the picture, and we will make a connection of the solution of the Bogomolny equations to the space of Hecke modifications.
+	Since geometric Langlands associates to each complex curve an equivalence of categories, and since TQFT associates a category to each codimension two submanifold, following a blurb of Witten in \cite{witten2017}, the reason that the Langlands correspondence is realized by a duality of a gauge theory in four dimensions is that $2+2=4$. Moreover, a quick mathematical calculation gives that $4-1 = 3$. Taking one dimension to be ``time'', we will see that the line operators of the 4D theory can be viewed as acting like point insertions of singularities along a given 3-manifold $W$. This is where the Bogomolny equations of the prior chapter shall enter into the picture, and we will make a connection of the solution of the Bogomolny equations to the space of Hecke modifications.
 
 \section{Setting the Stage} % (fold)
 \label{sec:setting_the_stage}
@@ -48,9 +48,9 @@ On $M=\rr^4$ the 16 supersymmetries will transform as $\mathcal N=4$ copies of t
 Further, this theory is \emph{scale invariant}. By the usual arguments \cite{schwartz2014}, it is easy to see that the mass dimension of the coupling constant $e$ must be 0, though it is much harder to see that renormalization will not contribute a mass scale. Scale invariance, together with the Poincar\'e symmetry of $\rr^4$ combine in this case to form a \emph{conformally invariant} theory known as a \textbf{conformal field theory}. For an exposition on conformal field theory in dimensions greater than two, see \cite{simmons2016}. This conformal invariance will be \emph{crucial} for the necessary duality to make sense, as otherwise the nontrivial renormalization flow would violate the Montonen-Olive duality between electric and magnetic charge, to be introduced in the next subsection and summarized in depth in section three of \cite{kapustin2008}.
 
 
-There is also a parameter $\frac{i \theta}{8\pi} \int_M \tr (F \wedge F)$ that can be added to the action where $\theta$ is called the \textbf{instanton angle}. By the usual Chern theory arguments (see Section~\ref{sub:the_instanton_number}), this depend only on the topology of the principal $G$-bundle of the gauge theory.
+There is also a parameter $\frac{i \theta}{8\pi} \int_M \tr (F \wedge F)$ that can be added to the action where $\theta$ is called the \textbf{instanton angle}. By the usual Chern-Weil theory arguments (see Section~\ref{sub:the_instanton_number}), this depends only on the topology of the principal $G$-bundle of the gauge theory.
 \begin{obs}
-	The theory is invariant under $\theta \to \theta + 1$.
+	The theory is invariant under $\theta \to \theta + 2\pi$.
 \end{obs}
 \begin{proof}
 	Since $\frac{1}{8\pi} \int_M \tr (F \wedge F)$ is an integer, the path integral is
@@ -68,22 +68,22 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 
 % subsection reduction_from_ten_dimensions (end)
 
-\subsection{Montonen-Olive Duality} % (fold)
+\subsection{Montonen--Olive Duality} % (fold)
 \label{sub:montonen_olive_duality}
 
-	For this entire chapter, we will take $G$ is a simple Lie group that is not in the $B$ or $C$ series. The \textbf{lacing number} $n_{\gg}$ of $G$ is defined to be $3$ for the group $G_2$, $2$ for the groups $F_4$, and $1$ otherwise. There are also arguments for treating the $B$ and $C$ series (see section 2.2 of \cite{kapustin2006}), equivalently giving them lacing number $2$.
+	For this entire chapter, we will take $G$ is a simple Lie group. The \textbf{lacing number} $n_{\gg}$ of $G$ is defined to be $3$ for the group $G_2$, $2$ for the series $B_n, C_n$ and group $F_4$, and $1$ otherwise. % There are also arguments for treating the $B$ and $C$ series (see section 2.2 of \cite{kapustin2006}), equivalently giving them lacing number $2$.
 
 	In physics, a duality between a theory with coupling constant $e$ and coupling constant $1/e$ is called a \emph{strong-weak} duality, more generally known as \textbf{\emph{S}-duality}. What is special about $\mathcal N=4$ super Yang-Mills theory is that it is conjectured to exhibit a strong-weak duality in the coupling constant $\tau$. 
 	
 
-	\begin{concept}[Montonen-Olive Duality]
+	\begin{concept}[Montonen--Olive Duality]
 		In 4D $\mathcal N = 4$ supersymmetric Yang-Mills theory with gauge group $G$ and complex coupling constant $\tau$, any correlator of observables
 		\[
 			\left< \mathcal O_1 \dots \mathcal O_n \right>_{\tau, G} := \int \mathcal{D}\{ Fields \}\, \mathcal O_1 \dots \mathcal O_n \, e^{-S}
 		\]
 		can be rewritten in terms of Yang-Mills theory with inverse coupling constant $-1/n_{\gg} \tau$ on the Langlands dual group $\check G$ as a correlator of dual operators $\tilde {\mathcal O_1} \dots \tilde {\mathcal O_n}$
 		\[
-			\left< \mathcal O_1 \dots \mathcal O_n \right>_{\tau, G} = \left< \tilde{\mathcal O_1} \dots \mathcal O_n \right>_{-1/n_\gg \tau, \check G}.
+			\left< \mathcal O_1 \dots \mathcal O_n \right>_{\tau, G} = \left< \tilde{\mathcal O_1} \dots \tilde{\mathcal O_n} \right>_{-1/n_\gg \tau, \check G}.
 		\]
 	\end{concept}
 	
@@ -109,13 +109,14 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 \subsection{Topological Twisting} % (fold)
 \label{sub:topological_twisting}
 
-	In this subsection we aim to give the reader a basic understanding of the process of topological twisting, and how this changes a field theory. Recall, from \ref{sec:supersymmetry} the following:
+	In this subsection we aim to give the reader a basic understanding of the process of topological twisting, and how this changes a field theory. The following concept will be important to us, though we do not attempt to give it a rigorous definition.
 	\begin{phys}[Sector]
-		Given a supersymmetry operator $Q$ such that $Q^2 = \frac{1}{2} [Q, Q] = 0$, we define the sector of our theory $\mathcal E$ by the set of $Q$ invariants, and denote this as $(\mathcal E, [Q, -])$.
+		Given an operator $Q$ transforming under Lorentz transformations as a scalar\footnote{More technically in ``cohomological degree 1''.} such that $Q^2 = \frac{1}{2} [Q, Q] = 0$, we define the sector of our theory $\mathcal E$ by the set of $Q$ invariants, and denote this as $(\mathcal E, [Q, -])$.
 		
 		Slightly more precisely, $[Q, -]$ defines a differential operator, and the ``observables'' become exactly those gauge-invariant quantities annihilated by $Q$ modulo those that are $Q$-exact.
 	\end{phys}
 	
+	Obtaining such an operator $Q$ transforming as a scalar from our current set of supersymmetry generators is impossible, as they all transform in the spinor representation of our spacetime structure group $\Spin(4)$. In order to get around this problem, we introduce the following idea. 
 	
 	\begin{phys}[Topological Twist]
 		Given a supersymmetric (SUSY) field theory $\mathcal E$, a topological twist is a procedure for extracting a sector of $\mathcal E$ that depends only on the topology of the spacetime manifold. The resulting field theory is \textbf{topological} in the definition of Section~\ref{sec:topological_quantum_field_theory}
@@ -147,7 +148,7 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 		\end{pmatrix}.
 	\]
 	
-	After twisting by $\rho$, the group $\mathrm{Spin}(4)$ acts differently on the supersymmetry generators. In particular, of the 16 generators, one of the left-handed and one of the right-handed supersymmetries become scalars under the new action of $\mathrm{Spin}(4)$. We thus get scalars $Q_l, Q_r$, and any (complex) linear combination of these gives rise to a different ``sector'' of invariants\footnote{For a more detailed overview of what is meant by this language, the reader is invited to consult a textbook on quantum field theory discussing the BRST quantization scheme. The notes of \cite{van2005aspects} and Weinberg's second volume on quantum field theory \cite{weinberg1995quantum} are good resources for this}. Clearly overall scaling does not matter in defining the invariant fields, so we have $\mathbb P^1 (\mathbb C)$ of subsectors to chose from.
+	After twisting by $\rho$, the group $\Spin(4)$ acts differently on the supersymmetry generators. In particular, of the 16 generators, one of the left-handed and one of the right-handed supersymmetries become scalars under the new action of $\mathrm{Spin}(4)$. We thus get scalars $Q_l, Q_r$, and any (complex) linear combination of these gives rise to a different ``sector'' of invariants\footnote{For a more detailed overview of what is meant by this language, the reader is invited to consult a textbook on quantum field theory discussing the BRST quantization scheme. The notes of \cite{van2005aspects} and Weinberg's second volume on quantum field theory \cite{weinberg1995quantum} are good resources for this}. Clearly overall scaling does not matter in defining the invariant fields, so we have $\mathbb P^1 (\mathbb C)$ of subsectors to chose from.
 	
 	Upon a choice of $Q = u Q_l + v Q_r$, after some manipulation, one can rewrite the $\mathcal N=4$ Yang-Mills action as:
 	\begin{equation}
@@ -188,7 +189,7 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 
 	It is worth understanding how the fields in the topologically twisted theory transform, and what constraint this puts on their configuration space and equations of motion. 
 
-	Firstly, $A$ transforms trivially under the $R$-symmetry $\Spin(6)$, so the twist will not change how it transforms. The six scalar fields will now have $\Spin(4)$ act nontrivially on them. Since the $\phi_i$ transform as a vector representation of $\Spin(6)$, which is just the defining representation of $\SO(6)$, $\rho: \Spin(4) \to \Spin(6)$ will induce an $\SO(4) \to \SO(6)$ action of the spacetime group on the fields. That means that the $\phi_i$ combine into two distinct fields. One of them (transforming under $\SO(4)$) is a 1-form valued in $\ad P$, which will be denoted $\phi$ and the other two are $\SO(4)$ scalars that can be combined to form a complex scalar field $\sigma, \overline \sigma$ valued in the complexification of the adjoint bundle. These two scalars have an $\SO(2)$ internal symmetry. The fermions combine into one 2-form, two 1-forms, and two scalars, but this will not be as important in the story we aim to explain.
+	Firstly, $A$ transforms trivially under the $R$-symmetry $\Spin(6)$, so the twist will not change how it transforms. The six scalar fields will now have $\Spin(4)$ act nontrivially on them. Since the $\phi_i$ transform as a vector representation of $\Spin(6)$, which is just the defining representation of $\SO(6)$, $\rho: \Spin(4) \to \Spin(6)$ will induce an $\SO(4) \to \SO(6)$ action of the spacetime group on the fields. That means that the $\phi_i$ combine into two distinct fields. One of them (transforming under $\SO(4)$) is a 1-form valued in $\ad P$, which will be denoted $\phi \in \Omega^1 (M, \ad P)$ and the other two are $\SO(4)$ scalars that can be combined to form a complex scalar field valued in the complexification of the adjoint bundle denoted $\sigma, \overline \sigma \in \Gamma(M, \ad P) \otimes \cc$. These two scalars have an $\SO(2)$ internal symmetry. The fermions combine into one 2-form, two 1-forms, and two scalars, but this will not be as important in the story we aim to explain.
 	
 	For $Q = u Q_l + v Q_r$, define $t = v/u$. The equations given my requiring that the supersymmetric variation of the fermion fields vanishes become (generically) equivalent to the following:
 	\begin{equation}
@@ -257,11 +258,11 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 	\begin{equation}
 		W_R(\gamma) = g(\gamma(1)) W_R(\gamma)  g(\gamma(0))^{-1}
 	\end{equation}
-	in the special case of $\gamma$ closed, we see this is gauge-invariant. In this case, it called a \textbf{Wilson loop}. It can be viewed as yielding an element of the group $G$ in the representation $R$. In this case, the trace of this element gives an invariant scalar quantity (known in physics as a $c$-number), and so for $\gamma$ closed we further add a trace.
+	in the special case of $\gamma$ closed, we see this is gauge-invariant. In this case, it called a \textbf{Wilson loop}. It can be viewed as yielding an element of the group $G$ in the representation $R$. In this case, the trace of this element gives an invariant scalar quantity (known in physics as a $c$-number), and hence for $\gamma$ closed we further add a trace.
 	\begin{defn}[Wilson Loop]
 		Given a field theory with gauge group $G$ and a finite-dimensional representation $R$ of $G$ together with a closed loop $\gamma$, we define the Wilson loop operator:
 		\begin{equation}
-			\mathcal W_{R}(\gamma) := \tr R( \mathrm{Hol}(A, \gamma)).
+			\mathcal W_{R}(\gamma) := \tr_R ( \mathrm{Hol}(A, \gamma)).
 		\end{equation}
 	\end{defn}
 \noindent
@@ -274,16 +275,18 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 % 		The $\hat B$ model condition on the flatness of $\mathcal A$ implies that the holonomy of the Wilson loop only depends on the homotopy class of $L$
 % 	\end{prop} 
 	
-	Moreover, If $M$ has boundaries, we can let $L$ be an open 1-manifold connecting two ends of $M$. Since this theory is a TQFT, a boundary component of $M$ will have an associated space of states. Then, the Wilson operator will act by parallel transport on the space of states transforming in representation $R$ and act as linear transformations between initial and final states of the theory. 
+	Moreover, if $M$ has boundary, we can let $L$ be an open 1-manifold connecting two boundary components of $M$. Since this theory is a TQFT, a boundary component $E$ of $M$ will have an associated space of states $\mathcal H_E$. Under the action of the gauge group, we expect $\mathcal H_E$ to split into a direct sum of irreducible representations of $G$. Inserting a Wilson operator $W_R$ going from boundary component $E_1$ to $E_2$ will act on the spaces $\mathcal H_{E_1}, \mathcal H_{E_2}$ as an endomorphism sending vectors in $\mathcal H_{E_1}$ transforming in representation $R$ to vectors in $\mathcal H_{E_2}$ transforming in the same representation. It does this by parallel transporting data on $E_1$ to $E_2$. Put simply: Wilson lines with their endpoints lying in $\partial M$ will act as linear transformations between initial and final states of the theory.
 	
-	In this topological field theory, the algebra of Wilson lines is particularly simple \cite{kapustin2006}. Consider two Wilson lines associated to curve $\gamma, \gamma' \subset M$. Because of supersymmetry, the limit $\lim_{\gamma \to \gamma'} W_R (\gamma) W_{R'} (\gamma')$ can be evaluated classically. That is, there are no divergences encountered in the $\mathcal N=4$ theory when two Wilson lines approach each other, and no other quantum effects that become relevant in taking an operator-product expansion. Consequently, we can just set $\gamma= \gamma'$ and evaluate this classically. 
+	In this topological field theory, the algebra of Wilson lines is particularly simple \cite{kapustin2006}. Consider two Wilson lines associated to curve $\gamma, \gamma' \subset M$. Because of supersymmetry, the limit $\lim_{\gamma \to \gamma'} W_R (\gamma) W_{R'} (\gamma')$ can be evaluated classically. That is, there are no divergences encountered in the $\mathcal N=4$ theory when two Wilson lines approach each other, and no other quantum effects that become relevant in taking an operator-product expansion. Consequently, we can just set $\gamma= \gamma'$ and evaluate this product classically. 
 	
-	In the case of $\gamma, \gamma'$ closed loops, $W(R)$ and $W(R')$ are holonomies in the representations $R, R'$ so their product is a holonomy in $R \otimes R'$. If $\gamma, \gamma'$ are not closed loops, then $W(R), W(R')$ perform operations of parallel transport from initial to final states on $\partial M$ in the representations $R$ and $R'$. In the  quantum mechanical perspective, they can equivalently be viewed as performing parallel transport on the tensor-product of states. 
+	In the case of $\gamma, \gamma'$ closed loops, $W(R)$ and $W(R')$ are holonomies in the representations $R, R'$ so their product is a holonomy in $R \otimes R'$. If $\gamma, \gamma'$ are not closed loops, then $W(R), W(R')$ perform operations of parallel transport from initial to final states on $\partial M$ in the representations $R$ and $R'$. In the  quantum mechanical perspective, they can equivalently be viewed as performing parallel transport on the tensor product of states. 
 	
 	We thus have the result:
 		\begin{equation}
-			\lim_{\gamma \to \gamma'} W_R (\gamma) W_{R'} (\gamma') = \sum_{\substack{\alpha \\\text{irrep.}}} n_\alpha W_{R_\alpha}(L').
+			\lim_{\gamma \to \gamma'} W_R (\gamma) W_{R'} (\gamma') = \sum_{\substack{R_\alpha \subset R \otimes R' \\\text{irrep.}}} n_\alpha W_{R_\alpha}(L').
 		\end{equation}
+	Here, $n_\alpha$ is the multiplicity of the irreducible representation $R_{\alpha}$ in $R \otimes R'$.
+
 	From the above discussion, we should ask 
 	\begin{ques}
 		What is the dual operator to a Wilson line?
@@ -300,7 +303,7 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 			\phi = \frac{\mu}{2r} dx^4.
 		\end{equation}
 		
-		It turns out that for us to be able to find a gauge field $A$ whose curvature $F$ satisfies this condition, we must have that $\mu$ is a Lie algebra homomorphism $\mathbb R \to \frak g$ obtained by applying the Lie algebra functor $\mathrm{Lie}$ on a Lie group homomorphism $U(1) \to G$ to give a homomorphism $\mu: \frak u(1) \to \gg$. This reasoning is obtained by first arguing that in the $U(1)$ case `t Hooft operators are Dirac monopoles on $\rr^3$, and are classified by an integer $n$ corresponding to the first Chern class. Consequently any `t Hooft operator in a non-abelian gauge theory must arise from a homomorphism $U(1)\to G$. For the full argument, see section 6.2 of \cite{kapustin2006}.
+		It turns out that for us to be able to find a gauge field $A$ whose curvature $F$ satisfies this condition, we must have that $\mu$ is a Lie algebra homomorphism $\mathbb R \to \frak g$ obtained by applying the Lie algebra functor ``$\mathrm{Lie}$'' on a Lie group homomorphism $U(1) \to G$ to give a homomorphism $\mu: \frak u(1) \to \gg$. This reasoning is obtained by first arguing that in the $U(1)$ case `t Hooft operators are Dirac monopoles on $\rr^3$, and are classified by an integer $n$ corresponding to the first Chern class. Consequently any `t Hooft operator in a non-abelian gauge theory must arise from a homomorphism $U(1)\to G$. For the full argument, see section 6.2 of \cite{kapustin2006}.
 		
 		
 		Another way to say this is (after using gauge freedom to conjugate $\mu$ to a particular Cartan subalgebra) that $\mu$ must lie in the coweight lattice $\Lambda_{cw}$. Note though (as noted in \cite{goddard1977}), that if we perform a gauge transformation by
@@ -309,7 +312,7 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 		\]
 		this will send
 		\[
-			\mu \to \mu - 2 \alpha \alpha \cdot \mu/\left<\alpha, \alpha\right>
+			\mu \to \mu - 2 \alpha \frac{\alpha \cdot \mu}{\left<\alpha, \alpha\right>}
 		\]
 		which corresponds to a Weyl group action on $\mu$. This turn out to be the only degeneracy, so we have that `t Hooft operators are classified by the space:
 		\[
@@ -347,12 +350,12 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 	
 	The $M$ relevant to geometric Langlands is of the form  $\Sigma \times C$ where $C$ is a closed complex curve and $\Sigma$ is a 2-manifold with boundary. To make contact with the categories $\mathcal D(\mathrm{Bun}_G)$ and $\mathcal QC(\mathrm{Flat}_{\check G})$, the theory is reduced to a two-dimensional nonlinear sigma model on $\Sigma$. From here, we can understand the MO duality acting as \textbf{mirror symmetry} on the $\hat A$ and $\hat B$ models, giving exactly the $A$ and $B$ models known to those who study mirror symmetry. Physicists see this in terms of a phenomenon known as \textbf{$T$-duality} \cite{strominger1996}. 
 	
-	We will not be interested in studying these categories of boundary conditions here. Instead, we aim to understand the line defects of the 4D theory in terms of the Satake symmetries that act on both sides of the Langlands correspondence. On $\Sigma$, we take one direction to be ``time'' so that we can take the Hamiltonian point of view and study the field theory as quantum mechanics of states living on a 3-manifold $W$. We take $W = I \times C$. Our choice of $I$ here is so that $M = \mathbb R \times W$ can have two nontrivial boundaries, as it will turn out the the study of boundary conditions will be crucial to making a connection with the statement of Langlands.
+	We will not be interested in studying these categories of boundary conditions here. Instead, we aim to understand the line defects of the 4D theory in terms of the Satake symmetries that act on both sides of the Langlands correspondence. On $\Sigma$, we take one direction to be ``time'' so that we can take the Hamiltonian point of view and study the field theory as quantum mechanics of states living on a 3-manifold $W$. We take $W = I \times C$. Our choice of $I$ here is so that $M = \mathbb R \times W$ can have two nontrivial boundaries, as it will turn out that the study of boundary conditions will be crucial to making a connection with the statement of geometric Langlands.
 	
-	The boundary conditions on $I$ matter here, and it turns out that in the $\hat A$ model we should consider \emph{Dirichlet} boundary conditions on one end and \emph{Neumann} boundary conditions on the other. In the language of gauge theory, Dirichlet boundary conditions demand the bundle to be trivial on that boundary, while Neumann boundary conditions allow for it to be arbitrary\footnote{More technically, they impose certain restrictions on the normal derivative of our bundle, but the supersymmetry constraints of the theory enforce this anyway}.
+	The boundary conditions on $I$ matter here, and it turns out that in the $\hat A$ model we should consider \emph{Dirichlet} boundary conditions on one end and \emph{Neumann} boundary conditions on the other. In the language of gauge theory, Dirichlet boundary conditions demand the bundle to be trivial on that boundary, while Neumann boundary conditions allow for it to be arbitrary\footnote{More technically, they impose certain restrictions on the normal derivative of our bundle, but the supersymmetry constraints of the theory enforce this anyway.}.
 	
 	Now `t Hooft lines look like points on the 3-manifold $W = I \times C$. As in Equation \ref{eq:Amodphi}, we can locally take $\phi = \phi_4 dx^4$ so that on $W$, $\phi$ behaves as a scalar. This is the same logic as the analysis we had in Section \ref{sub:from_the_yang_mills_higgs_action_on_mathbb_r_3}.
-	Then, on $W$, Equation~\eqref{eq:Amod} reduces exactly to the Bogomolny equations for monopoles:
+	Then, on $W$, Equation~\eqref{eq:ahat} reduces exactly to the Bogomolny equations for monopoles:
 	\[
 		F = \star_3 D_A \phi.
 	\]
@@ -380,21 +383,21 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 	In this section we make a mathematical detour to study the idea of Hecke modifications, which characterize the action of the `t Hooft operators on the holomorphic bundles over $C$ in our theory.
 	
 	\begin{defn}[Hecke Modification]
-		Let $G$ be connected semisimple \footnote{Note that we will require $G$ to be both connected and semisimple, as otherwise the following logic would not work, even for $G=U(1)$.}. Given an associated $G$-bundle $E$ over a Riemann surface $C$, a \textbf{Hecke modification} of $E$ is a point $p \in C$ together with a choice of trivialization of $E$ on $C \backslash \{p \}$.
+		Let $G$ be connected semisimple \footnote{Note that we will require $G$ to be both connected and semisimple, as otherwise the following logic would not work, even for $G=U(1)$.}. Given a $G$-bundle $E$ over a Riemann surface $C$, a \textbf{Hecke modification} of $E$ at a point $p \in C$ is a $G$-bundle $\tilde E \to C$ together with an isomorphism $\tilde E \cong E$ on $C \backslash \{p \}$.
 	\end{defn}
 	
 	
 	\begin{obs}\label{obs:hecke}
-			The Langlands dual is defined to have the property that any highest weight representation $\hat \rho: \hat G \to U(1)$ is dual to a morphism $\rho: U(1) \to G$ which can be viewed as a \emph{clutching function} for a $G$ bundle on the Riemann sphere $\mathbb{CP}^1$. Complexifying this gives $\rho: G_{\cc} \to \cc^\times \cong \mathbb{CP}^1 \backslash \{p, q \}$, AKA gluing a trivial bundle over $\mathbb{CP}^1 \backslash \{p \}$ to a trivial bundle over $\mathbb{CP}^1 \backslash \{q \}$. This is exactly what we call a Hecke modification of type $\rho$. Every holomorphic $G_{\cc}$-bundle over $\mathbb{CP}^1$ arises in this way.
+			The Langlands dual is defined to have the property that any highest weight representation $\hat \rho: \hat G \to U(1)$ is dual to a morphism $\rho: U(1) \to G$ which can be viewed as a \emph{clutching function} for a $G$ bundle on the Riemann sphere $\mathbb{CP}^1$. Complexifying this gives $\rho: \cc^\times \to G_{\cc}$. Note $\cc^\times \cong \mathbb{CP}^1 \backslash \{p, q \}$. This gives us a gluing of a trivial bundle over $\mathbb{CP}^1 \backslash \{p \}$ to a trivial bundle over $\mathbb{CP}^1 \backslash \{q \}$. This is exactly what we call a Hecke modification of type $\rho$ of the trivial bundle on $\mathbb{CP}^1$. It is in fact true (though we will not show this here) that \emph{every} holomorphic $G_{\cc}$-bundle over $\mathbb{CP}^1$ arises in this way.
 	\end{obs}
 
 	
 	
-	For our case, over $\mathbb{CP}^1$, Hecke modifications correspond exactly to a clutching function $\rho: \cc^\times \to G_\cc$ coming from a representation of the Langlands dual group. Following the convention of \cite{witten2010}, we write $\mathcal N(\rho)$ to denote the space of Hecke modifications of type $\rho$ over $\mathbb{CP}^1$.
+	For our case, over $\mathbb{CP}^1$, Hecke modifications of the trivial bundle correspond exactly to a clutching function $\rho: \cc^\times \to G_\cc$ coming from a representation of the Langlands dual group. Following the convention of \cite{witten2010}, we write $\mathcal N(\rho)$ to denote the space of such Hecke modifications of type $\rho$ over $\mathbb{CP}^1$.
 	
 	We now give some motivation for the next concept we will consider, namely the \textbf{affine Grassmannian}. The idea for this motivation was first introduced to the author in \cite{Yoo17}.
 	\begin{mot}
-		Consider a Hecke modification over a Riemann surface $C$. Since $C$ is a genus $g$ surface for some $g$, removing a point gives us a space equivalent to the punctured $2g$-gon, homotopically equivalent to a wedge of $2g$ circles. 
+		Consider a Hecke modification over a Riemann surface $C$. Since $C$ is a genus $g$ surface for some $g$, removing a point gives us a the punctured $2g$-gon, homotopically equivalent to a wedge of $2g$ circles. 
 	
 		Using the language of classifying spaces, the space of $G$ bundles over $C \backslash \{p\}$ is the homotopy classes of maps $\bigvee_{i=1}^{2g} S^1 \to BG$, which is captured by simply looking at $S^1 \to BG$, namely $\pi_1(BG)$. On the other hand, this is the same as $\pi_0(G)$, which is trivial for $G$ connected. Thus, we can find a trivialization on $C \backslash \{ p \}$. Similarly, around $p$ we have a disk $\mathbb D$ on which we can also find a trivialization.
 		
@@ -421,7 +424,7 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 			P_{n1}(z) & \dots & P_{nn}(z)\\
 		\end{pmatrix}
 	\]
-	with the power series $P_{ij}(z) \in \cc[[z]]$ constrained so that $M \in G$. This captures the gauge transformations on $\mathbb D$. For the punctured disk, on the other hand, we are allowed to perform more general formal Laurent series, and so for us the corresponding ring (defined analogously) will be $G((z))$. 
+	with the power series $P_{ij}(z) \in \cc[[z]]$ constrained so that $M \in G$. This captures the gauge transformations on $\mathbb D$. For the punctured disk, on the other hand, we are allowed to perform more general formal Laurent series, and thus for us the corresponding ring (defined analogously) will be $G((z))$. 
 	
 	
 	Given a trivialization on $C^\times$, the space of possible Hecke modifications at $p$ is exactly the space of clutching functions modulo gauge:
@@ -442,12 +445,12 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 		\begin{equation}
 			Gr_G = \bigsqcup_{\rho \in X_+(T)} \mathcal N(\rho)
 		\end{equation}
-		where $X_+$ are the dominant integral coweights of $G$ given maximal torus $T$. These correspond to the dominant integral weights of $\hat G$, are in canonical bijection with $\mathrm{Rep}(\check G)$.
+		where $X_+$ are the dominant integral coweights of $G$ given maximal torus $T$. These correspond to the dominant integral weights of $\hat G$. These are in canonical bijection with $\mathrm{Rep}(\check G)$.
 	\end{fact}
 	
 	The affine Grassmannian plays an important role in the geometric Langlands correspondence. In particular, there is the \textbf{geometric Satake equivalence}, which states:
 	\begin{theorem}[Geometric Satake]
-		The ring of $G[[z]]$-invariant\footnote{With $G[[z]]$ acting by left multiplication} functions on $Gr_G$ is equivalent to the Grothendieck ring of representations of $\mathrm{Rep}(\check G)$.
+		The ring of compactly supported $G[[z]]$-invariant\footnote{Here $G[[z]]$ acts by left multiplication.} functions on $Gr_G$ is equivalent to the representation ring of $\mathrm{Rep}(\check G)$.
 	\end{theorem}
 	In its original context \cite{satake1963} this relates the spherical Hecke algebras from Chapter~\ref{ch:intro} to the representation ring of $\check G$.
 		
@@ -455,7 +458,7 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 	
 	We now conclude this thesis by connecting the `t Hooft operator picture to the picture of the affine Grassmannian. We consider a trivial bundle on $C$ and study how Hecke modifications act on it. In our picture of $W = I \times C$, we begin with Dirichlet boundary conditions at one end of $I$ and end with Neumann boundary conditions on the other end. We allow for `t Hooft operators to be inserted on $W$. In particular we denote a `t Hooft operator by two sets of data: the point $p_i$ where it is inserted and the representation $\check R_i$ of $\check G$ that corresponds to its type. The solutions to the Bogomolny equations of motion on $W$ are then exactly the space of Hecke modifications with these prescribed singularities.
 	
-	We denote this space by $\mathcal Z(\check R_1, p_1, \dots, \check R_k, p_k)$. This space is generically singular (10.3 of \cite{kapustin2006}). In order to be able to understand this space of solutions more clearly, we make use of the TQFT picture. The insertion of a `t Hooft operator of type $\check R$ at a point $p$ is equivalent to carving out a 2-sphere around $p$, $S^2_p$, and demanding that the vector bundle $E$ restricted to $S^2$ is obtained from a clutching function corresponding to $\check R$ (see Observation \ref{obs:hecke}).
+	We denote this space by $\mathcal Z(\check R_1, p_1, \dots, \check R_k, p_k)$. This space is generically singular (10.3 of \cite{kapustin2006}). In order to be able to understand this space of solutions more clearly, we make use of the TQFT picture. The insertion of a `t Hooft operator of type $\check R$ at a point $p$ is equivalent to carving out a 2-sphere around $p$, $\mathbb{CP}^1_p$, and demanding that the vector bundle $E$ restricted to $\mathbb{CP}^1_p$ is obtained from a clutching function corresponding to $\check R$ (see Observation \ref{obs:hecke}).
 	
 	\begin{figure}[h]
 		\centering
@@ -467,7 +470,7 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 	The classification of Hecke operators is thus very closely connected to the classification of $G$-bundles over $\mathbb{CP}^1$. 
 	Working in the picture of Figure~\ref{fig:hooft2}, by viewing the insertion of a `t Hooft operator as a cobordism $C^- \sqcup \mathbb{CP}^1$ we see that $\mathcal Z(\check R_1, p_1, \dots, \check R_k, p_k)$ should have no explicit dependence on any of the points $p_i$. We will hence denote it just by $\ZZ(\check R_1, \dots, \check R_k)$.
 	
-	Though we will not prove this here\footnote{See sections 9 and 10 of \cite{kapustin2006} for a more detailed study of the space of solutions}, the space $\ZZ(\check R_1, \dots, \check R_k)$ factorizes . From the perspective of TQFT, this should be believable. If the insertion of a `t Hooft operator can be viewed as modifying the cobordism from $C^- \to C^+$ with prescribed boundary conditions into a cobordism from $C^- \sqcup \mathbb{CP}^1 \to C^+$, then the insertion of multiple `t Hooft operators gives
+	Though we will not prove this here\footnote{See sections 9 and 10 of \cite{kapustin2006} for a more detailed study of the space of solutions.}, the space $\ZZ(\check R_1, \dots, \check R_k)$ factorizes. From the perspective of TQFT, this should be believable. If the insertion of a `t Hooft operator can be viewed as modifying the cobordism from $C^- \to C^+$ with prescribed boundary conditions into a cobordism from $C^- \sqcup \mathbb{CP}^1 \to C^+$, then the insertion of multiple `t Hooft operators gives
 	\[
 		C^- \sqcup \mathbb{CP}^1_1 \sqcup \dots \sqcup \mathbb{CP}^1_k \to C^+.
 	\]
@@ -480,30 +483,33 @@ In general $e^2$ and $\theta$ are two parameters determining the coupling proper
 	Now note
 		$\ZZ(\check R)$ can be identified with the space of Hecke modifications of type $\check R$. If $\rho$ is the associated map $\rho: U(1) \to G$, then we can identify $\ZZ(\check R)$ with the Schubert cell $\mathcal N(\rho)$. 
 	
-	Both of these spaces are not compact, but have natural compactifications $\overline \ZZ(\check R), \overline{\mathcal N(\rho)}$. $\overline {\mathcal N(\rho)}$ will include Schubert cells associated to different representations of $\check G$. These will be exactly the representations with weights ``smaller'' than $\rho$ \cite{witten2010}. Physically this compactification has an interpretation in terms of the phenomenon of \textbf{instanton/monopole bubbling} and can be thought of in terms of collisions of the points $p_i$, c.f. section 10.2 of \cite{kapustin2006}.
+	Both of these spaces are not compact, but have natural compactifications $\overline{\ZZ(\check R)}, \overline{\mathcal N(\rho)}$. $\overline {\mathcal N(\rho)}$ will include Schubert cells associated to different representations of $\check G$. These will be exactly the representations with weights ``smaller'' than $\rho$ \cite{witten2010}. Physically this compactification has an interpretation in terms of the phenomenon of \textbf{instanton/monopole bubbling} and can be thought of in terms of collisions of the points $p_i$, c.f. section 10.2 of \cite{kapustin2006}.
 	
-	As we noted before, in a TQFT we should associate to each codimension 1 manifold a vector space of states. This means that (in the 4D theory) the space $W$ modified by the prescribed singularities $\{(p_i, \check R_i) \}$ has an associated vector space in the twisted $\mathcal N=4$ theory. How can we obtain such a space of states from $\overline{\ZZ}(\check R_1, \dots, \check R_k)$. The natural operation \cite{witten2010} is to take the cohomology of this space. To be more specific, because $\bar \ZZ$ is singular generically, the cohomology theory here will in fact correspond to the $L^2$ or \textbf{intersection cohomology}. From the side of mathematics, this has connections to perverse sheaves on the space, but we will not discuss that here. We thus define our Hilbert space to be
+	As we noted before, in a TQFT we should associate to each codimension 1 manifold a vector space of states. This means that (in the 4D theory) the space $W$ modified by the prescribed singularities $\{(p_i, \check R_i) \}$ has an associated vector space in the twisted $\mathcal N=4$ theory. How can we obtain such a space of states from $\overline{\ZZ}(\check R_1, \dots, \check R_k)$. The natural operation \cite{witten2010} is to take the cohomology of this space. To be more specific, because $\overline \ZZ$ is singular generically, the cohomology theory here will in fact correspond to the $L^2$ or \textbf{intersection cohomology}. From the side of mathematics, this has connections to perverse sheaves on the space, but we will not discuss that here. Our Hilbert space is defined as:
 	\[
 		\mathcal H(\check R_1, \dots \check R_k) := H^\bullet (\overline{\ZZ}(\check R_1, \dots, \check R_k)).
 	\]
 	
-	By using the fact that \emph{the product of cohomologies is the cohomology of the product} we obtain the desired symmetric monoidal structure mirroring that of $\mathrm{Rep} (\check G)$:
+	By using the fact that the product of cohomologies is the cohomology of the product we obtain the desired symmetric monoidal structure mirroring that of $\mathrm{Rep} (\check G)$:
 	\begin{equation}
 		\mathcal H(\check R_1, \dots \check R_k) = \bigotimes_{i=1}^k \mathcal H(\check R_i).
 	\end{equation}
 	
 	Just as $\check R_i$ combine together to form tensors of irreducible representations, we see that the Hilbert spaces $\mathcal H(\check R_i)$ can be tensored together in the same way, corresponding to combining the classes of `t Hooft operators into a joint set of singularities on $W$. Thus, from the side of physics, we see an equivalence 
 	\begin{equation}
-		H^\bullet (Gr_G) \leftrightarrow \mathrm{Rep}(\check G).
+		H^\bullet \left(\overline{\mathcal N(\rho)} \right) \leftrightarrow R_\rho.
 	\end{equation}
-	This is a variant of the geometric Satake equivalence. Moreover, this is the isomorphism of Tannakian categories studied by Deligne and Milne in \cite{deligne1982}.
+	We have a relation between the representation defined by the homomorphism $\rho$ and the cohomology of the Schubert cell of the associated space of Hecke modifications on $\mathbb{CP}^1$.
+	This gives a correspondence between relevant objects in the geometric Satake equivalence. % Moreover, this is the isomorphism of Tannakian categories studied by Deligne and Milne in \cite{deligne1982}.
+	\vspace{0.2in}
 	
-	Given more time, I would have liked to extend this thesis to understand the action of `t Hooft operators on the categories of 2D boundary conditions in the twisted 4D theory.
+	\noindent Given more time, I would have liked to extend this thesis to understand the action of `t Hooft operators on the categories of 2D boundary conditions in the twisted 4D theory.
 	
-	\newpage
+	\vspace*{\fill}
 	\begin{center}
 		\emph{fin.}
 	\end{center}
+	\vspace*{1in}
 	
 	% This suggests that there is an isomorphism of $\check R_i$ and $\mathcal H(\check R_i)$ as vector spaces. Indeed, it can be shown that such an isomorphism is the only way for these categories of (finite dimensional) vector spaces to have the same monoidal structure.
 	

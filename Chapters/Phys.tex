@@ -15,27 +15,27 @@
 			\item A (usually Riemannian or Lorentzian) manifold $M$ known as the \textbf{spacetime} of the theory.
 			\item A fiber bundle $E \to M$ (or more generally some set of fiber bundles $E_i \to M$)
 			\item A space $\mathcal F$ of sections of $E \to M$ called \textbf{fields} on $M$. A specific field will be denoted $\Phi \in \mathcal F$ in this chapter, though depending on the theory, different variables will label the different fields.
-			\item An action $S[\Phi]$ from the space of fields into $\cc$.
+			\item An functional $S[\Phi]$ from the space of fields $\Phi \in \mathcal F$ into $\cc$, called the \textbf{action}.
 		\end{itemize}
 		Classical field theory studies solutions to the \textbf{classical equations of motion}
 		$$\{\Phi \in \mathcal F \mid \; \delta S(\Phi) = 0 \}.$$
 	\end{phys}
 	\begin{eg}[Scalar Field in 1D]
-		When $X = \mathbb R$, we get a single scalar field $\phi$ (here $\Phi$ is $\phi$). An action for this field theory is often given by:
+		When $M = \mathbb R$ and $E = \mathbb R \times M$ is trivial, we get a single scalar field $\phi$ (here $\Phi$ is $\phi$). An action for this field theory is often given by:
 		$$S[\phi] = \int_M |\dd \phi|^2.$$
 	\end{eg}
 	\begin{eg}[Electromagnetism and Yang-Mills theory]
-		Classical electromagnetism is defined by $X=T^* M$ with an action given by:
+		Classical electromagnetism is defined on the bundle $E = T^* M$ with an action given by:
 		$$S[A] = \int_M F \wedge \star F, \qquad F := \dd A.$$
-		Here $F = dA$ is the \emph{curvature form} or \emph{electromagnetic field-strength tensor}.
+		here $A\in \Gamma(M, T^*M)$ and $F = \dd A$ is the \textbf{electromagnetic field-strength tensor}.
 		
-		More generally, Yang-Mills theory (to be more thoroughly defined and discussed in the next section) takes $X=T^* M \otimes \frak g$ and given 
+		More generally, Yang-Mills theory (to be more thoroughly defined and discussed in the next section) takes $E=T^* M \otimes \frak g$ and given 
 		$$S[A] = \int_M \mathrm{Tr}\left( F \wedge \star F \right), \qquad F := \dd A + A \wedge A.$$
 		where the trace is taken over the Lie algebra using the Killing form. 
 	\end{eg}
 	
 	\begin{eg}[Nonlinear Sigma Model]
-		As a last example in this section, consider a spacetime $M$ and a manifold $T$ known as the \textbf{target space}. Let $T$ have Riemannian metric. A field $\Sigma: M \to T$ is a section of the trivial bundle $E = T \times M$. Note that $T$ is not assumed to be a vector space, unlike the previous two examples. The action is given by
+		As a last example in this section, consider a spacetime $M$ and a manifold $T$ known as the \textbf{target space}. Let $T$ have Riemannian metric. A field $\Sigma: M \to T$ is a section of the trivial bundle $E = T \times M$. The action is given by
 		\[
 			S[\Sigma] = \int_M \left(\frac12 |\dd\Sigma|^2 - V(\Sigma) \right)
 		\]
@@ -66,8 +66,8 @@
 		\end{phys}
 		As an example, consider the following.
 	% \noindent 	In fact metric independence implies diffeomorphism invariance.
-		\begin{eg}[Chern Simons Theory]
-			It turns out the correlation functions of Chern-Simons theory on a 3-manifold $M$ with $\Phi$ being the field $A: M \to T^* M \otimes \frak g$ and the action given by
+		\begin{eg}[Chern--Simons Theory]
+			It turns out the correlation functions of Chern-Simons theory on a 3-manifold $M$ with $\Phi$ being the field $A \in \Gamma(M, T^* M \otimes \frak g)$ and the action given by
 			$$S[A] \, \propto\,  \int_{M} \mathrm{Tr}\left(A \wedge dA + \frac23 A \wedge A \wedge A \right)$$
 			This is clear because the metric has no role in defining the action.
 		\end{eg}
@@ -83,7 +83,7 @@
 		
 
 		\begin{phys}[Operator Product Expansion]
-			 Within the path integral, a product of two local fields can be replaced by a (possibly infinite) sum over individual fields. Namely, given two operators $\OO_a, \OO_b$ and evaluation points $x_1, x_2$, there is an open neighborhood $U$ around $x_2$ such that
+			 Within the path integral, a product of two local\footnote{Here we can understand local to mean ``acting at a point''.} operators can be replaced by a (possibly infinite) sum over individual operators. Namely, given two operators $\OO_a, \OO_b$ and evaluation points $x_1, x_2$, there is an open neighborhood $U$ around $x_2$ such that
 			\begin{equation}
 				\OO_a (x_1) \OO_b(x_2) \sim \sum_c C_{ab}^c(x_1-x_2) \OO_c(x_2)
 			\end{equation}
@@ -91,7 +91,7 @@
 		Here $\OO_c$ are other operators in the quantum field theory, and the $C_{ab}^c$ are analytic functions on $U \backslash \{ x_2 \}$ (that often become singular as $x_1 \to x_2$). 
 		\end{phys}
 	
-		In the 2D case, this yields the (possibly familiar) Laurent series associated with CFT. The structure constants contain valuable information about the QFT that allow onw to view it \emph{algebraically}. In particular, they satisfy \textbf{associativity conditions}. The philosophy of the OPE is as follows: % \textbf{(elaborate Phil's point here)}.
+		In the 2D case, this yields the (possibly familiar) Laurent series associated with CFT. The structure constants contain valuable information about the QFT that allow one to view it \emph{algebraically}. In particular, they satisfy \textbf{associativity conditions}. The philosophy of the OPE is as follows: % \textbf{(elaborate Phil's point here)}.
 % 		This leads naturally to the next idea
 		\begin{idea}
 			The OPE coefficients, together with the 1-point correlation functions completely determine the $n$-point correlation functions in certain quantum field theories. 
@@ -116,7 +116,7 @@
 	
 	The motivation for $n$-dimensional TQFT from physics is as follows. We would want a physical theory that is metric-independent to satisfy the following: 
 	\begin{itemize}
-		\item The partition function $\mathcal Z$ on a closed manifold $M$ is a number $\mathcal Z(M) \in \cc$ depending only on the topological information of $M$.
+		\item The partition function $\mathcal Z$ on a smooth closed manifold $M$ is a number $\mathcal Z(M) \in \cc$ depending only on the topology of $M$.
 		\item For a manifold $M$ with boundary $\partial M$, the field theory will depend on the boundary conditions for the fields on $\partial M$. Accordingly, in the example of a single scalar field $\Phi$ we will write
 		\[
 			\mathcal Z(M) (\varphi) := \int_{\Phi|_{\partial M} = \varphi} \mathcal D \Phi\, e^{- S[\Phi]}.
@@ -138,11 +138,11 @@
 			\ZZ(E) = \ZZ(E_1) \otimes \ZZ(E_2).
 		\]
 	\end{itemize}
-	These physical ideas, together with a few other axioms will give us our definition of TQFT. First, in a time evolution picture of Hilbert space, the role of the evolution is played by objects known as ``bordisms'', connecting $(n-1)$ manifolds $E$ and $F$ by $n$-manifolds $M$ so that the boundary of $M$ is $\bar E \sqcup F$. Note here the orientation reversal of $E$. This is necessary so that we can identify bordisms as elements in $\mathcal H_{F} \otimes \mathcal H_{\bar E} = \mathcal H_{F} \otimes \mathcal H_E^*  = \mathrm{Hom}(E, F)$, namely linear maps between the associated Hilbert spaces.
+	These physical ideas, together with a few other axioms, will give us our definition of TQFT. First, in a time evolution picture of Hilbert space, the role of the evolution is played by objects known as ``bordisms'', connecting $(n-1)$ manifolds $E$ and $F$ by $n$-manifolds $M$ so that the boundary of $M$ is $\overline E \sqcup F$. Here $\overline E$ denotes $E$ with reverse orientation. This is necessary so that we can identify bordisms as elements in $\mathcal H_{F} \otimes \mathcal H_{\overline E} = \mathcal H_{F} \otimes \mathcal H_E^*  = \mathrm{Hom}(E, F)$, namely linear maps between the associated Hilbert spaces.
 
 	We must first define what we mean by bordism.
 	\begin{defn}[Bordism]
-		An $n$-dimensional bordism between two closed $(n-1)$-manifolds $E$ and $F$ is a triple $(M, \iota_{in},\iota_{out})$ consisting of an oriented compact $n$-manifold $M$ with boundary together with injections $\iota_{in}: \bar E \to \partial M$ and $\iota_{out}: F \to \partial F$ so that that $\iota_{in} \sqcup \iota_{out}: \bar E \sqcup \bar F$ is an orientation-preserving diffeomorphism of $\bar E \sqcup \bar F$ to $\partial M$. Two bordisms $(M, \iota_{in}, \iota_{out}), (M', \iota'_{in}, \iota'_{out})$ are said to be equivalent if there is an orientation-preserving diffeomorphism on $M$ so that the following diagram commutes.
+		An $n$-dimensional bordism between two closed $(n-1)$-manifolds $E$ and $F$ is a triple $(M, \iota_{in},\iota_{out})$ consisting of an oriented compact $n$-manifold $M$ with boundary together with injections $\iota_{in}: \overline E \to \partial M$ and $\iota_{out}: F \to \partial F$ so that that $\iota_{in} \sqcup \iota_{out}: \overline E \sqcup \overline F$ is an orientation-preserving diffeomorphism of $\overline E \sqcup \overline F$ to $\partial M$. Two bordisms $(M, \iota_{in}, \iota_{out}), (M', \iota'_{in}, \iota'_{out})$ are said to be equivalent if there is an orientation-preserving diffeomorphism on $M$ so that the following diagram commutes.
 		\[
 			\begin{tikzcd}
 				& M\arrow[dd,"\psi"] &\\
@@ -191,9 +191,9 @@
 	
 	We can now make a precise definition of an $n$-dimensional TQFT. 
 	\begin{defn}[TQFT]
-		 A $n$-dimensional (oriented, closed) topological quantum field theory over a field $\kk$ is a symmetric monoidal functor
+		 A $n$-dimensional (oriented, closed) topological quantum field theory over $\cc$ is a symmetric monoidal functor
 		 \[
-		 	\ZZ: \mathrm{Bord}_n \to \mathrm{Vect}_{\kk}.
+		 	\ZZ: \mathrm{Bord}_n \to \mathrm{Vect}_{\cc}.
 		 \]
 	\end{defn}
 	
@@ -217,10 +217,10 @@
 		\item smooth compact $n-1$ manifolds to vector spaces over $\cc$,
 		\item bordisms of smooth compact $n-1$ manifolds to $\cc$-linear maps on vector spaces,
 		\item smooth compact $n-2$ manifolds to $\cc$-linear categories,
-		\item bordisms of smooth compact $n-1$ manifolds to $\cc$-linear functors between the $\cc$-linear categories,
+		\item bordisms of smooth compact $n-2$ manifolds to $\cc$-linear functors between the $\cc$-linear categories,
 		\item \dots 
-		\item smooth compact $n-k$ manifolds to $\cc$-linear $(n-1)$-categories,
-		\item bordisms of smooth compact $n-1$ manifolds to $\cc$-linear $(n-1)$ functors between the $\cc$-linear $(n-1)$-categories.
+		\item smooth compact $n-k$ manifolds to $\cc$-linear $(k-1)$-categories,
+		\item bordisms of smooth compact $n-k$ manifolds to $\cc$-linear $(k-1)$ functors between the $\cc$-linear $(k-1)$-categories.
 	\end{itemize}
 	
 	% A TQFT of dimension $n$ that is $n$-extended is called \textbf{maximally extended}.
@@ -235,7 +235,7 @@
 	\subsection{Spin Representations} % (fold)
 	\label{sub:spin_representations}
 
-		Consider a (real or complex) special orthogonal group $\SO(V, Q)$ in Euclidean or Minkowski space $V$ with nondegenerate quadratic form $Q$ that induces a symmetric bilinear form $\left < \cdot, \cdot \right>$ on $V$. The Spin group $\Spin(V, Q)$ is defined to be the universal cover of $\SO(V, Q)$. Spin representations are in a sense the ``simplest'' representations of $\Spin(V, Q)$ that does not descend to a representation of the corresponding orthogonal group. 
+		Consider a (real or complex) special orthogonal group $\SO(V, Q)$ in Euclidean or Minkowski space $V$ with nondegenerate quadratic form $Q$ that induces a symmetric bilinear form $\left < \cdot, \cdot \right>$ on $V$. The Spin group $\Spin(V, Q)$ is defined to be the double cover of $\SO(V, Q)$. For $\SO(n), n > 2$, this is also the universal cover. Spin representations are in a sense the ``simplest'' representations of $\Spin(V, Q)$ that does not descend to a representation of the corresponding orthogonal group. 
 		
 		We will first look at spin representations of $\SO(n, \cc)$. In this setting, there is a basis in which $Q(\vec z) = z_1^2 + \dots + z_n^2$. 
 		\begin{defn}[Isotropic Subspace]
@@ -247,13 +247,13 @@
 		\[
 			S = \Lambda^\bullet (W), \qquad S' = \Lambda^\bullet(W^*).
 		\]
-		These turn out to be isomorphic representations of $\so(n, \cc)$, so let us focus on $S$. This is called the \textbf{Dirac spinor} representation. When $n = 2k$ is even, we also get that $S$ reduces into a sum of two distinct irreducible representations corresponding to the even and odd degrees of this exterior algebra. We denote these by $S^+$ and $S^-$, respectively. They are both representations of dimension $2^{k-1}$. In terms of a root system, the highest weights for $S^+$ and $S^-$ are
+		These turn out to be isomorphic representations of $\so(n, \cc)$, so let us focus on $S$. This is called the \textbf{Dirac spinor} representation. Again, in our case of $n = 2k$, we also get that $S$ reduces into a sum of two distinct irreducible representations corresponding to the even and odd degrees of this exterior algebra. We denote these by $S^+$ and $S^-$, respectively. They are both representations of dimension $2^{k-1}$. In terms of a root system, the highest weights for $S^+$ and $S^-$ are
 		\[
 			\left(\frac12, \frac12, \dots, \frac12, \frac12\right), \text{ and } \left(\frac12, \frac12, \dots, \frac12, -\frac12\right)
 		\]
 		respectively. They are called \textbf{Chiral} or \textbf{Weyl spinor} representations. In general a vector transforming in the spin representation is called a \textbf{spinor} in physics.
 		
-		The real spin representations can then be obtained from these. Such representations are called \textbf{Majorana} spinors. See, for example, chapter 3 of \cite{meinrenken2013}. In particular, if $n = 1,2, 3 \mathrm{ mod } 8$, the complex spin representations constructed above have real structure. Hence, in the special case of $n=2 \mathrm{ mod } 8$, we get \textbf{Majorana-Weyl} spinor representations. This will end up being the reason why the exceptional structure of $\mathcal N=4$ super Yang-Mills comes from the fact that it is reduced from a $n=10$ dimensional theory.
+		The real spin representations can then be obtained from these. Such representations are called \textbf{Majorana} spinors. See, for example, chapter 3 of \cite{meinrenken2013}. In particular, if $n = 1,2, 3 \text{ mod } 8$, the complex spin representations constructed above have real structure. Hence, in the special case of $n=2 \text{ mod } 8$, we get \textbf{Majorana-Weyl} spinor representations. This will end up being the reason why the exceptional structure of $\mathcal N=4$ super Yang-Mills comes from the fact that it is reduced from an $n=10$ dimensional theory.
 		
 		
 		
@@ -278,7 +278,7 @@
 		of the Poincar\'e algebra $\frak{Poin}$ by the vector space of odd vectors, taken to be in odd degree.
 	\end{defn}
 	
-	There is a \textbf{chirality operator} $\Gamma: S \to S$ on the real spin representation with eigenvalues $\pm i$ identifying the two chiral summands. In fact, $\Gamma$ induces a pairing $S \otimes S \to \rr^n$. This is exactly what will serve as the super-lie bracket taking two supersymmetry generators to the generators of translation $P_\mu$.
+	There is a \textbf{chirality operator} $\Gamma: S \to S$ on the real spin representation with eigenvalues $\pm i$ identifying the two chiral summands. In fact, $\Gamma$ induces a pairing $S \otimes S \to \rr^n$. This is exactly what will serve as the super-Lie bracket taking two supersymmetry generators to the generators of translation $P_\mu$.
 	
 	We can apply the same construction to other isometry groups.
 	% Here, we have not described the nature of this extension. It suffices to say that the anti-commutator $\{Q_\alpha, \overline Q_\beta \}$
@@ -286,19 +286,19 @@
 	Now let $\mathcal N > 1$, and denote odd vectors coming from different copies of $S$ by $Q^A$ and $Q^B$. The brackets between the odd vectors $\{Q^A_\alpha, Q^B_\beta \} $ give rise to  central elements $Z^{AB}$ in the algebra. These are called \emph{supercharges} and arise as:
 	$$\{Q^A_\alpha, Q^B_\beta \} = \epsilon_{\alpha \beta} Z^{AB}.$$
 	They satisfy
-	$$Z^{AB} = -Z^{BA}.$$
-	So that there are a total of $\mathcal N (\mathcal N - 1)/2$ distinct supercharges in a theory with $\mathcal N$ supersymmetry generators. 
+	$$Z^{AB} = -Z^{BA},$$
+	so that there are a total of $\mathcal N (\mathcal N - 1)/2$ distinct supercharges in a theory with $\mathcal N$ supersymmetry generators. 
 	
 	\begin{defn}[$R$-symmetry group]
 		The \textbf{$R$-symmetry} group is the group of outer automorphisms of the super-Poincar\'e group which fixes the underlying Poincar\'e group. 
 	\end{defn}
 	For the case of 4D $\mathcal N = 4$ the $R$-symmetry group turns out to be $\SU(4) \cong \mathrm{Spin}(6)$. For a deeper review of the subject, see \cite{quevedo2010}.
 	
-	\begin{phys}[Sector]
-		A supersymmetry operator $Q$ such that $Q^2 = \frac{1}{2} [Q, Q] = 0$ gives rise to a cohomology theory on the space of observables of our theory. We define the sector of our theory $\mathcal E$ associated to $Q$ to the set of $Q$ invariants, and denote this as $(\mathcal E, [Q, -])$.
-		
-		Slightly more precisely, $[Q, -]$ defines a differential operator, and the ``observables'' in this sector become exactly those gauge-invariant quantities annihilated by $Q$ modulo those that are $Q$-exact.
-	\end{phys}
+	% \begin{phys}[Sector]
+	% 	A supersymmetry operator $Q$ such that $Q^2 = \frac{1}{2} [Q, Q] = 0$ gives rise to a cohomology theory on the space of observables of our theory. We define the sector of our theory $\mathcal E$ associated to $Q$ to the set of $Q$ invariants, and denote this as $(\mathcal E, [Q, -])$.
+	%
+	% 	Slightly more precisely, $[Q, -]$ defines a differential operator, and the ``observables'' in this sector become exactly those gauge-invariant quantities annihilated by $Q$ modulo those that are $Q$-exact.
+	% \end{phys}
 
 	% section supersymmetry (end)
 	

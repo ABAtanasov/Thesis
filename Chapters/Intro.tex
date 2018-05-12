@@ -72,7 +72,7 @@ From the perspective of the automorphic representations (henceforth referred to 
 When $\Gamma = \SL_2(\mathbb Z)$, a modular form of weight $k$ can be interpretted as a function $f$ on the set of lattices in $\mathbb R^2$ so that $f(a\Lambda) = a^{-k} f(\Lambda)$.
 The $m$th Hecke operator is then defined as:
 \[
-	T_m f (\Lambda) := m^{k-1} \sum_{[\Lambda' : \Lambda] = m} f(\Lambda')
+	T_m f (\Lambda) := m^{k-1} \sum_{\substack{\Lambda' \subseteq \Lambda \\\text{sublattice}\\\text{of index }m}} f(\Lambda')
 \]
 These are pairwise-commuting linear operators, and can thus be simultaneously diagonalizable. 
 The modular forms that are eigenvectors for this operator are known as \textbf{Hecke eigenforms}, and their eigenvalue data is what we define as the \textbf{Hecke eigenvalues} of that representation. The story for more general subgroups $\Gamma$ gives an analogous construction but the story becomes much more involved beyond the $\GL_2$ case.
@@ -124,13 +124,13 @@ The field $F_x$ corresponding to the completion of $F$ at $x$ can be viewed as t
 \begin{defn}[Adele Ring for $\mathbb F_q(t)$]
 	The ring of adeles of $\mathbb F_q(t)$ is defined as 
 	\[
-		\mathbb A_{\mathbb F_q(t)} := \prod_{x \in \mathbb P^1(\mathbb F_q)}^{res} \mathbb \fq((t-x))
+		\mathbb A_{\fq(t)} := \prod_{x \in \mathbb P^1(\fq)}^{res} \fq((t-x))
 	\]
 	and the above product is restricted as before in the sense that all but finitely many terms in this product over $x$ lie in $\mathbb F_q [[t-x]]$. Here the completion at the point at infinity corresponds to $\mathbb F_q ((1/t))$.
 \end{defn}
 We naturally have that 
 \[
-	\mathbb O_{\mathbb F_q(t)} := 	\prod_{x \in \mathbb P^1(\mathbb F_q)} \mathbb \fq[[t-x]]
+	\mathbb O_{\fq} := 	\prod_{x \in \mathbb P^1(\fq)} \fq[[t-x]]
 \]
 sits inside $\mathbb A_{\mathbb F_q(z)}$.
 
@@ -152,7 +152,7 @@ It is the following theorem of Weil that will be crucial to us in making a conne
 	and the set of $G$-bundles\footnote{$G$-bundles are discussed in Section~\ref{sub:principal_bundles}.} over $C$. Moreover, there exists an \emph{algebraic stack} denoted by $\mathrm{Bun}_G(C)$ whose set of $\fq$ points are in canonical bijective correspondence with this set.
 \end{theorem}
 
-So (in the unramified case), the automorphic side is captured by functions on $\mathrm{Bun}_G(C, \fq)$. 
+Thus (in the unramified case), the automorphic side is captured by functions on $\mathrm{Bun}_G(C, \fq)$. 
 This set of functions admits an action by the \textbf{spherical Hecke algebra} at every closed point $x \in C$, defined as the space of compactly supported functions on the double coset space:
 \[
 	\mathcal H_x := \mathrm{Fun}_c (\GL_n (\mathcal O_x)\backslash \GL_n(F_x)/\GL_n(\mathcal O_x))
@@ -372,7 +372,7 @@ Various correspondences of this categorification are given in Table~\ref{tab:fou
 		eigenvector multiplied by a number & $\to$ & eigen-bundle tensored with a line bundle\\
 		$e^{ik(x+y)} = e^{ikx} e^{iky}$ & $\to$ & $\mathcal L_{x+y} \cong \mathcal L_x \otimes \mathcal L_y$\\
 		delta function & $\to$ & skyscraper sheaf\\
-		$\{e^{ikx}\}$ on $G$ is a delta function on $\hat G$ & $\to$ & $\mathcal L$ on $G$ is a skyscraper sheaf on $A^\vee$
+		$\{e^{ikx}\}$ on $G$ is a delta function on $\hat G$ & $\to$ & $\mathcal L$ on $A$ is a skyscraper sheaf on $A^\vee$
 	\end{tabular}
 	\caption{The categorification associated to the Fourier-Mukai transform}
 	\label{tab:fourier_mukai}
@@ -380,7 +380,7 @@ Various correspondences of this categorification are given in Table~\ref{tab:fou
  
 Everything so far discussed has been about abelian groups, though we have managed to use this categorified language to arrive at an algebraic picture of the Fourier transform in this setting. This will at least give us some motivation to give a statement of the categorical geometric Langlands conjecture. In the Langlands program, we have $G$ a reductive algebraic group. 
 
-Our discussion of the Fourier-Mukai transform would naively lead us to formulate some sort of duality transformation taking us from quasi-coherent sheaves on $G$ to quasi-coherent sheaves on some dual group $\check G$. Because the group multiplication is not abelian, the above categorification will not make sense. The correct generalization is more subtle, and the principal geometric objects of study are not $G$ and $\check G$ themselves.
+Our discussion of the Fourier-Mukai transform would naively lead us to formulate some sort of duality transformation taking us from quasi-coherent sheaves on $G$ to quasi-coherent sheaves on some dual group $\check G$. Because the group multiplication is not abelian, the arguments we have used above will not translate. The correct generalization is more subtle, and the principal geometric objects of study are not $G$ and $\check G$ themselves.
 
  
 \begin{table}[h!]
@@ -400,12 +400,12 @@ Our discussion of the Fourier-Mukai transform would naively lead us to formulate
 
 
 Taking a hint from the last section, we recall that the Langlands duality for function fields would take a representation of $\pi_1^{\text{\'et}}(C)$ and relate it to a eigenfunction for Hecke operators on the double coset space, corresponding to $\mathrm{Bun}_G(C)$ by the Weil's uniformization theorem. 
-In the geometric picture, we should expect to take a representation of the fundamental group of our complex curve $C$, $\rho: \pi_1(C) \to \check G$ and obtain some sort of eigen-object defined on the space (more technically, moduli stack) of $G$ bundles over $C$. 
+Arguing by extension, in a complex-geometric picture we should expect to take a representation of the fundamental group of our complex curve $C$, $\rho: \pi_1(C) \to \check G$ and obtain some sort of eigen-object defined on the space (more technically, moduli stack) of $G$ bundles over $C$. 
 
 On the other hand, our discussion of the Fourier-Mukai transform gave us an equivalence of categories of quasi-coherent sheaves on two (dual) algebraic varieties. It can be seen that a representation of the fundamental group $\pi_1 (C) \to \check G$, known also as a \textbf{local system}, gives rise to a flat connection on a $\check G$-principal bundle over $C$, to be discussed in Section~\ref{sub:holonomy}. Viewing the set of flat connections on $\check G$-bundles $C$ as an algebraic space denoted $\mathrm{Flat}_{\check G} (C)$, a flat connection would correspond to a skyscraper sheaf at a given point $x \in \mathrm{Flat}_{\check G} (C)$. 
 
-On the other side, we expect to be studying some categorical generalization functions on $\mathrm{Bun}_G(C)$. The appropriate object turns out to be \textbf{$\mathcal D$-modules} on this space.
-A full discussion of $\mathcal D$-modules over a space $X$ is beyond the scope of this thesis, though they play a very important role in modern geometry and representation theory. In the case that the background of the reader is physics, it might be worthwhile to point out that $\mathcal D$-modules on $X$ are related to \emph{quantization} of quasi-coherent sheaves on $T^* X$. This idea is similar in character to the Hilbert space setting for quantum mechanics.
+On the automorphic side, we expect to be studying some categorical generalization of functions on $\mathrm{Bun}_G(C)$. The appropriate object turns out to be \textbf{$\mathcal D$-modules} on this space.
+A full discussion of $\mathcal D$-modules over a space $X$ is beyond the scope of this thesis, though they play a very important role in modern geometry and representation theory. In the case that the background of the reader is physics, it might be worthwhile to point out that $\mathcal D$-modules on $X$ are modules over a ring denoted $D_X$. $D_X$ can be thought of as the (Weyl) algebra of operators in quantum mechanics on $X$.
 
 The full ``meta-conjecture'' of geometric Langlands is then:
 \begin{equation}
@@ -430,7 +430,7 @@ Though this may seem more complicated, there is reason to believe that these obj
 	\hline
 	Space of ``functions'' & $\mathcal D (\mathrm{Bun}_G) \cong \, \mathcal{QC}(\mathrm{Flat}_{\check G})$ & \emph{Category} of boundary conditions \\
 	Symmetries acting & $\mathrm{Sat}_G \lacts \mathcal D (\mathrm{Bun}_G)$ & Insertions of `t Hooft line defects\\
-	Eigenbasis & Hecke Eigensheaves & Electric/Magnetic Eigenbranes\\
+	Eigenbasis & Hecke Eigensheaves & Magnetic Eigenbranes\\
 	\hline
 	\end{tabularx}
 \caption{The connection between the ideas in geometric Langlands and supersymmetric field theory, to be discussed in this thesis.}
@@ -438,7 +438,7 @@ Though this may seem more complicated, there is reason to believe that these obj
 \end{table}
 
 
-Although a full discussion of the concepts that appear in Table~\ref{tab:geometric_langlands} is beyond the scope of this thesis, we can at least give the reader one ``final column'', yielding Table~\ref{tab:langlands_and_physics}. This column is intended to highlight some key points in the relationship between the concepts of geometric Langlands and physics. The original idea and motivation for a connection between the geometric Langlands program and the physics of gauge theory was first investigated by Anton Kapustin and Edward Witten in \cite{kapustin2006}. In this work, the studied a topological twist of $\mathcal N = 4$ supersymmetric Yang-Mills theory. Here, a duality relates two different coupling regimes of the theory, corresponding to the Galois and automorphic sides of geometric Langlands. The roles of the Satake symmetries are understood in terms of objects known as \emph{line defect operators}, specifically \emph{Wilson and `t Hooft Lines}. These objects will be defined in depth later in this paper. 
+Although a full discussion of the concepts that appear in Table~\ref{tab:geometric_langlands} is beyond the scope of this thesis, we can at least give the reader one ``final column'', yielding Table~\ref{tab:langlands_and_physics}. This column is intended to highlight some key points in the relationship between the concepts of geometric Langlands and physics. The original idea and motivation for a connection between the geometric Langlands program and the physics of gauge theory was first investigated by Anton Kapustin and Edward Witten in \cite{kapustin2006}. In this work, they studied a topological twist of $\mathcal N = 4$ supersymmetric Yang-Mills theory. Here, a duality relates two different coupling regimes of the theory, corresponding to the Galois and automorphic sides of geometric Langlands. The roles of the Satake symmetries are understood in terms of objects known as \emph{line defect operators}, specifically \emph{Wilson and `t Hooft Lines}. These objects will be defined in depth later in this paper. 
 
 
 The action of Wilson loops on the Galois side can be very easily understood using the language of holonomy and flat connections. These rely on the language of gauge theory, to be defined in Chapter~\ref{ch:gauge}. On the other hand, the action of the `t Hooft operators is much more subtle and involved. To be able to fully appreciate this, we must understand the nature of these so-called ``disorder operators'' by first understanding the well-known picture of instantons on $\mathbb R^4$ in Chapter~\ref{ch:instantons} and then using this to develop an understanding of monopoles on $\mathbb R^3$ in Chapter~\ref{ch:monopoles}. Finally, in the spirit of Edward Witten's paper \cite{witten2010}, in Chapter~\ref{ch:finale} we will make use of our understanding of monopoles to understand the action of line defect operators in the topologically twisted $\mathcal N=4$ theory.
